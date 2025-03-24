@@ -1,4 +1,18 @@
-import './globals.css';
+import '../styles/index.css';
+
+import { Onest, Unbounded } from 'next/font/google';
+
+const fontUnbounded = Unbounded({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  variable: '--font-unbounded',
+});
+
+const fontOnest = Onest({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  variable: '--font-onest',
+});
 
 export default function RootLayout({
   children,
@@ -7,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body>{children}</body>
+      <body className={`${fontUnbounded.variable} ${fontOnest.variable}`}>{children}</body>
     </html>
   );
 }
