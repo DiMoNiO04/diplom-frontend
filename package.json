@@ -8,9 +8,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint:fix": "eslint . --fix ./src",
-    "prettier": "prettier --write ./src",
-    "prepare": "husky install"
+    "lint:fix": "eslint ./src --fix",
+    "prettier": "prettier ./src --write",
+    "prepare": "husky install",
+    "format": "npm run prettier && npm run lint:fix"
   },
   "dependencies": {
     "next": "15.2.3",
@@ -43,8 +44,8 @@
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
-      "npx prettier --write ./src",
-      "npx eslint --fix ./src"
+      "npx prettier ./src --write",
+      "npx eslint ./src --fix"
     ]
   }
 }
