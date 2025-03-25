@@ -1,3 +1,9 @@
-export default function Home() {
-  return <div>Home page Culinary Blog</div>;
+import { PopularCategories } from '@/components/sections';
+
+export default function HomePage() {
+  return (
+    <>
+      <PopularCategories />
+    </>
+  );
 }
