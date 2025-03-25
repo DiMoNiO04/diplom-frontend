@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import Image from 'next/image';
 
 const STYLES = {
-  btn: 'size-12 flex items-center justify-center bg-[#ffffff90] transition-colors duration-300 hover:bg-white',
+  btn: 'size-12 flex items-center justify-center bg-whiteLight transition-colors duration-300 hover:bg-white',
 };
 
 export const MainSliderBtns = () => {

@@ -14,12 +14,12 @@ import { slidesData } from '@/data';
 import { MainSliderBtns } from '../blocks';
 
 const STYLES = {
-  slideTitle: 'text-7xl font-bold text-white max-w-[670px]',
+  slideTitle: 'text-6xl font-bold text-white max-w-[670px]',
 };
 
 export const MainSlider = () => {
   return (
-    <section className="mb-20">
+    <section className="mb-24">
       <div className="relative w-full h-[700px]">
         <Swiper
           modules={[Autoplay, Navigation]}
@@ -42,7 +42,7 @@ export const MainSlider = () => {
               <div className="absolute max-w-[1140px] py-10 mx-auto bottom-12 left-0 right-0 z-10">
                 <div className="flex items-start justify-start gap-2 max-w-[700px] mb-1">
                   <Image src={'/icons/trendingUp.svg'} alt="Trending Up" width={20} height={20} />
-                  <span className="font-onest text-white text-lg">{slide.description}</span>
+                  <span className="text-white text-lg">{slide.description}</span>
                 </div>
                 {index === 0 ? (
                   <h1 className={STYLES.slideTitle}>{slide.title}</h1>

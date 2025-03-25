@@ -6,7 +6,7 @@ import { CardCategorie } from '../cards';
 
 export const PopularCategories = () => {
   return (
-    <section>
+    <section className="mb-24">
       <div className="custom-container">
         <TitleSectionBlock title="Категории" linkTxt="Смотреть все" linkUrl={EUrls.CATEGORIES} />
         <div className="grid grid-cols-6 gap-8">

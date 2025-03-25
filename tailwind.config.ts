@@ -13,6 +13,7 @@ const config: Config = {
         greyLight: '#706e7c',
         whiteDark: '#f9f9f9',
         white: '#ffffff',
+        whiteLight: '#ffffff90',
         red: '#f85a81',
       },
       boxShadow: {

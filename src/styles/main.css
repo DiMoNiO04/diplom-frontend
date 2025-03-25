@@ -5,6 +5,7 @@
 }
 
 body {
+  font-family: 'Onest', sans-serif;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;

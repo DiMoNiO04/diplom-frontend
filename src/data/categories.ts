@@ -2,83 +2,67 @@ import { ICardCategorie } from '@/utils/interfaces';
 
 export const categoriesData: ICardCategorie[] = [
   {
-    name: 'Seafood',
-    image: '/img/categories/seafood.webp',
+    name: 'Морепродукты',
+    img: '/img/categories/seafood.webp',
   },
   {
-    name: 'Soup',
-    image: '/img/categories/soup.webp',
+    name: 'Супы',
+    img: '/img/categories/soup.webp',
   },
   {
-    name: 'Pancakes',
-    image: '/img/categories/pancakes.webp',
+    name: 'Блины',
+    img: '/img/categories/pancakes.webp',
   },
   {
-    name: 'Meat',
-    image: '/img/categories/meat.webp',
+    name: 'Мясо',
+    img: '/img/categories/meat.webp',
   },
   {
-    name: 'Chicken',
-    image: '/img/categories/chicken.webp',
+    name: 'Курица',
+    img: '/img/categories/chicken.webp',
   },
   {
-    name: 'Less than 30 min',
-    image: '/img/categories/lessThan30.webp',
+    name: 'Паста',
+    img: '/img/categories/pasta.webp',
   },
   {
-    name: 'Pasta',
-    image: '/img/categories/pasta.webp',
+    name: 'Пицца',
+    img: '/img/categories/pizza.webp',
   },
   {
-    name: 'Pizza',
-    image: '/img/categories/pizza.webp',
+    name: 'Торт',
+    img: '/img/categories/cake.webp',
   },
   {
-    name: 'Cake',
-    image: '/img/categories/cake.webp',
+    name: 'Выпечка',
+    img: '/img/categories/pastries.webp',
   },
   {
-    name: 'Pastries',
-    image: '/img/categories/pastries.webp',
+    name: 'Фаст-фуд',
+    img: '/img/categories/burger.webp',
   },
   {
-    name: 'Burger',
-    image: '/img/categories/burger.webp',
+    name: 'Веганский',
+    img: '/img/categories/vegan.webp',
   },
   {
-    name: 'Vegan',
-    image: '/img/categories/vegan.webp',
+    name: 'Десерты',
+    img: '/img/categories/desserts.webp',
   },
   {
-    name: 'Desserts',
-    image: '/img/categories/desserts.webp',
+    name: 'Завтрак',
+    img: '/img/categories/breakfast.webp',
   },
   {
-    name: 'Smoothies',
-    image: '/img/categories/smoothies.webp',
+    name: 'Салат',
+    img: '/img/categories/salad.webp',
   },
   {
-    name: 'Breakfast',
-    image: '/img/categories/breakfast.webp',
+    name: 'Сэндвичи',
+    img: '/img/categories/sandwiches.webp',
   },
   {
-    name: 'Salad',
-    image: '/img/categories/salad.webp',
-  },
-  {
-    name: 'Sandwiches',
-    image: '/img/categories/sandwiches.webp',
-  },
-  {
-    name: 'Waffles',
-    image: '/img/categories/waffles.webp',
-  },
-  {
-    name: 'Ramen',
-    image: '/img/categories/ramen.webp',
-  },
-  {
-    name: 'Dips',
-    image: '/img/categories/dips.webp',
+    name: 'Вафли',
+    img: '/img/categories/waffles.webp',
   },
 ];

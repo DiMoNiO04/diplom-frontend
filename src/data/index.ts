@@ -1,4 +1,5 @@
 import { categoriesData } from './categories';
+import { recipesData } from './recipes';
 import { slidesData } from './slides';
 
-export { categoriesData, slidesData };
+export { categoriesData, recipesData, slidesData };
