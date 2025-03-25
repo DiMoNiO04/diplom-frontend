@@ -7,4 +7,9 @@ interface ITitle {
   title: string;
 }
 
-export type { ILink, ITitle };
+interface ICardCategorie {
+  name: string;
+  image: string;
+}
+
+export type { ICardCategorie,ILink, ITitle };
