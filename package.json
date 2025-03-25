@@ -14,10 +14,12 @@
     "format": "npm run prettier && npm run lint:fix"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
     "next": "15.2.3",
     "postcss": "^8.5.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "swiper": "^11.2.6",
     "tailwind-scrollbar-hide": "2.0.0"
   },
   "devDependencies": {

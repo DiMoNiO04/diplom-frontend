@@ -1,3 +1,4 @@
+import { MainSlider } from './MainSlider';
 import { PopularCategories } from './PopularCategories';
 
-export { PopularCategories };
+export { MainSlider, PopularCategories };

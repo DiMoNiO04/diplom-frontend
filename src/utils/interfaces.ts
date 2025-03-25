@@ -12,4 +12,10 @@ interface ICardCategorie {
   image: string;
 }
 
-export type { ICardCategorie,ILink, ITitle };
+interface IMainSliderSlide {
+  title: string;
+  description: string;
+  img: string;
+}
+
+export type { ICardCategorie, ILink, IMainSliderSlide, ITitle };

@@ -3,82 +3,82 @@ import { ICardCategorie } from '@/utils/interfaces';
 export const categoriesData: ICardCategorie[] = [
   {
     name: 'Seafood',
-    image: '/images/categories/seafood.webp',
+    image: '/img/categories/seafood.webp',
   },
   {
     name: 'Soup',
-    image: '/images/categories/soup.webp',
+    image: '/img/categories/soup.webp',
   },
   {
     name: 'Pancakes',
-    image: '/images/categories/pancakes.webp',
+    image: '/img/categories/pancakes.webp',
   },
   {
     name: 'Meat',
-    image: '/images/categories/meat.webp',
+    image: '/img/categories/meat.webp',
   },
   {
     name: 'Chicken',
-    image: '/images/categories/chicken.webp',
+    image: '/img/categories/chicken.webp',
   },
   {
     name: 'Less than 30 min',
-    image: '/images/categories/lessThan30.webp',
+    image: '/img/categories/lessThan30.webp',
   },
   {
     name: 'Pasta',
-    image: '/images/categories/pasta.webp',
+    image: '/img/categories/pasta.webp',
   },
   {
     name: 'Pizza',
-    image: '/images/categories/pizza.webp',
+    image: '/img/categories/pizza.webp',
   },
   {
     name: 'Cake',
-    image: '/images/categories/cake.webp',
+    image: '/img/categories/cake.webp',
   },
   {
     name: 'Pastries',
-    image: '/images/categories/pastries.webp',
+    image: '/img/categories/pastries.webp',
   },
   {
     name: 'Burger',
-    image: '/images/categories/burger.webp',
+    image: '/img/categories/burger.webp',
   },
   {
     name: 'Vegan',
-    image: '/images/categories/vegan.webp',
+    image: '/img/categories/vegan.webp',
   },
   {
     name: 'Desserts',
-    image: '/images/categories/desserts.webp',
+    image: '/img/categories/desserts.webp',
   },
   {
     name: 'Smoothies',
-    image: '/images/categories/smoothies.webp',
+    image: '/img/categories/smoothies.webp',
   },
   {
     name: 'Breakfast',
-    image: '/images/categories/breakfast.webp',
+    image: '/img/categories/breakfast.webp',
   },
   {
     name: 'Salad',
-    image: '/images/categories/salad.webp',
+    image: '/img/categories/salad.webp',
   },
   {
     name: 'Sandwiches',
-    image: '/images/categories/sandwiches.webp',
+    image: '/img/categories/sandwiches.webp',
   },
   {
     name: 'Waffles',
-    image: '/images/categories/waffles.webp',
+    image: '/img/categories/waffles.webp',
   },
   {
     name: 'Ramen',
-    image: '/images/categories/ramen.webp',
+    image: '/img/categories/ramen.webp',
   },
   {
     name: 'Dips',
-    image: '/images/categories/dips.webp',
+    image: '/img/categories/dips.webp',
   },
 ];

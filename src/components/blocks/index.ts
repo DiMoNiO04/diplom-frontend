@@ -1,3 +1,4 @@
+import { MainSliderBtns } from './MainSliderBtns';
 import { TitleSectionBlock } from './TitleSectionBlock';
 
-export { TitleSectionBlock };
+export { MainSliderBtns, TitleSectionBlock };

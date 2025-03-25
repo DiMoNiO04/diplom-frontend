@@ -1,4 +1,4 @@
-// import scrollbarHide from 'tailwind-scrollbar-hide';
+import scrollbarHide from 'tailwind-scrollbar-hide';
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
@@ -15,7 +15,9 @@ const config: Config = {
         white: '#ffffff',
         red: '#f85a81',
       },
-      boxShadow: {},
+      boxShadow: {
+        customSlide: 'linear-gradient(180deg, rgba(255, 255, 255, 0.0001) 38.05%, rgba(0, 0, 0, 0.5) 100%)',
+      },
       fontFamily: {
         unbounded: ['var(--font-unbounded)', 'sans-serif'],
         onest: ['var(--font-onest)', 'sans-serif'],
@@ -37,7 +39,7 @@ const config: Config = {
       },
     },
   },
-  // plugins: [scrollbarHide],
+  plugins: [scrollbarHide],
 };
 
 export default config;
