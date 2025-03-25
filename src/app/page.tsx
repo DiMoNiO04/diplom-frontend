@@ -1,4 +1,4 @@
-import { LatestRecipes, MainSlider, PopularCategories, ShareYourRecipe } from '@/components/sections';
+import { EmailNewsletter, LatestRecipes, MainSlider, PopularCategories, ShareYourRecipe } from '@/components/sections';
 
 export default function HomePage() {
   return (
@@ -7,6 +7,7 @@ export default function HomePage() {
       <PopularCategories />
       <ShareYourRecipe />
       <LatestRecipes />
+      <EmailNewsletter />
     </>
   );
 }

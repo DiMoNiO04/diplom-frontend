@@ -26,7 +26,7 @@ export const LoadMoreRecipes = ({ remainingRecipes, perPage }: ILoadMoreRecipesP
       {hasRecipes && <RecipesCardsList cards={visibleRecipes} nothingMsg="" />}
       {hasMore && (
         <div className="w-full flex items-center justify-center">
-          <Button text="Загрузить еще" size="sm" onClick={handleLoadMore} />
+          <Button text="Загрузить еще" onClick={handleLoadMore} />
         </div>
       )}
     </>
