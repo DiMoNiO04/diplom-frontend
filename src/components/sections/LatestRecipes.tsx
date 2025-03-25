@@ -13,7 +13,7 @@ export const LatestRecipes = () => {
   return (
     <section className="mb-24">
       <div className="custom-container">
-        <TitleSectionBlock title="Последние рецепты" linkTxt="Смотреть все" linkUrl={EUrls.RECIPES} />
+        <TitleSectionBlock title="Последние рецепты" linkUrl={EUrls.RECIPES} />
         <RecipesCardsList cards={initialRecipes} nothingMsg="Рецептов на данный момент нет!" />
         <LoadMoreRecipes remainingRecipes={remainingRecipes} perPage={RECIPES_PER_PAGE} />
       </div>

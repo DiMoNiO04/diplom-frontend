@@ -1,4 +1,11 @@
-import { EmailNewsletter, LatestRecipes, MainSlider, PopularCategories, ShareYourRecipe } from '@/components/sections';
+import {
+  CuratedCollections,
+  EmailNewsletter,
+  LatestRecipes,
+  MainSlider,
+  PopularCategories,
+  ShareYourRecipe,
+} from '@/components/sections';
 
 export default function HomePage() {
   return (
@@ -6,6 +13,7 @@ export default function HomePage() {
       <MainSlider />
       <PopularCategories />
       <ShareYourRecipe />
+      <CuratedCollections />
       <LatestRecipes />
       <EmailNewsletter />
     </>

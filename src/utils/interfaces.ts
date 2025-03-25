@@ -8,6 +8,7 @@ interface ITitle {
 }
 
 interface ICardCategorie {
+  slug: string;
   name: string;
   img: string;
 }
@@ -30,4 +31,11 @@ interface IIcon {
   onClick?: () => void;
 }
 
-export type { ICardCategorie, ICardRecipe, IIcon, ILink, IMainSliderSlide, ITitle };
+interface ICardCuratedCollection {
+  slug: string;
+  name: string;
+  img: string;
+  countRecipes: number;
+}
+
+export type { ICardCategorie, ICardCuratedCollection, ICardRecipe, IIcon, ILink, IMainSliderSlide, ITitle };

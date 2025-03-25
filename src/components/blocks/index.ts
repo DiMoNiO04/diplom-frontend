@@ -1,6 +1,7 @@
+import { EmailNewsletterForm } from './EmailNewsletterForm';
 import { LoadMoreRecipes } from './LoadMoreRecipes';
 import { MainSliderBtns } from './MainSliderBtns';
 import { RecipesCardsList } from './RecipesCardsList';
 import { TitleSectionBlock } from './TitleSectionBlock';
 
-export { LoadMoreRecipes, MainSliderBtns, RecipesCardsList, TitleSectionBlock };
+export { EmailNewsletterForm, LoadMoreRecipes, MainSliderBtns, RecipesCardsList, TitleSectionBlock };

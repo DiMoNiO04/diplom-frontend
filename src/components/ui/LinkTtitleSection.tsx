@@ -8,7 +8,7 @@ export const LinkTitleSection = ({ linkTxt, linkUrl }: ILink) => {
       href={linkUrl}
       className={`
         text-lg italic border-b border-black 
-        transition-all duration-200 hover:text-greyLight hover:border-transparent
+        transition-all duration-200 hover:text-orange hover:border-transparent
       `}
     >
       {linkTxt}

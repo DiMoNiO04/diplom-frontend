@@ -18,6 +18,7 @@ const config: Config = {
         pink: '#ffd7c9',
       },
       boxShadow: {
+        customLight: '0px 1px 23.8px 0px #C2C2D047',
         customSlide: 'linear-gradient(180deg, rgba(255, 255, 255, 0.0001) 38.05%, rgba(0, 0, 0, 0.5) 100%)',
       },
       fontFamily: {

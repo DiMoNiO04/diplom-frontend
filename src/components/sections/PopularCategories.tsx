@@ -8,10 +8,10 @@ export const PopularCategories = () => {
   return (
     <section className="mb-24">
       <div className="custom-container">
-        <TitleSectionBlock title="Категории" linkTxt="Смотреть все" linkUrl={EUrls.CATEGORIES} />
+        <TitleSectionBlock title="Категории" linkUrl={EUrls.CATEGORIES} />
         <div className="grid grid-cols-6 gap-8">
           {categoriesData.slice(0, 6).map((card) => (
-            <CardCategorie key={card.name} {...card} />
+            <CardCategorie key={card.slug} {...card} />
           ))}
         </div>
       </div>

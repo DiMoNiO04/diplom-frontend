@@ -1,15 +1,10 @@
 import Link from 'next/link';
-import { FormEvent } from 'react';
 
 import { EUrls } from '@/utils/urls';
 
-import { Button } from '../ui';
+import { EmailNewsletterForm } from '../blocks';
 
 export const EmailNewsletter = () => {
-  const handleSubmit = (event: FormEvent) => {
-    event.preventDefault();
-  };
-
   return (
     <section className="bg-pink">
       <div className="custom-container">
@@ -18,16 +13,7 @@ export const EmailNewsletter = () => {
             <h2 className="font-unbounded text-4xl text-center font-medium">Вкуснятина в ваш почтовый ящик</h2>
             <p className="font-onest text-greyLight text-lg">Наслаждайтесь еженедельно новыми рецептами</p>
           </div>
-          <form className="rounded-md bg-white p-1 flex gap-4 items-center" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              autoComplete="off"
-              placeholder="Email Address"
-              name="email"
-              className="font-unbounded size-full border-none pl-4 w-80 placeholder:font-onest"
-            />
-            <Button text="Подписаться" variant="orange" type="submit" />
-          </form>
+          <EmailNewsletterForm />
           <p className="text-def text-greyLight font-onest">
             Подписываясь на рассылку, вы соглашаетесь с{' '}
             <Link

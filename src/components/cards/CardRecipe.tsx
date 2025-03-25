@@ -31,9 +31,7 @@ export const CardRecipe = ({ id, name, img }: ICardRecipe) => {
       <div className="rounded-md transition-transform duration-300 group-hover:scale-105">
         <Image src={img} alt="" width={350} height={265} />
       </div>
-      <div className="text-lg leading-6 font-medium transition-colors duration-300 group-hover:text-greyLight">
-        {name}
-      </div>
+      <div className="text-lg leading-6 font-medium transition-colors duration-300 group-hover:text-orange">{name}</div>
     </Link>
   );
 };

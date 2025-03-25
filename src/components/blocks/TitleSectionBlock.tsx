@@ -4,7 +4,7 @@ import { LinkTitleSection, SecondTitle } from '../ui';
 
 interface ITitleSectionBlocKProps extends Partial<ILink>, ITitle {}
 
-export const TitleSectionBlock = ({ title, linkUrl, linkTxt }: ITitleSectionBlocKProps) => {
+export const TitleSectionBlock = ({ title, linkUrl, linkTxt = 'Смотреть все' }: ITitleSectionBlocKProps) => {
   return (
     <div className="flex justify-between items-center mb-10 gap-10">
       <SecondTitle title={title} />
