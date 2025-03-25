@@ -14,7 +14,7 @@ export const RecipesCardsList = ({ cards, nothingMsg }: IRecipesCardsList) => {
   }
 
   return (
-    <div className="grid grid-cols-4 gap-8">
+    <div className="grid grid-cols-4 gap-8 mb-8">
       {cards.map((card) => (
         <CardRecipe key={card.name} {...card} />
       ))}

@@ -36,12 +36,20 @@ export const MainSlider = () => {
           {slidesData.map((slide, index) => (
             <SwiperSlide className="relative size-full">
               <div className="relative w-full h-[700px]">
-                <Image src={slide.img} alt="" width={1440} height={634} className="w-full h-full object-cover" />
+                <Image
+                  src={slide.img}
+                  alt=""
+                  width={1440}
+                  height={634}
+                  className="w-full h-full object-cover"
+                  priority={index === 0}
+                  fetchPriority="high"
+                />
                 <div className="absolute inset-0 z-2 shadow-customSlide"></div>
               </div>
               <div className="absolute max-w-[1140px] py-10 mx-auto bottom-12 left-0 right-0 z-10">
                 <div className="flex items-start justify-start gap-2 max-w-[700px] mb-1">
-                  <Image src={'/icons/trendingUp.svg'} alt="Trending Up" width={20} height={20} />
+                  <img src="/icons/trendingUp.svg" alt="" width={20} height={20} />
                   <span className="text-white text-lg">{slide.description}</span>
                 </div>
                 {index === 0 ? (
