@@ -1,10 +1,11 @@
-import { LatestRecipes, MainSlider, PopularCategories } from '@/components/sections';
+import { LatestRecipes, MainSlider, PopularCategories, ShareYourRecipe } from '@/components/sections';
 
 export default function HomePage() {
   return (
     <>
       <MainSlider />
       <PopularCategories />
+      <ShareYourRecipe />
       <LatestRecipes />
     </>
   );

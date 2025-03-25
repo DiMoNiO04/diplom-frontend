@@ -6,7 +6,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        orange: '#ffb042',
+        orange: '#ff642f',
         blue: '#3e14bc',
         black: '#2d2b39',
         grey: '#7b7b7b',
@@ -15,6 +15,7 @@ const config: Config = {
         white: '#ffffff',
         whiteLight: '#ffffff90',
         red: '#f85a81',
+        pink: '#ffd7c9',
       },
       boxShadow: {
         customSlide: 'linear-gradient(180deg, rgba(255, 255, 255, 0.0001) 38.05%, rgba(0, 0, 0, 0.5) 100%)',
