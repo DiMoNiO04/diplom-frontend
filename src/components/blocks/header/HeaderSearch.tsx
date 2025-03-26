@@ -2,11 +2,10 @@
 
 import { useState } from 'react';
 
+import { SearchIcon } from '@/components/icons';
 import { useBodyScrollBLock } from '@/hooks';
 
-import { SearchIcon } from '../icons';
-
-export const Search = () => {
+export const HeaderSearch = () => {
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
 
   const handleSearchToggle = () => setIsSearchOpen((prev) => !prev);

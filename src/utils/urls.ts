@@ -1,4 +1,5 @@
 export const EUrls = {
+  HOME: '/',
   CATEGORIES: '/categories',
   RECIPES: '/recipes',
   PRIVACY_POLICY: '/privacy-policy',

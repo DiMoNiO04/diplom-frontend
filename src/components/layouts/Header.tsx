@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 import { useHeader } from '@/hooks';
 
-import { MenuHeader, Search, UserProfile } from '../blocks';
+import { HeaderMenu, HeaderSearch, HeaderUserProfile } from '../blocks/header';
 import { Logo } from '../ui';
 
 export const Header = () => {
@@ -21,10 +21,10 @@ export const Header = () => {
       <div className="custom-container">
         <div className="flex items-center justify-between py-5">
           <Logo />
-          <MenuHeader />
+          <HeaderMenu />
           <div className="flex items-center justify-between gap-8">
-            <Search />
-            <UserProfile />
+            <HeaderSearch />
+            <HeaderUserProfile />
           </div>
         </div>
       </div>

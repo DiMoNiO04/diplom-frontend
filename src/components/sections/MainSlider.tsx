@@ -6,10 +6,12 @@ import 'swiper/css/scrollbar';
 import 'swiper/css/autoplay';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { slidesData } from '@/data';
+import { EUrls } from '@/utils/urls';
 
 import { MainSliderBtns } from '../blocks';
 
@@ -35,29 +37,31 @@ export const MainSlider = () => {
         >
           {slidesData.map((slide, index) => (
             <SwiperSlide className="relative size-full">
-              <div className="relative w-full h-[700px]">
-                <Image
-                  src={slide.img}
-                  alt=""
-                  width={1440}
-                  height={634}
-                  className="w-full h-full object-cover"
-                  priority={index === 0}
-                  fetchPriority="high"
-                />
-                <div className="absolute inset-0 z-2 shadow-customSlide"></div>
-              </div>
-              <div className="absolute max-w-[1140px] py-10 mx-auto bottom-12 left-0 right-0 z-10">
-                <div className="flex items-start justify-start gap-2 max-w-[700px] mb-1">
-                  <img src="/icons/trendingUp.svg" alt="" width={20} height={20} />
-                  <span className="text-white text-lg italic">{slide.description}</span>
+              <Link href={`${EUrls.RECIPES}/${slide.slug}`}>
+                <div className="relative w-full h-[700px]">
+                  <Image
+                    src={slide.img}
+                    alt=""
+                    width={1440}
+                    height={634}
+                    className="w-full h-full object-cover"
+                    priority={index === 0}
+                    fetchPriority="high"
+                  />
+                  <div className="absolute inset-0 z-2 shadow-customSlide"></div>
                 </div>
-                {index === 0 ? (
-                  <h1 className={STYLES.slideTitle}>{slide.title}</h1>
-                ) : (
-                  <h2 className={STYLES.slideTitle}>{slide.title}</h2>
-                )}
-              </div>
+                <div className="absolute max-w-[1140px] py-10 mx-auto bottom-12 left-0 right-0 z-10">
+                  <div className="flex items-start justify-start gap-2 max-w-[700px] mb-1">
+                    <img src="/icons/trendingUp.svg" alt="" width={20} height={20} />
+                    <span className="text-white text-lg italic">{slide.description}</span>
+                  </div>
+                  {index === 0 ? (
+                    <h1 className={STYLES.slideTitle}>{slide.title}</h1>
+                  ) : (
+                    <h2 className={STYLES.slideTitle}>{slide.title}</h2>
+                  )}
+                </div>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>

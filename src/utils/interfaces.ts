@@ -20,6 +20,7 @@ interface ICardRecipe {
 }
 
 interface IMainSliderSlide {
+  slug: string;
   title: string;
   description: string;
   img: string;

@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import { menuHeaderData } from '@/data';
 
-export const MenuHeader = () => {
+export const HeaderMenu = () => {
   return (
     <nav>
       <ul className="flex items-center justify-center gap-12">
