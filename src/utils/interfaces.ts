@@ -17,6 +17,9 @@ interface ICardRecipe {
   id: number;
   name: string;
   img: string;
+  category: {
+    name: string;
+  };
 }
 
 interface IMainSliderSlide {
