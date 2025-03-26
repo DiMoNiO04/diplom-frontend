@@ -19,7 +19,7 @@ export const EmailNewsletter = () => {
             <Link
               href={EUrls.PRIVACY_POLICY}
               className={`
-                border-b border-orange 
+                border-b border-orange italic
                 transition-colors duration-300 hover:border-transparent hover:text-orange  
               `}
             >

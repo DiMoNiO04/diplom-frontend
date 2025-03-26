@@ -20,7 +20,7 @@ const STYLES = {
 export const MainSlider = () => {
   return (
     <section className="mb-24">
-      <div className="relative w-full h-[700px]">
+      <div className="relative w-full h-[700px] group">
         <Swiper
           modules={[Autoplay, Navigation]}
           slidesPerView={1}
@@ -50,7 +50,7 @@ export const MainSlider = () => {
               <div className="absolute max-w-[1140px] py-10 mx-auto bottom-12 left-0 right-0 z-10">
                 <div className="flex items-start justify-start gap-2 max-w-[700px] mb-1">
                   <img src="/icons/trendingUp.svg" alt="" width={20} height={20} />
-                  <span className="text-white text-lg">{slide.description}</span>
+                  <span className="text-white text-lg italic">{slide.description}</span>
                 </div>
                 {index === 0 ? (
                   <h1 className={STYLES.slideTitle}>{slide.title}</h1>

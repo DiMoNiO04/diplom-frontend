@@ -5,6 +5,7 @@ import {
   MainSlider,
   PopularCategories,
   ShareYourRecipe,
+  SuperDelicioues,
 } from '@/components/sections';
 
 export default function HomePage() {
@@ -12,6 +13,7 @@ export default function HomePage() {
     <>
       <MainSlider />
       <PopularCategories />
+      <SuperDelicioues />
       <ShareYourRecipe />
       <CuratedCollections />
       <LatestRecipes />

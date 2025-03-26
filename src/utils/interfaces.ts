@@ -38,4 +38,26 @@ interface ICardCuratedCollection {
   countRecipes: number;
 }
 
-export type { ICardCategorie, ICardCuratedCollection, ICardRecipe, IIcon, ILink, IMainSliderSlide, ITitle };
+interface ICardSuperDeliciious {
+  id: number;
+  name: string;
+  img: string;
+  countComments: number;
+  createdDate: string;
+  rating: number;
+  author: {
+    name: string;
+    icon: string;
+  };
+}
+
+export type {
+  ICardCategorie,
+  ICardCuratedCollection,
+  ICardRecipe,
+  ICardSuperDeliciious,
+  IIcon,
+  ILink,
+  IMainSliderSlide,
+  ITitle,
+};

@@ -1,8 +1,8 @@
-import { curatedCollectionsData } from '@/data/curatedCollections';
+import { curatedCollectionsData } from '@/data';
 import { EUrls } from '@/utils/urls';
 
 import { TitleSectionBlock } from '../blocks';
-import { CardCuratedCollection } from '../cards/CardCuratedCollection';
+import { CardCuratedCollection } from '../cards/';
 
 export const CuratedCollections = () => {
   return (

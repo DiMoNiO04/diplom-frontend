@@ -6,7 +6,12 @@ const STYLES = {
 
 export const MainSliderBtns = () => {
   return (
-    <div className="flex justify-between items-center w-full absolute top-1/2 -translate-y-1/2 z-10">
+    <div
+      className={`
+      flex justify-between items-center w-full absolute top-1/2 -translate-y-1/2 z-10 opacity-0
+      transition-opacity duration-300 group-hover:opacity-100
+    `}
+    >
       <button className={clsx('nextButtonSlider', STYLES.btn)}>
         <img src={'/icons/arrowLeft.svg'} alt="" width={32} height={32} />
       </button>
