@@ -19,6 +19,7 @@ const config: Config = {
       },
       boxShadow: {
         customLight: '0px 1px 23.8px 0px #C2C2D047',
+        customShadow: '0px 4px 53.7px 0px #DFDFEC61',
         customSlide: 'linear-gradient(180deg, rgba(255, 255, 255, 0.0001) 38.05%, rgba(0, 0, 0, 0.5) 100%)',
       },
       fontFamily: {

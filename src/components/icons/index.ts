@@ -1,3 +1,4 @@
 import { LikeIcon } from './Like';
+import { SearchIcon } from './Search';
 
-export { LikeIcon };
+export { LikeIcon, SearchIcon };

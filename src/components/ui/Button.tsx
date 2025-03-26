@@ -30,8 +30,8 @@ export const Button = ({
     orange: 'border-orange bg-orange text-white hover:bg-white hover:text-orange',
   };
   const sizeStyles = {
-    lg: 'px-12 py-3 text-lg',
-    sm: 'px-6 py-2 text-sm',
+    lg: 'px-10 py-2.5 text-lg',
+    sm: 'px-5 py-2 text-sm',
   };
 
   const classes = clsx(baseStyles, variantStyles[variant], sizeStyles[size], className, {

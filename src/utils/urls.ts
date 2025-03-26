@@ -3,6 +3,7 @@ export const EUrls = {
   RECIPES: '/recipes',
   PRIVACY_POLICY: '/privacy-policy',
   COLLECTIONS: '/collections',
+  ABOUT: '/about',
 } as const;
 
 export type EUrls = (typeof EUrls)[keyof typeof EUrls];
