@@ -2,7 +2,7 @@ import '../styles/index.css';
 
 import { Onest, Unbounded } from 'next/font/google';
 
-import { Footer, Header } from '@/components/layouts';
+import { Footer, Header, Modals } from '@/components/layouts';
 
 const fontUnbounded = Unbounded({
   subsets: ['latin'],
@@ -27,6 +27,7 @@ export default function RootLayout({
         <Header />
         <main className="mt-24">{children}</main>
         <Footer />
+        <Modals />
       </body>
     </html>
   );

@@ -1,4 +1,4 @@
 import { Modal } from './Modal';
-import { ModalAuth } from './ModalAuth';
+import { ModalAuth } from './modalAuth/ModalAuth';
 
 export { Modal, ModalAuth };

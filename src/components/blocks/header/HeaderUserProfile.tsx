@@ -1,21 +1,14 @@
-import { useState } from 'react';
-
-import { ModalAuth } from '@/components/modals';
 import { Button } from '@/components/ui';
+import { useAuthModalStore } from '@/stores/authModal';
 
 export const HeaderUserProfile = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { openModal } = useAuthModalStore();
 
-  const onClose = () => setIsOpen(false);
-  const onOpen = () => setIsOpen(true);
+  const onOpen = () => openModal('login');
 
   return (
-    <>
-      <div className="relative">
-        <Button text="Войти" size="lg" onClick={onOpen} />
-      </div>
-
-      <ModalAuth isOpen={isOpen} onClose={onClose} />
-    </>
+    <div className="relative">
+      <Button text="Войти" size="lg" onClick={onOpen} />
+    </div>
   );
 };
