@@ -14,9 +14,12 @@
     "format": "npm run prettier && npm run lint:fix"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
     "next": "15.2.3",
+    "postcss": "^8.5.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "swiper": "^11.2.6",
     "tailwind-scrollbar-hide": "2.0.0"
   },
   "devDependencies": {
@@ -24,7 +27,7 @@
     "@commitlint/config-conventional": "^19.7.1",
     "@eslint/eslintrc": "^3",
     "@eslint/js": "^9.23.0",
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/postcss": "^4.0.15",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
@@ -39,7 +42,7 @@
     "husky": "^8.0.0",
     "lint-staged": "^15.5.0",
     "prettier": "^3.5.3",
-    "tailwindcss": "^4",
+    "tailwindcss": "3.4.1",
     "typescript": "^5",
     "typescript-eslint": "^8.27.0"
   },

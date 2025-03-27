@@ -5,6 +5,7 @@
 }
 
 body {
+  font-family: 'Onest', sans-serif;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -34,4 +35,11 @@ input[type='number']::-webkit-inner-spin-button {
 
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+input {
+  all: unset;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
