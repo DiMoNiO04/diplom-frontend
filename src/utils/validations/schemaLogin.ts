@@ -14,13 +14,7 @@ const schemaLogin: ObjectSchema<IFormLoginData> = yup
       .string()
       .matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, EValidateMessages.INCORRECT_EMAIL)
       .required(EValidateMessages.REQUIRED_FIELD),
-    password: yup
-      .string()
-      .min(8, EValidateMessages.PASSWORD_MIN_LENGTH)
-      .matches(/[a-z]/, EValidateMessages.PASSWORD_LOWERCASE)
-      .matches(/[A-Z]/, EValidateMessages.PASSWORD_UPPERCASE)
-      .matches(/\d/, EValidateMessages.PASSWORD_DIGIT)
-      .required(EValidateMessages.REQUIRED_FIELD),
+    password: yup.string().required(EValidateMessages.REQUIRED_FIELD),
   })
   .required();
 

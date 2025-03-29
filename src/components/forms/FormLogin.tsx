@@ -14,7 +14,6 @@ export const FormLogin = () => {
     handleSubmit,
     formState: { errors },
     reset,
-    clearErrors,
   } = useForm<IFormLoginData>({
     resolver: yupResolver(schemaLogin),
     mode: 'onBlur',
@@ -26,10 +25,11 @@ export const FormLogin = () => {
   const onSubmit = async (data: IFormLoginData) => {
     alert('Вы авторизовалсиь');
     closeModal();
+    reset();
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-4">
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-5">
       <Controller
         name="email"
         control={control}

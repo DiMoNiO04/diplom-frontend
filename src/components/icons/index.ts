@@ -7,6 +7,7 @@ import { LikeIcon } from './Like';
 import { PasswordKeyIcon } from './PasswordKey';
 import { SearchIcon } from './Search';
 import { ShowPasswordIcon } from './ShowPassword';
+import { UserIcon } from './User';
 
 export {
   CloseIcon,
@@ -18,4 +19,5 @@ export {
   PasswordKeyIcon,
   SearchIcon,
   ShowPasswordIcon,
+  UserIcon,
 };

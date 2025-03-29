@@ -12,7 +12,7 @@ interface IModalAuthNoAccountProps {
 export const ModalAuthNoAccount = ({ type }: IModalAuthNoAccountProps) => {
   const { setTabContent } = useAuthModalStore();
 
-  const handleClickBtn = () => setTabContent(type === 'login' ? EAuthContent.LOGIN : EAuthContent.REG);
+  const handleClickBtn = () => setTabContent(type === 'login' ? EAuthContent.REG : EAuthContent.LOGIN);
 
   return (
     <div className="font-onest text-sm text-black mt-8 flex items-center justify-center gap-x-1">
