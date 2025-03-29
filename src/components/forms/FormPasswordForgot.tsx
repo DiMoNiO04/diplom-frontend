@@ -1,11 +1,11 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 
-import { useAuthModalStore } from '@/stores/authModal';
+import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
 import { IFormPasswordForgotData, schemaPasswordForgot } from '@/utils/validations/schemaPasswordFogot';
 
 import { EmailIcon } from '../icons';
-import { Button, Input, InputPassword } from '../ui';
+import { Button, Input } from '../ui';
 
 export const FormPasswordForgot = () => {
   const {
@@ -19,11 +19,11 @@ export const FormPasswordForgot = () => {
     reValidateMode: 'onBlur',
   });
 
-  const { closeModal } = useAuthModalStore();
+  const { setTabContent } = useAuthModalStore();
 
   const onSubmit = async (data: IFormPasswordForgotData) => {
     alert('Письмо отправлено на почту');
-    closeModal();
+    setTabContent(EAuthContent.PASSWORD_NEW);
     reset();
   };
 
@@ -36,7 +36,7 @@ export const FormPasswordForgot = () => {
           <Input {...field} placeholder="Email" error={errors.email?.message} icon={<EmailIcon />} />
         )}
       />
-      <Button text={'Подтвердить'} variant="orange" type="submit" />
+      <Button text={'Подтвердить'} variant="orange" type="submit" className="mt-4" />
     </form>
   );
 };

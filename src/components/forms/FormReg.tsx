@@ -1,4 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import clsx from 'clsx';
 import { Controller, useForm } from 'react-hook-form';
 
 import { useAuthModalStore } from '@/stores/authModal';
@@ -82,7 +83,10 @@ export const FormReg = () => {
                 <a
                   href={EUrls.PRIVACY_POLICY}
                   tabIndex={-1}
-                  className="border-orange text-orange hover:text-black border-b transition-colors duration-300 hover:border-transparent"
+                  className={clsx(
+                    'border-orange text-orange border-b ',
+                    'hover:text-black transition-colors duration-300 hover:border-transparent'
+                  )}
                 >
                   пользовательского соглашения
                 </a>

@@ -56,7 +56,7 @@ export const FormLogin = () => {
       >
         Забыли пароль?
       </button>
-      <Button text={'Войти'} variant="orange" type="submit" />
+      <Button text={'Войти'} variant="orange" type="submit" className="mt-4" />
     </form>
   );
 };
