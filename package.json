@@ -19,13 +19,16 @@
     "postcss": "^8.5.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-hook-form": "^7.55.0",
     "swiper": "^11.2.6",
     "tailwind-scrollbar-hide": "2.0.0",
+    "yup": "^1.6.1",
     "zustand": "^5.0.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.7.1",
     "@commitlint/config-conventional": "^19.7.1",
+    "@hookform/resolvers": "3.9.1",
     "@eslint/eslintrc": "^3",
     "@eslint/js": "^9.23.0",
     "@headlessui/react": "^2.2.0",

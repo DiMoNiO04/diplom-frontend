@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import Link from 'next/link';
-import { ButtonHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes, ReactNode } from 'react';
 
 type TButtonVariant = 'default' | 'secondary' | 'orange';
 type TButtonSize = 'lg' | 'sm';
@@ -11,6 +11,7 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: TButtonSize;
   href?: string;
   external?: boolean;
+  icon?: ReactNode;
 }
 
 export const Button = ({
@@ -19,11 +20,13 @@ export const Button = ({
   size = 'lg',
   href,
   external = false,
+  icon,
   className,
   disabled,
   ...props
 }: IButtonProps) => {
-  const baseStyles = 'inline-block border transition-colors duration-300 text-center rounded';
+  const baseStyles =
+    'border transition-colors duration-300 text-center rounded inline-flex items-center justify-center gap-2';
   const variantStyles = {
     default: 'border-black bg-white text-black hover:bg-black hover:text-white',
     secondary: 'border-orange-500 bg-orange-500 text-white hover:bg-white hover:text-orange-500',
@@ -38,21 +41,28 @@ export const Button = ({
     'opacity-50 cursor-not-allowed': disabled,
   });
 
+  const content = (
+    <>
+      {icon && <span className="flex items-center">{icon}</span>}
+      {text}
+    </>
+  );
+
   if (href) {
     return external ? (
       <Link href={href} target="_blank" rel="noopener noreferrer" className={classes}>
-        {text}
+        {content}
       </Link>
     ) : (
       <Link href={href} className={classes}>
-        {text}
+        {content}
       </Link>
     );
   }
 
   return (
     <button className={classes} disabled={disabled} {...props}>
-      {text}
+      {content}
     </button>
   );
 };

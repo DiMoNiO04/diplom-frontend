@@ -1,15 +1,16 @@
 'use client';
 
-import { useAuthModalStore } from '@/stores/authModal';
+import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
 
 import { Modal } from '../Modal';
+import { ModalAuthLogin } from './components';
 
 export const ModalAuth = () => {
-  const { isOpen, closeModal } = useAuthModalStore();
+  const { isOpen, closeModal, tabContent } = useAuthModalStore();
 
   return (
     <Modal isOpen={isOpen} closeModal={closeModal}>
-      <div>123</div>
+      <div>{tabContent === EAuthContent.LOGIN && <ModalAuthLogin />}</div>
     </Modal>
   );
 };
