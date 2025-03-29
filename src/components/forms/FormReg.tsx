@@ -20,7 +20,7 @@ export const FormReg = () => {
     reValidateMode: 'onBlur',
   });
 
-  const { closeModal, setTabContent } = useAuthModalStore();
+  const { closeModal } = useAuthModalStore();
 
   const onSubmit = async (data: IFormRegData) => {
     alert('Вы зарегистрировались');
@@ -96,7 +96,7 @@ export const FormReg = () => {
         )}
       />
 
-      <Button text={'Зарегистрироваться'} variant="orange" type="submit" className="w-full max-w-64 mx-auto mt-4" />
+      <Button text={'Зарегистрироваться'} variant="orange" type="submit" className="mt-4" />
     </form>
   );
 };

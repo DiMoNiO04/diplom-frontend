@@ -1,7 +1,7 @@
 const EAuthContent = {
   LOGIN: 'login',
   REG: 'reg',
-  PASSWORD_REC: 'passwordRec',
+  PASSWORD_FORGOT: 'passwordRec',
   PASSWORD_NEW: 'passwordNew',
   CLOSE: 'close',
 } as const;

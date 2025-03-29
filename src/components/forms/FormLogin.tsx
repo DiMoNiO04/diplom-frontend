@@ -2,7 +2,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import clsx from 'clsx';
 import { Controller, useForm } from 'react-hook-form';
 
-import { useAuthModalStore } from '@/stores/authModal';
+import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
 import { IFormLoginData, schemaLogin } from '@/utils/validations';
 
 import { EmailIcon } from '../icons';
@@ -28,6 +28,8 @@ export const FormLogin = () => {
     reset();
   };
 
+  const handleClickForgotPassword = () => setTabContent(EAuthContent.PASSWORD_FORGOT);
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-5">
       <Controller
@@ -44,15 +46,17 @@ export const FormLogin = () => {
           <InputPassword {...field} onBlur={field.onBlur} placeholder="Пароль" error={errors.password?.message} />
         )}
       />
-      <div
+      <button
         className={clsx(
           'text-sm text-right text-orange transition-colors duration-300 cursor-pointer',
           'hover:text-black'
         )}
+        type="button"
+        onClick={handleClickForgotPassword}
       >
         Забыли пароль?
-      </div>
-      <Button text={'Войти'} variant="orange" type="submit" className="w-full max-w-40 mx-auto" />
+      </button>
+      <Button text={'Войти'} variant="orange" type="submit" />
     </form>
   );
 };

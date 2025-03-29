@@ -1,3 +1,4 @@
+import { ArrowIcon } from './Arrow';
 import { CloseIcon } from './Close';
 import { EmailIcon } from './Email';
 import { FacebookIcon } from './Facebook';
@@ -10,6 +11,7 @@ import { ShowPasswordIcon } from './ShowPassword';
 import { UserIcon } from './User';
 
 export {
+  ArrowIcon,
   CloseIcon,
   EmailIcon,
   FacebookIcon,
