@@ -3,7 +3,8 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 
-import { HidePasswordIcon, PasswordKeyIcon, ShowPasswordIcon } from '../icons';
+import { HidePasswordIcon, PasswordKeyIcon, ShowPasswordIcon } from '@/components/icons';
+
 import { ErrorMsgInput } from './ErrorMsgInput';
 import { IInputProps } from './Input';
 

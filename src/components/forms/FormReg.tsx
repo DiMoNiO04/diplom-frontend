@@ -2,7 +2,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import clsx from 'clsx';
 import { Controller, useForm } from 'react-hook-form';
 
-import { useAuthModalStore } from '@/stores/authModal';
+import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
 import { EUrls } from '@/utils/urls';
 import { IFormRegData, schemaReg } from '@/utils/validations';
 
@@ -21,11 +21,11 @@ export const FormReg = () => {
     reValidateMode: 'onBlur',
   });
 
-  const { closeModal } = useAuthModalStore();
+  const { setTabContent, setEmail } = useAuthModalStore();
 
   const onSubmit = async (data: IFormRegData) => {
-    alert('Вы зарегистрировались');
-    closeModal();
+    setEmail(data.email);
+    setTabContent(EAuthContent.CHECK_EMAIL);
     reset();
   };
 

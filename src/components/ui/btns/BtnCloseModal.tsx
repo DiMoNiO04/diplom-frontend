@@ -1,4 +1,4 @@
-import { CloseIcon } from '../icons';
+import { CloseIcon } from '@/components/icons';
 
 interface IBtnCloseModalProps {
   onClose: () => void;

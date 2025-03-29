@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { ArrowIcon } from '../icons';
+import { ArrowIcon } from '@/components/icons';
 
 type TNavigationButton = 'button' | 'link';
 

@@ -1,7 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 
-import { useAuthModalStore } from '@/stores/authModal';
+import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
 import { IFormPasswordNewData, schemaPasswordNew } from '@/utils/validations';
 
 import { Button, InputPassword } from '../ui';
@@ -18,10 +18,10 @@ export const FormPasswordNew = () => {
     reValidateMode: 'onBlur',
   });
 
-  const { closeModal } = useAuthModalStore();
+  const { closeModal, setTabContent } = useAuthModalStore();
 
   const onSubmit = async (data: IFormPasswordNewData) => {
-    alert('Пароль успешно изменен');
+    setTabContent(EAuthContent.CHANGE_PASSWORD);
     closeModal();
     reset();
   };

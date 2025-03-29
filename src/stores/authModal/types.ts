@@ -1,9 +1,12 @@
 const EAuthContent = {
   LOGIN: 'login',
   REG: 'reg',
-  PASSWORD_FORGOT: 'passwordRec',
+  PASSWORD_FORGOT: 'passwordForgot',
   PASSWORD_NEW: 'passwordNew',
   CLOSE: 'close',
+  CHECK_EMAIL: 'checkEmail',
+  CHANGE_PASSWORD: 'changePass',
+  SUCCESS_REG: 'successReg',
 } as const;
 
 type EAuthContent = (typeof EAuthContent)[keyof typeof EAuthContent];

@@ -19,11 +19,11 @@ export const FormPasswordForgot = () => {
     reValidateMode: 'onBlur',
   });
 
-  const { setTabContent } = useAuthModalStore();
+  const { setTabContent, setEmail } = useAuthModalStore();
 
   const onSubmit = async (data: IFormPasswordForgotData) => {
-    alert('Письмо отправлено на почту');
-    setTabContent(EAuthContent.PASSWORD_NEW);
+    setTabContent(EAuthContent.CHECK_EMAIL);
+    setEmail(data.email);
     reset();
   };
 

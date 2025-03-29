@@ -1,9 +1,9 @@
-import { BtnCloseModal } from './BtnCloseModal';
-import { BtnNavigation } from './BtnNavigation';
-import { Button } from './Button';
-import { Input } from './Input';
-import { InputCheckbox } from './InputCheckbox';
-import { InputPassword } from './InputPassword';
+import { BtnCloseModal } from './btns/BtnCloseModal';
+import { BtnNavigation } from './btns/BtnNavigation';
+import { Button } from './btns/Button';
+import { Input } from './inputs/Input';
+import { InputCheckbox } from './inputs/InputCheckbox';
+import { InputPassword } from './inputs/InputPassword';
 import { LinkTitleSection } from './LinkTtitleSection';
 import { Logo } from './Logo';
 import { NothingMsg } from './NothingMsg';

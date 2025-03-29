@@ -23,7 +23,6 @@ export const FormLogin = () => {
   const { closeModal, setTabContent } = useAuthModalStore();
 
   const onSubmit = async (data: IFormLoginData) => {
-    alert('Вы авторизовалсиь');
     closeModal();
     reset();
   };
