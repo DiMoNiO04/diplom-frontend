@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { ICardCategorie } from '@/utils/interfaces';
+import { ICategory } from '@/utils/interfaces';
 import { EUrls } from '@/utils/urls';
 
-export const CardCategorie = ({ name, img, slug }: ICardCategorie) => {
+export const CardCategorie = ({ name, img, slug }: ICategory) => {
   const linkUrl: string = `${EUrls.CATEGORIES}/${slug}`;
 
   return (

@@ -7,13 +7,16 @@ interface ITitle {
   title: string;
 }
 
-interface ICardCategorie {
+interface ICategory {
   slug: string;
   name: string;
   img: string;
+  fullImage: string;
+  description?: string;
+  recipes: IRecipe[];
 }
 
-interface ICardRecipe {
+interface IRecipe {
   id: number;
   name: string;
   img: string;
@@ -36,14 +39,14 @@ interface IIcon {
   onClick?: () => void;
 }
 
-interface ICardCuratedCollection {
+interface ICuratedCollection {
   slug: string;
   name: string;
   img: string;
   countRecipes: number;
 }
 
-interface ICardSuperDeliciious {
+interface ISuperDeliciious {
   id: number;
   name: string;
   img: string;
@@ -56,13 +59,19 @@ interface ICardSuperDeliciious {
   };
 }
 
+interface ISelectOption {
+  text: string;
+  value: string | number;
+}
+
 export type {
-  ICardCategorie,
-  ICardCuratedCollection,
-  ICardRecipe,
-  ICardSuperDeliciious,
+  ICategory,
+  ICuratedCollection,
   IIcon,
   ILink,
   IMainSliderSlide,
+  IRecipe,
+  ISelectOption,
+  ISuperDeliciious,
   ITitle,
 };

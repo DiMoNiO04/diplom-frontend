@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { ICardRecipe } from '@/utils/interfaces';
+import { IRecipe } from '@/utils/interfaces';
 import { EUrls } from '@/utils/urls';
 
-export const CardSearchPanel = ({ name, img, id, category }: ICardRecipe) => {
+export const CardSearchPanel = ({ name, img, id, category }: IRecipe) => {
   const linkUrl: string = `${EUrls.RECIPES}/${id}`;
 
   return (

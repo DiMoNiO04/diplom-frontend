@@ -4,12 +4,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { MouseEvent } from 'react';
 
-import { ICardRecipe } from '@/utils/interfaces';
+import { IRecipe } from '@/utils/interfaces';
 import { EUrls } from '@/utils/urls';
 
 import { LikeIcon } from '../icons';
 
-export const CardRecipe = ({ id, name, img }: ICardRecipe) => {
+export const CardRecipe = ({ id, name, img }: IRecipe) => {
   const linkUrlRecipe: string = `${EUrls.RECIPES}/${id}`;
 
   const handleLikeClick = (event: MouseEvent<HTMLButtonElement>) => {

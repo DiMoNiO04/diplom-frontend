@@ -2,13 +2,13 @@
 
 import { useState } from 'react';
 
-import { ICardRecipe } from '@/utils/interfaces';
+import { IRecipe } from '@/utils/interfaces';
 
 import { Button } from '../ui';
 import { RecipesCardsList } from '.';
 
 interface ILoadMoreRecipesProps {
-  remainingRecipes: ICardRecipe[];
+  remainingRecipes: IRecipe[];
   perPage: number;
 }
 
@@ -17,7 +17,7 @@ export const LoadMoreRecipes = ({ remainingRecipes, perPage }: ILoadMoreRecipesP
 
   const handleLoadMore = () => setVisibleCount((prev) => prev + perPage);
 
-  const visibleRecipes: ICardRecipe[] = remainingRecipes.slice(0, visibleCount);
+  const visibleRecipes: IRecipe[] = remainingRecipes.slice(0, visibleCount);
   const hasMore: boolean = visibleCount < remainingRecipes.length;
   const hasRecipes: boolean = visibleCount !== 0;
 

@@ -6,7 +6,7 @@ import { CloseIcon } from '@/components/icons';
 import { Button, NothingMsg } from '@/components/ui';
 import { recipesData } from '@/data';
 import { useDebounce } from '@/hooks';
-import { ICardRecipe } from '@/utils/interfaces';
+import { IRecipe } from '@/utils/interfaces';
 import { EUrls } from '@/utils/urls';
 
 interface IHeaderSearchPanelProps {
@@ -23,7 +23,7 @@ export const HeaderSearchPanel = ({ isOpen, onClose }: IHeaderSearchPanelProps) 
 
   const handleSearchInputChange = (event: ChangeEvent<HTMLInputElement>) => setSearchQuery(event.target.value);
 
-  const visibleSearchResult: ICardRecipe[] = recipesData.slice(0, PER_VISIBLE_RESULT);
+  const visibleSearchResult: IRecipe[] = recipesData.slice(0, PER_VISIBLE_RESULT);
   const hasSearchResult: boolean = recipesData.length > 0;
   const hasVisibleMoreBtn: boolean = hasSearchResult && recipesData.length > visibleSearchResult.length;
   const linkUrl: string = debouncedValue ? `${EUrls.SEARCH}?query=${debouncedValue}` : `${EUrls.SEARCH}`;
