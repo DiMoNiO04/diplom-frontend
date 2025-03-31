@@ -1,0 +1,37 @@
+.custom-checkbox label {
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+  column-gap: 12px;
+  position: relative;
+  text-align: left;
+}
+
+.custom-checkbox label::before {
+  content: '';
+  width: 18px;
+  height: 18px;
+  margin: 3px;
+  border: 1px solid #9d9bb0;
+  border-radius: 4px;
+  background-color: #ffffff;
+  flex-shrink: 0;
+}
+
+.custom-checkbox.custom-checkbox--error label::before {
+  border-color: #f85a81;
+  background-color: #fff0f4;
+}
+
+.custom-checkbox input[type='checkbox'] {
+  display: none;
+}
+
+.custom-checkbox input:checked + label::before {
+  border-color: #ff642f;
+  background-color: #ff642f;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 12px;
+}
