@@ -9,7 +9,7 @@ import { EUrls } from '@/utils/urls';
 
 import { LikeIcon } from '../icons';
 
-export const CardRecipe = ({ id, name, img }: IRecipe) => {
+export const CardRecipe = ({ id, name, img }: Omit<IRecipe, 'category'>) => {
   const linkUrlRecipe: string = `${EUrls.RECIPES}/${id}`;
 
   const handleLikeClick = (event: MouseEvent<HTMLButtonElement>) => {

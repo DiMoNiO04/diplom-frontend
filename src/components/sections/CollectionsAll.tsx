@@ -5,8 +5,7 @@ import { ChangeEvent, useState } from 'react';
 import { collectionsData } from '@/data';
 import { useDebounce } from '@/hooks';
 
-import { LoadMoreCollections } from '../blocks';
-import { CardsListCollections } from '../blocks/cardsList';
+import { CardsItems, LoadMoreCollections } from '../blocks';
 import { CloseIcon } from '../icons';
 
 const RECIPES_PER_PAGE: number = 15;
@@ -45,7 +44,7 @@ export const CollectionsAll = () => {
             )}
           </div>
         </div>
-        <CardsListCollections cards={initialCollections} nothingMsg="Ничего не найдено" />
+        <CardsItems type="collection" cards={initialCollections} nothingMsg="Ничего не найдено" />
         <LoadMoreCollections remainingCollections={remainingCollections} perPage={RECIPES_PER_PAGE} />
       </div>
     </section>

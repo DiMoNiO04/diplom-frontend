@@ -3,8 +3,7 @@
 import { sortRecipes } from '@/data';
 import { ICategory, ISelectOption } from '@/utils/interfaces';
 
-import { LoadMoreRecipes } from '../blocks';
-import { CardsListRecipes } from '../blocks/cardsList';
+import { CardsItems, LoadMoreRecipes } from '../blocks';
 import { Select } from '../ui/selects/Select';
 
 const RECIPES_PER_PAGE: number = 16;
@@ -31,7 +30,7 @@ export const CategoryContent = ({ recipes, description, name }: Omit<ICategory, 
           </div>
           <Select onChange={onChangeSelect} value={sortRecipes[0]} options={sortRecipes} className="w-52" />
         </div>
-        <CardsListRecipes cards={initialRecipes} nothingMsg={'Рецептов данной категории нет'} />
+        <CardsItems type="recipe" cards={initialRecipes} nothingMsg={'Рецептов данной категории нет'} />
         <LoadMoreRecipes remainingRecipes={remainingRecipes} perPage={RECIPES_PER_PAGE} />
       </div>
     </section>

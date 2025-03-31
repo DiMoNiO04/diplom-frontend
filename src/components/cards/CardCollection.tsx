@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { ICollection } from '@/utils/interfaces';
 import { EUrls } from '@/utils/urls';
 
-export const CardCollection = ({ slug, img, name, recipes }: ICollection) => {
+export const CardCollection = ({ slug, img, name, recipes }: Omit<ICollection, 'description'>) => {
   const linkUrl: string = `${EUrls.COLLECTIONS}/${slug}`;
 
   return (

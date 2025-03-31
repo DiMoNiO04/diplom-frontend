@@ -5,7 +5,7 @@ import { ChangeEvent, useState } from 'react';
 import { categoriesData } from '@/data';
 import { useDebounce } from '@/hooks';
 
-import { CardsListCategories } from '../blocks/cardsList';
+import { CardsItems } from '../blocks';
 import { CloseIcon } from '../icons';
 
 const DELAY_DEBOUNCE: number = 300;
@@ -41,7 +41,7 @@ export const CategoriesAll = () => {
             )}
           </div>
         </div>
-        <CardsListCategories cards={filteredCategories} nothingMsg="Категорий нет" />
+        <CardsItems type="category" cards={filteredCategories} nothingMsg="Категорий нет" />
       </div>
     </section>
   );
