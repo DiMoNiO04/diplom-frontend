@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 
-import { CollectionContent } from '@/components/sections';
+import { RecipesContent } from '@/components/sections';
 import { collectionsData } from '@/data';
 import { ICollection } from '@/utils/interfaces';
 
@@ -28,7 +28,7 @@ export default async function CollectionPage({ params }: ICollectionPageProps) {
 
   return (
     <>
-      <CollectionContent {...collection} />
+      <RecipesContent {...collection} />
     </>
   );
 }
