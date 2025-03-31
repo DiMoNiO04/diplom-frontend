@@ -1,5 +1,5 @@
 import { categoriesData } from './categories';
-import { curatedCollectionsData } from './curatedCollections';
+import { collectionsData } from './collections';
 import { menuFooterData } from './menuFooter';
 import { menuHeaderData } from './menuHeader';
 import { recipesData } from './recipes';
@@ -9,7 +9,7 @@ import { superDeliciouesData } from './superDelicioues';
 
 export {
   categoriesData,
-  curatedCollectionsData,
+  collectionsData,
   menuFooterData,
   menuHeaderData,
   recipesData,

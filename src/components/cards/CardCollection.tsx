@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { ICuratedCollection } from '@/utils/interfaces';
+import { ICollection } from '@/utils/interfaces';
 import { EUrls } from '@/utils/urls';
 
-export const CardCuratedCollection = ({ slug, img, name, countRecipes }: ICuratedCollection) => {
+export const CardCollection = ({ slug, img, name, recipes }: ICollection) => {
   const linkUrl: string = `${EUrls.COLLECTIONS}/${slug}`;
 
   return (
@@ -22,7 +22,7 @@ export const CardCuratedCollection = ({ slug, img, name, countRecipes }: ICurate
           transition-colors duration-300 hover:bg-orange hover:text-white hover:border-orange
         `}
         >
-          {countRecipes} рецептов
+          {recipes.length} рецептов
         </div>
       </div>
     </Link>
