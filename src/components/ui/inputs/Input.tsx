@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { cloneElement, InputHTMLAttributes, isValidElement, ReactElement, ReactNode } from 'react';
+import { cloneElement, CSSProperties, InputHTMLAttributes, isValidElement, ReactElement, ReactNode } from 'react';
 
 import { ErrorMsgInput } from './ErrorMsgInput';
 
@@ -9,7 +9,9 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Input = ({ placeholder, error, type, icon, value = '', onChange }: IInputProps) => {
-  const iconElement = isValidElement(icon) ? cloneElement(icon as ReactElement, { color: error && '#F85A81' }) : null;
+  const iconElement = isValidElement(icon)
+    ? cloneElement(icon as ReactElement<{ style?: CSSProperties }>, { style: { color: error ? '#F85A81' : undefined } })
+    : null;
 
   return (
     <div className="relative flex flex-col gap-y-0.5">

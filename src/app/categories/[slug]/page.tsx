@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 
-import { CategoryContent, CategoryHeaderImage } from '@/components/sections';
+import { CategoryHeaderImage, RecipesContent } from '@/components/sections';
 import { categoriesData } from '@/data';
 import { ICategory } from '@/utils/interfaces';
 
@@ -24,12 +24,12 @@ interface ICategoryPageProps {
 }
 
 export default async function CategoryPage({ params }: ICategoryPageProps) {
-  const category = await fetchCategory(await params);
+  const category: ICategory = await fetchCategory(await params);
 
   return (
     <>
       <CategoryHeaderImage img={category.fullImage} />
-      <CategoryContent {...category} />
+      <RecipesContent {...category} />
     </>
   );
 }

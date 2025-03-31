@@ -1,0 +1,118 @@
+import { ICollection } from '@/utils/interfaces';
+
+import { recipesData } from './recipes';
+
+export const collectionsData: ICollection[] = [
+  {
+    slug: 'sushi-combos-for-your-next-party',
+    name: 'Суши-комбо для вашей следующей вечеринки',
+    description: 'Наслаждайтесь лучшими комбинациями суши для вашего праздника.',
+    img: '/img/collections/sushiCombosyourNextParty.webp',
+    recipes: recipesData,
+  },
+  {
+    slug: 'delicious-bagel-for-every-taste',
+    name: 'Вкусная булочка на любой вкус',
+    description: 'Попробуйте разнообразные вариации вкусных булочек.',
+    img: '/img/collections/everythingBagel.webp',
+    recipes: recipesData,
+  },
+  {
+    slug: 'cook-like-a-chef',
+    name: 'Готовьте как шеф-повар',
+    description: 'Научитесь готовить, как профессиональный шеф-повар.',
+    img: '/img/collections/cookLikeChef.webp',
+    recipes: recipesData,
+  },
+  {
+    slug: 'exquisite-dinner-recipe-ideas',
+    name: 'Идеи рецептов изысканного ужина',
+    description: 'Побалуйте себя и своих близких утонченными блюдами.',
+    img: '/img/collections/exquisiteDinnerRecipeIdeas.webp',
+    recipes: recipesData,
+  },
+  {
+    slug: 'ultimate-cookie-frenzy',
+    name: 'Настоящее безумие печенья',
+    description: 'Разнообразные рецепты печенья для сладкоежек.',
+    img: '/img/collections/theUltimateCookieFrenzy.webp',
+    recipes: recipesData,
+  },
+  {
+    slug: 'for-the-love-of-donuts',
+    name: 'Ради любви к пончикам',
+    description: 'Вкуснейшие пончики для всех любителей сладкого.',
+    img: '/img/collections/forLoveDonuts.webp',
+    recipes: recipesData,
+  },
+  {
+    slug: 'hearty-soups-for-cold-days',
+    name: 'Сытные супы для холодных дней',
+    description: 'Идеальные согревающие супы для уютных вечеров.',
+    img: '/img/collections/exquisiteDinnerRecipeIdeas.webp',
+    recipes: recipesData,
+  },
+  {
+    slug: 'grilling-season-favorites',
+    name: 'Любимые блюда сезона гриля',
+    description: 'Лучшие рецепты для летних пикников и барбекю.',
+    img: '/img/collections/cookLikeChef.webp',
+    recipes: recipesData,
+  },
+  {
+    slug: 'refreshing-summer-salads',
+    name: 'Освежающие летние салаты',
+    description: 'Легкие и полезные салаты для летних дней.',
+    img: '/img/collections/everythingBagel.webp',
+    recipes: recipesData,
+  },
+  {
+    slug: 'homemade-pizza-night',
+    name: 'Домашняя пицца вечер',
+    description: 'Создавайте вкусную домашнюю пиццу с легкостью.',
+    img: '/img/collections/sushiCombosyourNextParty.webp',
+    recipes: recipesData,
+  },
+  {
+    slug: 'cozy-winter-desserts',
+    name: 'Уютные зимние десерты',
+    description: 'Нежные и согревающие десерты для зимних вечеров.',
+    img: '/img/collections/theUltimateCookieFrenzy.webp',
+    recipes: recipesData,
+  },
+  {
+    slug: 'quick-and-easy-breakfasts',
+    name: 'Быстрые и легкие завтраки',
+    description: 'Легкие и питательные идеи для быстрого завтрака.',
+    img: '/img/collections/forLoveDonuts.webp',
+    recipes: recipesData,
+  },
+  {
+    slug: 'gourmet-vegetarian-dishes',
+    name: 'Гурманские вегетарианские блюда',
+    description: 'Изысканные блюда без мяса для гурманов.',
+    img: '/img/collections/exquisiteDinnerRecipeIdeas.webp',
+    recipes: recipesData,
+  },
+  {
+    slug: 'holiday-feast-ideas',
+    name: 'Идеи праздничных угощений',
+    description: 'Рецепты для ярких и вкусных праздников.',
+    img: '/img/collections/cookLikeChef.webp',
+    recipes: recipesData,
+  },
+  {
+    slug: 'street-food-inspiration',
+    name: 'Уличная еда: вдохновение',
+    description: 'Попробуйте уличную еду со всего мира.',
+    img: '/img/collections/everythingBagel.webp',
+    recipes: recipesData,
+  },
+  {
+    slug: 'best-bbq-recipes',
+    name: 'Лучшие рецепты барбекю',
+    description: 'Советы и рецепты для идеального барбекю.',
+    img: '/img/collections/sushiCombosyourNextParty.webp',
+    recipes: recipesData,
+  },
+];

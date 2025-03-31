@@ -39,11 +39,12 @@ interface IIcon {
   onClick?: () => void;
 }
 
-interface ICuratedCollection {
+interface ICollection {
   slug: string;
   name: string;
   img: string;
-  countRecipes: number;
+  description?: string;
+  recipes: IRecipe[];
 }
 
 interface ISuperDeliciious {
@@ -66,7 +67,7 @@ interface ISelectOption {
 
 export type {
   ICategory,
-  ICuratedCollection,
+  ICollection,
   IIcon,
   ILink,
   IMainSliderSlide,

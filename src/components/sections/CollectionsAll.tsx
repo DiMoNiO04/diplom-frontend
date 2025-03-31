@@ -2,34 +2,37 @@
 
 import { ChangeEvent, useState } from 'react';
 
-import { categoriesData } from '@/data';
+import { collectionsData } from '@/data';
 import { useDebounce } from '@/hooks';
 
-import { CardsItems } from '../blocks';
+import { CardsItems, LoadMoreCollections } from '../blocks';
 import { CloseIcon } from '../icons';
 
+const RECIPES_PER_PAGE: number = 15;
 const DELAY_DEBOUNCE: number = 300;
 
-export const CategoriesAll = () => {
+export const CollectionsAll = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const { debouncedValue } = useDebounce({ value: searchQuery, delay: DELAY_DEBOUNCE });
 
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => setSearchQuery(event.target.value);
   const handleClearSearch = () => setSearchQuery('');
 
-  const filteredCategories = categoriesData.filter((collection) =>
+  const filteredCollections = collectionsData.filter((collection) =>
     collection.name.toLowerCase().includes(debouncedValue.toLowerCase())
   );
+  const initialCollections = filteredCollections.slice(0, RECIPES_PER_PAGE);
+  const remainingCollections = filteredCollections.slice(RECIPES_PER_PAGE);
 
   return (
     <section className="my-24">
       <div className="custom-container">
         <div className="flex justify-between items-end mb-16 border-b border-gray-300">
-          <h1 className="font-unbounded text-4xl pb-8">Категории</h1>
+          <h1 className="font-unbounded text-4xl pb-8">Коллекции</h1>
           <div className="relative w-64 flex items-center justify-between gap-x-4 pb-4">
             <input
               type="text"
-              placeholder="Поиск категорий..."
+              placeholder="Поиск коллекций..."
               value={searchQuery}
               onChange={handleSearchChange}
               className="text-black placeholder:text-lightGrey box-border text-left w-full "
@@ -41,7 +44,8 @@ export const CategoriesAll = () => {
             )}
           </div>
         </div>
-        <CardsItems type="category" cards={filteredCategories} nothingMsg="Категорий нет" />
+        <CardsItems type="collection" cards={initialCollections} nothingMsg="Ничего не найдено" />
+        <LoadMoreCollections remainingCollections={remainingCollections} perPage={RECIPES_PER_PAGE} />
       </div>
     </section>
   );
