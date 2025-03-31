@@ -1,20 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { ICardSuperDeliciious } from '@/utils/interfaces';
+import { ISuperDeliciious } from '@/utils/interfaces';
 import { EUrls } from '@/utils/urls';
 
 import { RecipeRating } from '../blocks';
 
-export const CardSuperdelicious = ({
-  id,
-  name,
-  img,
-  countComments,
-  createdDate,
-  rating,
-  author,
-}: ICardSuperDeliciious) => {
+export const CardSuperdelicious = ({ id, name, img, countComments, createdDate, rating, author }: ISuperDeliciious) => {
   const linkUrlRecipe: string = `${EUrls.RECIPES}/${id}`;
 
   return (

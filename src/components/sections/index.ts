@@ -1,4 +1,5 @@
 import { CategoriesAll } from './CategoriesAll';
+import { CategoryHeaderImage } from './CategoryHeaderImage';
 import { CuratedCollections } from './CuratedCollections';
 import { EmailNewsletter } from './EmailNewsletter';
 import { LatestRecipes } from './LatestRecipes';
@@ -9,6 +10,7 @@ import { SuperDelicioues } from './SuperDelicioues';
 
 export {
   CategoriesAll,
+  CategoryHeaderImage,
   CuratedCollections,
   EmailNewsletter,
   LatestRecipes,

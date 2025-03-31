@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { ICardCuratedCollection } from '@/utils/interfaces';
+import { ICuratedCollection } from '@/utils/interfaces';
 import { EUrls } from '@/utils/urls';
 
-export const CardCuratedCollection = ({ slug, img, name, countRecipes }: ICardCuratedCollection) => {
+export const CardCuratedCollection = ({ slug, img, name, countRecipes }: ICuratedCollection) => {
   const linkUrl: string = `${EUrls.COLLECTIONS}/${slug}`;
 
   return (

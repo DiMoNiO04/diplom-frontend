@@ -1,6 +1,6 @@
-import { ICardCuratedCollection } from '@/utils/interfaces';
+import { ICuratedCollection } from '@/utils/interfaces';
 
-export const curatedCollectionsData: ICardCuratedCollection[] = [
+export const curatedCollectionsData: ICuratedCollection[] = [
   {
     slug: 'sushi-combos-for-your-next-party',
     name: 'Суши-комбо для вашей следующей вечеринки',

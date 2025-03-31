@@ -1,6 +1,6 @@
-import { ICardSuperDeliciious } from '@/utils/interfaces';
+import { ISuperDeliciious } from '@/utils/interfaces';
 
-export const superDeliciouesData: ICardSuperDeliciious[] = [
+export const superDeliciouesData: ISuperDeliciious[] = [
   {
     id: 2,
     name: 'Веганский рис с кешью',

@@ -1,6 +1,6 @@
-import { ICardRecipe } from '@/utils/interfaces';
+import { IRecipe } from '@/utils/interfaces';
 
-export const recipesData: ICardRecipe[] = [
+export const recipesData: IRecipe[] = [
   {
     id: 1,
     name: 'Карамельно-клубничный молочный коктейль',

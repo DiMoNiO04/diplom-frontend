@@ -1,10 +1,10 @@
-import { ICardRecipe } from '@/utils/interfaces';
+import { IRecipe } from '@/utils/interfaces';
 
 import { CardRecipe } from '../cards';
 import { NothingMsg } from '../ui';
 
 interface IRecipesCardsList {
-  cards?: ICardRecipe[];
+  cards?: IRecipe[];
   nothingMsg: string;
 }
 
