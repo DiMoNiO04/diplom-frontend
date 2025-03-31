@@ -12,7 +12,7 @@ interface ICategory {
   name: string;
   img: string;
   fullImage: string;
-  description: string;
+  description?: string;
   recipes: IRecipe[];
 }
 
@@ -59,4 +59,19 @@ interface ISuperDeliciious {
   };
 }
 
-export type { ICategory, ICuratedCollection, IIcon, ILink, IMainSliderSlide, IRecipe, ISuperDeliciious, ITitle };
+interface ISelectOption {
+  text: string;
+  value: string | number;
+}
+
+export type {
+  ICategory,
+  ICuratedCollection,
+  IIcon,
+  ILink,
+  IMainSliderSlide,
+  IRecipe,
+  ISelectOption,
+  ISuperDeliciious,
+  ITitle,
+};

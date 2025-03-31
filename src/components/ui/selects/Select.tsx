@@ -1,0 +1,58 @@
+'use client';
+
+import clsx from 'clsx';
+
+import { ArrowCarretRoundedIcon } from '@/components/icons';
+import { useSelect } from '@/hooks';
+import { ISelectOption } from '@/utils/interfaces';
+
+import { ErrorMsgInput } from '../inputs/ErrorMsgInput';
+import { SelectList } from './SelectList';
+
+interface ISelect {
+  value?: ISelectOption | null;
+  onChange: (value: ISelectOption) => void;
+  options: ISelectOption[];
+  placeholder?: string;
+  error?: string;
+  className?: string;
+}
+
+export const Select = ({ options, value, onChange, placeholder, error, className }: ISelect) => {
+  const { selectedOption, isOpen, selectRef, handleSelect, toggleOpen } = useSelect(value);
+
+  const handleSelectChange = (option: ISelectOption) => {
+    handleSelect(option);
+    onChange(option);
+  };
+
+  const hasOptions = options && options.length > 0;
+
+  return (
+    <div className={clsx('relative flex flex-col gap-y-0.5', className)} ref={selectRef}>
+      <div
+        className={clsx(
+          'flex w-full items-center justify-between gap-x-4 rounded-md border border-black bg-white px-5 py-1.5',
+          'transition-colors duration-300 ease-out',
+          hasOptions ? 'cursor-pointer' : 'cursor-default opacity-70'
+        )}
+        onClick={hasOptions ? toggleOpen : undefined}
+      >
+        <div className="text-def transition-colors duration-300">
+          {selectedOption?.text || value?.text || placeholder}
+        </div>
+        {hasOptions && (
+          <div className={clsx('transition-transform duration-300', isOpen && 'rotate-180')}>
+            <ArrowCarretRoundedIcon />
+          </div>
+        )}
+      </div>
+
+      {hasOptions && isOpen && (
+        <SelectList options={options} selectedOption={selectedOption} onSelect={handleSelectChange} />
+      )}
+
+      <ErrorMsgInput error={error} />
+    </div>
+  );
+};

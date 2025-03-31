@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 
-import { CategoryHeaderImage } from '@/components/sections';
+import { CategoryContent, CategoryHeaderImage } from '@/components/sections';
 import { categoriesData } from '@/data';
 import { ICategory } from '@/utils/interfaces';
 
@@ -29,6 +29,7 @@ export default async function CategoryPage({ params }: ICategoryPageProps) {
   return (
     <>
       <CategoryHeaderImage img={category.fullImage} />
+      <CategoryContent {...category} />
     </>
   );
 }

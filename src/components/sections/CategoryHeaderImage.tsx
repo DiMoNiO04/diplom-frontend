@@ -6,8 +6,8 @@ interface ICategoryHeaderImageProps {
 
 export const CategoryHeaderImage = ({ img }: ICategoryHeaderImageProps) => {
   return (
-    <section className="w-full h-72 relative">
-      <Image src={img} alt="" layout="fill" objectFit="cover" />
+    <section className="w-full h-72 relative mb-24">
+      <Image src={img} alt="" fill style={{ objectFit: 'cover' }} />
     </section>
   );
 };
