@@ -5,6 +5,7 @@ import { CuratedCollections } from './CuratedCollections';
 import { EmailNewsletter } from './EmailNewsletter';
 import { LatestRecipes } from './LatestRecipes';
 import { MainSlider } from './MainSlider';
+import { NotFoundContent } from './NotFoundContent';
 import { PopularCategories } from './PopularCategories';
 import { RecipesContent } from './RecipesContent';
 import { ShareYourRecipe } from './ShareYourRecipe';
@@ -18,6 +19,7 @@ export {
   EmailNewsletter,
   LatestRecipes,
   MainSlider,
+  NotFoundContent,
   PopularCategories,
   RecipesContent,
   ShareYourRecipe,
