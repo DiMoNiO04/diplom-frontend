@@ -1,14 +1,13 @@
+import { CardRecipe } from '@/components/cards';
+import { NothingMsg } from '@/components/ui';
 import { IRecipe } from '@/utils/interfaces';
 
-import { CardRecipe } from '../cards';
-import { NothingMsg } from '../ui';
-
-interface IRecipesCardsList {
+interface ICardsListRecipes {
   cards?: IRecipe[];
   nothingMsg: string;
 }
 
-export const RecipesCardsList = ({ cards, nothingMsg }: IRecipesCardsList) => {
+export const CardsListRecipes = ({ cards, nothingMsg }: ICardsListRecipes) => {
   if (!cards || cards.length === 0) {
     return <NothingMsg title={nothingMsg} />;
   }

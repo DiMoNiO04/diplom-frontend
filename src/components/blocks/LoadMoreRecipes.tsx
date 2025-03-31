@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { IRecipe } from '@/utils/interfaces';
 
 import { Button } from '../ui';
-import { RecipesCardsList } from '.';
+import { CardsListRecipes } from './cardsList';
 
 interface ILoadMoreRecipesProps {
   remainingRecipes: IRecipe[];
@@ -23,7 +23,7 @@ export const LoadMoreRecipes = ({ remainingRecipes, perPage }: ILoadMoreRecipesP
 
   return (
     <>
-      {hasRecipes && <RecipesCardsList cards={visibleRecipes} nothingMsg="" />}
+      {hasRecipes && <CardsListRecipes cards={visibleRecipes} nothingMsg="" />}
       {hasMore && (
         <div className="w-full flex items-center justify-center">
           <Button text="Загрузить еще" onClick={handleLoadMore} />

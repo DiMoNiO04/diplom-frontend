@@ -1,14 +1,13 @@
+import { CardCollection } from '@/components/cards';
+import { NothingMsg } from '@/components/ui';
 import { ICollection } from '@/utils/interfaces';
 
-import { CardCollection } from '../cards';
-import { NothingMsg } from '../ui';
-
-interface ICollectionCardsList {
+interface ICardsListCollection {
   cards?: ICollection[];
   nothingMsg: string;
 }
 
-export const CollectionsCardsList = ({ cards, nothingMsg }: ICollectionCardsList) => {
+export const CardsListCollections = ({ cards, nothingMsg }: ICardsListCollection) => {
   if (!cards || cards.length === 0) {
     return <NothingMsg title={nothingMsg} />;
   }

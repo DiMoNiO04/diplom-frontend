@@ -10,11 +10,11 @@ export const menuHeaderData = [
     link: EUrls.CATEGORIES,
   },
   {
-    name: 'Рецепты',
-    link: EUrls.RECIPES,
-  },
-  {
     name: 'Коллекции',
     link: EUrls.COLLECTIONS,
+  },
+  {
+    name: 'Рецепты',
+    link: EUrls.RECIPES,
   },
 ];

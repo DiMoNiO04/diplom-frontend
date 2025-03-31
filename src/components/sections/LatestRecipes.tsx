@@ -1,7 +1,8 @@
 import { recipesData } from '@/data';
 import { EUrls } from '@/utils/urls';
 
-import { RecipesCardsList, TitleSectionBlock } from '../blocks';
+import { TitleSectionBlock } from '../blocks';
+import { CardsListRecipes } from '../blocks/cardsList';
 import { LoadMoreRecipes } from '../blocks/LoadMoreRecipes';
 
 const RECIPES_PER_PAGE: number = 8;
@@ -14,7 +15,7 @@ export const LatestRecipes = () => {
     <section className="mb-24">
       <div className="custom-container">
         <TitleSectionBlock title="Последние рецепты" linkUrl={EUrls.RECIPES} />
-        <RecipesCardsList cards={initialRecipes} nothingMsg="Рецептов на данный момент нет!" />
+        <CardsListRecipes cards={initialRecipes} nothingMsg="Рецептов на данный момент нет!" />
         <LoadMoreRecipes remainingRecipes={remainingRecipes} perPage={RECIPES_PER_PAGE} />
       </div>
     </section>

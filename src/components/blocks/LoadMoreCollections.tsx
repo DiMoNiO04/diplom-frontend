@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { ICollection } from '@/utils/interfaces';
 
 import { Button } from '../ui';
-import { CollectionsCardsList } from '.';
+import { CardsListCollections } from './cardsList';
 
 interface ILoadMoreRecipesProps {
   remainingCollections: ICollection[];
@@ -23,7 +23,7 @@ export const LoadMoreCollections = ({ remainingCollections, perPage }: ILoadMore
 
   return (
     <>
-      {hasCollections && <CollectionsCardsList cards={visibleCollections} nothingMsg="Коллекций в данный момент нет" />}
+      {hasCollections && <CardsListCollections cards={visibleCollections} nothingMsg="Коллекций в данный момент нет" />}
       {hasMore && (
         <div className="w-full flex items-center justify-center">
           <Button text="Загрузить еще" onClick={handleLoadMore} />
