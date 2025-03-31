@@ -1,4 +1,4 @@
-import { CategoriesAll, CollectionsAll } from '@/components/sections';
+import { CollectionsAll } from '@/components/sections';
 
 export default function CollectionsPage() {
   return (
