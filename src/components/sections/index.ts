@@ -1,6 +1,7 @@
 import { CategoriesAll } from './CategoriesAll';
 import { CategoryContent } from './CategoryContent';
 import { CategoryHeaderImage } from './CategoryHeaderImage';
+import { CollectionContent } from './CollectionContent';
 import { CollectionsAll } from './CollectionsAll';
 import { CuratedCollections } from './CuratedCollections';
 import { EmailNewsletter } from './EmailNewsletter';
@@ -14,6 +15,7 @@ export {
   CategoriesAll,
   CategoryContent,
   CategoryHeaderImage,
+  CollectionContent,
   CollectionsAll,
   CuratedCollections,
   EmailNewsletter,

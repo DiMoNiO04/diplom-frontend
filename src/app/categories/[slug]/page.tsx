@@ -24,7 +24,7 @@ interface ICategoryPageProps {
 }
 
 export default async function CategoryPage({ params }: ICategoryPageProps) {
-  const category = await fetchCategory(await params);
+  const category: ICategory = await fetchCategory(await params);
 
   return (
     <>

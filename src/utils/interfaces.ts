@@ -43,6 +43,7 @@ interface ICollection {
   slug: string;
   name: string;
   img: string;
+  description?: string;
   recipes: IRecipe[];
 }
 
