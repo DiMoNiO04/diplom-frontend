@@ -1,4 +1,5 @@
 import { AboutMain } from './AboutMain';
+import { AlsoLike } from './AlsoLike';
 import { CategoriesAll } from './CategoriesAll';
 import { CategoryHeaderImage } from './CategoryHeaderImage';
 import { CollectionsAll } from './CollectionsAll';
@@ -17,6 +18,7 @@ import { TalentTeam } from './TalentTeam';
 
 export {
   AboutMain,
+  AlsoLike,
   CategoriesAll,
   CategoryHeaderImage,
   CollectionsAll,
