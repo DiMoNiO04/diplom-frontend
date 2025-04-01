@@ -7,7 +7,7 @@ import { InputPassword } from './inputs/InputPassword';
 import { LinkTitleSection } from './LinkTtitleSection';
 import { Logo } from './Logo';
 import { NothingMsg } from './NothingMsg';
-import { SecondTitle } from './SecondTitle';
+import { Title } from './Title';
 
 export {
   BtnCloseModal,
@@ -19,5 +19,5 @@ export {
   LinkTitleSection,
   Logo,
   NothingMsg,
-  SecondTitle,
+  Title,
 };

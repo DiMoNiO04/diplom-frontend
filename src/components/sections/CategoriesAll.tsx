@@ -7,6 +7,7 @@ import { useDebounce } from '@/hooks';
 
 import { CardsItems } from '../blocks';
 import { CloseIcon } from '../icons';
+import { Title } from '../ui';
 
 const DELAY_DEBOUNCE: number = 300;
 
@@ -25,7 +26,7 @@ export const CategoriesAll = () => {
     <section className="my-24">
       <div className="custom-container">
         <div className="flex justify-between items-end mb-16 border-b border-gray-300">
-          <h1 className="font-unbounded text-4xl pb-8">Категории</h1>
+          <Title title={'Категории'} className="pb-8" />
           <div className="relative w-64 flex items-center justify-between gap-x-4 pb-4">
             <input
               type="text"

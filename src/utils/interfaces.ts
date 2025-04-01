@@ -65,6 +65,13 @@ interface ISelectOption {
   value: string | number;
 }
 
+interface ITeamAuthor {
+  id: number;
+  img: string;
+  name: string;
+  description: string;
+}
+
 export type {
   ICategory,
   ICollection,
@@ -74,5 +81,6 @@ export type {
   IRecipe,
   ISelectOption,
   ISuperDeliciious,
+  ITeamAuthor,
   ITitle,
 };
