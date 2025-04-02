@@ -24,12 +24,13 @@ interface IRecipe {
   instructions: string;
   cookingTime: number;
   calories: number;
-  img: string;
+  img: string[];
   isPublished: boolean;
   createdAt: string;
-  author?: number;
+  author: number;
   category: string;
   percentMakeAgain: number;
+  rating: number;
 }
 
 interface IAuthorRecipe {

@@ -9,7 +9,7 @@ interface IRecipeContentInfoProps {
 
 export const RecipeContentInfo = ({ calories, cookingTime, ingredients, instructions }: IRecipeContentInfoProps) => {
   return (
-    <section className="mb-24">
+    <section className="mb-20">
       <div className="custom-container">
         <div className="flex flex-col gap-y-16">
           <RecipesInfo calories={calories} cookingTime={cookingTime} />

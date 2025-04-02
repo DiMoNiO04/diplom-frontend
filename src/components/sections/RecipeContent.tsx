@@ -1,6 +1,6 @@
 import { IRecipe } from '@/utils/interfaces';
 
-import { RecipeIngredients, RecipeInstruction, RecipesInfo, RecipeTopInfo } from '../blocks/recipe';
+import { RecipeTopInfo } from '../blocks/recipe';
 import { NothingMsg } from '../ui';
 import { RecipeContentInfo } from './RecipeContentInfo';
 
@@ -15,12 +15,23 @@ export const RecipeContent = ({
   ingredients,
   instructions,
   percentMakeAgain,
+  createdAt,
+  author,
+  rating,
 }: IRecipe) => {
   return (
     <>
       {isPublished ? (
         <>
-          <RecipeTopInfo name={name} description={description} percentMakeAgain={percentMakeAgain} />
+          <RecipeTopInfo
+            rating={rating}
+            createdAt={createdAt}
+            img={img}
+            name={name}
+            author={author}
+            description={description}
+            percentMakeAgain={percentMakeAgain}
+          />
           <RecipeContentInfo
             calories={calories}
             cookingTime={cookingTime}
@@ -29,7 +40,7 @@ export const RecipeContent = ({
           />
         </>
       ) : (
-        <section className="my-24">
+        <section className="my-20">
           <div className="custom-container">
             <NothingMsg title="Не опубликовано, находится на модерации" />
           </div>

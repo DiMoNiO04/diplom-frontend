@@ -4,7 +4,7 @@ import { Title } from '../ui';
 
 export const SimpleRecipes = () => {
   return (
-    <section className="mb-24">
+    <section className="mb-20">
       <div className="custom-container">
         <div className="grid grid-cols-2 gap-x-10 items-stretch">
           <div className="flex flex-col gap-y-10">

@@ -6,7 +6,7 @@ interface IPrivacyPolicy {
 
 const PrivacyPolicyContent = ({ content }: IPrivacyPolicy) => {
   return (
-    <section className="my-24">
+    <section className="my-20">
       <div className="custom-container">
         <Title title="Политика конфиденциальности" isBorder />
         <div className="privacy-content" dangerouslySetInnerHTML={{ __html: content }} />

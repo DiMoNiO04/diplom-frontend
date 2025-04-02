@@ -26,7 +26,7 @@ export const CollectionsAll = () => {
   const remainingCollections = filteredCollections.slice(RECIPES_PER_PAGE);
 
   return (
-    <section className="my-24">
+    <section className="my-20">
       <div className="custom-container">
         <div className="flex justify-between items-end mb-16 border-b border-gray-300">
           <Title title={'Коллекции'} className="pb-8" />

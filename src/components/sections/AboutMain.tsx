@@ -4,7 +4,7 @@ import { Title } from '../ui';
 
 export const AboutMain = () => {
   return (
-    <section className="my-24">
+    <section className="my-20">
       <div className="custom-container">
         <Title title="О нас" isBorder />
         <div className="flex flex-col gap-y-10">

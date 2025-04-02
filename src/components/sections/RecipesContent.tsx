@@ -23,7 +23,7 @@ export const RecipesContent = ({ recipes, description, name }: IRecipesContentPr
   const onChangeSelect = (value: ISelectOption) => alert(`Выбрана сортировка ${value.value}`);
 
   return (
-    <section className="mb-24 mt-24">
+    <section className="mb-20 mt-20">
       <div className="custom-container">
         <div className="flex justify-between items-end mb-12">
           <div className="flex flex-col gap-y-2 max-w-3xl">

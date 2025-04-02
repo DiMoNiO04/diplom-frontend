@@ -5,7 +5,7 @@ import { Title } from '../ui';
 
 export const TalentTeam = () => {
   return (
-    <section className="mb-24">
+    <section className="mb-20">
       <div className="custom-container">
         <div className="flex flex-col gap-y-10">
           <Title title="Невероятная команда талантливых поваров и гурманов" type="h2" />
