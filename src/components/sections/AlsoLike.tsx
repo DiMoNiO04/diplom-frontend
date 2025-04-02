@@ -11,12 +11,12 @@ const PER_PAGE_RECIPES: number = 4;
 
 export const AlsoLike = ({ idRecipe, category }: IAlsoLikeProps) => {
   let filteredRecipes = recipesData
-    .filter((recipe) => recipe.id !== idRecipe && recipe.category.name === category)
+    .filter((recipe) => recipe.id !== idRecipe && recipe.category === category)
     .slice(0, PER_PAGE_RECIPES);
 
   if (filteredRecipes.length < PER_PAGE_RECIPES) {
     const additionalRecipes = recipesData
-      .filter((recipe) => recipe.id !== idRecipe && recipe.category.name !== category)
+      .filter((recipe) => recipe.id !== idRecipe && recipe.category !== category)
       .slice(0, PER_PAGE_RECIPES - filteredRecipes.length);
 
     filteredRecipes = [...filteredRecipes, ...additionalRecipes];

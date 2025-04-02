@@ -19,10 +19,23 @@ interface ICategory {
 interface IRecipe {
   id: number;
   name: string;
+  description: string;
+  ingredients: string;
+  instructions: string;
+  cookingTime: number;
+  calories: number;
   img: string;
-  category: {
-    name: string;
-  };
+  isPublished: boolean;
+  createdAt: string;
+  author?: number;
+  category: string;
+}
+
+interface IAuthorRecipe {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
 }
 
 interface IMainSliderSlide {
@@ -73,6 +86,7 @@ interface ITeamAuthor {
 }
 
 export type {
+  IAuthorRecipe,
   ICategory,
   ICollection,
   IIcon,

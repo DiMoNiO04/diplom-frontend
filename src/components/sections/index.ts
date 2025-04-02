@@ -10,6 +10,7 @@ import { MainSlider } from './MainSlider';
 import { NotFoundContent } from './NotFoundContent';
 import { Operating } from './Operating';
 import { PopularCategories } from './PopularCategories';
+import { RecipeContent } from './RecipeContent';
 import { RecipesContent } from './RecipesContent';
 import { ShareYourRecipe } from './ShareYourRecipe';
 import { SimpleRecipes } from './SimpleRecipes';
@@ -29,6 +30,7 @@ export {
   NotFoundContent,
   Operating,
   PopularCategories,
+  RecipeContent,
   RecipesContent,
   ShareYourRecipe,
   SimpleRecipes,
