@@ -19,10 +19,25 @@ interface ICategory {
 interface IRecipe {
   id: number;
   name: string;
-  img: string;
-  category: {
-    name: string;
-  };
+  description: string;
+  ingredients: string;
+  instructions: string;
+  cookingTime: number;
+  calories: number;
+  img: string[];
+  isPublished: boolean;
+  createdAt: string;
+  author: number;
+  category: string;
+  percentMakeAgain: number;
+  rating: number;
+}
+
+interface IAuthorRecipe {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
 }
 
 interface IMainSliderSlide {
@@ -65,7 +80,15 @@ interface ISelectOption {
   value: string | number;
 }
 
+interface ITeamAuthor {
+  id: number;
+  img: string;
+  name: string;
+  description: string;
+}
+
 export type {
+  IAuthorRecipe,
   ICategory,
   ICollection,
   IIcon,
@@ -74,5 +97,6 @@ export type {
   IRecipe,
   ISelectOption,
   ISuperDeliciious,
+  ITeamAuthor,
   ITitle,
 };

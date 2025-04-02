@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { ButtonHTMLAttributes, ReactNode } from 'react';
 
-type TButtonVariant = 'default' | 'secondary' | 'orange';
+type TButtonVariant = 'default' | 'secondary' | 'orange' | 'red' | 'green';
 type TButtonSize = 'lg' | 'sm';
 
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -31,6 +31,8 @@ export const Button = ({
     default: 'border-black bg-white text-black hover:bg-black hover:text-white',
     secondary: 'border-orange-500 bg-orange-500 text-white hover:bg-white hover:text-orange-500',
     orange: 'border-orange bg-orange text-white hover:bg-white hover:text-orange',
+    red: 'bg-red text-white border-red hover:bg-white hover:text-red',
+    green: 'bg-green text-white border-green hover:bg-white hover:text-green',
   };
   const sizeStyles = {
     lg: 'px-10 py-2.5 text-lg',

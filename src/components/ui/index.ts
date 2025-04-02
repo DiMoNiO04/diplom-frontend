@@ -1,4 +1,6 @@
 import { BtnCloseModal } from './btns/BtnCloseModal';
+import { BtnCopy } from './btns/BtnCopy';
+import { BtnLike } from './btns/BtnLike';
 import { BtnNavigation } from './btns/BtnNavigation';
 import { Button } from './btns/Button';
 import { Input } from './inputs/Input';
@@ -7,10 +9,13 @@ import { InputPassword } from './inputs/InputPassword';
 import { LinkTitleSection } from './LinkTtitleSection';
 import { Logo } from './Logo';
 import { NothingMsg } from './NothingMsg';
-import { SecondTitle } from './SecondTitle';
+import { NotificationMsg } from './NotificationMsg';
+import { Title } from './Title';
 
 export {
   BtnCloseModal,
+  BtnCopy,
+  BtnLike,
   BtnNavigation,
   Button,
   Input,
@@ -19,5 +24,6 @@ export {
   LinkTitleSection,
   Logo,
   NothingMsg,
-  SecondTitle,
+  NotificationMsg,
+  Title,
 };

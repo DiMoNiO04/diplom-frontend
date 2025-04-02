@@ -11,7 +11,7 @@ export const LatestRecipes = () => {
   const remainingRecipes = recipesData.slice(RECIPES_PER_PAGE);
 
   return (
-    <section className="mb-24">
+    <section className="mb-20">
       <div className="custom-container">
         <TitleSectionBlock title="Последние рецепты" linkUrl={EUrls.RECIPES} />
         <CardsItems type="recipe" cards={initialRecipes} nothingMsg="Рецептов на данный момент нет!" />

@@ -4,6 +4,7 @@ import { sortRecipes } from '@/data';
 import { IRecipe, ISelectOption } from '@/utils/interfaces';
 
 import { CardsItems, LoadMoreRecipes } from '../blocks';
+import { Title } from '../ui';
 import { Select } from '../ui/selects/Select';
 
 const RECIPES_PER_PAGE: number = 16;
@@ -22,12 +23,12 @@ export const RecipesContent = ({ recipes, description, name }: IRecipesContentPr
   const onChangeSelect = (value: ISelectOption) => alert(`Выбрана сортировка ${value.value}`);
 
   return (
-    <section className="mb-24 mt-24">
+    <section className="mb-20 mt-20">
       <div className="custom-container">
         <div className="flex justify-between items-end mb-12">
-          <div className="flex flex-col gap-y-2 max-w-2xl">
+          <div className="flex flex-col gap-y-2 max-w-3xl">
             <div className="flex items-end gap-x-4">
-              <h1 className="font-unbounded text-4xl">{name}</h1>
+              <Title title={name} />
               {hasRecipes && (
                 <div className="font-onest italic text-sm flex-shrink-0 text-balance">
                   {recipes.length} рецепта(-ов)

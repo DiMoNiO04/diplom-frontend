@@ -19,7 +19,7 @@ export const EmailNewsletterForm = () => {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         autoComplete="off"
-        placeholder="Email Address"
+        placeholder="Email"
         name="email"
         className="font-unbounded size-full border-none pl-4 w-80 placeholder:font-onest"
       />

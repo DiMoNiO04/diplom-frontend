@@ -1,10 +1,5 @@
 'use client';
 
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/scrollbar';
-import 'swiper/css/autoplay';
-
 import Image from 'next/image';
 import Link from 'next/link';
 import { Autoplay, Navigation } from 'swiper/modules';
@@ -21,7 +16,7 @@ const STYLES = {
 
 export const MainSlider = () => {
   return (
-    <section className="mb-24">
+    <section className="mb-20">
       <div className="relative w-full h-[700px] group">
         <Swiper
           modules={[Autoplay, Navigation]}
@@ -43,7 +38,7 @@ export const MainSlider = () => {
                     src={slide.img}
                     alt=""
                     width={1440}
-                    height={634}
+                    height={700}
                     className="w-full h-full object-cover"
                     priority={index === 0}
                     fetchPriority="high"

@@ -5,7 +5,7 @@ import { Button } from '../ui';
 
 export const ShareYourRecipe = () => {
   return (
-    <section className="bg-pink mb-24">
+    <section className="bg-pink mb-20">
       <div className="custom-container">
         <div className="grid grid-cols-2 gap-10 py-20">
           <div className="size-full">

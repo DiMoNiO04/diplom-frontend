@@ -10,7 +10,7 @@ export const CuratedCollections = () => {
   const initialCollections = collectionsData.slice(0, CARDS_PER_PAGE);
 
   return (
-    <section className="mb-24">
+    <section className="mb-20">
       <div className="custom-container">
         <TitleSectionBlock title="Избранные коллекции" linkUrl={EUrls.COLLECTIONS} />
         <div className="grid grid-cols-3 gap-8">

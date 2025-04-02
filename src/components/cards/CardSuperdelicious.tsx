@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { ISuperDeliciious } from '@/utils/interfaces';
 import { EUrls } from '@/utils/urls';
 
-import { RecipeRating } from '../blocks';
+import { RecipeRating } from '../blocks/recipe';
 
 export const CardSuperdelicious = ({ id, name, img, countComments, createdDate, rating, author }: ISuperDeliciious) => {
   const linkUrlRecipe: string = `${EUrls.RECIPES}/${id}`;
