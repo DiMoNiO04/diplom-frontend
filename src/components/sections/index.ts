@@ -6,6 +6,7 @@ import { CategoryHeaderImage } from './CategoryHeaderImage';
 import { CollectionsAll } from './CollectionsAll';
 import { CuratedCollections } from './CuratedCollections';
 import { EmailNewsletter } from './EmailNewsletter';
+import { FavoritesContent } from './FavoritesContent';
 import { LatestRecipes } from './LatestRecipes';
 import { MainSlider } from './MainSlider';
 import { NotFoundContent } from './NotFoundContent';
@@ -30,6 +31,7 @@ export {
   CollectionsAll,
   CuratedCollections,
   EmailNewsletter,
+  FavoritesContent,
   LatestRecipes,
   MainSlider,
   NotFoundContent,

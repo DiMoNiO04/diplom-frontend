@@ -2,6 +2,7 @@ import { ArrowIcon } from './Arrow';
 import { ArrowCarretRoundedIcon } from './ArrowCarretRounded';
 import { CloseIcon } from './Close';
 import { CopyIcon } from './CopyIcon';
+import { DeleteIcon } from './Delete';
 import { EmailIcon } from './Email';
 import { FacebookIcon } from './Facebook';
 import { GoogleIcon } from './Google';
@@ -17,6 +18,7 @@ export {
   ArrowIcon,
   CloseIcon,
   CopyIcon,
+  DeleteIcon,
   EmailIcon,
   FacebookIcon,
   GoogleIcon,
