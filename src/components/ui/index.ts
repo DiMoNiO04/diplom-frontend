@@ -1,5 +1,6 @@
 import { BtnCloseModal } from './btns/BtnCloseModal';
 import { BtnCopy } from './btns/BtnCopy';
+import { BtnLike } from './btns/BtnLike';
 import { BtnNavigation } from './btns/BtnNavigation';
 import { Button } from './btns/Button';
 import { Input } from './inputs/Input';
@@ -14,6 +15,7 @@ import { Title } from './Title';
 export {
   BtnCloseModal,
   BtnCopy,
+  BtnLike,
   BtnNavigation,
   Button,
   Input,

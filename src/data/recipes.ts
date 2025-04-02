@@ -14,6 +14,7 @@ export const recipesData: IRecipe[] = [
     category: 'breakfast',
     author: 1,
     isPublished: true,
+    percentMakeAgain: 85,
   },
   {
     id: 2,
@@ -28,6 +29,7 @@ export const recipesData: IRecipe[] = [
     category: 'vegan',
     author: 2,
     isPublished: true,
+    percentMakeAgain: 89,
   },
   {
     id: 3,
@@ -42,6 +44,7 @@ export const recipesData: IRecipe[] = [
     category: 'sandwiches',
     author: 3,
     isPublished: true,
+    percentMakeAgain: 85,
   },
   {
     id: 4,
@@ -56,6 +59,7 @@ export const recipesData: IRecipe[] = [
     category: 'seafood',
     author: 1,
     isPublished: false,
+    percentMakeAgain: 90,
   },
   {
     id: 5,
@@ -70,6 +74,7 @@ export const recipesData: IRecipe[] = [
     category: 'breakfast',
     author: 3,
     isPublished: false,
+    percentMakeAgain: 91,
   },
   {
     id: 6,
@@ -84,6 +89,7 @@ export const recipesData: IRecipe[] = [
     category: 'cake',
     author: 1,
     isPublished: true,
+    percentMakeAgain: 98,
   },
   {
     id: 7,
@@ -98,6 +104,7 @@ export const recipesData: IRecipe[] = [
     category: 'desserts',
     author: 2,
     isPublished: true,
+    percentMakeAgain: 85,
   },
   {
     id: 8,
@@ -112,6 +119,7 @@ export const recipesData: IRecipe[] = [
     category: 'pastries',
     author: 3,
     isPublished: true,
+    percentMakeAgain: 85,
   },
   {
     id: 9,
@@ -126,6 +134,7 @@ export const recipesData: IRecipe[] = [
     category: 'salad',
     author: 3,
     isPublished: true,
+    percentMakeAgain: 85,
   },
   {
     id: 10,
@@ -140,6 +149,7 @@ export const recipesData: IRecipe[] = [
     category: 'soup',
     author: 3,
     isPublished: false,
+    percentMakeAgain: 88,
   },
   {
     id: 11,
@@ -154,6 +164,7 @@ export const recipesData: IRecipe[] = [
     category: 'breakfast',
     author: 1,
     isPublished: true,
+    percentMakeAgain: 87,
   },
   {
     id: 12,
@@ -168,6 +179,7 @@ export const recipesData: IRecipe[] = [
     category: 'pasta',
     author: 1,
     isPublished: true,
+    percentMakeAgain: 85,
   },
   {
     id: 13,
@@ -182,6 +194,7 @@ export const recipesData: IRecipe[] = [
     category: 'breakfast',
     author: 2,
     isPublished: true,
+    percentMakeAgain: 85,
   },
   {
     id: 14,
@@ -196,6 +209,7 @@ export const recipesData: IRecipe[] = [
     category: 'burger',
     author: 1,
     isPublished: false,
+    percentMakeAgain: 88,
   },
   {
     id: 15,
@@ -210,6 +224,7 @@ export const recipesData: IRecipe[] = [
     category: 'breakfast',
     author: 1,
     isPublished: true,
+    percentMakeAgain: 80,
   },
   {
     id: 16,
@@ -224,6 +239,7 @@ export const recipesData: IRecipe[] = [
     category: 'breakfast',
     author: 2,
     isPublished: true,
+    percentMakeAgain: 85,
   },
   {
     id: 17,
@@ -238,6 +254,7 @@ export const recipesData: IRecipe[] = [
     category: 'pastries',
     author: 2,
     isPublished: true,
+    percentMakeAgain: 85,
   },
   {
     id: 18,
@@ -252,6 +269,7 @@ export const recipesData: IRecipe[] = [
     category: 'breakfast',
     author: 1,
     isPublished: false,
+    percentMakeAgain: 85,
   },
   {
     id: 19,
@@ -266,6 +284,7 @@ export const recipesData: IRecipe[] = [
     category: 'breakfast',
     author: 2,
     isPublished: true,
+    percentMakeAgain: 85,
   },
   {
     id: 20,
@@ -280,6 +299,7 @@ export const recipesData: IRecipe[] = [
     category: 'breakfast',
     author: 2,
     isPublished: true,
+    percentMakeAgain: 85,
   },
   {
     id: 21,
@@ -294,6 +314,7 @@ export const recipesData: IRecipe[] = [
     category: 'desserts',
     author: 1,
     isPublished: true,
+    percentMakeAgain: 85,
   },
   {
     id: 22,
@@ -308,6 +329,7 @@ export const recipesData: IRecipe[] = [
     category: 'pastries',
     author: 3,
     isPublished: false,
+    percentMakeAgain: 85,
   },
   {
     id: 23,
@@ -322,6 +344,7 @@ export const recipesData: IRecipe[] = [
     category: 'seafood',
     author: 2,
     isPublished: true,
+    percentMakeAgain: 85,
   },
   {
     id: 24,
@@ -336,5 +359,6 @@ export const recipesData: IRecipe[] = [
     category: 'pancakes',
     author: 1,
     isPublished: true,
+    percentMakeAgain: 85,
   },
 ];

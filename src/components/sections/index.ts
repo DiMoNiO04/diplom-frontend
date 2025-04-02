@@ -12,6 +12,7 @@ import { Operating } from './Operating';
 import { PopularCategories } from './PopularCategories';
 import { PrivacyPolicyContent } from './PrivacyPolicyContent';
 import { RecipeContent } from './RecipeContent';
+import { RecipeContentInfo } from './RecipeContentInfo';
 import { RecipesContent } from './RecipesContent';
 import { ShareYourRecipe } from './ShareYourRecipe';
 import { SimpleRecipes } from './SimpleRecipes';
@@ -33,6 +34,7 @@ export {
   PopularCategories,
   PrivacyPolicyContent,
   RecipeContent,
+  RecipeContentInfo,
   RecipesContent,
   ShareYourRecipe,
   SimpleRecipes,

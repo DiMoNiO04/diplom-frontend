@@ -29,6 +29,7 @@ interface IRecipe {
   createdAt: string;
   author?: number;
   category: string;
+  percentMakeAgain: number;
 }
 
 interface IAuthorRecipe {

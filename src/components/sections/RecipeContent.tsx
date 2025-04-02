@@ -1,35 +1,40 @@
 import { IRecipe } from '@/utils/interfaces';
 
-import { RecipeIngredients, RecipeInstruction, RecipesInfo } from '../blocks/recipe';
+import { RecipeIngredients, RecipeInstruction, RecipesInfo, RecipeTopInfo } from '../blocks/recipe';
 import { NothingMsg } from '../ui';
+import { RecipeContentInfo } from './RecipeContentInfo';
 
 export const RecipeContent = ({
   id,
   name,
   img,
+  description,
   calories,
   cookingTime,
   isPublished,
   ingredients,
   instructions,
+  percentMakeAgain,
 }: IRecipe) => {
   return (
-    <section className="my-24">
-      <div className="custom-container">
-        {isPublished ? (
-          <>
-            <div className="flex flex-col gap-y-16">
-              <RecipesInfo calories={calories} cookingTime={cookingTime} />
-              <div className="grid grid-cols-[0.6fr_1fr] gap-x-20">
-                <RecipeIngredients ingredients={ingredients} />
-                <RecipeInstruction instructions={instructions} />
-              </div>
-            </div>
-          </>
-        ) : (
-          <NothingMsg title={'Не опубликовано, находится на модерации'} />
-        )}
-      </div>
-    </section>
+    <>
+      {isPublished ? (
+        <>
+          <RecipeTopInfo name={name} description={description} percentMakeAgain={percentMakeAgain} />
+          <RecipeContentInfo
+            calories={calories}
+            cookingTime={cookingTime}
+            ingredients={ingredients}
+            instructions={instructions}
+          />
+        </>
+      ) : (
+        <section className="my-24">
+          <div className="custom-container">
+            <NothingMsg title="Не опубликовано, находится на модерации" />
+          </div>
+        </section>
+      )}
+    </>
   );
 };
