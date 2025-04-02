@@ -6,7 +6,7 @@ export const AboutMain = () => {
   return (
     <section className="my-24">
       <div className="custom-container">
-        <Title title="О нас" className="pb-8 border-b border-gray-300 mb-16" />
+        <Title title="О нас" isBorder />
         <div className="flex flex-col gap-y-10">
           <Title
             title="Мы — команда энтузиастов, объединённых любовью к кулинарии и гастрономическим открытиям."

@@ -24,7 +24,8 @@ export const NotificationMsg = ({ text, icon, isShow }: INotificationMsgProps) =
   return (
     <div
       className={clsx(
-        'fixed inset-x-0 bottom-16 z-50 flex select-none justify-center transition-opacity duration-300 ease-in-out max-lg:bottom-10',
+        'fixed inset-x-0 bottom-16 z-50 flex select-none justify-center max-lg:bottom-10',
+        'transition-opacity duration-300 ease-in-out',
         isVisible ? 'opacity-100' : 'opacity-0',
         isVisible ? 'pointer-events-auto' : 'pointer-events-none'
       )}

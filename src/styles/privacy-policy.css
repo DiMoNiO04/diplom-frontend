@@ -1,0 +1,71 @@
+.privacy-content {
+  color: #2d2b39;
+}
+
+.privacy-content h2 {
+  margin-bottom: 24px;
+  font-family: var(--font-unbounded), sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24.8px;
+  letter-spacing: -0.32px;
+  text-transform: uppercase;
+}
+
+.privacy-content h2:not(:first-child) {
+  margin-top: 40px;
+}
+
+.privacy-content h3 {
+  font-family: var(--font-onest), sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20.4px;
+  letter-spacing: -0.48px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.privacy-content ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.privacy-content ul li {
+  position: relative;
+  padding-left: 16px;
+}
+
+.privacy-content ul li::before {
+  content: '-';
+  position: absolute;
+  left: 0;
+  color: #2d2b39;
+  font-weight: bold;
+}
+
+.privacy-content p,
+.privacy-content ul li {
+  font-family: var(--font-onest), sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.42px;
+}
+
+.privacy-content p {
+  margin-bottom: 12px;
+}
+
+.privacy-content p.medium {
+  font-weight: 500;
+}
+
+.privacy-content a {
+  transition: color 0.2s ease;
+  color: #ff642f;
+}
+
+.privacy-content a:hover {
+  color: #2d2b39;
+}
