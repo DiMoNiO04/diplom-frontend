@@ -50,7 +50,7 @@ export const RecipeSlider = ({ images }: IRecipeSliderProps) => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="swiper-pagination-recipe swiper-pagination-circle-bullets" />
+      <div className="swiper-pagination-recipe swiper-pagination-circle-bullets " />
       {images.length > 1 && <MainSliderBtns />}
     </div>
   );

@@ -39,7 +39,7 @@ export const HeaderSearchPanel = ({ isOpen, onClose }: IHeaderSearchPanelProps) 
         <div className="flex items-center justify-between border-b border-black pb-2 mb-8">
           <input
             type="text"
-            placeholder="Поиск..."
+            placeholder="Поиск рецепта по названию..."
             value={searchQuery}
             onChange={handleSearchInputChange}
             className="w-full font-unbounded placeholder:font-onest bg-transparent focus:outline-none"
@@ -66,8 +66,11 @@ export const HeaderSearchPanel = ({ isOpen, onClose }: IHeaderSearchPanelProps) 
             <Button
               size="sm"
               text={`Посмотреть все ${recipesData.length} результата`}
-              href={linkUrl}
-              onClick={onClose}
+              onClick={(event) => {
+                event.preventDefault();
+                onClose();
+                window.location.href = linkUrl;
+              }}
             />
           </div>
         )}
