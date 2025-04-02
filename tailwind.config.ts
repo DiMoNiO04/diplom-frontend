@@ -14,8 +14,10 @@ const config: Config = {
         whiteDark: '#f9f9f9',
         white: '#ffffff',
         whiteLight: '#ffffff90',
+        modalBg: '#222223E3',
         red: '#f85a81',
         pink: '#ffd7c9',
+        green: '#60dc8c',
       },
       boxShadow: {
         customLight: '0px 1px 23.8px 0px #C2C2D047',

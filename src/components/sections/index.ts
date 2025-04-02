@@ -1,4 +1,5 @@
 import { AboutMain } from './AboutMain';
+import { AlreadyMade } from './AlreadyMade';
 import { AlsoLike } from './AlsoLike';
 import { CategoriesAll } from './CategoriesAll';
 import { CategoryHeaderImage } from './CategoryHeaderImage';
@@ -11,7 +12,6 @@ import { NotFoundContent } from './NotFoundContent';
 import { Operating } from './Operating';
 import { PopularCategories } from './PopularCategories';
 import { PrivacyPolicyContent } from './PrivacyPolicyContent';
-import { RecipeContent } from './RecipeContent';
 import { RecipeContentInfo } from './RecipeContentInfo';
 import { RecipesContent } from './RecipesContent';
 import { ShareYourRecipe } from './ShareYourRecipe';
@@ -21,6 +21,7 @@ import { TalentTeam } from './TalentTeam';
 
 export {
   AboutMain,
+  AlreadyMade,
   AlsoLike,
   CategoriesAll,
   CategoryHeaderImage,
@@ -33,7 +34,6 @@ export {
   Operating,
   PopularCategories,
   PrivacyPolicyContent,
-  RecipeContent,
   RecipeContentInfo,
   RecipesContent,
   ShareYourRecipe,

@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 
-import { AlsoLike, EmailNewsletter, RecipeContent } from '@/components/sections';
+import { RecipeTopInfo } from '@/components/blocks/recipe';
+import { AlreadyMade, AlsoLike, EmailNewsletter, RecipeContentInfo } from '@/components/sections';
 import { recipesData } from '@/data';
 import { IRecipe } from '@/utils/interfaces';
 
@@ -28,7 +29,9 @@ export default async function RecipePage({ params }: IRecipePageProps) {
 
   return (
     <>
-      <RecipeContent {...recipe} />
+      <RecipeTopInfo {...recipe} />
+      <RecipeContentInfo {...recipe} />
+      <AlreadyMade />
       <AlsoLike idRecipe={recipe.id} category={recipe.category} />
       <EmailNewsletter />
     </>
