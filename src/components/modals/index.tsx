@@ -1,5 +1,5 @@
 import { Modal } from './Modal';
 import { ModalAuth } from './modalAuth/ModalAuth';
-import { ModalMadeAgain } from './ModalMadeAgain';
+import { ModalConfirm } from './ModalConfirm';
 
-export { Modal, ModalAuth, ModalMadeAgain };
+export { Modal, ModalAuth, ModalConfirm };

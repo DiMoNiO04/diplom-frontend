@@ -1,10 +1,10 @@
-import { ModalAuth, ModalMadeAgain } from '../modals';
+import { ModalAuth, ModalConfirm } from '../modals';
 
 export const Modals = () => {
   return (
     <>
       <ModalAuth />
-      <ModalMadeAgain />
+      <ModalConfirm />
     </>
   );
 };
