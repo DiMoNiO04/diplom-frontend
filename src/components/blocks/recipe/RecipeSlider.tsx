@@ -1,7 +1,11 @@
 'use client';
 
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
 import Image from 'next/image';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { MainSliderBtns } from '../MainSliderBtns';
@@ -14,22 +18,27 @@ export const RecipeSlider = ({ images }: IRecipeSliderProps) => {
   return (
     <div className="relative rounded-md overflow-hidden group">
       <Swiper
-        modules={[Navigation]}
+        modules={[Navigation, Pagination]}
         slidesPerView={1}
         navigation={{
           nextEl: '.nextButtonSlider',
           prevEl: '.prevButtonSlider',
+        }}
+        pagination={{
+          clickable: true,
+          el: `.swiper-pagination-recipe`,
+          renderBullet: (_, className) => `<span class="${className} swiper-pagination-dot-circle"></span>`,
         }}
         speed={1000}
         grabCursor
         loop
       >
         {images.map((img, index) => (
-          <SwiperSlide className="relative size-full">
+          <SwiperSlide key={index} className="relative size-full">
             <div className="relative w-full h-[700px]">
               <Image
                 src={img}
-                alt=""
+                alt="Recipe image"
                 width={1440}
                 height={700}
                 className="w-full h-full object-cover"
@@ -41,6 +50,7 @@ export const RecipeSlider = ({ images }: IRecipeSliderProps) => {
           </SwiperSlide>
         ))}
       </Swiper>
+      <div className="swiper-pagination-recipe swiper-pagination-circle-bullets" />
       {images.length > 1 && <MainSliderBtns />}
     </div>
   );

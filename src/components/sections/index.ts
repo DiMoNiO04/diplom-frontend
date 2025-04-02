@@ -14,6 +14,7 @@ import { PopularCategories } from './PopularCategories';
 import { PrivacyPolicyContent } from './PrivacyPolicyContent';
 import { RecipeContentInfo } from './RecipeContentInfo';
 import { RecipesContent } from './RecipesContent';
+import { RecipeTopInfo } from './RecipeTopInfo';
 import { ShareYourRecipe } from './ShareYourRecipe';
 import { SimpleRecipes } from './SimpleRecipes';
 import { SuperDelicioues } from './SuperDelicioues';
@@ -36,6 +37,7 @@ export {
   PrivacyPolicyContent,
   RecipeContentInfo,
   RecipesContent,
+  RecipeTopInfo,
   ShareYourRecipe,
   SimpleRecipes,
   SuperDelicioues,

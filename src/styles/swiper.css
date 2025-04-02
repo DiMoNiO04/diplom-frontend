@@ -1,0 +1,27 @@
+.swiper-pagination-dot-circle {
+  background-color: #ffffff !important;
+  opacity: 1 !important;
+  width: 8px;
+  height: 8px;
+  z-index: 2;
+  position: relative;
+  margin: 0 !important;
+  transition: background-color 0.3s ease;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.swiper-pagination-circle-bullets.swiper-pagination-horizontal.swiper-pagination-circle-bullets {
+  display: flex;
+  justify-content: center;
+  column-gap: 8px;
+  position: absolute;
+  bottom: 24px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.swiper-pagination-bullet-active.swiper-pagination-dot-circle {
+  background-color: #ff642f !important;
+}
+

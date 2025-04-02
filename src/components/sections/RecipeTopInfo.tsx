@@ -1,8 +1,8 @@
 import { BtnLike, Title } from '@/components/ui';
 import { teamData } from '@/data';
 
-import { RecipeRating } from './RecipeRating';
-import { RecipeSlider } from './RecipeSlider';
+import { RecipeRating } from '../blocks/recipe/RecipeRating';
+import { RecipeSlider } from '../blocks/recipe/RecipeSlider';
 
 interface IRecipeTopInfoProps {
   name: string;
@@ -56,7 +56,7 @@ export const RecipeTopInfo = ({
             <div className="text-sm">({rating})</div>
           </div>
         </div>
-        <div className="mb-6 text-greyLight">{description}</div>
+        <div className="mb-6 text-greyLight max-w-2xl">{description}</div>
 
         <RecipeSlider images={img} />
       </div>

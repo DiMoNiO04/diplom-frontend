@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
 
-import { RecipeTopInfo } from '@/components/blocks/recipe';
-import { AlreadyMade, AlsoLike, EmailNewsletter, RecipeContentInfo } from '@/components/sections';
+import { AlreadyMade, AlsoLike, EmailNewsletter, RecipeContentInfo, RecipeTopInfo } from '@/components/sections';
 import { recipesData } from '@/data';
 import { IRecipe } from '@/utils/interfaces';
 
