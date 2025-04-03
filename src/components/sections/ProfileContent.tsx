@@ -2,6 +2,7 @@
 
 import {
   ProfileActions,
+  ProfileAsideMenu,
   ProfileChangePassword,
   ProfileConnectedAccounts,
   ProfileFoto,
@@ -18,15 +19,18 @@ export const ProfileContent = () => {
           <Title title="Личный кабинет" />
           <Button text="Сохранить" type="submit" variant="orange" form="profile" />
         </div>
-        <div className="max-w-4xl">
-          <div className="mb-24">
-            <ProfileFoto />
-            <FormProfile />
-            <ProfileChangePassword />
+        <div className="flex gap-x-20 relative">
+          <div className="max-w-5xl w-full flex-shrink-0">
+            <div className="mb-24">
+              <ProfileFoto />
+              <FormProfile />
+              <ProfileChangePassword />
+            </div>
+            <ProfileConnectedAccounts />
+            <ProfileNewsletter />
+            <ProfileActions />
           </div>
-          <ProfileConnectedAccounts />
-          <ProfileNewsletter />
-          <ProfileActions />
+          <ProfileAsideMenu />
         </div>
       </div>
     </section>

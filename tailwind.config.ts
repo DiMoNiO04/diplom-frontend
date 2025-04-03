@@ -7,11 +7,12 @@ const config: Config = {
     extend: {
       colors: {
         orange: '#ff642f',
+        orangeHover: '#ff8356',
         blue: '#3e14bc',
         black: '#2d2b39',
         grey: '#7b7b7b',
         greyLight: '#706e7c',
-        whiteDark: '#f9f9f9',
+        whiteDark: '#f0f0f0',
         white: '#ffffff',
         whiteLight: '#ffffff90',
         modalBg: '#222223E3',
