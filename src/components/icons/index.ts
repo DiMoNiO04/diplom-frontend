@@ -8,6 +8,7 @@ import { FacebookIcon } from './Facebook';
 import { GoogleIcon } from './Google';
 import { HidePasswordIcon } from './HidePassword';
 import { LikeIcon } from './Like';
+import { LogOutIcon } from './LogOut';
 import { PasswordKeyIcon } from './PasswordKey';
 import { SearchIcon } from './Search';
 import { ShowPasswordIcon } from './ShowPassword';
@@ -24,6 +25,7 @@ export {
   GoogleIcon,
   HidePasswordIcon,
   LikeIcon,
+  LogOutIcon,
   PasswordKeyIcon,
   SearchIcon,
   ShowPasswordIcon,

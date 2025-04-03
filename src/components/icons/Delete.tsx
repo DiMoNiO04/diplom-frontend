@@ -1,6 +1,8 @@
+import clsx from 'clsx';
+
 import { IIcon } from '@/utils/interfaces';
 
-export const DeleteIcon = ({ size = 16 }: IIcon) => {
+export const DeleteIcon = ({ size = 16, className }: IIcon) => {
   return (
     <svg
       width={size}
@@ -35,7 +37,7 @@ export const DeleteIcon = ({ size = 16 }: IIcon) => {
           11.7016 9.70169 12.0001 9.3335 12.0001C8.96531 12.0001 8.66683 11.7016
            8.66683 11.3334Z
            "
-        className="fill-white group-hover:fill-red transition-colors duration-300"
+        className={clsx('fill-white group-hover:fill-red transition-colors duration-300', className)}
       />
     </svg>
   );

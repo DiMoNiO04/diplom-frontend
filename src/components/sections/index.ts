@@ -13,6 +13,7 @@ import { NotFoundContent } from './NotFoundContent';
 import { Operating } from './Operating';
 import { PopularCategories } from './PopularCategories';
 import { PrivacyPolicyContent } from './PrivacyPolicyContent';
+import { ProfileContent } from './ProfileContent';
 import { RecipeContentInfo } from './RecipeContentInfo';
 import { RecipesContent } from './RecipesContent';
 import { RecipeTopInfo } from './RecipeTopInfo';
@@ -38,6 +39,7 @@ export {
   Operating,
   PopularCategories,
   PrivacyPolicyContent,
+  ProfileContent,
   RecipeContentInfo,
   RecipesContent,
   RecipeTopInfo,
