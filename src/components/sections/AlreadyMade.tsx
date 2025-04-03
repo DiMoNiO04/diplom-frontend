@@ -11,7 +11,7 @@ export const AlreadyMade = () => {
   const handleBtnNo = () => alert('Пользователь выбрал "Нет"');
 
   const handleOpenModal = () => {
-    openModal('Вы бы приготовили этот рецепт снова?', handleBtnYes, handleBtnNo);
+    openModal('Вы бы приготовили этот рецепт снова?', handleBtnYes, handleBtnNo, true);
   };
 
   return (
