@@ -38,7 +38,7 @@ export const Modal = ({ isOpen, closeModal, children }: IModalProps) => {
             >
               <Dialog.Panel
                 className={`
-                shadow-customShadow relative w-[420px] border border-gray-300 rounded-lg bg-white p-10 transition-all
+                 relative w-[420px] border border-gray-300 rounded-lg bg-white p-10 transition-all
                 `}
               >
                 {children}
