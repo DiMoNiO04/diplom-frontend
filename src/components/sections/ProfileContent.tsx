@@ -1,6 +1,12 @@
 'use client';
 
-import { ProfileActions, ProfileChangePassword, ProfileConnectedAccounts, ProfileNewsletter } from '../blocks/profile';
+import {
+  ProfileActions,
+  ProfileChangePassword,
+  ProfileConnectedAccounts,
+  ProfileFoto,
+  ProfileNewsletter,
+} from '../blocks/profile';
 import { FormProfile } from '../forms';
 import { Button, Title } from '../ui';
 
@@ -14,6 +20,7 @@ export const ProfileContent = () => {
         </div>
         <div className="max-w-4xl">
           <div className="mb-24">
+            <ProfileFoto />
             <FormProfile />
             <ProfileChangePassword />
           </div>
