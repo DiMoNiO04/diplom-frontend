@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-import { EValidateMessages } from './messages';
+import { requiredStringSchema } from './common';
 
 interface IFormProfileData {
   firstName: string;
@@ -9,8 +9,8 @@ interface IFormProfileData {
 
 const schemaProfile: yup.ObjectSchema<IFormProfileData> = yup
   .object({
-    firstName: yup.string().required(EValidateMessages.REQUIRED_FIELD),
-    lastName: yup.string().required(EValidateMessages.REQUIRED_FIELD),
+    firstName: requiredStringSchema,
+    lastName: requiredStringSchema,
   })
   .required();
 

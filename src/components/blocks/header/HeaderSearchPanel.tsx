@@ -3,7 +3,8 @@ import { ChangeEvent, useState } from 'react';
 
 import { CardSearchPanel } from '@/components/cards';
 import { CloseIcon } from '@/components/icons';
-import { Button, NothingMsg } from '@/components/ui';
+import { NothingMsg } from '@/components/ui';
+import { Button } from '@/components/ui/btns';
 import { recipesData } from '@/data';
 import { useDebounce } from '@/hooks';
 import { IRecipe } from '@/utils/interfaces';

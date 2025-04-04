@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 import { ObjectSchema } from 'yup';
 
-import { EValidateMessages } from './messages';
+import { emailSchema, requiredStringSchema } from './common';
 
 interface IFormLoginData {
   email: string;
@@ -10,11 +10,8 @@ interface IFormLoginData {
 
 const schemaLogin: ObjectSchema<IFormLoginData> = yup
   .object({
-    email: yup
-      .string()
-      .matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, EValidateMessages.INCORRECT_EMAIL)
-      .required(EValidateMessages.REQUIRED_FIELD),
-    password: yup.string().required(EValidateMessages.REQUIRED_FIELD),
+    email: emailSchema,
+    password: requiredStringSchema,
   })
   .required();
 

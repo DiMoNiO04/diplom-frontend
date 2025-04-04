@@ -6,7 +6,8 @@ import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
 import { IFormLoginData, schemaLogin } from '@/utils/validations';
 
 import { EmailIcon } from '../icons';
-import { Button, Input, InputPassword } from '../ui';
+import { Button } from '../ui/btns';
+import { Input, InputPassword } from '../ui/inputs';
 
 export const FormLogin = () => {
   const {

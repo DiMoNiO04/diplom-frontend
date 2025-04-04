@@ -1,9 +1,9 @@
 type TConfirmModalState = {
   isOpen: boolean;
   message: string;
+  reverseButtons?: boolean;
   onConfirm: () => void;
   onCancel: () => void;
-  reverseButtons?: boolean;
 };
 
 type TConfirmModalActions = {

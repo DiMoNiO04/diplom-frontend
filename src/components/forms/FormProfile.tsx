@@ -4,7 +4,7 @@ import { Controller, useForm } from 'react-hook-form';
 import { IFormProfileData, schemaProfile } from '@/utils/validations';
 
 import { EmailIcon, PasswordKeyIcon, UserIcon } from '../icons';
-import { Input } from '../ui';
+import { Input } from '../ui/inputs';
 
 export const FormProfile = () => {
   const {

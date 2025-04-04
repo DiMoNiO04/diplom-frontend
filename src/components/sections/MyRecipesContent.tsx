@@ -4,7 +4,8 @@ import { EUrls } from '@/utils/urls';
 
 import { CardsItems } from '../blocks';
 import { ProfileAsideMenu } from '../blocks/profile';
-import { Button, Title } from '../ui';
+import { Title } from '../ui';
+import { Button } from '../ui/btns';
 
 export const MyRecipesContent = () => {
   const unpublishedCards: IRecipe[] = recipesData.filter((card) => card.isPublished === false);

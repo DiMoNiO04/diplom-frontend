@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { IRecipe } from '@/utils/interfaces';
 import { EUrls } from '@/utils/urls';
 
-import { BtnLike } from '../ui';
+import { BtnLike } from '../ui/btns';
 
 export const CardRecipe = ({ id, name, img }: Omit<IRecipe, 'category'>) => {
   const linkUrlRecipe: string = `${EUrls.RECIPES}/${id}`;

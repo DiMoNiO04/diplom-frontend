@@ -6,7 +6,8 @@ import { useConfirmModalStore } from '@/stores/confirmModal';
 import { CardsItems } from '../blocks';
 import { ProfileAsideMenu } from '../blocks/profile';
 import { DeleteIcon } from '../icons';
-import { Button, Title } from '../ui';
+import { Title } from '../ui';
+import { Button } from '../ui/btns';
 
 export const FavoritesContent = () => {
   const hasFavorites = recipesData && recipesData.length > 0;

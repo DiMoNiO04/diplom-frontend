@@ -5,7 +5,7 @@ import { IRecipe, ISelectOption } from '@/utils/interfaces';
 
 import { CardsItems, LoadMoreRecipes } from '../blocks';
 import { Title } from '../ui';
-import { Select } from '../ui/selects/Select';
+import { Select } from '../ui/selects';
 
 const RECIPES_PER_PAGE: number = 16;
 

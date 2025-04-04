@@ -2,7 +2,7 @@
 
 import { useConfirmModalStore } from '@/stores/confirmModal';
 
-import { Button } from '../ui';
+import { Button } from '../ui/btns';
 import { Modal } from './Modal';
 
 export const ModalConfirm = () => {

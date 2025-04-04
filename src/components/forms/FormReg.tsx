@@ -7,7 +7,8 @@ import { EUrls } from '@/utils/urls';
 import { IFormRegData, schemaReg } from '@/utils/validations';
 
 import { EmailIcon, UserIcon } from '../icons';
-import { Button, Input, InputCheckbox, InputPassword } from '../ui';
+import { Button } from '../ui/btns';
+import { Input, InputCheckbox, InputPassword } from '../ui/inputs';
 
 export const FormReg = () => {
   const {

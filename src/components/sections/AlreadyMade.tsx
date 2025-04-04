@@ -2,7 +2,8 @@
 
 import { useConfirmModalStore } from '@/stores/confirmModal';
 
-import { Button, Title } from '../ui';
+import { Title } from '../ui';
+import { Button } from '../ui/btns';
 
 export const AlreadyMade = () => {
   const { openModal } = useConfirmModalStore();

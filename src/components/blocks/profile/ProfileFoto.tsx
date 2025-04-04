@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { ChangeEvent, useRef, useState } from 'react';
 
-import { Button } from '@/components/ui';
+import { Button } from '@/components/ui/btns';
 
 export const ProfileFoto = () => {
   const [avatar, setAvatar] = useState<string | null>(null);

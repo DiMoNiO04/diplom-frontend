@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-import { EValidateMessages } from './messages';
+import { requiredImgsRecipeSchema, requiredPositiveIntNumSchema, requiredStringSchema } from './common';
 
 interface IFormRecipeData {
   name: string;
@@ -14,18 +14,14 @@ interface IFormRecipeData {
 }
 
 const schemaRecipe = yup.object().shape({
-  name: yup.string().required(EValidateMessages.REQUIRED_FIELD),
-  description: yup.string().required(EValidateMessages.REQUIRED_FIELD),
-  cookingTime: yup.number().required(EValidateMessages.REQUIRED_FIELD).positive().integer(),
-  calories: yup.number().required(EValidateMessages.REQUIRED_FIELD).positive().integer(),
-  img: yup
-    .array()
-    .of(yup.string().required(EValidateMessages.REQUIRED_FIELD))
-    .min(1, EValidateMessages.REQUIRED_FIELD)
-    .default([]),
-  ingredients: yup.string().required(EValidateMessages.REQUIRED_FIELD),
-  instructions: yup.string().required(EValidateMessages.REQUIRED_FIELD),
-  category: yup.string().required(EValidateMessages.REQUIRED_FIELD),
+  name: requiredStringSchema,
+  description: requiredStringSchema,
+  cookingTime: requiredPositiveIntNumSchema,
+  calories: requiredPositiveIntNumSchema,
+  img: requiredImgsRecipeSchema,
+  ingredients: requiredStringSchema,
+  instructions: requiredStringSchema,
+  category: requiredStringSchema,
 });
 
 export { schemaRecipe };

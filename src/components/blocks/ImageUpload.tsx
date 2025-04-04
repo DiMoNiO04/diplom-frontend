@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { ChangeEvent, useState } from 'react';
 
 import { CloseIcon } from '../icons';
-import { ErrorMsgInput } from '../ui/inputs/ErrorMsgInput';
+import { ErrorMsgInput } from '../ui/inputs';
 
 interface IImageUploadProps {
   label?: string;

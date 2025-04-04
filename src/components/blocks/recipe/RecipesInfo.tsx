@@ -1,4 +1,4 @@
-import { BtnCopy } from '@/components/ui';
+import { BtnCopy } from '@/components/ui/btns';
 
 interface IRecipesInfoProps {
   cookingTime: number;

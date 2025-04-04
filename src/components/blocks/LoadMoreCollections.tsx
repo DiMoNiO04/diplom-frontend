@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import { ICollection } from '@/utils/interfaces';
 
-import { Button } from '../ui';
+import { Button } from '../ui/btns';
 import { CardsItems } from './CardsItems';
 
 interface ILoadMoreRecipesProps {

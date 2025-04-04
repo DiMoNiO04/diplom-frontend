@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from 'react';
 
-import { Button } from '../ui';
+import { Button } from '../ui/btns';
 
 export const EmailNewsletterForm = () => {
   const [email, setEmail] = useState('');

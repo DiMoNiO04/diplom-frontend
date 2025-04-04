@@ -1,8 +1,9 @@
-import { BtnLike, Title } from '@/components/ui';
+import { Title } from '@/components/ui';
 import { teamData } from '@/data';
 
 import { RecipeRating } from '../blocks/recipe/RecipeRating';
 import { RecipeSlider } from '../blocks/recipe/RecipeSlider';
+import { BtnLike } from '../ui/btns';
 
 interface IRecipeTopInfoProps {
   name: string;

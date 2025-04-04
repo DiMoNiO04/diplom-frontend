@@ -17,7 +17,7 @@ export const useSelect = (defaultOption?: ISelectOption | null): IUseSelectRetur
   const [isOpen, setIsOpen] = useState(false);
   const selectRef = useRef<HTMLDivElement>(null!);
 
-  useClickOutside(selectRef, () => setIsOpen(false));
+  useClickOutside({ refs: [selectRef], callback: () => setIsOpen(false) });
 
   const handleSelect = (option: ISelectOption) => {
     setSelectedOption(option);

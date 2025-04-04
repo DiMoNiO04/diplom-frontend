@@ -1,5 +1,5 @@
 import { FormPasswordForgot } from '@/components/forms';
-import { BtnNavigation } from '@/components/ui';
+import { BtnNavigation } from '@/components/ui/btns';
 import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
 
 export const ModalAuthPasswordForgot = () => {

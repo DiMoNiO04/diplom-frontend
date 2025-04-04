@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import { TitleSectionBlock } from '../blocks';
-import { Button } from '../ui';
+import { Button } from '../ui/btns';
 
 export const ShareYourRecipe = () => {
   return (

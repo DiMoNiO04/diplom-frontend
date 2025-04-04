@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { Button } from '@/components/ui';
+import { Button } from '@/components/ui/btns';
 
 interface IModalAuthNotificationContentProps {
   imageSrc: string;

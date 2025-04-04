@@ -5,8 +5,9 @@ import { categoriesData } from '@/data';
 import { IFormRecipeData, schemaRecipe } from '@/utils/validations';
 
 import { ImageUpload } from '../blocks';
-import { Button, Input, InputTextarea } from '../ui';
-import { Select } from '../ui/selects/Select';
+import { Button } from '../ui/btns';
+import { Input, InputTextarea } from '../ui/inputs';
+import { Select } from '../ui/selects';
 
 export const FormRecipeCreate = () => {
   const {

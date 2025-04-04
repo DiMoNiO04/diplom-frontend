@@ -27,19 +27,19 @@ const ModalAuthNotification = ({ type }: IModalAuthNotificationProps) => {
 
   const contentMap = {
     [EModalAuthNotification.CHECK_EMAIL]: {
-      imageSrc: '/icons/notifications/checkEmail.svg',
+      imageSrc: '/icons/checkEmail.svg',
       title: 'Проверьте почту',
       message: email
         ? `Отправили Вам письмо с дальнейшими инструкциями на указанную почту ${formatEmail(email)}`
         : 'Отправили Вам письмо с дальнейшими инструкциями на указанную почту.',
     },
     [EModalAuthNotification.SUCCESS_REG]: {
-      imageSrc: '/icons/notifications/checkEmail.svg',
+      imageSrc: '/icons/checkEmail.svg',
       title: 'Благодарим за регистрацию!',
       message: 'Ссылка для подтверждения аккаунта будет отправлена на вашу почту.',
     },
     [EModalAuthNotification.CHANGE_PASS]: {
-      imageSrc: '/icons/notifications/successChangePassword.svg',
+      imageSrc: '/icons/successChangePassword.svg',
       title: 'Новый пароль сохранен',
       message: '',
       buttonText: 'Войти в аккаунт',

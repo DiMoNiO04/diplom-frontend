@@ -1,6 +1,6 @@
 import { FormLogin } from '@/components/forms';
 import { FacebookIcon, GoogleIcon } from '@/components/icons';
-import { Button } from '@/components/ui';
+import { Button } from '@/components/ui/btns';
 
 import { ModalAuthNoAccount } from './ModalAuthNoAccount';
 

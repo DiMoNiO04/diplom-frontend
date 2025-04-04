@@ -1,7 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
 
-import { BtnCloseModal } from '../ui';
+import { BtnCloseModal } from '../ui/btns';
 
 interface IModalProps {
   isOpen: boolean;

@@ -1,4 +1,4 @@
-import { BtnText } from '@/components/ui';
+import { BtnText } from '@/components/ui/btns';
 import { useChangePasswordModalStore } from '@/stores/changePasswordModal';
 
 export const ProfileChangePassword = () => {

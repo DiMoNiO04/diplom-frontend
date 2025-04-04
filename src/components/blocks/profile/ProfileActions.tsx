@@ -1,5 +1,5 @@
 import { DeleteIcon, LogOutIcon } from '@/components/icons';
-import { BtnText } from '@/components/ui';
+import { BtnText } from '@/components/ui/btns';
 import { useConfirmModalStore } from '@/stores/confirmModal';
 
 export const ProfileActions = () => {

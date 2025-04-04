@@ -6,9 +6,9 @@ import { TConfirmModalStore } from './types';
 const initialState = {
   isOpen: false,
   message: '',
+  reverseButtons: true,
   onConfirm: () => {},
   onCancel: () => {},
-  reverseButtons: true,
 };
 
 export const useConfirmModalStore = create<TConfirmModalStore>()(

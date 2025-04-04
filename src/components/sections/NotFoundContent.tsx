@@ -2,8 +2,9 @@
 
 import { useRouter } from 'next/navigation';
 
-import { Button } from '@/components/ui';
 import { EUrls } from '@/utils/urls';
+
+import { Button } from '../ui/btns';
 
 export const NotFoundContent = () => {
   const router = useRouter();

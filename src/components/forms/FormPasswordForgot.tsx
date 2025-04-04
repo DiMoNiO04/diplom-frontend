@@ -2,10 +2,11 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 
 import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
-import { IFormPasswordForgotData, schemaPasswordForgot } from '@/utils/validations/schemaPasswordFogot';
+import { IFormPasswordForgotData, schemaPasswordForgot } from '@/utils/validations';
 
 import { EmailIcon } from '../icons';
-import { Button, Input } from '../ui';
+import { Button } from '../ui/btns';
+import { Input } from '../ui/inputs';
 
 export const FormPasswordForgot = () => {
   const {

@@ -9,7 +9,7 @@ import { ISelectOption } from '@/utils/interfaces';
 import { CardsItems, LoadMoreRecipes } from '../blocks';
 import { CloseIcon } from '../icons';
 import { Title } from '../ui';
-import { Select } from '../ui/selects/Select';
+import { Select } from '../ui/selects';
 
 const RECIPES_PER_PAGE: number = 20;
 

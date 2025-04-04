@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui';
+import { Button } from '@/components/ui/btns';
 import { useConfirmModalStore } from '@/stores/confirmModal';
 
 export const ProfileNewsletter = () => {

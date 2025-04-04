@@ -4,7 +4,8 @@ import { Controller, useForm } from 'react-hook-form';
 import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
 import { IFormPasswordNewData, schemaPasswordNew } from '@/utils/validations';
 
-import { Button, InputPassword } from '../ui';
+import { Button } from '../ui/btns';
+import { InputPassword } from '../ui/inputs';
 
 export const FormPasswordNew = () => {
   const {

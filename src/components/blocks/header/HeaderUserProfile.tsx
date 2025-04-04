@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui';
+import { Button } from '@/components/ui/btns';
 import { useAuthModalStore } from '@/stores/authModal';
 
 export const HeaderUserProfile = () => {

@@ -9,7 +9,8 @@ import {
   ProfileNewsletter,
 } from '../blocks/profile';
 import { FormProfile } from '../forms';
-import { Button, Title } from '../ui';
+import { Title } from '../ui';
+import { Button } from '../ui/btns';
 
 export const ProfileContent = () => {
   return (
