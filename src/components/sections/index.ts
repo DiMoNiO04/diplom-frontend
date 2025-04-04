@@ -10,6 +10,7 @@ import { FavoritesContent } from './FavoritesContent';
 import { LatestRecipes } from './LatestRecipes';
 import { MainSlider } from './MainSlider';
 import { MyRecipesContent } from './MyRecipesContent';
+import { NewRecipe } from './NewRecipe';
 import { NotFoundContent } from './NotFoundContent';
 import { Operating } from './Operating';
 import { PopularCategories } from './PopularCategories';
@@ -37,6 +38,7 @@ export {
   LatestRecipes,
   MainSlider,
   MyRecipesContent,
+  NewRecipe,
   NotFoundContent,
   Operating,
   PopularCategories,

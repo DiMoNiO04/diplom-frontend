@@ -42,7 +42,7 @@ export const CardsItems = <T extends ICategory | ICollection | IRecipe>({
     collection: 'grid-cols-3',
     recipe: 'grid-cols-4',
     favorites: 'grid-cols-3',
-    myRecipes: 'grid-cols-4',
+    myRecipes: 'grid-cols-3',
   };
 
   return <div className={`grid ${gridColsMap[type]} gap-8 mb-8`}>{cards.map(getCardComponent)}</div>;
