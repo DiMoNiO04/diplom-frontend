@@ -1,6 +1,6 @@
 import { IIcon } from '@/utils/interfaces';
 
-export const LogOutIcon = ({ size = 24 }: IIcon) => {
+export const LogOutIcon = ({ size = 20 }: IIcon) => {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect width={size} height={size} fill="white" fillOpacity="0.01" />

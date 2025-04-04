@@ -4,6 +4,7 @@ import { recipesData } from '@/data';
 import { useConfirmModalStore } from '@/stores/confirmModal';
 
 import { CardsItems } from '../blocks';
+import { ProfileAsideMenu } from '../blocks/profile';
 import { DeleteIcon } from '../icons';
 import { Button, Title } from '../ui';
 
@@ -27,21 +28,28 @@ export const FavoritesContent = () => {
           <Title title="Избранное" />
         </div>
 
-        {hasFavorites && (
-          <div className={'flex items-center justify-between mb-16'}>
-            <div className={'text-lg italic font-unbounded text-greyLight'}>{`${recipesData.length} рецепта(-ов)`}</div>
-            <Button
-              text="Удалить все"
-              className="group"
-              size="sm"
-              variant="red"
-              icon={<DeleteIcon />}
-              onClick={confirmDelete}
-            />
-          </div>
-        )}
+        <div className="flex gap-x-20 relative">
+          <div className="max-w-5xl w-full flex-shrink-0">
+            {hasFavorites && (
+              <div className={'flex items-center justify-between mb-16'}>
+                <div
+                  className={'text-lg italic font-unbounded text-greyLight'}
+                >{`${recipesData.length} рецепта(-ов)`}</div>
+                <Button
+                  text="Удалить все"
+                  className="group"
+                  size="sm"
+                  variant="red"
+                  icon={<DeleteIcon size={16} className="fill-white group-hover:fill-red" />}
+                  onClick={confirmDelete}
+                />
+              </div>
+            )}
 
-        <CardsItems type="recipe" cards={recipesData} nothingMsg="У вас нет избранных рецептов" />
+            <CardsItems type="favorites" cards={recipesData} nothingMsg="У вас нет избранных рецептов" />
+          </div>
+          <ProfileAsideMenu />
+        </div>
       </div>
     </section>
   );

@@ -1,39 +1,48 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 
-import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
-import { IFormPasswordNewData, schemaPasswordNew } from '@/utils/validations';
+import { useChangePasswordModalStore } from '@/stores/changePasswordModal';
+import { IFormChangePasswordData, schemaChangePassword } from '@/utils/validations';
 
 import { Button, InputPassword } from '../ui';
 
-export const FormPasswordNew = () => {
+export const FormChangePassword = () => {
   const {
     control,
     handleSubmit,
     formState: { errors },
-    reset,
-  } = useForm<IFormPasswordNewData>({
-    resolver: yupResolver(schemaPasswordNew),
+  } = useForm<IFormChangePasswordData>({
+    resolver: yupResolver(schemaChangePassword),
     mode: 'onBlur',
     reValidateMode: 'onBlur',
   });
 
-  const { closeModal, setTabContent } = useAuthModalStore();
+  const { closeModal } = useChangePasswordModalStore();
 
-  const onSubmit = async (data: IFormPasswordNewData) => {
-    setTabContent(EAuthContent.CHANGE_PASSWORD);
+  const onSubmit = async (data: IFormChangePasswordData) => {
     closeModal();
-    reset();
     console.log(data);
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-5">
       <Controller
+        name="oldPassword"
+        control={control}
+        render={({ field }) => (
+          <InputPassword
+            {...field}
+            onBlur={field.onBlur}
+            placeholder="Текущий пароль"
+            error={errors.oldPassword?.message}
+          />
+        )}
+      />
+      <Controller
         name="password"
         control={control}
         render={({ field }) => (
-          <InputPassword {...field} onBlur={field.onBlur} placeholder="Пароль" error={errors.password?.message} />
+          <InputPassword {...field} onBlur={field.onBlur} placeholder="Новый пароль" error={errors.password?.message} />
         )}
       />
       <Controller
@@ -43,7 +52,7 @@ export const FormPasswordNew = () => {
           <InputPassword
             {...field}
             onBlur={field.onBlur}
-            placeholder="Повторите пароль"
+            placeholder="Повторите новый пароль"
             error={errors.confirmPassword?.message}
           />
         )}

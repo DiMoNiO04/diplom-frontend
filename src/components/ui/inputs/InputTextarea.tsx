@@ -1,34 +1,26 @@
 import clsx from 'clsx';
-import { cloneElement, CSSProperties, InputHTMLAttributes, isValidElement, ReactElement, ReactNode } from 'react';
+import { TextareaHTMLAttributes } from 'react';
 
 import { ErrorMsgInput } from './ErrorMsgInput';
 
-interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface IInputTextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   error?: string;
-  icon?: ReactNode;
   label?: string;
   withBorder?: boolean;
 }
 
-const Input = ({
+const InputTextarea = ({
   label,
   withBorder = false,
   placeholder,
   error,
-  type,
-  icon,
   value = '',
   disabled,
   onChange,
-}: IInputProps) => {
+  rows = 5,
+}: IInputTextareaProps) => {
   const isDisabled: boolean = Boolean(disabled);
   const isError: boolean = Boolean(error) && !isDisabled;
-
-  const iconElement = isValidElement(icon)
-    ? cloneElement(icon as ReactElement<{ style?: CSSProperties }>, {
-        style: { color: isDisabled ? '#000000' : isError ? '#F85A81' : undefined },
-      })
-    : null;
 
   return (
     <div className="flex flex-col gap-y-1 relative">
@@ -41,23 +33,21 @@ const Input = ({
           isDisabled ? 'border-black' : isError ? 'border-red' : 'focus-within:border-black'
         )}
       >
-        <input
-          type={type}
+        <textarea
           placeholder={placeholder}
           value={value}
           onChange={onChange}
           disabled={disabled}
-          autoComplete="off"
+          rows={rows}
           className={clsx(
-            'w-full p-3 box-border text-left transition-colors duration-300 ease-out focus:outline-none',
+            'w-full h-full p-3 text-left  resize-none rounded-md',
+            'transition-colors duration-300 ease-out focus:outline-none',
             {
               'text-black placeholder:text-greyLight cursor-not-allowed': isDisabled,
               'text-red placeholder:text-red': isError,
-              'pl-10': icon,
             }
           )}
         />
-        {icon && <div className="absolute left-2 top-1/2 -translate-y-1/2">{iconElement}</div>}
       </div>
 
       {!isDisabled && <ErrorMsgInput error={error} />}
@@ -65,5 +55,5 @@ const Input = ({
   );
 };
 
-export { Input };
-export type { IInputProps };
+export { InputTextarea };
+export type { IInputTextareaProps };

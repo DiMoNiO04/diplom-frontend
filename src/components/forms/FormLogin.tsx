@@ -25,6 +25,7 @@ export const FormLogin = () => {
   const onSubmit = async (data: IFormLoginData) => {
     closeModal();
     reset();
+    console.log(data);
   };
 
   const handleClickForgotPassword = () => setTabContent(EAuthContent.PASSWORD_FORGOT);
