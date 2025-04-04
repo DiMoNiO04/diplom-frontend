@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 import Image from 'next/image';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 
 import { CloseIcon } from '../icons';
 import { ErrorMsgInput } from '../ui/inputs/ErrorMsgInput';
@@ -11,11 +11,19 @@ interface IImageUploadProps {
   label?: string;
   error?: string;
   onChange: (files: File[]) => void;
+  value?: File[];
 }
 
-export const ImageUpload = ({ label, error, onChange }: IImageUploadProps) => {
+export const ImageUpload = ({ label, error, onChange, value }: IImageUploadProps) => {
   const [files, setFiles] = useState<File[]>([]);
   const [previews, setPreviews] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (!value || value.length === 0) {
+      setFiles([]);
+      setPreviews([]);
+    }
+  }, [value]);
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newFiles = Array.from(event.target.files || []);
@@ -60,7 +68,7 @@ export const ImageUpload = ({ label, error, onChange }: IImageUploadProps) => {
         />
       </div>
 
-      {previews && (
+      {previews.length > 0 && (
         <div className="flex items-center gap-4 flex-wrap">
           {previews.map((src, index) => (
             <div key={index} className="relative w-28 h-28 group">

@@ -3,7 +3,7 @@ import { FormLogin } from './FormLogin';
 import { FormPasswordForgot } from './FormPasswordForgot';
 import { FormPasswordNew } from './FormPasswordNew';
 import { FormProfile } from './FormProfile';
-import { FormRecipe } from './FormRecipe';
+import { FormRecipeCreate } from './FormRecipeCreate';
 import { FormReg } from './FormReg';
 
-export { FormChangePassword, FormLogin, FormPasswordForgot, FormPasswordNew, FormProfile, FormRecipe, FormReg };
+export { FormChangePassword, FormLogin, FormPasswordForgot, FormPasswordNew, FormProfile, FormRecipeCreate, FormReg };

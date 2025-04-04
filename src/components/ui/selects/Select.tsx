@@ -41,6 +41,7 @@ export const Select = ({ options, label, isForm, value, onChange, placeholder, e
           'transition-colors duration-300 ease-out',
           hasOptions ? 'cursor-pointer' : 'cursor-default opacity-70',
           isForm ? 'p-3' : 'border-black px-5 py-1.5',
+          error && 'border-red',
           'focus:border-black'
         )}
         onClick={hasOptions ? toggleOpen : undefined}
@@ -48,7 +49,8 @@ export const Select = ({ options, label, isForm, value, onChange, placeholder, e
         <div
           className={clsx(
             'text-def transition-colors duration-300',
-            !selectedOption?.text && !value?.text && 'text-greyLight'
+            !selectedOption?.text && !value?.text && 'text-greyLight',
+            error && 'text-red'
           )}
         >
           {selectedOption?.text || value?.text || placeholder}

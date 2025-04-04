@@ -8,16 +8,13 @@ import { ImageUpload } from '../blocks';
 import { Button, Input, InputTextarea } from '../ui';
 import { Select } from '../ui/selects/Select';
 
-interface IRecipeForm {
-  actionType: 'create' | 'update';
-}
-
-export const FormRecipe = ({ actionType }: IRecipeForm) => {
+export const FormRecipeCreate = () => {
   const {
     control,
     setValue,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<IFormRecipeData>({
     mode: 'onChange',
     resolver: yupResolver(schemaRecipe),
@@ -25,6 +22,7 @@ export const FormRecipe = ({ actionType }: IRecipeForm) => {
 
   const onSubmit = async (data: IFormRecipeData) => {
     console.log(data);
+    reset();
   };
 
   return (
@@ -36,7 +34,7 @@ export const FormRecipe = ({ actionType }: IRecipeForm) => {
         </p>
       </div>
 
-      <div className="max-w-5xl flex flex-col gap-y-8">
+      <div className="flex flex-col gap-y-8">
         <div className="grid grid-cols-2 gap-12">
           <Controller
             name="name"
@@ -135,10 +133,11 @@ export const FormRecipe = ({ actionType }: IRecipeForm) => {
           <Controller
             name="img"
             control={control}
-            render={() => (
+            render={({ field }) => (
               <ImageUpload
                 label="Фото блюда*"
                 error={errors.img?.message}
+                value={field.value}
                 onChange={(files) => {
                   setValue('img', files, { shouldValidate: true });
                 }}
@@ -147,7 +146,7 @@ export const FormRecipe = ({ actionType }: IRecipeForm) => {
           />
         </div>
 
-        <Button type="submit" text="Создать рецепт" />
+        <Button type="submit" text="Создать рецепт" variant="orange" />
       </div>
     </form>
   );
