@@ -9,6 +9,7 @@ import { EmailNewsletter } from './EmailNewsletter';
 import { FavoritesContent } from './FavoritesContent';
 import { LatestRecipes } from './LatestRecipes';
 import { MainSlider } from './MainSlider';
+import { MyRecipesContent } from './MyRecipesContent';
 import { NotFoundContent } from './NotFoundContent';
 import { Operating } from './Operating';
 import { PopularCategories } from './PopularCategories';
@@ -35,6 +36,7 @@ export {
   FavoritesContent,
   LatestRecipes,
   MainSlider,
+  MyRecipesContent,
   NotFoundContent,
   Operating,
   PopularCategories,

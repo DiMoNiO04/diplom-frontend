@@ -9,6 +9,7 @@ export const EUrls = {
   PROFILE: '/profile',
   FAVORITES: '/favorites',
   MY_RECIPES: '/my-recipes',
+  ADD_RECIPE: '/add-recipe',
 } as const;
 
 export type EUrls = (typeof EUrls)[keyof typeof EUrls];

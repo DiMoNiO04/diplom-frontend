@@ -1,4 +1,4 @@
-import { CardCategory, CardCollection, CardRecipe } from '@/components/cards';
+import { CardCategory, CardCollection, CardMyRecipe, CardRecipe } from '@/components/cards';
 import { NothingMsg } from '@/components/ui';
 import { ICategory, ICollection, IRecipe } from '@/utils/interfaces';
 
@@ -8,7 +8,7 @@ interface ICardsItems<T> {
 }
 
 interface ICardsItemsProps<T> extends ICardsItems<T> {
-  type: 'category' | 'collection' | 'recipe' | 'favorites';
+  type: 'category' | 'collection' | 'recipe' | 'favorites' | 'myRecipes';
 }
 
 export const CardsItems = <T extends ICategory | ICollection | IRecipe>({
@@ -30,6 +30,8 @@ export const CardsItems = <T extends ICategory | ICollection | IRecipe>({
         return <CardRecipe key={card.name} {...(card as IRecipe)} />;
       case 'favorites':
         return <CardRecipe key={card.name} {...(card as IRecipe)} />;
+      case 'myRecipes':
+        return <CardMyRecipe key={card.name} {...(card as IRecipe)} />;
       default:
         return null;
     }
@@ -40,6 +42,7 @@ export const CardsItems = <T extends ICategory | ICollection | IRecipe>({
     collection: 'grid-cols-3',
     recipe: 'grid-cols-4',
     favorites: 'grid-cols-3',
+    myRecipes: 'grid-cols-4',
   };
 
   return <div className={`grid ${gridColsMap[type]} gap-8 mb-8`}>{cards.map(getCardComponent)}</div>;

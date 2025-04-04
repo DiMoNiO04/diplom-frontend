@@ -3,6 +3,7 @@ import { ArrowCarretRoundedIcon } from './ArrowCarretRounded';
 import { CloseIcon } from './Close';
 import { CopyIcon } from './CopyIcon';
 import { DeleteIcon } from './Delete';
+import { EditIcon } from './Edit';
 import { EmailIcon } from './Email';
 import { FacebookIcon } from './Facebook';
 import { GoogleIcon } from './Google';
@@ -20,6 +21,7 @@ export {
   CloseIcon,
   CopyIcon,
   DeleteIcon,
+  EditIcon,
   EmailIcon,
   FacebookIcon,
   GoogleIcon,
