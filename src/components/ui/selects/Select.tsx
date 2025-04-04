@@ -16,9 +16,11 @@ interface ISelect {
   placeholder?: string;
   error?: string;
   className?: string;
+  label?: string;
+  isForm?: boolean;
 }
 
-export const Select = ({ options, value, onChange, placeholder, error, className }: ISelect) => {
+export const Select = ({ options, label, isForm, value, onChange, placeholder, error, className }: ISelect) => {
   const { selectedOption, isOpen, selectRef, handleSelect, toggleOpen } = useSelect(value);
 
   const handleSelectChange = (option: ISelectOption) => {
@@ -29,18 +31,29 @@ export const Select = ({ options, value, onChange, placeholder, error, className
   const hasOptions = options && options.length > 0;
 
   return (
-    <div className={clsx('relative flex flex-col gap-y-0.5', className)} ref={selectRef}>
+    <div className={clsx('relative flex flex-col gap-y-1', className)} ref={selectRef}>
+      {label && <label className="font-medium">{label}</label>}
+
       <div
+        tabIndex={0}
         className={clsx(
-          'flex w-full items-center justify-between gap-x-4 rounded-md border border-black bg-white px-5 py-1.5',
+          'flex w-full items-center justify-between gap-x-4 rounded-md border bg-white',
           'transition-colors duration-300 ease-out',
-          hasOptions ? 'cursor-pointer' : 'cursor-default opacity-70'
+          hasOptions ? 'cursor-pointer' : 'cursor-default opacity-70',
+          isForm ? 'p-3' : 'border-black px-5 py-1.5',
+          'focus:border-black'
         )}
         onClick={hasOptions ? toggleOpen : undefined}
       >
-        <div className="text-def transition-colors duration-300">
+        <div
+          className={clsx(
+            'text-def transition-colors duration-300',
+            !selectedOption?.text && !value?.text && 'text-greyLight'
+          )}
+        >
           {selectedOption?.text || value?.text || placeholder}
         </div>
+
         {hasOptions && (
           <div className={clsx('transition-transform duration-300', isOpen && 'rotate-180')}>
             <ArrowCarretRoundedIcon />
@@ -49,7 +62,7 @@ export const Select = ({ options, value, onChange, placeholder, error, className
       </div>
 
       {hasOptions && isOpen && (
-        <SelectList options={options} selectedOption={selectedOption} onSelect={handleSelectChange} />
+        <SelectList isForm={isForm} options={options} selectedOption={selectedOption} onSelect={handleSelectChange} />
       )}
 
       <ErrorMsgInput error={error} />

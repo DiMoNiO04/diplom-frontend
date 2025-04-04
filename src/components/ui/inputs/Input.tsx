@@ -37,7 +37,7 @@ const Input = ({
       <div
         className={clsx(
           'relative transition-colors duration-300',
-          withBorder ? 'border p-1 rounded-md' : 'border-b',
+          withBorder ? 'border rounded-md' : 'border-b',
           isDisabled ? 'border-black' : isError ? 'border-red' : 'focus-within:border-black'
         )}
       >

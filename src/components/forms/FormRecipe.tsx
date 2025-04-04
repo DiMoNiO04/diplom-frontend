@@ -1,10 +1,12 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 
+import { categoriesData } from '@/data';
 import { IFormRecipeData, schemaRecipe } from '@/utils/validations';
 
 import { ImageUpload } from '../blocks';
 import { Button, Input, InputTextarea } from '../ui';
+import { Select } from '../ui/selects/Select';
 
 interface IRecipeForm {
   actionType: 'create' | 'update';
@@ -22,12 +24,17 @@ export const FormRecipe = ({ actionType }: IRecipeForm) => {
   });
 
   const onSubmit = async (data: IFormRecipeData) => {
-    alert(data);
+    console.log(data);
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-5">
-      <p className="italic text-orange">* Все поля обязательны для заполнения</p>
+      <div className="flex flex-col gap-y-1 mb-4">
+        <p className="italic text-orange">* Все поля обязательны для заполнения</p>
+        <p className="text-greyLight">
+          Для разделения на пункты использовать <span className="text-orange">;</span>
+        </p>
+      </div>
 
       <div className="max-w-5xl flex flex-col gap-y-8">
         <div className="grid grid-cols-2 gap-12">
@@ -63,6 +70,25 @@ export const FormRecipe = ({ actionType }: IRecipeForm) => {
                 type="number"
                 placeholder="Количество калорий*"
                 error={errors.calories?.message}
+              />
+            )}
+          />
+          <Controller
+            name="category"
+            control={control}
+            render={({ field }) => (
+              <Select
+                {...field}
+                options={categoriesData.map((category) => ({
+                  value: category.slug,
+                  text: category.name,
+                }))}
+                label="Категория*"
+                isForm
+                placeholder="Выберите категорию*"
+                error={errors.category?.message}
+                value={field.value ? { value: field.value, text: field.value } : null}
+                onChange={(selected) => field.onChange(selected.value)}
               />
             )}
           />

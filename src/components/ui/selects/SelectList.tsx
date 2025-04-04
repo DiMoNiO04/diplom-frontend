@@ -6,14 +6,16 @@ interface ISelectList {
   options: ISelectOption[];
   selectedOption: ISelectOption | null;
   onSelect: (options: ISelectOption) => void;
+  isForm?: boolean;
 }
 
-export const SelectList = ({ options, selectedOption, onSelect }: ISelectList) => {
+export const SelectList = ({ options, isForm, selectedOption, onSelect }: ISelectList) => {
   return (
     <ul
       className={clsx(
         'shadow-customLight border-black scrollbar-hide max-h-60 min-w-full overflow-auto rounded-lg border bg-white',
-        'absolute left-0 top-12 z-50 '
+        'absolute left-0 top-12 z-50 ',
+        isForm && 'top-20'
       )}
     >
       {options.map((option) => (

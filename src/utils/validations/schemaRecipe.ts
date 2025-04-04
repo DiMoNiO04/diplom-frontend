@@ -10,6 +10,7 @@ interface IFormRecipeData {
   cookingTime: number;
   calories: number;
   img: File[];
+  category: string;
 }
 
 const schemaRecipe = yup.object().shape({
@@ -24,6 +25,7 @@ const schemaRecipe = yup.object().shape({
     .default([]),
   ingredients: yup.string().required(EValidateMessages.REQUIRED_FIELD),
   instructions: yup.string().required(EValidateMessages.REQUIRED_FIELD),
+  category: yup.string().required(EValidateMessages.REQUIRED_FIELD),
 });
 
 export { schemaRecipe };
