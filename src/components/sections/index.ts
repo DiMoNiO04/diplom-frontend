@@ -5,6 +5,7 @@ import { CategoriesAll } from './CategoriesAll';
 import { CategoryHeaderImage } from './CategoryHeaderImage';
 import { CollectionsAll } from './CollectionsAll';
 import { CuratedCollections } from './CuratedCollections';
+import { Editecipe } from './EditRecipe';
 import { EmailNewsletter } from './EmailNewsletter';
 import { FavoritesContent } from './FavoritesContent';
 import { LatestRecipes } from './LatestRecipes';
@@ -33,6 +34,7 @@ export {
   CategoryHeaderImage,
   CollectionsAll,
   CuratedCollections,
+  Editecipe,
   EmailNewsletter,
   FavoritesContent,
   LatestRecipes,
