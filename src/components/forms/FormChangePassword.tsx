@@ -21,6 +21,7 @@ export const FormChangePassword = () => {
 
   const onSubmit = async (data: IFormChangePasswordData) => {
     closeModal();
+    console.log(data);
   };
 
   return (

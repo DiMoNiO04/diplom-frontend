@@ -2,7 +2,7 @@
 
 import { IRecipe } from '@/utils/interfaces';
 
-import { FormRecipeCreate, FormRecipeUpdate } from '../forms';
+import { FormRecipeUpdate } from '../forms';
 import { Title } from '../ui';
 
 export const Editecipe = (recipe: IRecipe) => {

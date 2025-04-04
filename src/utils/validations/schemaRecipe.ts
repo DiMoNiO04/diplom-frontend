@@ -9,7 +9,7 @@ interface IFormRecipeData {
   instructions: string;
   cookingTime: number;
   calories: number;
-  img: File[];
+  img: string[];
   category: string;
 }
 
@@ -20,7 +20,7 @@ const schemaRecipe = yup.object().shape({
   calories: yup.number().required(EValidateMessages.REQUIRED_FIELD).positive().integer(),
   img: yup
     .array()
-    .of(yup.mixed<File>().required(EValidateMessages.REQUIRED_FIELD))
+    .of(yup.string().required(EValidateMessages.REQUIRED_FIELD))
     .min(1, EValidateMessages.REQUIRED_FIELD)
     .default([]),
   ingredients: yup.string().required(EValidateMessages.REQUIRED_FIELD),

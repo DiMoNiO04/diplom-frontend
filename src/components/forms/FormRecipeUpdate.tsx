@@ -9,11 +9,11 @@ import { ImageUpload } from '../blocks';
 import { Button, Input, InputTextarea } from '../ui';
 import { Select } from '../ui/selects/Select';
 
-interface FormRecipeUpdateProps {
+interface IFormRecipeUpdateProps {
   defaultValues: IFormRecipeData;
 }
 
-export const FormRecipeUpdate = ({ defaultValues }: FormRecipeUpdateProps) => {
+export const FormRecipeUpdate = ({ defaultValues }: IFormRecipeUpdateProps) => {
   const {
     control,
     setValue,
@@ -147,10 +147,8 @@ export const FormRecipeUpdate = ({ defaultValues }: FormRecipeUpdateProps) => {
               <ImageUpload
                 label="Фото блюда*"
                 error={errors.img?.message}
-                value={field.value}
-                onChange={(files) => {
-                  setValue('img', files, { shouldValidate: true });
-                }}
+                value={field.value || []}
+                onChange={(urls) => setValue('img', urls, { shouldValidate: true })}
               />
             )}
           />

@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 import Image from 'next/image';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 
 import { CloseIcon } from '../icons';
 import { ErrorMsgInput } from '../ui/inputs/ErrorMsgInput';
@@ -10,41 +10,28 @@ import { ErrorMsgInput } from '../ui/inputs/ErrorMsgInput';
 interface IImageUploadProps {
   label?: string;
   error?: string;
-  onChange: (files: File[]) => void;
-  value?: File[];
+  onChange: (urls: string[]) => void;
+  value?: string[];
 }
 
-export const ImageUpload = ({ label, error, onChange, value }: IImageUploadProps) => {
-  const [files, setFiles] = useState<File[]>([]);
-  const [previews, setPreviews] = useState<string[]>([]);
-
-  useEffect(() => {
-    if (!value || value.length === 0) {
-      setFiles([]);
-      setPreviews([]);
-    }
-  }, [value]);
+export const ImageUpload = ({ label, error, onChange, value = [] }: IImageUploadProps) => {
+  const [previews, setPreviews] = useState<string[]>(value);
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newFiles = Array.from(event.target.files || []);
+    const newPreviews = newFiles.map((file) => URL.createObjectURL(file));
 
-    if (newFiles.length) {
-      const updatedFiles = [...files, ...newFiles];
-      setFiles(updatedFiles);
-      setPreviews([...previews, ...newFiles.map((file) => URL.createObjectURL(file))]);
-      onChange(updatedFiles);
-    }
+    const updatedPreviews = [...previews, ...newPreviews];
+    setPreviews(updatedPreviews);
+    onChange(updatedPreviews);
 
     event.target.value = '';
   };
 
   const removeImage = (index: number) => {
-    const updatedFiles = files.filter((_, i) => i !== index);
     const updatedPreviews = previews.filter((_, i) => i !== index);
-
-    setFiles(updatedFiles);
     setPreviews(updatedPreviews);
-    onChange(updatedFiles);
+    onChange(updatedPreviews);
   };
 
   return (

@@ -24,6 +24,7 @@ export const FormPasswordNew = () => {
     setTabContent(EAuthContent.CHANGE_PASSWORD);
     closeModal();
     reset();
+    console.log(data);
   };
 
   return (
