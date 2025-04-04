@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { ChangeEvent, useRef, useState } from 'react';
 
+import { IconUser } from '@/components/icons';
 import { Button } from '@/components/ui/btns';
 
 export const ProfileFoto = () => {
@@ -34,7 +35,7 @@ export const ProfileFoto = () => {
         {avatar ? (
           <Image src={avatar} width={80} height={80} alt="User avatar" className="object-cover" />
         ) : (
-          <Image src="/icons/user.svg" width={80} height={80} alt="Default avatar" />
+          <IconUser size={80} />
         )}
       </div>
 

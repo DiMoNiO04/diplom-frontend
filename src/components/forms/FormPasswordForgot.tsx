@@ -4,7 +4,7 @@ import { Controller, useForm } from 'react-hook-form';
 import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
 import { IFormPasswordForgotData, schemaPasswordForgot } from '@/utils/validations';
 
-import { EmailIcon } from '../icons';
+import { IconEmail } from '../icons';
 import { Button } from '../ui/btns';
 import { Input } from '../ui/inputs';
 
@@ -34,7 +34,7 @@ export const FormPasswordForgot = () => {
         name="email"
         control={control}
         render={({ field }) => (
-          <Input {...field} placeholder="Email" error={errors.email?.message} icon={<EmailIcon />} />
+          <Input {...field} placeholder="Email" error={errors.email?.message} icon={<IconEmail />} />
         )}
       />
       <Button text={'Подтвердить'} variant="orange" type="submit" className="mt-4" />

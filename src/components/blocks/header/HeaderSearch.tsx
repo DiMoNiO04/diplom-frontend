@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { SearchIcon } from '@/components/icons';
+import { IconSearch } from '@/components/icons';
 import { useBodyScrollBLock } from '@/hooks';
 
 import { HeaderSearchPanel } from './HeaderSearchPanel';
@@ -17,7 +17,7 @@ export const HeaderSearch = () => {
   return (
     <>
       <button type="button" onClick={handleSearchToggle} className="group">
-        <SearchIcon size={24} className="group-hover:stroke-orange" />
+        <IconSearch size={24} className="group-hover:stroke-orange" />
       </button>
       <HeaderSearchPanel onClose={handleSearchToggle} isOpen={isSearchOpen} />
     </>

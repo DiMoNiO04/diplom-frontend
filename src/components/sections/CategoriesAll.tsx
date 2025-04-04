@@ -6,7 +6,7 @@ import { categoriesData } from '@/data';
 import { useDebounce } from '@/hooks';
 
 import { CardsItems } from '../blocks';
-import { CloseIcon } from '../icons';
+import { IconClose } from '../icons';
 import { Title } from '../ui';
 
 const DELAY_DEBOUNCE: number = 300;
@@ -37,7 +37,7 @@ export const CategoriesAll = () => {
             />
             {searchQuery && (
               <button type="button" className="hover:text-black group" onClick={handleClearSearch}>
-                <CloseIcon size={16} className="group-hover:stroke-greyLight transition-colors" />
+                <IconClose size={16} className="group-hover:stroke-greyLight transition-colors" />
               </button>
             )}
           </div>

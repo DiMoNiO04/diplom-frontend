@@ -8,7 +8,7 @@ import { useConfirmModalStore } from '@/stores/confirmModal';
 import { IRecipe } from '@/utils/interfaces';
 import { EUrls } from '@/utils/urls';
 
-import { DeleteIcon, EditIcon } from '../icons';
+import { IconDelete, IconEdit } from '../icons';
 
 export const CardMyRecipe = ({ id, name, img, isPublished }: Omit<IRecipe, 'category'>) => {
   const linkUrlRecipe: string = `${EUrls.RECIPES}/${id}`;
@@ -33,7 +33,7 @@ export const CardMyRecipe = ({ id, name, img, isPublished }: Omit<IRecipe, 'cate
             'transition-colors duration-300 hover:bg-whiteLight'
           )}
         >
-          <DeleteIcon className="fill-greyLight" />
+          <IconDelete className="fill-greyLight" />
         </button>
         <button
           type="button"
@@ -42,7 +42,7 @@ export const CardMyRecipe = ({ id, name, img, isPublished }: Omit<IRecipe, 'cate
             'transition-colors duration-300 hover:bg-whiteLight'
           )}
         >
-          <EditIcon className="stroke-greyLight" />
+          <IconEdit className="stroke-greyLight" />
         </button>
       </div>
 

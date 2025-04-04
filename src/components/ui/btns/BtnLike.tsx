@@ -2,7 +2,7 @@
 
 import { MouseEvent } from 'react';
 
-import { LikeIcon } from '@/components/icons';
+import { IconLike } from '@/components/icons';
 
 type TBtnLike = 'card' | 'recipe';
 
@@ -31,7 +31,7 @@ export const BtnLike = ({ className = '', type = 'card' }: IBtnLikeProps) => {
         ${className}
       `}
     >
-      <LikeIcon size={type === 'card' ? 20 : 24} />
+      <IconLike size={type === 'card' ? 20 : 24} />
     </button>
   );
 };

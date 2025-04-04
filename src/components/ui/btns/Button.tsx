@@ -6,7 +6,7 @@ type TButtonVariant = 'default' | 'secondary' | 'orange' | 'red' | 'green';
 type TButtonSize = 'lg' | 'sm';
 
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  text: string;
+  text?: string;
   variant?: TButtonVariant;
   size?: TButtonSize;
   href?: string;

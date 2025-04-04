@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import { IIcon } from '@/utils/interfaces';
 
-export const DeleteIcon = ({ size = 20, className }: IIcon) => {
+export const IconDelete = ({ size = 20, className }: IIcon) => {
   return (
     <svg
       width={size}

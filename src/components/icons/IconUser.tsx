@@ -1,10 +1,8 @@
-import React from 'react';
-
 import { IIcon } from '@/utils/interfaces';
 
-export const UserIcon = ({ color = '#706E7C' }: IIcon) => {
+export const IconUser = ({ color = '#706E7C', size = 20 }: IIcon) => {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         fill={color}
         fillRule="evenodd"

@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import { IIcon } from '@/utils/interfaces';
 
-export const EditIcon = ({ size = 20, className, color = '#706e7c' }: IIcon) => {
+export const IconEdit = ({ size = 20, className, color = '#706e7c' }: IIcon) => {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path

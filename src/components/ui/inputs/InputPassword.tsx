@@ -3,7 +3,7 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 
-import { HidePasswordIcon, PasswordKeyIcon, ShowPasswordIcon } from '@/components/icons';
+import { IconHidePassword, IconPasswordKey, IconShowPassword } from '@/components/icons';
 
 import { ErrorMsgInput } from './ErrorMsgInput';
 import { IInputProps } from './Input';
@@ -20,7 +20,7 @@ export const InputPassword = ({ placeholder, error, value = '', onChange }: IInp
         )}
       >
         <div className="absolute left-2 top-1/2 -translate-y-1/2">
-          <PasswordKeyIcon color={error && '#f85a81'} />
+          <IconPasswordKey color={error && '#f85a81'} />
         </div>
         <input
           type={showPassword ? 'text' : 'password'}
@@ -38,7 +38,7 @@ export const InputPassword = ({ placeholder, error, value = '', onChange }: IInp
           onClick={() => setShowPassword((prev) => !prev)}
           className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer"
         >
-          {showPassword ? <ShowPasswordIcon /> : <HidePasswordIcon />}
+          {showPassword ? <IconShowPassword /> : <IconHidePassword />}
         </div>
       </div>
       <ErrorMsgInput error={error} />

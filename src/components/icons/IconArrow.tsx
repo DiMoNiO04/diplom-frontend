@@ -4,7 +4,7 @@ interface ArrowIconProps extends IIcon {
   rotateDeg?: number;
 }
 
-export const ArrowIcon = ({ color, rotateDeg = 0 }: ArrowIconProps) => {
+export const IconArrow = ({ color, rotateDeg = 0 }: ArrowIconProps) => {
   return (
     <svg
       width="16"

@@ -6,7 +6,7 @@ import { collectionsData } from '@/data';
 import { useDebounce } from '@/hooks';
 
 import { CardsItems, LoadMoreCollections } from '../blocks';
-import { CloseIcon } from '../icons';
+import { IconClose } from '../icons';
 import { Title } from '../ui';
 
 const RECIPES_PER_PAGE: number = 15;
@@ -40,7 +40,7 @@ export const CollectionsAll = () => {
             />
             {searchQuery && (
               <button type="button" className="hover:text-black group" onClick={handleClearSearch}>
-                <CloseIcon size={16} className="group-hover:stroke-greyLight transition-colors" />
+                <IconClose size={16} className="group-hover:stroke-greyLight transition-colors" />
               </button>
             )}
           </div>

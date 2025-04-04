@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { ChangeEvent, useState } from 'react';
 
 import { CardSearchPanel } from '@/components/cards';
-import { CloseIcon } from '@/components/icons';
+import { IconClose } from '@/components/icons';
 import { NothingMsg } from '@/components/ui';
 import { Button } from '@/components/ui/btns';
 import { recipesData } from '@/data';
@@ -46,7 +46,7 @@ export const HeaderSearchPanel = ({ isOpen, onClose }: IHeaderSearchPanelProps) 
             className="w-full font-unbounded placeholder:font-onest bg-transparent focus:outline-none"
           />
           <button type="button" onClick={onClose} className="size-6 group">
-            <CloseIcon className="group-hover:stroke-greyLight transition-colors" />
+            <IconClose className="group-hover:stroke-greyLight transition-colors" />
           </button>
         </div>
 

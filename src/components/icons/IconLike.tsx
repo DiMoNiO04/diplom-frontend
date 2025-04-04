@@ -1,8 +1,6 @@
-import React from 'react';
-
 import { IIcon } from '@/utils/interfaces';
 
-export const LikeIcon = ({ color = '#8B8D95', className, size = 20 }: IIcon) => {
+export const IconLike = ({ color = '#8B8D95', className, size = 20 }: IIcon) => {
   return (
     <svg
       className={className}

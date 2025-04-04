@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { ArrowIcon } from '@/components/icons';
+import { IconArrow } from '@/components/icons';
 
 type TNavigationButton = 'button' | 'link';
 
@@ -32,7 +32,7 @@ export const BtnNavigation = ({
     return (
       <button onClick={onClick} type="button" className={`${commonClasses} mb-5`}>
         <div className={arrowClass}>
-          <ArrowIcon rotateDeg={rotateArrow ? 180 : 0} />
+          <IconArrow rotateDeg={rotateArrow ? 180 : 0} />
         </div>
         <span className={textClass}>{text}</span>
       </button>
@@ -44,7 +44,7 @@ export const BtnNavigation = ({
       <Link href={href} className={commonClasses}>
         <span className={textClass}>{text}</span>
         <div className={arrowClass}>
-          <ArrowIcon />
+          <IconArrow />
         </div>
       </Link>
     );

@@ -1,3 +1,4 @@
+import { IconGoogle } from '@/components/icons';
 import { BtnText } from '@/components/ui/btns';
 import { useConfirmModalStore } from '@/stores/confirmModal';
 
@@ -30,7 +31,7 @@ export const ProfileConnectedAccounts = () => {
       </div>
       <div className="flex items-center justify-between mb-6 pb-3 border-b border-gray-300">
         <div className="flex flex-col gap-y-2">
-          <img src="/icons/google.svg" alt="" />
+          <IconGoogle />
           <div className="text-greyLight text-sm">Suzan@gmail.com</div>
         </div>
         <BtnText text="Отключить" variant="black" onClick={handleOpenModalDisabledGoogle} />

@@ -1,35 +1,35 @@
-import { ArrowIcon } from './Arrow';
-import { ArrowCarretRoundedIcon } from './ArrowCarretRounded';
-import { CloseIcon } from './Close';
-import { CopyIcon } from './CopyIcon';
-import { DeleteIcon } from './Delete';
-import { EditIcon } from './Edit';
-import { EmailIcon } from './Email';
-import { FacebookIcon } from './Facebook';
-import { GoogleIcon } from './Google';
-import { HidePasswordIcon } from './HidePassword';
-import { LikeIcon } from './Like';
-import { LogOutIcon } from './LogOut';
-import { PasswordKeyIcon } from './PasswordKey';
-import { SearchIcon } from './Search';
-import { ShowPasswordIcon } from './ShowPassword';
-import { UserIcon } from './User';
+import { IconArrow } from './IconArrow';
+import { IconArrowCarretRounded } from './IconArrowCarretRounded';
+import { IconClose } from './IconClose';
+import { IconCopy } from './IconCopy';
+import { IconDelete } from './IconDelete';
+import { IconEdit } from './IconEdit';
+import { IconEmail } from './IconEmail';
+import { IconFacebook } from './IconFacebook';
+import { IconGoogle } from './IconGoogle';
+import { IconHidePassword } from './IconHidePassword';
+import { IconLike } from './IconLike';
+import { IconLogOut } from './IconLogOut';
+import { IconPasswordKey } from './IconPasswordKey';
+import { IconSearch } from './IconSearch';
+import { IconShowPassword } from './IconShowPassword';
+import { IconUser } from './IconUser';
 
 export {
-  ArrowCarretRoundedIcon,
-  ArrowIcon,
-  CloseIcon,
-  CopyIcon,
-  DeleteIcon,
-  EditIcon,
-  EmailIcon,
-  FacebookIcon,
-  GoogleIcon,
-  HidePasswordIcon,
-  LikeIcon,
-  LogOutIcon,
-  PasswordKeyIcon,
-  SearchIcon,
-  ShowPasswordIcon,
-  UserIcon,
+  IconArrow,
+  IconArrowCarretRounded,
+  IconClose,
+  IconCopy,
+  IconDelete,
+  IconEdit,
+  IconEmail,
+  IconFacebook,
+  IconGoogle,
+  IconHidePassword,
+  IconLike,
+  IconLogOut,
+  IconPasswordKey,
+  IconSearch,
+  IconShowPassword,
+  IconUser,
 };

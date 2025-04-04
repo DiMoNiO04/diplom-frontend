@@ -1,6 +1,6 @@
 import { IIcon } from '@/utils/interfaces';
 
-export const CopyIcon = ({ size = 24 }: IIcon) => {
+export const IconCopy = ({ size = 24 }: IIcon) => {
   return (
     <svg
       width={size}

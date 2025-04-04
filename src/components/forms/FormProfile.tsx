@@ -3,7 +3,7 @@ import { Controller, useForm } from 'react-hook-form';
 
 import { IFormProfileData, schemaProfile } from '@/utils/validations';
 
-import { EmailIcon, PasswordKeyIcon, UserIcon } from '../icons';
+import { IconEmail, IconPasswordKey, IconUser } from '../icons';
 import { Input } from '../ui/inputs';
 
 export const FormProfile = () => {
@@ -27,18 +27,18 @@ export const FormProfile = () => {
         name="firstName"
         control={control}
         render={({ field }) => (
-          <Input {...field} placeholder="Имя*" error={errors.firstName?.message} icon={<UserIcon />} />
+          <Input {...field} placeholder="Имя*" error={errors.firstName?.message} icon={<IconUser />} />
         )}
       />
       <Controller
         name="lastName"
         control={control}
         render={({ field }) => (
-          <Input {...field} placeholder="Фамилия*" error={errors.lastName?.message} icon={<UserIcon />} />
+          <Input {...field} placeholder="Фамилия*" error={errors.lastName?.message} icon={<IconUser />} />
         )}
       />
-      <Input value={'123'} placeholder="Email" icon={<EmailIcon />} disabled />
-      <Input value={'123'} type="password" placeholder="Password" icon={<PasswordKeyIcon />} disabled />
+      <Input value={'123'} placeholder="Email" icon={<IconEmail />} disabled />
+      <Input value={'123'} type="password" placeholder="Password" icon={<IconPasswordKey />} disabled />
     </form>
   );
 };

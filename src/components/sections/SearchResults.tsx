@@ -7,7 +7,7 @@ import { recipesData, sortRecipes } from '@/data';
 import { ISelectOption } from '@/utils/interfaces';
 
 import { CardsItems, LoadMoreRecipes } from '../blocks';
-import { CloseIcon } from '../icons';
+import { IconClose } from '../icons';
 import { Title } from '../ui';
 import { Select } from '../ui/selects';
 
@@ -52,7 +52,7 @@ export const SearchResults = () => {
           />
           {searchQuery && (
             <button type="button" className="hover:text-black group" onClick={handleClearSearch}>
-              <CloseIcon size={16} className="group-hover:stroke-greyLight transition-colors" />
+              <IconClose size={16} className="group-hover:stroke-greyLight transition-colors" />
             </button>
           )}
         </div>

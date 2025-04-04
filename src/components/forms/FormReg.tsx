@@ -6,7 +6,7 @@ import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
 import { EUrls } from '@/utils/urls';
 import { IFormRegData, schemaReg } from '@/utils/validations';
 
-import { EmailIcon, UserIcon } from '../icons';
+import { IconEmail, IconUser } from '../icons';
 import { Button } from '../ui/btns';
 import { Input, InputCheckbox, InputPassword } from '../ui/inputs';
 
@@ -36,21 +36,21 @@ export const FormReg = () => {
         name="firstName"
         control={control}
         render={({ field }) => (
-          <Input {...field} placeholder="Имя" error={errors.firstName?.message} icon={<UserIcon />} />
+          <Input {...field} placeholder="Имя" error={errors.firstName?.message} icon={<IconUser />} />
         )}
       />
       <Controller
         name="lastName"
         control={control}
         render={({ field }) => (
-          <Input {...field} placeholder="Фамилия" error={errors.lastName?.message} icon={<UserIcon />} />
+          <Input {...field} placeholder="Фамилия" error={errors.lastName?.message} icon={<IconUser />} />
         )}
       />
       <Controller
         name="email"
         control={control}
         render={({ field }) => (
-          <Input {...field} placeholder="Email" error={errors.email?.message} icon={<EmailIcon />} />
+          <Input {...field} placeholder="Email" error={errors.email?.message} icon={<IconEmail />} />
         )}
       />
       <Controller

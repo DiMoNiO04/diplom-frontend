@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import { IIcon } from '@/utils/interfaces';
 
-export const CloseIcon = ({ color = '#2d2b39', className, size = 24 }: IIcon) => {
+export const IconClose = ({ color = '#2d2b39', className, size = 24 }: IIcon) => {
   return (
     <svg
       width={size}

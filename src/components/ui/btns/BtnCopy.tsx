@@ -2,7 +2,7 @@
 
 import { MouseEvent, useState } from 'react';
 
-import { CopyIcon } from '@/components/icons';
+import { IconCopy } from '@/components/icons';
 
 import { NotificationMsg } from '../NotificationMsg';
 
@@ -26,7 +26,7 @@ export const BtnCopy = () => {
   return (
     <>
       <button onClick={handleCopy} className="group flex items-center gap-x-2 hover:text-black">
-        <CopyIcon />
+        <IconCopy />
         <span className="font-unbounded text-orange transition duration-300 group-hover:text-black">
           Скопировать ссылку
         </span>

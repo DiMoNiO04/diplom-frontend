@@ -1,6 +1,6 @@
 import { IIcon } from '@/utils/interfaces';
 
-export const ArrowCarretRoundedIcon = ({ color = '#2d2b39', className, size = 20 }: IIcon) => {
+export const IconArrowCarretRounded = ({ color = '#2d2b39', className, size = 20 }: IIcon) => {
   return (
     <svg
       width={size}

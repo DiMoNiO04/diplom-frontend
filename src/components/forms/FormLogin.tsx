@@ -5,7 +5,7 @@ import { Controller, useForm } from 'react-hook-form';
 import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
 import { IFormLoginData, schemaLogin } from '@/utils/validations';
 
-import { EmailIcon } from '../icons';
+import { IconEmail } from '../icons';
 import { Button } from '../ui/btns';
 import { Input, InputPassword } from '../ui/inputs';
 
@@ -37,7 +37,7 @@ export const FormLogin = () => {
         name="email"
         control={control}
         render={({ field }) => (
-          <Input {...field} placeholder="Email" error={errors.email?.message} icon={<EmailIcon />} />
+          <Input {...field} placeholder="Email" error={errors.email?.message} icon={<IconEmail />} />
         )}
       />
       <Controller

@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 
-import { ArrowCarretRoundedIcon } from '@/components/icons';
+import { IconArrowCarretRounded } from '@/components/icons';
 import { useSelect } from '@/hooks';
 import { ISelectOption } from '@/utils/interfaces';
 
@@ -58,7 +58,7 @@ export const Select = ({ options, label, isForm, value, onChange, placeholder, e
 
         {hasOptions && (
           <div className={clsx('transition-transform duration-300', isOpen && 'rotate-180')}>
-            <ArrowCarretRoundedIcon />
+            <IconArrowCarretRounded />
           </div>
         )}
       </div>

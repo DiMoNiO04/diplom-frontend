@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import { IIcon } from '@/utils/interfaces';
 
-export const SearchIcon = ({ size = 20, color = '#2d2b39', className }: IIcon) => {
+export const IconSearch = ({ size = 20, color = '#2d2b39', className }: IIcon) => {
   return (
     <svg width={size} height={size} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path

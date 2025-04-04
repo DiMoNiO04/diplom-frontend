@@ -5,7 +5,7 @@ import { useConfirmModalStore } from '@/stores/confirmModal';
 
 import { CardsItems } from '../blocks';
 import { ProfileAsideMenu } from '../blocks/profile';
-import { DeleteIcon } from '../icons';
+import { IconDelete } from '../icons';
 import { Title } from '../ui';
 import { Button } from '../ui/btns';
 
@@ -41,7 +41,7 @@ export const FavoritesContent = () => {
                   className="group"
                   size="sm"
                   variant="red"
-                  icon={<DeleteIcon size={16} className="fill-white group-hover:fill-red" />}
+                  icon={<IconDelete size={16} className="fill-white group-hover:fill-red" />}
                   onClick={confirmDelete}
                 />
               </div>

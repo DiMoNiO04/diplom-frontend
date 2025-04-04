@@ -1,4 +1,4 @@
-import { DeleteIcon, LogOutIcon } from '@/components/icons';
+import { IconDelete, IconLogOut } from '@/components/icons';
 import { BtnText } from '@/components/ui/btns';
 import { useConfirmModalStore } from '@/stores/confirmModal';
 
@@ -17,10 +17,10 @@ export const ProfileActions = () => {
 
   return (
     <div className="flex items-center justify-between">
-      <BtnText text="Выйти" icon={<LogOutIcon />} variant="black" onClick={handleOpenModalExitAccount} />
+      <BtnText text="Выйти" icon={<IconLogOut />} variant="black" onClick={handleOpenModalExitAccount} />
       <BtnText
         text="Удалить аккаунт"
-        icon={<DeleteIcon className="fill-orange group-hover:fill-black" />}
+        icon={<IconDelete className="fill-orange group-hover:fill-black" />}
         variant="orange"
         onClick={handleOpenModalDeleteAccount}
       />
