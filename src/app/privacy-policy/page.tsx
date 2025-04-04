@@ -9,9 +9,5 @@ async function getPrivacyPolicyPage(): Promise<IPrivacyPolicy> {
 export default async function PrivacyPolicyPage() {
   const { content } = await getPrivacyPolicyPage();
 
-  return (
-    <>
-      <PrivacyPolicyContent content={content} />
-    </>
-  );
+  return <PrivacyPolicyContent content={content} />;
 }

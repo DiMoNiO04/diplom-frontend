@@ -1,15 +1,16 @@
 export const EUrls = {
   HOME: '/',
   CATEGORIES: '/categories',
-  RECIPES: '/recipes',
   PRIVACY_POLICY: '/privacy-policy',
   COLLECTIONS: '/collections',
+  RECIPES: '/recipes',
   ABOUT: '/about',
   SEARCH: '/search',
   PROFILE: '/profile',
-  FAVORITES: '/favorites',
-  MY_RECIPES: '/my-recipes',
+  FAVORITES: '/profile/favorites',
+  MY_RECIPES: '/profile/my-recipes',
   NEW_RECIPE: '/recipes/new',
+  EDIT_RECIPE: '/edit',
 } as const;
 
 export type EUrls = (typeof EUrls)[keyof typeof EUrls];

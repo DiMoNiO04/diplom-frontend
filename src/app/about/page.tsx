@@ -7,7 +7,7 @@ import {
   TalentTeam,
 } from '@/components/sections';
 
-export default function AboutPagePage() {
+export default function AboutPage() {
   return (
     <>
       <AboutMain />

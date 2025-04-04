@@ -87,6 +87,14 @@ interface ITeamAuthor {
   description: string;
 }
 
+interface IPageSlugProps {
+  params: Promise<{ slug: string }>;
+}
+
+interface IPageIdProps {
+  params: Promise<{ id: string }>;
+}
+
 export type {
   IAuthorRecipe,
   ICategory,
@@ -94,6 +102,8 @@ export type {
   IIcon,
   ILink,
   IMainSliderSlide,
+  IPageIdProps,
+  IPageSlugProps,
   IRecipe,
   ISelectOption,
   ISuperDeliciious,

@@ -38,10 +38,6 @@ export const CardSuperdelicious = ({ id, name, img, countComments, createdDate, 
             <img src="/icons/calendar.svg" alt="" width={20} height={20} />
             <div className="text-sm italic text-greyLight">{createdDate}</div>
           </div>
-          <div className="flex items-center gap-2">
-            <img src="/icons/comments.svg" alt="" width={20} height={20} />
-            <div className="text-sm italic text-greyLight">{countComments}</div>
-          </div>
         </div>
       </div>
     </Link>

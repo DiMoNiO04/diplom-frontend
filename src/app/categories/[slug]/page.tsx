@@ -1,30 +1,10 @@
-import { notFound } from 'next/navigation';
-
 import { CategoryHeaderImage, RecipesContent } from '@/components/sections';
 import { categoriesData } from '@/data';
-import { ICategory } from '@/utils/interfaces';
+import { fetchByKey } from '@/utils/functions';
+import { ICategory, IPageSlugProps } from '@/utils/interfaces';
 
-async function getCategoryBySlug(slug: string): Promise<ICategory | null> {
-  return categoriesData.find((category) => category.slug === slug) || null;
-}
-
-async function fetchCategory(params: { slug: string }): Promise<ICategory> {
-  const { slug } = params;
-  const categoryData = await getCategoryBySlug(slug);
-
-  if (!categoryData) {
-    notFound();
-  }
-
-  return categoryData;
-}
-
-interface ICategoryPageProps {
-  params: Promise<{ slug: string }>;
-}
-
-export default async function CategoryPage({ params }: ICategoryPageProps) {
-  const category: ICategory = await fetchCategory(await params);
+export default async function CategoryPage({ params }: IPageSlugProps) {
+  const category: ICategory = await fetchByKey(categoriesData, 'slug', (await params).slug);
 
   return (
     <>

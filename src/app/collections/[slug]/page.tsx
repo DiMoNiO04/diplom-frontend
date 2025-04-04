@@ -1,34 +1,10 @@
-import { notFound } from 'next/navigation';
-
 import { RecipesContent } from '@/components/sections';
 import { collectionsData } from '@/data';
-import { ICollection } from '@/utils/interfaces';
+import { fetchByKey } from '@/utils/functions';
+import { ICollection, IPageSlugProps } from '@/utils/interfaces';
 
-async function getCollectionBySlug(slug: string): Promise<ICollection | null> {
-  return collectionsData.find((category) => category.slug === slug) || null;
-}
+export default async function CollectionPage({ params }: IPageSlugProps) {
+  const collection: ICollection = await fetchByKey(collectionsData, 'slug', (await params).slug);
 
-async function fetchCollection(params: { slug: string }): Promise<ICollection> {
-  const { slug } = params;
-  const collectionData = await getCollectionBySlug(slug);
-
-  if (!collectionData) {
-    notFound();
-  }
-
-  return collectionData;
-}
-
-interface ICollectionPageProps {
-  params: Promise<{ slug: string }>;
-}
-
-export default async function CollectionPage({ params }: ICollectionPageProps) {
-  const collection: ICollection = await fetchCollection(await params);
-
-  return (
-    <>
-      <RecipesContent {...collection} />
-    </>
-  );
+  return <RecipesContent {...collection} />;
 }

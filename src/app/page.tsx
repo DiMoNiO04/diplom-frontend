@@ -8,7 +8,7 @@ import {
   SuperDelicioues,
 } from '@/components/sections';
 
-export default function HomePage() {
+export default function MainPage() {
   return (
     <>
       <MainSlider />
