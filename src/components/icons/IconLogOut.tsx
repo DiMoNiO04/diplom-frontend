@@ -1,6 +1,12 @@
+import clsx from 'clsx';
+
 import { IIcon } from '@/utils/interfaces';
 
-export const IconLogOut = ({ size = 20 }: IIcon) => {
+interface IIconLogOutProps extends IIcon {
+  isWhiteHover?: boolean;
+}
+
+export const IconLogOut = ({ size = 20, isWhiteHover = false }: IIconLogOutProps) => {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect width={size} height={size} fill="white" fillOpacity="0.01" />
@@ -26,7 +32,10 @@ export const IconLogOut = ({ size = 20 }: IIcon) => {
           6.29289Z
         "
         fill="black"
-        className="fill-black group-hover:fill-orange transition-colors duration-300"
+        className={clsx(
+          'fill-black transition-colors duration-300',
+          isWhiteHover ? 'group-hover:fill-white' : 'group-hover:fill-orange'
+        )}
       />
     </svg>
   );

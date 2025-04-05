@@ -3,6 +3,7 @@ import { collectionsData } from './collections';
 import { menuFooterData } from './menuFooter';
 import { menuHeaderData } from './menuHeader';
 import { mockPrivacyPolicyPage } from './mockPrivacyPolicyPage';
+import { menuProfileData } from './profileLinks';
 import { recipesData } from './recipes';
 import { slidesData } from './slides';
 import { sortRecipes } from './sortRecipes';
@@ -14,6 +15,7 @@ export {
   collectionsData,
   menuFooterData,
   menuHeaderData,
+  menuProfileData,
   mockPrivacyPolicyPage,
   recipesData,
   slidesData,

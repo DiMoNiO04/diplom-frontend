@@ -25,12 +25,12 @@ export const SearchResults = () => {
     setSearchQuery(newQuery);
 
     const newURL = newQuery ? `/search?query=${encodeURIComponent(newQuery)}` : '/search';
-    router.push(newURL, { scroll: false });
+    router.push(newURL);
   };
 
   const handleClearSearch = () => {
     setSearchQuery('');
-    router.push('/search', { scroll: false });
+    router.push('/search');
   };
 
   const onChangeSelect = (value: ISelectOption) => alert(`Выбрана сортировка ${value.value}`);

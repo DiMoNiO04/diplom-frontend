@@ -4,6 +4,7 @@ type TUserState = {
 
 type TUserActions = {
   setUser: (user: TUserState) => void;
+  exitAccount: () => void;
 };
 
 type TUserStore = TUserState & TUserActions;
