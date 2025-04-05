@@ -15,7 +15,7 @@ export const ModalConfirm = () => {
   };
 
   const handleCancel = () => {
-    onCancel();
+    if (onCancel) onCancel();
     closeModal();
   };
 

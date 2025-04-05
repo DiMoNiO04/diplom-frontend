@@ -2,6 +2,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 
 import { useChangePasswordModalStore } from '@/stores/changePasswordModal';
+import { useNotificationStore } from '@/stores/notificationMsg';
 import { IFormChangePasswordData, schemaChangePassword } from '@/utils/validations';
 
 import { Button } from '../ui/btns';
@@ -19,10 +20,12 @@ export const FormChangePassword = () => {
   });
 
   const { closeModal } = useChangePasswordModalStore();
+  const { showNotification } = useNotificationStore();
 
   const onSubmit = async (data: IFormChangePasswordData) => {
     closeModal();
     console.log(data);
+    showNotification('Пароль успешно изменен!');
   };
 
   return (

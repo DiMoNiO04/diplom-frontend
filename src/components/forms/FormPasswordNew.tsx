@@ -3,7 +3,6 @@ import { Controller, useForm } from 'react-hook-form';
 
 import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
 import { useNotificationStore } from '@/stores/notificationMsg';
-import { NOTIFICATION_TIME } from '@/utils/consts';
 import { IFormPasswordNewData, schemaPasswordNew } from '@/utils/validations';
 
 import { Button } from '../ui/btns';
@@ -22,19 +21,14 @@ export const FormPasswordNew = () => {
   });
 
   const { closeModal, setTabContent } = useAuthModalStore();
-  const { showNotification, hideNotification } = useNotificationStore();
+  const { showNotification } = useNotificationStore();
 
   const onSubmit = async (data: IFormPasswordNewData) => {
     setTabContent(EAuthContent.CHANGE_PASSWORD);
     closeModal();
     reset();
     console.log(data);
-
-    showNotification('Пароль успешно изменен!', '/icons/success.svg');
-
-    setTimeout(() => {
-      hideNotification();
-    }, NOTIFICATION_TIME);
+    showNotification('Пароль успешно изменен!');
   };
 
   return (

@@ -33,7 +33,7 @@ export const CategoriesAll = () => {
             onClear={handleClearSearch}
           />
         </div>
-        <CardsItems type="category" cards={filteredCategories} nothingMsg="Категорий нет" />
+        <CardsItems type="category" cards={filteredCategories} nothingMsg="Категорий нет!" />
       </div>
     </section>
   );

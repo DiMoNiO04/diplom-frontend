@@ -4,7 +4,6 @@ import { Controller, useForm } from 'react-hook-form';
 
 import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
 import { useNotificationStore } from '@/stores/notificationMsg';
-import { NOTIFICATION_TIME } from '@/utils/consts';
 import { IFormLoginData, schemaLogin } from '@/utils/validations';
 
 import { IconEmail } from '../icons';
@@ -24,18 +23,13 @@ export const FormLogin = () => {
   });
 
   const { closeModal, setTabContent } = useAuthModalStore();
-  const { showNotification, hideNotification } = useNotificationStore();
+  const { showNotification } = useNotificationStore();
 
   const onSubmit = async (data: IFormLoginData) => {
     closeModal();
     reset();
     console.log(data);
-
-    showNotification('Вы авторизовались!', '/icons/success.svg');
-
-    setTimeout(() => {
-      hideNotification();
-    }, NOTIFICATION_TIME);
+    showNotification('Вы авторизовались!');
   };
 
   const handleClickForgotPassword = () => setTabContent(EAuthContent.PASSWORD_FORGOT);

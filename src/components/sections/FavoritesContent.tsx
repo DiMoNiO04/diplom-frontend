@@ -2,6 +2,7 @@
 
 import { recipesData } from '@/data';
 import { useConfirmModalStore } from '@/stores/confirmModal';
+import { useNotificationStore } from '@/stores/notificationMsg';
 
 import { CardsItems } from '../blocks';
 import { ProfileAsideMenu } from '../blocks/profile';
@@ -13,12 +14,12 @@ export const FavoritesContent = () => {
   const hasFavorites = recipesData && recipesData.length > 0;
 
   const { openModal } = useConfirmModalStore();
+  const { showNotification } = useNotificationStore();
 
-  const handleBtnYes = () => alert('Пользователь выбрал "Да"');
-  const handleBtnNo = () => alert('Пользователь выбрал "Нет"');
+  const handleBtnYes = () => showNotification('Все избранные рецепты удалены');
 
   const confirmDelete = () => {
-    openModal('Удалить все ваши избранные рецепты?', handleBtnYes, handleBtnNo);
+    openModal('Удалить все ваши избранные рецепты?', handleBtnYes);
   };
 
   return (

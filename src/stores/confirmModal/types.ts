@@ -3,11 +3,11 @@ type TConfirmModalState = {
   message: string;
   reverseButtons?: boolean;
   onConfirm: () => void;
-  onCancel: () => void;
+  onCancel?: () => void;
 };
 
 type TConfirmModalActions = {
-  openModal: (message: string, onConfirm: () => void, onCancel: () => void, reverseButtons?: boolean) => void;
+  openModal: (message: string, onConfirm: () => void, onCancel?: () => void, reverseButtons?: boolean) => void;
   closeModal: () => void;
 };
 

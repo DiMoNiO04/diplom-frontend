@@ -1,24 +1,22 @@
-import { IconGoogle } from '@/components/icons';
 import { Title } from '@/components/ui';
 import { BtnText } from '@/components/ui/btns';
 import { useConfirmModalStore } from '@/stores/confirmModal';
+import { useNotificationStore } from '@/stores/notificationMsg';
 
 export const ProfileConnectedAccounts = () => {
   const { openModal } = useConfirmModalStore();
+  const { showNotification } = useNotificationStore();
 
-  const handleBtnYesDisabledFacebook = () => alert('Вы отключили аккаунт facebook');
-  const handleBtnNoDisabledFacebook = () => alert('Вы не отключили аккаунт facebook');
+  const handleBtnYesDisabledFacebook = () => {
+    showNotification('Вы отписались от google');
+  };
+
   const handleOpenModalDisabledFacebook = () =>
-    openModal(
-      'Вы уверены что хотите отключиться от facebook?',
-      handleBtnYesDisabledFacebook,
-      handleBtnNoDisabledFacebook
-    );
+    openModal('Вы уверены что хотите отключиться от facebook?', handleBtnYesDisabledFacebook);
 
   const handleBtnYesDisabledGoogle = () => alert('Вы отключили аккаунт google');
-  const handleBtnNoDisabledGoogle = () => alert('Вы не отключили аккаунт google');
   const handleOpenModalDisabledGoogle = () =>
-    openModal('Вы уверены что хотите отключиться от google?', handleBtnYesDisabledGoogle, handleBtnNoDisabledGoogle);
+    openModal('Вы уверены что хотите отключиться от google?', handleBtnYesDisabledGoogle);
 
   return (
     <div className="mb-24">
@@ -32,7 +30,7 @@ export const ProfileConnectedAccounts = () => {
       </div>
       <div className="flex items-center justify-between mb-6 pb-3 border-b border-gray-300">
         <div className="flex flex-col gap-y-2">
-          <IconGoogle />
+          <img src="/icons/google.svg" alt="" />
           <div className="text-greyLight text-sm">Suzan@gmail.com</div>
         </div>
         <BtnText text="Отключить" variant="black" onClick={handleOpenModalDisabledGoogle} />

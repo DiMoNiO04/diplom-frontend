@@ -16,10 +16,9 @@ export const CardMyRecipe = ({ id, name, img, isPublished }: IRecipe) => {
   const { openModal } = useConfirmModalStore();
 
   const handleBtnYes = () => alert('Пользователь выбрал "Да"');
-  const handleBtnNo = () => alert('Пользователь выбрал "Нет"');
 
   const handleOpenModalDeleteRecipe = () => {
-    openModal(`Вы уверены что хотите удалить рецепт "${name}"?`, handleBtnYes, handleBtnNo);
+    openModal(`Вы уверены что хотите удалить рецепт "${name}"?`, handleBtnYes);
   };
 
   return (

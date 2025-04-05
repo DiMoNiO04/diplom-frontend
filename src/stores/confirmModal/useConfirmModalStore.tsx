@@ -15,7 +15,13 @@ export const useConfirmModalStore = create<TConfirmModalStore>()(
   devtools((set) => ({
     ...initialState,
     openModal: (message, onConfirm, onCancel, reverseButtons = false) =>
-      set({ isOpen: true, message, onConfirm, onCancel, reverseButtons }, false, 'ConfirmModal/openModal'),
-    closeModal: () => set(initialState, false, 'ConfirmModal/closeModal'),
+      set({ isOpen: true, message, reverseButtons, onConfirm, onCancel }, false, 'ConfirmModal/openModal'),
+    closeModal: () => {
+      set({ isOpen: false }, false, 'ConfirmModal/closeModal');
+
+      setTimeout(() => {
+        set(initialState, false, 'ConfirmModal/reset');
+      }, 500);
+    },
   }))
 );

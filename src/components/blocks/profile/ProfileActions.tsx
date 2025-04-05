@@ -1,16 +1,33 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
+
 import { IconDelete, IconLogOut } from '@/components/icons';
 import { BtnText } from '@/components/ui/btns';
 import { useConfirmModalStore } from '@/stores/confirmModal';
+import { useNotificationStore } from '@/stores/notificationMsg';
+import { EUrls } from '@/utils/urls';
 
 export const ProfileActions = () => {
-  const { openModal } = useConfirmModalStore();
+  const router = useRouter();
 
-  const handleBtnYesDeleteAccount = () => alert('Аккаунт удален');
+  const { openModal } = useConfirmModalStore();
+  const { showNotification } = useNotificationStore();
+
+  const handleBtnYesDeleteAccount = () => {
+    showNotification('Аккаунт удален');
+    router.replace(EUrls.HOME, { scroll: false });
+  };
+
   const handleBtnNoDeleteAccount = () => alert('Аккаунт не удален');
   const handleOpenModalDeleteAccount = () =>
     openModal('Вы уверены что хотите удалить свой аккаунт?', handleBtnYesDeleteAccount, handleBtnNoDeleteAccount);
 
-  const handleBtnYesExitAccount = () => alert('Вы вышли из аккаунта');
+  const handleBtnYesExitAccount = () => {
+    showNotification('Вы вышли из аккаунта');
+    router.replace(EUrls.HOME, { scroll: false });
+  };
+
   const handleBtnNoExitAccount = () => alert('Вы остались в аккаунте');
   const handleOpenModalExitAccount = () =>
     openModal('Вы уверены что хотите выйти из аккаунта?', handleBtnYesExitAccount, handleBtnNoExitAccount);

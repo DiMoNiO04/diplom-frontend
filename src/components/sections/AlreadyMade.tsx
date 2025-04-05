@@ -9,10 +9,9 @@ export const AlreadyMade = () => {
   const { openModal } = useConfirmModalStore();
 
   const handleBtnYes = () => alert('Пользователь выбрал "Да"');
-  const handleBtnNo = () => alert('Пользователь выбрал "Нет"');
 
   const handleOpenModal = () => {
-    openModal('Вы бы приготовили этот рецепт снова?', handleBtnYes, handleBtnNo, true);
+    openModal('Вы бы приготовили этот рецепт снова?', handleBtnYes, undefined, true);
   };
 
   return (

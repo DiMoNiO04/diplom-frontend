@@ -12,7 +12,7 @@ export const PopularCategories = () => {
     <section className="mb-20">
       <div className="custom-container">
         <TitleSectionBlock title="Категории" linkUrl={EUrls.CATEGORIES} />
-        <CardsItems type="category" cards={initialCategories} nothingMsg="Категорий нет" />
+        <CardsItems type="category" cards={initialCategories} nothingMsg="Категорий нет!" />
       </div>
     </section>
   );

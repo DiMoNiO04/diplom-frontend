@@ -25,7 +25,7 @@ export const RecipesContent = ({ recipes, description, name }: IRecipesContentPr
   return (
     <section className="mb-20 mt-20">
       <div className="custom-container">
-        <div className="flex justify-between items-end mb-12">
+        <div className="flex justify-between items-end mb-16 pb-8 border-b border-gray-300">
           <div className="flex flex-col gap-y-2 max-w-3xl">
             <div className="flex items-end gap-x-4">
               <Title title={name} />
