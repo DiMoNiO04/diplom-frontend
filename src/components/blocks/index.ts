@@ -1,5 +1,4 @@
 import { CardsItems } from './CardsItems';
-import { EmailNewsletterForm } from './EmailNewsletterForm';
 import { FormInfoNote } from './FormInfoNote';
 import { ImageUpload } from './ImageUpload';
 import { LoadMoreCollections } from './LoadMoreCollections';
@@ -10,7 +9,6 @@ import { TitleSectionBlock } from './TitleSectionBlock';
 
 export {
   CardsItems,
-  EmailNewsletterForm,
   FormInfoNote,
   ImageUpload,
   LoadMoreCollections,

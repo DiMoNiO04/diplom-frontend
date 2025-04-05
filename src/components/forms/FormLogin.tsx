@@ -3,6 +3,8 @@ import clsx from 'clsx';
 import { Controller, useForm } from 'react-hook-form';
 
 import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
+import { useNotificationStore } from '@/stores/notificationMsg';
+import { NOTIFICATION_TIME } from '@/utils/consts';
 import { IFormLoginData, schemaLogin } from '@/utils/validations';
 
 import { IconEmail } from '../icons';
@@ -18,15 +20,22 @@ export const FormLogin = () => {
   } = useForm<IFormLoginData>({
     resolver: yupResolver(schemaLogin),
     mode: 'onBlur',
-    reValidateMode: 'onBlur',
+    reValidateMode: 'onChange',
   });
 
   const { closeModal, setTabContent } = useAuthModalStore();
+  const { showNotification, hideNotification } = useNotificationStore();
 
   const onSubmit = async (data: IFormLoginData) => {
     closeModal();
     reset();
     console.log(data);
+
+    showNotification('Вы авторизовались!', '/icons/success.svg');
+
+    setTimeout(() => {
+      hideNotification();
+    }, NOTIFICATION_TIME);
   };
 
   const handleClickForgotPassword = () => setTabContent(EAuthContent.PASSWORD_FORGOT);

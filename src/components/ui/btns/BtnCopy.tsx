@@ -1,14 +1,15 @@
 'use client';
 
-import { MouseEvent, useState } from 'react';
+import { MouseEvent } from 'react';
 
 import { IconCopy } from '@/components/icons';
+import { useNotificationStore } from '@/stores/notificationMsg';
+import { NOTIFICATION_TIME } from '@/utils/consts';
 
-import { NotificationMsg } from '../NotificationMsg';
 import { BtnText } from './BtnText';
 
 export const BtnCopy = () => {
-  const [isCopied, setIsCopied] = useState<boolean>(false);
+  const { showNotification, hideNotification } = useNotificationStore();
 
   const handleCopy = async (e: MouseEvent) => {
     e.preventDefault();
@@ -16,18 +17,16 @@ export const BtnCopy = () => {
     try {
       const currentUrl = window.location.href;
       await navigator.clipboard.writeText(currentUrl);
-      setIsCopied(true);
 
-      setTimeout(() => setIsCopied(false), 1200);
+      showNotification('Ссылка скопирована', '/icons/linkSimple.svg');
+
+      setTimeout(() => {
+        hideNotification();
+      }, NOTIFICATION_TIME);
     } catch (error) {
       console.error('Ошибка при копировании URL:', error);
     }
   };
 
-  return (
-    <>
-      <BtnText text="Скопировать ссылку" variant="orange" onClick={handleCopy} icon={<IconCopy />} />
-      <NotificationMsg text="Ссылка скопирована" icon="/icons/linkSimple.svg" isShow={isCopied} />
-    </>
-  );
+  return <BtnText text="Скопировать ссылку" variant="orange" onClick={handleCopy} icon={<IconCopy />} />;
 };

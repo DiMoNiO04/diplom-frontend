@@ -3,6 +3,7 @@
 import { MouseEvent } from 'react';
 
 import { IconLike } from '@/components/icons';
+import { useUserStore } from '@/stores/user';
 
 type TBtnLike = 'card' | 'recipe';
 
@@ -12,9 +13,13 @@ interface IBtnLikeProps {
 }
 
 export const BtnLike = ({ className = '', type = 'card' }: IBtnLikeProps) => {
+  const { isAuth } = useUserStore();
+
   const handleLikeClick = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
   };
+
+  if (!isAuth) return null;
 
   return (
     <button

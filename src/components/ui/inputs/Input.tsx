@@ -1,5 +1,7 @@
 import clsx from 'clsx';
-import { cloneElement, CSSProperties, InputHTMLAttributes, isValidElement, ReactElement, ReactNode } from 'react';
+import { cloneElement, InputHTMLAttributes, isValidElement, ReactElement, ReactNode } from 'react';
+
+import { IIcon } from '@/utils/interfaces';
 
 import { ErrorMsgInput } from './ErrorMsgInput';
 
@@ -23,12 +25,6 @@ const Input = ({
 }: IInputProps) => {
   const isDisabled: boolean = Boolean(disabled);
   const isError: boolean = Boolean(error) && !isDisabled;
-
-  const iconElement = isValidElement(icon)
-    ? cloneElement(icon as ReactElement<{ style?: CSSProperties }>, {
-        style: { color: isDisabled ? '#000000' : isError ? '#F85A81' : undefined },
-      })
-    : null;
 
   return (
     <div className="flex flex-col gap-y-1 relative">
@@ -57,7 +53,13 @@ const Input = ({
             }
           )}
         />
-        {icon && <div className="absolute left-2 top-1/2 -translate-y-1/2">{iconElement}</div>}
+        {icon && isValidElement(icon) && (
+          <div className="absolute left-2 top-1/2 -translate-y-1/2">
+            {cloneElement(icon as ReactElement<IIcon>, {
+              color: error ? '#f85a81' : undefined,
+            })}
+          </div>
+        )}
       </div>
 
       {!isDisabled && <ErrorMsgInput error={error} />}

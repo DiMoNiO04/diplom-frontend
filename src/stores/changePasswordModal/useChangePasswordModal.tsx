@@ -1,9 +1,9 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 
-import { TChangePasswordModalStore } from './types';
+import { TChangePasswordModalState, TChangePasswordModalStore } from './types';
 
-const initialState = {
+const initialState: TChangePasswordModalState = {
   isOpen: false,
 };
 

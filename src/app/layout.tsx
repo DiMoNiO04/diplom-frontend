@@ -3,6 +3,7 @@ import '../styles/index.css';
 import { Onest, Unbounded } from 'next/font/google';
 
 import { Footer, Header, Modals } from '@/components/layouts';
+import { NotificationMsg } from '@/components/ui';
 
 const fontUnbounded = Unbounded({
   subsets: ['latin'],
@@ -28,6 +29,7 @@ export default function RootLayout({
         <main className="mt-20">{children}</main>
         <Footer />
         <Modals />
+        <NotificationMsg />
       </body>
     </html>
   );

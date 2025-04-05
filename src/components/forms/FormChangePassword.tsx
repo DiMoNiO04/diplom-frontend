@@ -15,7 +15,7 @@ export const FormChangePassword = () => {
   } = useForm<IFormChangePasswordData>({
     resolver: yupResolver(schemaChangePassword),
     mode: 'onBlur',
-    reValidateMode: 'onBlur',
+    reValidateMode: 'onChange',
   });
 
   const { closeModal } = useChangePasswordModalStore();

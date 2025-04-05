@@ -2,6 +2,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 
 import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
+import { useNotificationStore } from '@/stores/notificationMsg';
+import { NOTIFICATION_TIME } from '@/utils/consts';
 import { IFormPasswordNewData, schemaPasswordNew } from '@/utils/validations';
 
 import { Button } from '../ui/btns';
@@ -16,16 +18,23 @@ export const FormPasswordNew = () => {
   } = useForm<IFormPasswordNewData>({
     resolver: yupResolver(schemaPasswordNew),
     mode: 'onBlur',
-    reValidateMode: 'onBlur',
+    reValidateMode: 'onChange',
   });
 
   const { closeModal, setTabContent } = useAuthModalStore();
+  const { showNotification, hideNotification } = useNotificationStore();
 
   const onSubmit = async (data: IFormPasswordNewData) => {
     setTabContent(EAuthContent.CHANGE_PASSWORD);
     closeModal();
     reset();
     console.log(data);
+
+    showNotification('Пароль успешно изменен!', '/icons/success.svg');
+
+    setTimeout(() => {
+      hideNotification();
+    }, NOTIFICATION_TIME);
   };
 
   return (

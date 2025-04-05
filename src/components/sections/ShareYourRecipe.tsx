@@ -1,9 +1,28 @@
+'use client';
+
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+
+import { useAuthModalStore } from '@/stores/authModal';
+import { useUserStore } from '@/stores/user';
+import { EUrls } from '@/utils/urls';
 
 import { TitleSectionBlock } from '../blocks';
 import { Button } from '../ui/btns';
 
 export const ShareYourRecipe = () => {
+  const { isAuth } = useUserStore();
+  const { openModal } = useAuthModalStore();
+  const router = useRouter();
+
+  const handleClickBtn = () => {
+    if (isAuth) {
+      router.push(EUrls.NEW_RECIPE);
+    } else {
+      openModal();
+    }
+  };
+
   return (
     <section className="bg-pink mb-20">
       <div className="custom-container">
@@ -27,7 +46,7 @@ export const ShareYourRecipe = () => {
                 уже сегодня!
               </p>
             </div>
-            <Button text="Поделиться рецептом" variant="orange" className="w-fit" />
+            <Button text="Поделиться рецептом" variant="orange" className="w-fit" onClick={handleClickBtn} />
           </div>
         </div>
       </div>

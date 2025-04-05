@@ -17,8 +17,9 @@ export const FormRecipeCreate = () => {
     formState: { errors },
     reset,
   } = useForm<IFormRecipeData>({
-    mode: 'onChange',
     resolver: yupResolver(schemaRecipe),
+    mode: 'onBlur',
+    reValidateMode: 'onChange',
   });
 
   const onSubmit = async (data: IFormRecipeData) => {

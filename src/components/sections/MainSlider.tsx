@@ -37,9 +37,8 @@ export const MainSlider = () => {
                   <Image
                     src={slide.img}
                     alt=""
-                    width={1440}
-                    height={700}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                     priority={index === 0}
                     fetchPriority="high"
                   />

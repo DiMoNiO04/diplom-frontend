@@ -2,14 +2,26 @@
 
 import { FormEvent, useState } from 'react';
 
+import { useNotificationStore } from '@/stores/notificationMsg';
+import { NOTIFICATION_TIME } from '@/utils/consts';
+
 import { Button } from '../ui/btns';
 
-export const EmailNewsletterForm = () => {
-  const [email, setEmail] = useState('');
+export const FormEmailNewsletter = () => {
+  const [email, setEmail] = useState<string>('');
+  const { showNotification, hideNotification } = useNotificationStore();
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     console.log('Подписка на рассылку с email:', email);
+
+    showNotification('Проверьте почту!', '/icons/checkEmail.svg');
+
+    setTimeout(() => {
+      hideNotification();
+    }, NOTIFICATION_TIME);
+
+    setEmail('');
   };
 
   return (

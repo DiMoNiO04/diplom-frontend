@@ -1,9 +1,9 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 
-import { TConfirmModalStore } from './types';
+import { TConfirmModalState, TConfirmModalStore } from './types';
 
-const initialState = {
+const initialState: TConfirmModalState = {
   isOpen: false,
   message: '',
   reverseButtons: true,

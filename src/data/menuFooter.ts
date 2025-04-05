@@ -15,7 +15,7 @@ export const menuFooterData = [
     title: 'Полезные ссылки',
     links: [
       { text: 'Политика конфиденциальности', href: EUrls.PRIVACY_POLICY },
-      { text: 'Карта сайта', href: '#' },
+      { text: 'Карта сайта', href: EUrls.SITEMAP },
     ],
   },
 ];

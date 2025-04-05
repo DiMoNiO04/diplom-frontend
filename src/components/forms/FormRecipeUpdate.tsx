@@ -22,8 +22,9 @@ export const FormRecipeUpdate = ({ defaultValues }: IFormRecipeUpdateProps) => {
     formState: { errors },
     reset,
   } = useForm<IFormRecipeData>({
-    mode: 'onChange',
     resolver: yupResolver(schemaRecipe),
+    mode: 'onBlur',
+    reValidateMode: 'onChange',
     defaultValues,
   });
 

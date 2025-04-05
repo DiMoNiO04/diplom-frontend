@@ -11,6 +11,7 @@ export const EUrls = {
   MY_RECIPES: '/profile/my-recipes',
   NEW_RECIPE: '/recipes/new',
   EDIT_RECIPE: '/edit',
+  SITEMAP: '/sitemap',
 } as const;
 
 export type EUrls = (typeof EUrls)[keyof typeof EUrls];

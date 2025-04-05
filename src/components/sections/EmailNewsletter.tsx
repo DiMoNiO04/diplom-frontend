@@ -1,8 +1,10 @@
+'use client';
+
 import Link from 'next/link';
 
 import { EUrls } from '@/utils/urls';
 
-import { EmailNewsletterForm } from '../blocks';
+import { FormEmailNewsletter } from '../forms';
 
 export const EmailNewsletter = () => {
   return (
@@ -13,7 +15,7 @@ export const EmailNewsletter = () => {
             <h2 className="font-unbounded text-4xl text-center font-medium">Вкуснятина в ваш почтовый ящик</h2>
             <p className="font-onest text-greyLight text-lg">Наслаждайтесь еженедельно новыми рецептами</p>
           </div>
-          <EmailNewsletterForm />
+          <FormEmailNewsletter />
           <p className="text-def text-greyLight font-onest">
             Подписываясь на рассылку, вы соглашаетесь с{' '}
             <Link

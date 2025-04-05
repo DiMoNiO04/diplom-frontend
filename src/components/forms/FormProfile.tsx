@@ -14,7 +14,7 @@ export const FormProfile = () => {
   } = useForm<IFormProfileData>({
     resolver: yupResolver(schemaProfile),
     mode: 'onBlur',
-    reValidateMode: 'onBlur',
+    reValidateMode: 'onChange',
   });
 
   const onSubmit = async (data: IFormProfileData) => {

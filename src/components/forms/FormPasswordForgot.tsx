@@ -17,7 +17,7 @@ export const FormPasswordForgot = () => {
   } = useForm<IFormPasswordForgotData>({
     resolver: yupResolver(schemaPasswordForgot),
     mode: 'onBlur',
-    reValidateMode: 'onBlur',
+    reValidateMode: 'onChange',
   });
 
   const { setTabContent, setEmail } = useAuthModalStore();

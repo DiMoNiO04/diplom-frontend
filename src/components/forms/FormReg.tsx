@@ -18,7 +18,7 @@ export const FormReg = () => {
   } = useForm<IFormRegData>({
     resolver: yupResolver(schemaReg),
     mode: 'onBlur',
-    reValidateMode: 'onBlur',
+    reValidateMode: 'onChange',
   });
 
   const { setTabContent, setEmail } = useAuthModalStore();
