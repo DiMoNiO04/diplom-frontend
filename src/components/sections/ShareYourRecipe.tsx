@@ -15,13 +15,7 @@ export const ShareYourRecipe = () => {
   const { openModal } = useAuthModalStore();
   const router = useRouter();
 
-  const handleClickBtn = () => {
-    if (isAuth) {
-      router.push(EUrls.NEW_RECIPE);
-    } else {
-      openModal();
-    }
-  };
+  const handleClickBtn = () => (isAuth ? router.push(EUrls.NEW_RECIPE) : openModal());
 
   return (
     <section className="bg-pink mb-20">
