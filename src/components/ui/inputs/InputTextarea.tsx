@@ -10,10 +10,10 @@ interface IInputTextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement
 }
 
 const InputTextarea = ({
+  error,
   label,
   withBorder = false,
   placeholder,
-  error,
   value = '',
   disabled,
   onChange,

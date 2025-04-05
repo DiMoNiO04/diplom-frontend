@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, MouseEvent, useState } from 'react';
 
 import { CardSearchPanel } from '@/components/cards';
 import { IconClose } from '@/components/icons';
@@ -28,6 +28,12 @@ export const HeaderSearchPanel = ({ isOpen, onClose }: IHeaderSearchPanelProps) 
   const hasSearchResult: boolean = recipesData.length > 0;
   const hasVisibleMoreBtn: boolean = hasSearchResult && recipesData.length > visibleSearchResult.length;
   const linkUrl: string = debouncedValue ? `${EUrls.SEARCH}?query=${debouncedValue}` : `${EUrls.SEARCH}`;
+
+  const handleViewAllClick = (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    onClose();
+    window.location.href = linkUrl;
+  };
 
   return (
     <div
@@ -64,15 +70,7 @@ export const HeaderSearchPanel = ({ isOpen, onClose }: IHeaderSearchPanelProps) 
 
         {hasVisibleMoreBtn && (
           <div className="mt-6 flex justify-center">
-            <Button
-              size="sm"
-              text={`Посмотреть все ${recipesData.length} результата`}
-              onClick={(event) => {
-                event.preventDefault();
-                onClose();
-                window.location.href = linkUrl;
-              }}
-            />
+            <Button size="sm" text={`Посмотреть все ${recipesData.length} результата`} onClick={handleViewAllClick} />
           </div>
         )}
       </div>

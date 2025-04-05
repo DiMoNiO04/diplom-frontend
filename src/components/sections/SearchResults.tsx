@@ -65,7 +65,7 @@ export const SearchResults = () => {
         </div>
 
         <CardsItems type="recipe" cards={initialRecipes} nothingMsg={'По вашему запросу ничего не найдено'} />
-        <LoadMoreRecipes remainingRecipes={remainingRecipes} perPage={RECIPES_PER_PAGE} />
+        <LoadMoreRecipes remainingCards={remainingRecipes} perPage={RECIPES_PER_PAGE} />
       </div>
     </section>
   );

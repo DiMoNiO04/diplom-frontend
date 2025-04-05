@@ -1,5 +1,6 @@
 import { FormLogin } from '@/components/forms';
 import { IconFacebook, IconGoogle } from '@/components/icons';
+import { ModalTitle } from '@/components/ui';
 import { Button } from '@/components/ui/btns';
 
 import { ModalAuthNoAccount } from './ModalAuthNoAccount';
@@ -7,7 +8,7 @@ import { ModalAuthNoAccount } from './ModalAuthNoAccount';
 export const ModalAuthLogin = () => {
   return (
     <div>
-      <div className="font-unbounded text-2xl mb-4">Вход</div>
+      <ModalTitle title="Вход" />
       <FormLogin />
       <div className="flex flex-col gap-y-2 mt-8">
         <div className="text-def font-medium">Войти через</div>

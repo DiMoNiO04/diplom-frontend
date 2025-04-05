@@ -40,7 +40,7 @@ export const RecipesContent = ({ recipes, description, name }: IRecipesContentPr
           <Select onChange={onChangeSelect} value={sortRecipes[0]} options={sortRecipes} className="w-52" />
         </div>
         <CardsItems type="recipe" cards={initialRecipes} nothingMsg={'Рецептов данной категории нет'} />
-        <LoadMoreRecipes remainingRecipes={remainingRecipes} perPage={RECIPES_PER_PAGE} />
+        <LoadMoreRecipes remainingCards={remainingRecipes} perPage={RECIPES_PER_PAGE} />
       </div>
     </section>
   );

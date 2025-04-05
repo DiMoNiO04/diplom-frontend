@@ -8,7 +8,7 @@ import { EUrls } from '@/utils/urls';
 
 import { BtnLike } from '../ui/btns';
 
-export const CardRecipe = ({ id, name, img }: Omit<IRecipe, 'category'>) => {
+export const CardRecipe = ({ id, name, img }: IRecipe) => {
   const linkUrlRecipe: string = `${EUrls.RECIPES}/${id}`;
 
   return (

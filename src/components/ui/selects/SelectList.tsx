@@ -5,11 +5,11 @@ import { ISelectOption } from '@/utils/interfaces';
 interface ISelectList {
   options: ISelectOption[];
   selectedOption: ISelectOption | null;
-  onSelect: (options: ISelectOption) => void;
   isForm?: boolean;
+  onSelect: (options: ISelectOption) => void;
 }
 
-export const SelectList = ({ options, isForm, selectedOption, onSelect }: ISelectList) => {
+export const SelectList = ({ options, selectedOption, isForm, onSelect }: ISelectList) => {
   return (
     <ul
       className={clsx(

@@ -9,7 +9,7 @@ interface ICheckboxInput extends InputHTMLAttributes<HTMLInputElement> {
   error: string | undefined;
 }
 
-export const InputCheckbox = ({ id, onChange, label, error, checked }: ICheckboxInput) => {
+export const InputCheckbox = ({ id, label, error, checked, onChange }: ICheckboxInput) => {
   return (
     <div className={'relative flex flex-col gap-y-0.5'}>
       <div className={clsx('custom-checkbox flex gap-x-3', { 'custom-checkbox--error': error })}>

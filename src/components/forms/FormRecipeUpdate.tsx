@@ -5,7 +5,7 @@ import { Controller, useForm } from 'react-hook-form';
 import { categoriesData } from '@/data';
 import { IFormRecipeData, schemaRecipe } from '@/utils/validations';
 
-import { ImageUpload } from '../blocks';
+import { FormInfoNote, ImageUpload } from '../blocks';
 import { Button } from '../ui/btns';
 import { Input, InputTextarea } from '../ui/inputs';
 import { Select } from '../ui/selects';
@@ -39,12 +39,7 @@ export const FormRecipeUpdate = ({ defaultValues }: IFormRecipeUpdateProps) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-5">
-      <div className="flex flex-col gap-y-1 mb-4">
-        <p className="italic text-orange">* Все поля обязательны для заполнения</p>
-        <p className="text-greyLight">
-          Для разделения на пункты использовать <span className="text-orange">;</span>
-        </p>
-      </div>
+      <FormInfoNote />
 
       <div className="flex flex-col gap-y-8">
         <div className="grid grid-cols-2 gap-12">

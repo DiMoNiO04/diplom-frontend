@@ -1,4 +1,5 @@
 import { IconGoogle } from '@/components/icons';
+import { Title } from '@/components/ui';
 import { BtnText } from '@/components/ui/btns';
 import { useConfirmModalStore } from '@/stores/confirmModal';
 
@@ -21,7 +22,7 @@ export const ProfileConnectedAccounts = () => {
 
   return (
     <div className="mb-24">
-      <h3 className="font-unbounded mb-4 text-lg font-medium">Подключенные аккаунты</h3>
+      <Title type="h3" title="Подключенные аккаунты" />
       <div className="flex items-center justify-between mb-6 pb-3 border-b border-gray-300">
         <div className="flex flex-col gap-y-2">
           <img src="/icons/facebook.svg" alt="" />

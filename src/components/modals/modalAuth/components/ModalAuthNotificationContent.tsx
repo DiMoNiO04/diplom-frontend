@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import { ModalTitle } from '@/components/ui';
 import { Button } from '@/components/ui/btns';
 
 interface IModalAuthNotificationContentProps {
@@ -22,7 +23,7 @@ export const ModalAuthNotificationContent = ({
       <div className="flex items-center justify-center">
         <Image src={imageSrc} width={80} height={80} alt="" />
       </div>
-      <div className="font-unbounded text-xl">{title}</div>
+      <ModalTitle title={title} />
       {message && <p className="font-onest text-greyLight">{message}</p>}
       {buttonText && buttonAction && <Button text={buttonText} onClick={buttonAction} className="mt-6" />}
     </div>

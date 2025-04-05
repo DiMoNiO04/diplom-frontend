@@ -10,11 +10,11 @@ import { ErrorMsgInput } from '../ui/inputs';
 interface IImageUploadProps {
   label?: string;
   error?: string;
-  onChange: (urls: string[]) => void;
   value?: string[];
+  onChange: (urls: string[]) => void;
 }
 
-export const ImageUpload = ({ label, error, onChange, value = [] }: IImageUploadProps) => {
+export const ImageUpload = ({ label, error, value = [], onChange }: IImageUploadProps) => {
   const [previews, setPreviews] = useState<string[]>(value);
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {

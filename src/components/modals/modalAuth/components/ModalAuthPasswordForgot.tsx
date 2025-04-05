@@ -1,4 +1,5 @@
 import { FormPasswordForgot } from '@/components/forms';
+import { ModalTitle } from '@/components/ui';
 import { BtnNavigation } from '@/components/ui/btns';
 import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
 
@@ -9,7 +10,7 @@ export const ModalAuthPasswordForgot = () => {
 
   return (
     <div>
-      <div className="font-unbounded text-2xl mb-4">Восстановление пароля</div>
+      <ModalTitle title="Восстановление пароля" />
       <BtnNavigation type={'button'} text={'Вернуться'} rotateArrow={true} onClick={handleClickBackBtn} />
       <FormPasswordForgot />
     </div>

@@ -10,7 +10,7 @@ import { EUrls } from '@/utils/urls';
 
 import { IconDelete, IconEdit } from '../icons';
 
-export const CardMyRecipe = ({ id, name, img, isPublished }: Omit<IRecipe, 'category'>) => {
+export const CardMyRecipe = ({ id, name, img, isPublished }: IRecipe) => {
   const linkUrlRecipe: string = `${EUrls.RECIPES}/${id}`;
 
   const { openModal } = useConfirmModalStore();

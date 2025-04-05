@@ -1,12 +1,11 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import clsx from 'clsx';
 import { Controller, useForm } from 'react-hook-form';
 
 import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
-import { EUrls } from '@/utils/urls';
 import { IFormRegData, schemaReg } from '@/utils/validations';
 
 import { IconEmail, IconUser } from '../icons';
+import { LinkPrivacy } from '../ui';
 import { Button } from '../ui/btns';
 import { Input, InputCheckbox, InputPassword } from '../ui/inputs';
 
@@ -28,6 +27,7 @@ export const FormReg = () => {
     setEmail(data.email);
     setTabContent(EAuthContent.CHECK_EMAIL);
     reset();
+    console.log(data);
   };
 
   return (
@@ -78,21 +78,7 @@ export const FormReg = () => {
         render={({ field }) => (
           <InputCheckbox
             id="agree"
-            label={
-              <div>
-                Я принимаю условия{' '}
-                <a
-                  href={EUrls.PRIVACY_POLICY}
-                  tabIndex={-1}
-                  className={clsx(
-                    'border-orange text-orange border-b ',
-                    'hover:text-black transition-colors duration-300 hover:border-transparent'
-                  )}
-                >
-                  пользовательского соглашения
-                </a>
-              </div>
-            }
+            label={<LinkPrivacy />}
             className="mt-2"
             error={errors.agree?.message}
             checked={field.value}

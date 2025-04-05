@@ -11,6 +11,8 @@ import { IInputProps } from './Input';
 export const InputPassword = ({ placeholder, error, value = '', onChange }: IInputProps) => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
+  const toggleShowPassword = () => setShowPassword((prev) => !prev);
+
   return (
     <div className="relative flex flex-col gap-y-0.5">
       <div
@@ -34,10 +36,7 @@ export const InputPassword = ({ placeholder, error, value = '', onChange }: IInp
             { 'text-red placeholder:text-red': error }
           )}
         />
-        <div
-          onClick={() => setShowPassword((prev) => !prev)}
-          className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer"
-        >
+        <div onClick={toggleShowPassword} className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer">
           {showPassword ? <IconShowPassword /> : <IconHidePassword />}
         </div>
       </div>

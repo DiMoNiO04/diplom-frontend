@@ -1,4 +1,5 @@
 import { recipesData } from '@/data';
+import { getSimilarRecipes } from '@/utils/functions';
 
 import { CardsItems, TitleSectionBlock } from '../blocks';
 
@@ -7,20 +8,8 @@ interface IAlsoLikeProps {
   category: string;
 }
 
-const PER_PAGE_RECIPES: number = 4;
-
 export const AlsoLike = ({ idRecipe, category }: IAlsoLikeProps) => {
-  let filteredRecipes = recipesData
-    .filter((recipe) => recipe.id !== idRecipe && recipe.category === category)
-    .slice(0, PER_PAGE_RECIPES);
-
-  if (filteredRecipes.length < PER_PAGE_RECIPES) {
-    const additionalRecipes = recipesData
-      .filter((recipe) => recipe.id !== idRecipe && recipe.category !== category)
-      .slice(0, PER_PAGE_RECIPES - filteredRecipes.length);
-
-    filteredRecipes = [...filteredRecipes, ...additionalRecipes];
-  }
+  const filteredRecipes = getSimilarRecipes(recipesData, idRecipe, category);
 
   if (filteredRecipes.length === 0) return null;
 

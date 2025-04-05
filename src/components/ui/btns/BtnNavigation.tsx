@@ -7,19 +7,19 @@ type TNavigationButton = 'button' | 'link';
 interface NavigationButtonProps {
   type: TNavigationButton;
   text: string;
-  onClick?: () => void;
   href?: string;
   rotateArrow?: boolean;
   customClasses?: string;
+  onClick?: () => void;
 }
 
 export const BtnNavigation = ({
   type,
   text,
-  onClick,
   href,
   rotateArrow = false,
   customClasses = '',
+  onClick,
 }: NavigationButtonProps) => {
   const commonClasses = `flex w-fit items-center gap-x-2 font-unbounded text-greyLight group ${customClasses}`;
   const arrowClass = rotateArrow

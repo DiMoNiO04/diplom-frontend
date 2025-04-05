@@ -15,7 +15,7 @@ export const LatestRecipes = () => {
       <div className="custom-container">
         <TitleSectionBlock title="Последние рецепты" linkUrl={EUrls.RECIPES} />
         <CardsItems type="recipe" cards={initialRecipes} nothingMsg="Рецептов на данный момент нет!" />
-        <LoadMoreRecipes remainingRecipes={remainingRecipes} perPage={RECIPES_PER_PAGE} />
+        <LoadMoreRecipes remainingCards={remainingRecipes} perPage={RECIPES_PER_PAGE} />
       </div>
     </section>
   );

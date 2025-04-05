@@ -1,3 +1,4 @@
+import { Title } from '@/components/ui';
 import { splitBySemicolon } from '@/utils/functions';
 
 interface IRecipeInstructionProps {
@@ -11,7 +12,7 @@ export const RecipeInstruction = ({ instructions }: IRecipeInstructionProps) => 
 
   return (
     <div>
-      <h3 className="mb-6 font-unbounded text-xl">Инструкция</h3>
+      <Title type="h3" title="Инструкция" />
       <ul className="flex flex-col gap-y-6 counter-reset">
         {instructionList.map((instruction, index) => (
           <li key={index} className="flex items-start gap-x-2 relative counter-increment">

@@ -11,12 +11,12 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Input = ({
+  error,
+  icon,
   label,
   withBorder = false,
   placeholder,
-  error,
   type,
-  icon,
   value = '',
   disabled,
   onChange,

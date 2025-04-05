@@ -18,7 +18,7 @@ export const FormProfile = () => {
   });
 
   const onSubmit = async (data: IFormProfileData) => {
-    alert(`submit form ${data}`);
+    console.log(`submit form ${data}`);
   };
 
   return (

@@ -5,6 +5,7 @@ import { MouseEvent, useState } from 'react';
 import { IconCopy } from '@/components/icons';
 
 import { NotificationMsg } from '../NotificationMsg';
+import { BtnText } from './BtnText';
 
 export const BtnCopy = () => {
   const [isCopied, setIsCopied] = useState<boolean>(false);
@@ -25,12 +26,7 @@ export const BtnCopy = () => {
 
   return (
     <>
-      <button onClick={handleCopy} className="group flex items-center gap-x-2 hover:text-black">
-        <IconCopy />
-        <span className="font-unbounded text-orange transition duration-300 group-hover:text-black">
-          Скопировать ссылку
-        </span>
-      </button>
+      <BtnText text="Скопировать ссылку" variant="orange" onClick={handleCopy} icon={<IconCopy />} />
       <NotificationMsg text="Ссылка скопирована" icon="/icons/linkSimple.svg" isShow={isCopied} />
     </>
   );

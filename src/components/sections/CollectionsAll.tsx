@@ -5,8 +5,7 @@ import { ChangeEvent, useState } from 'react';
 import { collectionsData } from '@/data';
 import { useDebounce } from '@/hooks';
 
-import { CardsItems, LoadMoreCollections } from '../blocks';
-import { IconClose } from '../icons';
+import { CardsItems, LoadMoreCollections, SearchInputBlock } from '../blocks';
 import { Title } from '../ui';
 
 const RECIPES_PER_PAGE: number = 15;
@@ -30,23 +29,15 @@ export const CollectionsAll = () => {
       <div className="custom-container">
         <div className="flex justify-between items-end mb-16 border-b border-gray-300">
           <Title title={'Коллекции'} className="pb-8" />
-          <div className="relative w-64 flex items-center justify-between gap-x-4 pb-4">
-            <input
-              type="text"
-              placeholder="Поиск коллекций..."
-              value={searchQuery}
-              onChange={handleSearchChange}
-              className="text-black placeholder:text-lightGrey box-border text-left w-full "
-            />
-            {searchQuery && (
-              <button type="button" className="hover:text-black group" onClick={handleClearSearch}>
-                <IconClose size={16} className="group-hover:stroke-greyLight transition-colors" />
-              </button>
-            )}
-          </div>
+          <SearchInputBlock
+            placeholder="Поиск коллекций..."
+            value={searchQuery}
+            onChange={handleSearchChange}
+            onClear={handleClearSearch}
+          />
         </div>
         <CardsItems type="collection" cards={initialCollections} nothingMsg="Ничего не найдено" />
-        <LoadMoreCollections remainingCollections={remainingCollections} perPage={RECIPES_PER_PAGE} />
+        <LoadMoreCollections remainingCards={remainingCollections} perPage={RECIPES_PER_PAGE} />
       </div>
     </section>
   );

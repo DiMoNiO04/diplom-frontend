@@ -1,11 +1,12 @@
 import { FormReg } from '@/components/forms';
+import { ModalTitle } from '@/components/ui';
 
 import { ModalAuthNoAccount } from './ModalAuthNoAccount';
 
 export const ModalAuthReg = () => {
   return (
     <div>
-      <div className="font-unbounded text-2xl mb-4">Регистрация</div>
+      <ModalTitle title="Регистрация" />
       <FormReg />
       <ModalAuthNoAccount type="reg" />
     </div>

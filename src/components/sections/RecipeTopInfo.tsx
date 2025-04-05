@@ -16,12 +16,12 @@ interface IRecipeTopInfoProps {
 }
 
 export const RecipeTopInfo = ({
-  rating,
   name,
-  createdAt,
-  author,
-  description,
   percentMakeAgain,
+  description,
+  author,
+  createdAt,
+  rating,
   img,
 }: IRecipeTopInfoProps) => {
   const authorInfo = teamData[author];

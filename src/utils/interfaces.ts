@@ -66,7 +66,6 @@ interface ISuperDeliciious {
   id: number;
   name: string;
   img: string;
-  countComments: number;
   createdDate: string;
   rating: number;
   author: {
@@ -95,12 +94,18 @@ interface IPageIdProps {
   params: Promise<{ id: string }>;
 }
 
+interface ILoadMoreProps<T> {
+  remainingCards: T[];
+  perPage: number;
+}
+
 export type {
   IAuthorRecipe,
   ICategory,
   ICollection,
   IIcon,
   ILink,
+  ILoadMoreProps,
   IMainSliderSlide,
   IPageIdProps,
   IPageSlugProps,

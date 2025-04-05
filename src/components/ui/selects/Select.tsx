@@ -10,17 +10,17 @@ import { ErrorMsgInput } from '../inputs/ErrorMsgInput';
 import { SelectList } from './SelectList';
 
 interface ISelect {
-  value?: ISelectOption | null;
-  onChange: (value: ISelectOption) => void;
   options: ISelectOption[];
+  value?: ISelectOption | null;
   placeholder?: string;
   error?: string;
   className?: string;
   label?: string;
   isForm?: boolean;
+  onChange: (value: ISelectOption) => void;
 }
 
-export const Select = ({ options, label, isForm, value, onChange, placeholder, error, className }: ISelect) => {
+export const Select = ({ options, value, placeholder, error, className, label, isForm, onChange }: ISelect) => {
   const { selectedOption, isOpen, selectRef, handleSelect, toggleOpen } = useSelect(value);
 
   const handleSelectChange = (option: ISelectOption) => {

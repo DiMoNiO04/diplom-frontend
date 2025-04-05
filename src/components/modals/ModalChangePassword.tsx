@@ -3,6 +3,7 @@
 import { useChangePasswordModalStore } from '@/stores/changePasswordModal';
 
 import { FormChangePassword } from '../forms';
+import { ModalTitle } from '../ui';
 import { Modal } from './Modal';
 
 export const ModalChangePassword = () => {
@@ -10,7 +11,7 @@ export const ModalChangePassword = () => {
 
   return (
     <Modal isOpen={isOpen} closeModal={closeModal}>
-      <div className="font-unbounded text-2xl mb-4">Изменить пароль</div>
+      <ModalTitle title={'Изменить пароль'} />
       <FormChangePassword />
     </Modal>
   );

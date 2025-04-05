@@ -2,6 +2,7 @@
 
 import { useConfirmModalStore } from '@/stores/confirmModal';
 
+import { ModalTitle } from '../ui';
 import { Button } from '../ui/btns';
 import { Modal } from './Modal';
 
@@ -20,7 +21,7 @@ export const ModalConfirm = () => {
 
   return (
     <Modal isOpen={isOpen} closeModal={closeModal}>
-      <div className="font-unbounded text-2xl mb-4">{message}</div>
+      <ModalTitle title={message} />
       <div className="flex flex-col gap-y-2">
         {reverseButtons ? (
           <>
