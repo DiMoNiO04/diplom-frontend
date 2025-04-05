@@ -7,14 +7,12 @@ export const ProfileConnectedAccounts = () => {
   const { openModal } = useConfirmModalStore();
   const { showNotification } = useNotificationStore();
 
-  const handleBtnYesDisabledFacebook = () => {
-    showNotification('Вы отписались от google');
-  };
+  const handleBtnYesDisabledFacebook = () => showNotification('Вы отписались от facebook!');
 
   const handleOpenModalDisabledFacebook = () =>
     openModal('Вы уверены что хотите отключиться от facebook?', handleBtnYesDisabledFacebook);
 
-  const handleBtnYesDisabledGoogle = () => alert('Вы отключили аккаунт google');
+  const handleBtnYesDisabledGoogle = () => showNotification('Вы отписались от google!');
   const handleOpenModalDisabledGoogle = () =>
     openModal('Вы уверены что хотите отключиться от google?', handleBtnYesDisabledGoogle);
 

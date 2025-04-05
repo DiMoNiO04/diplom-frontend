@@ -8,13 +8,13 @@ const NOTIFICATION_TIME: number = 3000;
 const initialState: TNotificationState = {
   isShow: false,
   text: '',
-  icon: '/icons/success.svg',
+  icon: '',
 };
 
 export const useNotificationStore = create<TNotificationStore>()(
   devtools((set) => ({
     ...initialState,
-    showNotification: (text, icon) => {
+    showNotification: (text, icon = '/icons/success.svg') => {
       set({ isShow: true, text, icon }, false, 'Notification/showNotification');
       setTimeout(() => {
         set({ ...initialState }, false, 'Notification/hideNotification');

@@ -1,8 +1,11 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
 import { categoriesData } from '@/data';
+import { useNotificationStore } from '@/stores/notificationMsg';
+import { EUrls } from '@/utils/urls';
 import { IFormRecipeData, schemaRecipe } from '@/utils/validations';
 
 import { FormInfoNote, ImageUpload } from '../blocks';
@@ -34,8 +37,14 @@ export const FormRecipeUpdate = ({ defaultValues }: IFormRecipeUpdateProps) => {
     }
   }, [defaultValues, reset]);
 
+  const router = useRouter();
+
+  const { showNotification } = useNotificationStore();
+
   const onSubmit = async (data: IFormRecipeData) => {
     console.log('Обновленные данные:', data);
+    showNotification('Рецепт обновлен!');
+    router.replace(EUrls.MY_RECIPES);
   };
 
   return (
@@ -82,21 +91,25 @@ export const FormRecipeUpdate = ({ defaultValues }: IFormRecipeUpdateProps) => {
           <Controller
             name="category"
             control={control}
-            render={({ field }) => (
-              <Select
-                {...field}
-                options={categoriesData.map((category) => ({
-                  value: category.slug,
-                  text: category.name,
-                }))}
-                label="Категория*"
-                isForm
-                placeholder="Выберите категорию*"
-                error={errors.category?.message}
-                value={field.value ? { value: field.value, text: field.value } : null}
-                onChange={(selected) => field.onChange(selected.value)}
-              />
-            )}
+            render={({ field }) => {
+              const selectedOption = categoriesData.find((cat) => cat.slug === field.value);
+
+              return (
+                <Select
+                  {...field}
+                  options={categoriesData.map((category) => ({
+                    value: category.slug,
+                    text: category.name,
+                  }))}
+                  label="Категория*"
+                  isForm
+                  placeholder="Выберите категорию*"
+                  error={errors.category?.message}
+                  value={selectedOption ? { value: selectedOption.slug, text: selectedOption.name } : null}
+                  onChange={(selected) => field.onChange(selected.value)}
+                />
+              );
+            }}
           />
           <Controller
             name="description"

@@ -3,23 +3,30 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import { useConfirmModalStore } from '@/stores/confirmModal';
+import { useNotificationStore } from '@/stores/notificationMsg';
 import { IRecipe } from '@/utils/interfaces';
 import { EUrls } from '@/utils/urls';
 
 import { IconDelete, IconEdit } from '../icons';
 
 export const CardMyRecipe = ({ id, name, img, isPublished }: IRecipe) => {
+  const router = useRouter();
+
   const linkUrlRecipe: string = `${EUrls.RECIPES}/${id}`;
 
   const { openModal } = useConfirmModalStore();
+  const { showNotification } = useNotificationStore();
 
-  const handleBtnYes = () => alert('Пользователь выбрал "Да"');
+  const handleBtnYes = () => showNotification('Рецепт удален!');
 
   const handleOpenModalDeleteRecipe = () => {
     openModal(`Вы уверены что хотите удалить рецепт "${name}"?`, handleBtnYes);
   };
+
+  const handleEditBtn = () => router.replace(`${EUrls.RECIPES}/${id}/${EUrls.EDIT_RECIPE}`);
 
   return (
     <div className="flex flex-col gap-2 relative w-fit">
@@ -36,6 +43,7 @@ export const CardMyRecipe = ({ id, name, img, isPublished }: IRecipe) => {
         </button>
         <button
           type="button"
+          onClick={handleEditBtn}
           className={clsx(
             'size-8 flex items-center justify-center rounded-md bg-white',
             'transition-colors duration-300 hover:bg-whiteLight'

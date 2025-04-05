@@ -2,6 +2,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 
 import { categoriesData } from '@/data';
+import { useNotificationStore } from '@/stores/notificationMsg';
 import { IFormRecipeData, schemaRecipe } from '@/utils/validations';
 
 import { FormInfoNote, ImageUpload } from '../blocks';
@@ -22,9 +23,12 @@ export const FormRecipeCreate = () => {
     reValidateMode: 'onChange',
   });
 
+  const { showNotification } = useNotificationStore();
+
   const onSubmit = async (data: IFormRecipeData) => {
     console.log(data);
     reset();
+    showNotification('Рецепт создан!');
   };
 
   return (

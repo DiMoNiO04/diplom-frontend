@@ -16,7 +16,7 @@ export const FavoritesContent = () => {
   const { openModal } = useConfirmModalStore();
   const { showNotification } = useNotificationStore();
 
-  const handleBtnYes = () => showNotification('Все избранные рецепты удалены');
+  const handleBtnYes = () => showNotification('Все избранные рецепты удалены!');
 
   const confirmDelete = () => {
     openModal('Удалить все ваши избранные рецепты?', handleBtnYes);

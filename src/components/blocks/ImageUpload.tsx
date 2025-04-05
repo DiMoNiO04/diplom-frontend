@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 import Image from 'next/image';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent } from 'react';
 
 import { IconClose } from '../icons';
 import { ErrorMsgInput } from '../ui/inputs';
@@ -15,23 +15,17 @@ interface IImageUploadProps {
 }
 
 export const ImageUpload = ({ label, error, value = [], onChange }: IImageUploadProps) => {
-  const [previews, setPreviews] = useState<string[]>(value);
-
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newFiles = Array.from(event.target.files || []);
     const newPreviews = newFiles.map((file) => URL.createObjectURL(file));
 
-    const updatedPreviews = [...previews, ...newPreviews];
-    setPreviews(updatedPreviews);
-    onChange(updatedPreviews);
-
+    onChange([...value, ...newPreviews]);
     event.target.value = '';
   };
 
   const removeImage = (index: number) => {
-    const updatedPreviews = previews.filter((_, i) => i !== index);
-    setPreviews(updatedPreviews);
-    onChange(updatedPreviews);
+    const updated = value.filter((_, i) => i !== index);
+    onChange(updated);
   };
 
   return (
@@ -40,7 +34,7 @@ export const ImageUpload = ({ label, error, value = [], onChange }: IImageUpload
 
       <div
         className={clsx(
-          'relative flex items-center justify-center border p-4 rounded-md ',
+          'relative flex items-center justify-center border p-4 rounded-md',
           'cursor-pointer transition-colors duration-300 hover:bg-whiteDark',
           error && 'border-red'
         )}
@@ -55,9 +49,9 @@ export const ImageUpload = ({ label, error, value = [], onChange }: IImageUpload
         />
       </div>
 
-      {previews.length > 0 && (
+      {value.length > 0 && (
         <div className="flex items-center gap-4 flex-wrap">
-          {previews.map((src, index) => (
+          {value.map((src, index) => (
             <div key={index} className="relative w-28 h-28 group">
               <Image
                 src={src}
@@ -66,7 +60,6 @@ export const ImageUpload = ({ label, error, value = [], onChange }: IImageUpload
                 width={112}
                 height={112}
               />
-
               <button
                 type="button"
                 className={clsx(

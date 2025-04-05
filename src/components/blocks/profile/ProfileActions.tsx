@@ -15,7 +15,7 @@ export const ProfileActions = () => {
   const { showNotification } = useNotificationStore();
 
   const handleBtnYesDeleteAccount = () => {
-    showNotification('Аккаунт удален');
+    showNotification('Аккаунт удален!');
     router.replace(EUrls.HOME, { scroll: false });
   };
 
@@ -24,7 +24,7 @@ export const ProfileActions = () => {
     openModal('Вы уверены что хотите удалить свой аккаунт?', handleBtnYesDeleteAccount, handleBtnNoDeleteAccount);
 
   const handleBtnYesExitAccount = () => {
-    showNotification('Вы вышли из аккаунта');
+    showNotification('Вы вышли из аккаунта!');
     router.replace(EUrls.HOME, { scroll: false });
   };
 

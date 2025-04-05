@@ -7,7 +7,7 @@ export const ProfileNewsletter = () => {
   const { openModal } = useConfirmModalStore();
   const { showNotification } = useNotificationStore();
 
-  const handleBtnYesUnsubscribe = () => showNotification('Вы отписались от рассылки');
+  const handleBtnYesUnsubscribe = () => showNotification('Вы отписались от рассылки!');
 
   const handleOpenModalUnsubscribe = () =>
     openModal('Вы уверены что хотите отписаться от еженедельной рассылки?', handleBtnYesUnsubscribe);
