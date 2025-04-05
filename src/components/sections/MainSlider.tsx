@@ -1,0 +1,66 @@
+'use client';
+
+import Image from 'next/image';
+import Link from 'next/link';
+import { Autoplay, Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { slidesData } from '@/data';
+import { EUrls } from '@/utils/urls';
+
+import { MainSliderBtns } from '../blocks';
+
+const STYLES = {
+  slideTitle: 'text-6xl font-bold text-white max-w-[670px]',
+};
+
+export const MainSlider = () => {
+  return (
+    <section className="mb-20">
+      <div className="relative w-full h-[700px] group">
+        <Swiper
+          modules={[Autoplay, Navigation]}
+          slidesPerView={1}
+          navigation={{
+            nextEl: '.nextButtonSlider',
+            prevEl: '.prevButtonSlider',
+          }}
+          speed={1000}
+          autoplay={{ delay: 5000 }}
+          grabCursor
+          loop
+        >
+          {slidesData.map((slide, index) => (
+            <SwiperSlide className="relative size-full">
+              <Link href={`${EUrls.RECIPES}/${slide.slug}`}>
+                <div className="relative w-full h-[700px]">
+                  <Image
+                    src={slide.img}
+                    alt=""
+                    fill
+                    className="object-cover"
+                    priority={index === 0}
+                    fetchPriority="high"
+                  />
+                  <div className="absolute inset-0 z-2 shadow-customSlide"></div>
+                </div>
+                <div className="absolute max-w-[1140px] py-10 mx-auto bottom-12 left-0 right-0 z-10">
+                  <div className="flex items-start justify-start gap-2 max-w-[700px] mb-1">
+                    <img src="/icons/trendingUp.svg" alt="" width={20} height={20} />
+                    <span className="text-white text-lg italic">{slide.description}</span>
+                  </div>
+                  {index === 0 ? (
+                    <h1 className={STYLES.slideTitle}>{slide.title}</h1>
+                  ) : (
+                    <h2 className={STYLES.slideTitle}>{slide.title}</h2>
+                  )}
+                </div>
+              </Link>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        <MainSliderBtns />
+      </div>
+    </section>
+  );
+};
