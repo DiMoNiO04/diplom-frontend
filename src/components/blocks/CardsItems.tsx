@@ -57,7 +57,7 @@ export const CardsItems = <T extends ICategory | ICollection | IRecipe | ISuperD
   };
 
   const gridColsMap: Record<string, string> = {
-    category: 'grid-cols-5',
+    category: 'grid-cols-5 max-xl:grid-cols-4 max-lg:grid-cols-3 max-sm:grid-cols-2',
     categoryMain: 'grid-cols-6 max-lg:grid-cols-3',
     collection: 'grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1',
     recipe: 'grid-cols-4 max-md:grid-cols-2',

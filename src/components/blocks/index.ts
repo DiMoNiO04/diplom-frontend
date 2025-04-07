@@ -4,6 +4,7 @@ import { ImageUpload } from './ImageUpload';
 import { LoadMoreCollections } from './LoadMoreCollections';
 import { LoadMoreRecipes } from './LoadMoreRecipes';
 import { MainSliderBtns } from './MainSliderBtns';
+import { SearchHeaderBlock } from './SearchHeaderBlock';
 import { SearchInputBlock } from './SearchInputBlock';
 import { TitleSectionBlock } from './TitleSectionBlock';
 
@@ -14,6 +15,7 @@ export {
   LoadMoreCollections,
   LoadMoreRecipes,
   MainSliderBtns,
+  SearchHeaderBlock,
   SearchInputBlock,
   TitleSectionBlock,
 };

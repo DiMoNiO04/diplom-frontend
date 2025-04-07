@@ -1,13 +1,11 @@
 'use client';
 
-import clsx from 'clsx';
 import { ChangeEvent, useState } from 'react';
 
 import { collectionsData } from '@/data';
 import { useDebounce } from '@/hooks';
 
-import { CardsItems, LoadMoreCollections, SearchInputBlock } from '../blocks';
-import { Title } from '../ui';
+import { CardsItems, LoadMoreCollections, SearchHeaderBlock } from '../blocks';
 
 const RECIPES_PER_PAGE: number = 18;
 const DELAY_DEBOUNCE: number = 300;
@@ -28,20 +26,13 @@ export const CollectionsAll = () => {
   return (
     <section className="mb-20 max-lg:my-16">
       <div className="custom-container">
-        <div
-          className={clsx(
-            'flex justify-between items-end mb-16 border-b border-gray-300',
-            'max-md:flex-col max-md:mb-12 max-md:justify-start max-md:items-start'
-          )}
-        >
-          <Title title={'Коллекции'} className="pb-8" />
-          <SearchInputBlock
-            placeholder="Поиск коллекций..."
-            value={searchQuery}
-            onChange={handleSearchChange}
-            onClear={handleClearSearch}
-          />
-        </div>
+        <SearchHeaderBlock
+          title="Коллекции"
+          placeholder="Поиск коллекций..."
+          value={searchQuery}
+          onChange={handleSearchChange}
+          onClear={handleClearSearch}
+        />
         <CardsItems type="collection" cards={initialCollections} nothingMsg="Ничего не найдено" />
         <LoadMoreCollections remainingCards={remainingCollections} perPage={RECIPES_PER_PAGE} />
       </div>
