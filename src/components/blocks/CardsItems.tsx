@@ -1,6 +1,13 @@
-import { CardCategory, CardCollection, CardMyRecipe, CardRecipe, CardSuperdelicious } from '@/components/cards';
+import {
+  CardCategory,
+  CardCollection,
+  CardMyRecipe,
+  CardRecipe,
+  CardSuperdelicious,
+  CardTeam,
+} from '@/components/cards';
 import { NothingMsg } from '@/components/ui';
-import { ICategory, ICollection, IRecipe, ISuperDeliciious } from '@/utils/interfaces';
+import { ICategory, ICollection, IRecipe, ISuperDeliciious, ITeamAuthor } from '@/utils/interfaces';
 
 interface ICardsItems<T> {
   cards?: T[];
@@ -9,10 +16,10 @@ interface ICardsItems<T> {
 }
 
 interface ICardsItemsProps<T> extends ICardsItems<T> {
-  type: 'category' | 'collection' | 'recipe' | 'favorites' | 'myRecipes' | 'categoryMain' | 'superDelicious';
+  type: 'category' | 'collection' | 'recipe' | 'favorites' | 'myRecipes' | 'categoryMain' | 'superDelicious' | 'team';
 }
 
-export const CardsItems = <T extends ICategory | ICollection | IRecipe | ISuperDeliciious>({
+export const CardsItems = <T extends ICategory | ICollection | IRecipe | ISuperDeliciious | ITeamAuthor>({
   cards,
   nothingMsg,
   type,
@@ -36,6 +43,8 @@ export const CardsItems = <T extends ICategory | ICollection | IRecipe | ISuperD
         return <CardMyRecipe {...(card as IRecipe)} />;
       case 'superDelicious':
         return <CardSuperdelicious {...(card as ISuperDeliciious)} />;
+      case 'team':
+        return <CardTeam {...(card as ITeamAuthor)} />;
       default:
         return null;
     }
@@ -55,6 +64,7 @@ export const CardsItems = <T extends ICategory | ICollection | IRecipe | ISuperD
     favorites: 'grid-cols-3',
     myRecipes: 'grid-cols-3',
     superDelicious: 'grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1',
+    team: 'grid-cols-6 max-lg:grid-cols-4 max-sm:grid-cols-2',
   };
 
   return (

@@ -7,7 +7,7 @@ export const AboutMain = () => {
     <section className="mb-20 max-lg:my-16">
       <div className="custom-container">
         <Title title="О нас" isBorder />
-        <div className="flex flex-col gap-y-10">
+        <div className="flex flex-col gap-y-10 max-lg:gap-y-8">
           <Title
             title="Мы — команда энтузиастов, объединённых любовью к кулинарии и гастрономическим открытиям."
             type="h2"
@@ -20,7 +20,7 @@ export const AboutMain = () => {
             priority
             className="w-full h-auto object-cover"
           />
-          <div className="grid grid-cols-2 gap-x-10">
+          <div className="grid grid-cols-2 gap-x-10 max-lg:grid-cols-1 max-lg:gap-2">
             <TextDef
               title="
               Готовить — это искусство, а еда — это не просто необходимость, а источник удовольствия. 

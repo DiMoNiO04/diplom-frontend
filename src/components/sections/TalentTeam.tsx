@@ -1,6 +1,6 @@
 import { teamData } from '@/data';
 
-import { CardTeam } from '../cards';
+import { CardsItems } from '../blocks';
 import { Title } from '../ui';
 
 export const TalentTeam = () => {
@@ -9,11 +9,7 @@ export const TalentTeam = () => {
       <div className="custom-container">
         <div className="flex flex-col gap-y-10">
           <Title title="Невероятная команда талантливых поваров и гурманов" type="h2" />
-          <div className="grid grid-cols-6 gap-8">
-            {teamData.map((card) => (
-              <CardTeam key={card.id} {...card} />
-            ))}
-          </div>
+          <CardsItems cards={teamData} type={'team'} nothingMsg={'Авторов нет!'} hideOnMobileAfter={6} />
         </div>
       </div>
     </section>

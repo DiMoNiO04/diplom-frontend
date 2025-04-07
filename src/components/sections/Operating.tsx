@@ -4,9 +4,9 @@ export const Operating = () => {
   return (
     <section className="mb-20 max-lg:mb-16">
       <div className="custom-container">
-        <div className="flex flex-col gap-y-10 max-w-2xl">
+        <div className="flex flex-col gap-y-10 max-w-2xl max-lg:max-w-full max-lg:gap-y-8">
           <Title title="Наши кухни в Минске, Москве и Берлине" type="h2" />
-          <div className="flex flex-col gap-y-4">
+          <div className="flex flex-col gap-y-4 max-lg:gap-2">
             <TextDef
               size="sm"
               title="
