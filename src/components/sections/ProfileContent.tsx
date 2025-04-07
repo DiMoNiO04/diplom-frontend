@@ -20,7 +20,7 @@ export const ProfileContent = () => {
   const onBtnClick = () => showNotification('Данные успешно изменены!');
 
   return (
-    <section className="my-20">
+    <section className="mb-20 max-lg:my-16">
       <div className="custom-container">
         <div className="flex items-center justify-between border-b border-gray-400 mb-16 pb-8">
           <Title title="Личный кабинет" />

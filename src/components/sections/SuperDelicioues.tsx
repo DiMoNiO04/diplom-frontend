@@ -1,18 +1,18 @@
 import { superDeliciouesData } from '@/data';
 
-import { TitleSectionBlock } from '../blocks';
-import { CardSuperdelicious } from '../cards';
+import { CardsItems, TitleSectionBlock } from '../blocks';
 
 export const SuperDelicioues = () => {
   return (
-    <section className="mb-20">
+    <section className="mb-20 max-lg:mb-16">
       <div className="custom-container">
         <TitleSectionBlock title="Самые вкусные" />
-        <div className="grid grid-cols-3 gap-8">
-          {superDeliciouesData.map((card) => (
-            <CardSuperdelicious key={card.id} {...card} />
-          ))}
-        </div>
+        <CardsItems
+          cards={superDeliciouesData}
+          type={'superDelicious'}
+          nothingMsg={'Рецептов нет!'}
+          hideOnMobileAfter={4}
+        />
       </div>
     </section>
   );

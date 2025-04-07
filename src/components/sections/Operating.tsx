@@ -2,7 +2,7 @@ import { TextDef, Title } from '../ui';
 
 export const Operating = () => {
   return (
-    <section className="mb-20">
+    <section className="mb-20 max-lg:mb-16">
       <div className="custom-container">
         <div className="flex flex-col gap-y-10 max-w-2xl">
           <Title title="Наши кухни в Минске, Москве и Берлине" type="h2" />

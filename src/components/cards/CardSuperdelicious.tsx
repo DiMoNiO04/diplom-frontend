@@ -14,13 +14,14 @@ export const CardSuperdelicious = ({ id, name, img, createdDate, rating, author 
       <div className="transition-transform duration-300 group-hover:scale-105 ">
         <Image src={img} alt="" width={457} height={280} className="size-full" />
       </div>
-      <div className="p-6 flex flex-col gap-10 size-full">
-        <div className="flex flex-col gap-3">
+      <div className="p-6 flex flex-col gap-10 size-full max-sm:p-5 max-sm:gap-4">
+        <div className="flex flex-col gap-3 max-sm:gap-2">
           <RecipeRating rating={rating} />
           <div
             className={`
             text-xl font-unbounded font-medium h-14 line-clamp-2 overflow-hidden text-ellipsis whitespace-pre-wrap 
             transition-colors duration-300 hover:text-orange 
+            max-sm:text-lg
           `}
           >
             {name}

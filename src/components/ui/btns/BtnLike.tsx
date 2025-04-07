@@ -41,7 +41,7 @@ export const BtnLike = ({ className = '', type = 'card' }: IBtnLikeProps) => {
         flex items-center justify-center 
         ${
           type === 'card'
-            ? 'absolute top-3 size-8 right-3 bg-white hover:bg-whiteLight'
+            ? 'absolute top-3 size-8 right-3 bg-white hover:bg-whiteLight max-sm:right-2 max-sm:top-2'
             : 'relative size-12 bg-whiteDark hover:bg-white'
         } 
          rounded-md z-10 transition-colors duration-300  

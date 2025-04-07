@@ -21,7 +21,7 @@ export const AlreadyMade = () => {
   const handleClickBtn = () => (isAuth ? handleOpenModal() : openModalAuth());
 
   return (
-    <section className="mb-20">
+    <section className="mb-20 max-lg:mb-16">
       <div className="custom-container">
         <div className="border-b-8 border-orange pb-8 flex flex-col gap-y-8">
           <Title title="Сделали бы это снова?" type="h2" />

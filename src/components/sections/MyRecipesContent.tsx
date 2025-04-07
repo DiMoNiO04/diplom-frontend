@@ -12,7 +12,7 @@ export const MyRecipesContent = () => {
   const publishedCards: IRecipe[] = recipesData.filter((card) => card.isPublished === true);
 
   return (
-    <section className="my-20">
+    <section className="mb-20 max-lg:my-16">
       <div className="custom-container">
         <div className="flex items-center justify-between pb-8 border-b border-gray-300 mb-16">
           <Title title="Мои рецепты" />
