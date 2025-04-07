@@ -1,6 +1,6 @@
-import { RecipesContent } from '@/components/sections';
+import { RecipesAll } from '@/components/sections';
 import { recipesData } from '@/data';
 
 export default function RecipesPage() {
-  return <RecipesContent recipes={recipesData} name={'Рецепты'} />;
+  return <RecipesAll recipes={recipesData} name={'Рецепты'} />;
 }

@@ -18,7 +18,7 @@ import { PopularCategories } from './PopularCategories';
 import { PrivacyPolicyContent } from './PrivacyPolicyContent';
 import { ProfileContent } from './ProfileContent';
 import { RecipeContentInfo } from './RecipeContentInfo';
-import { RecipesContent } from './RecipesContent';
+import { RecipesAll } from './RecipesAll';
 import { RecipeTopInfo } from './RecipeTopInfo';
 import { SearchResults } from './SearchResults';
 import { ShareYourRecipe } from './ShareYourRecipe';
@@ -47,7 +47,7 @@ export {
   PrivacyPolicyContent,
   ProfileContent,
   RecipeContentInfo,
-  RecipesContent,
+  RecipesAll,
   RecipeTopInfo,
   SearchResults,
   ShareYourRecipe,
