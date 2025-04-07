@@ -31,7 +31,7 @@ export const Select = ({ options, value, placeholder, error, className, label, i
   const hasOptions = options && options.length > 0;
 
   return (
-    <div className={clsx('relative flex flex-col gap-y-1', className)} ref={selectRef}>
+    <div className={clsx('relative flex flex-col gap-y-1 flex-shrink-0', className)} ref={selectRef}>
       {label && <label className="font-medium">{label}</label>}
 
       <div

@@ -11,13 +11,13 @@ import { Select } from '../ui/selects';
 
 const RECIPES_PER_PAGE: number = 16;
 
-type IRecipesAllProps = {
+type IRecipesContentProps = {
   recipes: IRecipe[];
   description?: string;
   name: string;
 };
 
-export const RecipesAll = ({ recipes, description, name }: IRecipesAllProps) => {
+export const RecipesContent = ({ recipes, description, name }: IRecipesContentProps) => {
   const hasRecipes: boolean = recipes.length > 0;
   const initialRecipes = recipes.slice(0, RECIPES_PER_PAGE);
   const remainingRecipes = recipes.slice(RECIPES_PER_PAGE);
@@ -29,12 +29,12 @@ export const RecipesAll = ({ recipes, description, name }: IRecipesAllProps) => 
       <div className="custom-container">
         <div
           className={clsx(
-            'flex justify-between items-end mb-16 pb-8 border-b border-gray-300',
-            'max-sm:flex-col max-sm:mb-12 max-sm:justify-start max-sm:items-start max-sm:gap-8'
+            'flex justify-between items-end mb-16 pb-8 border-b border-gray-300 gap-8',
+            'max-md:flex-col max-md:mb-12 max-md:justify-start max-md:items-start max-md:gap-8'
           )}
         >
           <div className="flex flex-col gap-2 max-w-3xl">
-            <div className="flex items-end gap-4">
+            <div className="flex items-end gap-4 max-lg:flex-col max-lg:items-start">
               <Title title={name} />
               {hasRecipes && (
                 <div className="font-onest italic text-sm flex-shrink-0 text-balance">
@@ -48,7 +48,7 @@ export const RecipesAll = ({ recipes, description, name }: IRecipesAllProps) => 
             onChange={onChangeSelect}
             value={sortRecipes[0]}
             options={sortRecipes}
-            className="w-52 max-sm:w-full"
+            className="w-52 max-md:w-full"
           />
         </div>
         <CardsItems type="recipe" cards={initialRecipes} nothingMsg={'Рецептов данной категории нет'} />
