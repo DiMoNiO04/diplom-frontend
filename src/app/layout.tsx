@@ -27,7 +27,7 @@ export default function RootLayout({
     <html lang="ru">
       <body className={`${fontUnbounded.variable} ${fontOnest.variable}`}>
         <Header />
-        <main className="mt-24">{children}</main>
+        <main className="mt-24 max-md:mt-16">{children}</main>
         <Footer />
         <Modals />
         <NotificationMsg />

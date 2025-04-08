@@ -27,7 +27,7 @@ export const RecipeTopInfo = ({
   const authorInfo = teamData[author];
 
   return (
-    <section className="mt-20 mb-12">
+    <section className="mt-20 mb-12 max-md:mt-12">
       <div className="custom-container">
         <div className="flex justify-between items-center gap-x-8 relative mb-2">
           {percentMakeAgain && (

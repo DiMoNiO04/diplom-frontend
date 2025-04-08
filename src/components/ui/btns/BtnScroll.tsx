@@ -14,7 +14,7 @@ export const BtnScroll = () => {
     <button
       onClick={scrollToTop}
       className={`
-      size-12 flex items-center justify-center fixed rounded-full bottom-8 right-8 z-50 bg-orange
+      size-12 flex items-center justify-center fixed rounded-full bottom-8 right-8 z-40 bg-orange
       transition-colors duration-300 hover:bg-orangeHover
       max-md:bottom-4 max-md:right-4 max-md:size-10
     `}

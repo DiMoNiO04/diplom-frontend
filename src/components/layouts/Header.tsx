@@ -1,30 +1,38 @@
 'use client';
 
 import clsx from 'clsx';
+import { useState } from 'react';
 
-import { useHeader } from '@/hooks';
+import { useBodyScrollBLock, useHeader } from '@/hooks';
 
 import { HeaderMenu, HeaderSearch, HeaderUserProfile } from '../blocks/header';
 import { Logo } from '../ui';
+import { BtnBurger } from '../ui/btns';
 
 export const Header = () => {
   const { isScrolled } = useHeader();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+
+  useBodyScrollBLock(isMenuOpen);
 
   return (
     <header
       className={clsx(
-        'fixed top-0 lef-0 w-full shadow-none h-24 bg-white z-50 transition-colors duration-300',
-        'transition-all duration-300',
-        isScrolled && 'shadow-customSlide bg-whiteDark'
+        'fixed top-0 left-0 w-full shadow-none h-24 bg-white z-50 transition-colors duration-300 max-lg:h-20',
+        isScrolled && 'shadow-customSlide bg-whiteDark',
+        isMenuOpen ? 'bg-whiteDark' : 'bg-white'
       )}
     >
       <div className="custom-container">
-        <div className="flex items-center justify-between py-5">
+        <div className="flex items-center justify-between py-5 max-md:py-3.5">
           <Logo />
-          <HeaderMenu />
-          <div className="flex items-center justify-between gap-8">
+          <HeaderMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
+          <div className="flex items-center justify-between gap-8 max-lg:gap-5">
             <HeaderSearch />
             <HeaderUserProfile />
+            <BtnBurger isOpen={isMenuOpen} toggleMenu={toggleMenu} />
           </div>
         </div>
       </div>

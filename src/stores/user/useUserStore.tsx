@@ -4,7 +4,7 @@ import { devtools } from 'zustand/middleware';
 import { TUserState, TUserStore } from './types';
 
 const initialState: TUserState = {
-  isAuth: true,
+  isAuth: false,
 };
 
 export const useUserStore = create<TUserStore>()(

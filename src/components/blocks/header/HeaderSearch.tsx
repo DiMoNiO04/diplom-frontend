@@ -16,7 +16,7 @@ export const HeaderSearch = () => {
 
   return (
     <>
-      <button type="button" onClick={handleSearchToggle} className="group">
+      <button type="button" onClick={handleSearchToggle} className="group max-lg:size-6">
         <IconSearch size={24} className="group-hover:stroke-orange" />
       </button>
       <HeaderSearchPanel onClose={handleSearchToggle} isOpen={isSearchOpen} />

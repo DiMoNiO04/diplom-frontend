@@ -14,6 +14,6 @@ export const HeaderUserProfile = () => {
   const onOpen = () => openModal('login');
 
   return (
-    <div className="relative">{isAuth ? <HeaderUserMenu /> : <Button text="Войти" size="lg" onClick={onOpen} />}</div>
+    <div className="relative">{isAuth ? <HeaderUserMenu /> : <Button text="Войти" size="sm" onClick={onOpen} />}</div>
   );
 };
