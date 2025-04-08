@@ -14,7 +14,11 @@ export const ModalAuthNoAccount = ({ type }: IModalAuthNoAccountProps) => {
   const handleClickBtn = () => setTabContent(type === 'login' ? EAuthContent.REG : EAuthContent.LOGIN);
 
   return (
-    <div className="font-onest text-sm text-black mt-8 flex items-center justify-center gap-x-1">
+    <div
+      className={`
+        font-onest text-sm text-black mt-8 flex items-center justify-center gap-x-1 max-sm:flex-col max-sm:mt-6
+      `}
+    >
       {type === 'login' ? 'Еще нет аккаунта?' : 'Уже есть аккаунт?'}
       <BtnText variant="orange" text={type === 'login' ? 'Зарегистрироваться' : 'Войти'} onClick={handleClickBtn} />
     </div>

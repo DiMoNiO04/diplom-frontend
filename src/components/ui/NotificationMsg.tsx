@@ -30,7 +30,7 @@ export const NotificationMsg = () => {
       "
       >
         {icon && <Image src={icon} alt="" width={20} height={20} />}
-        <span className="font-unbounded">{text}</span>
+        <span className="font-unbounded max-sm:text-sm">{text}</span>
       </div>
     </div>
   );

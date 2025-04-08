@@ -56,12 +56,12 @@ export const FormChangePassword = () => {
           <InputPassword
             {...field}
             onBlur={field.onBlur}
-            placeholder="Повторите новый пароль"
+            placeholder="Повторите пароль"
             error={errors.confirmPassword?.message}
           />
         )}
       />
-      <Button text={'Сохранить новый пароль'} variant="orange" type="submit" className="mt-4" />
+      <Button text={'Сохранить пароль'} variant="orange" type="submit" className="mt-4" />
     </form>
   );
 };
