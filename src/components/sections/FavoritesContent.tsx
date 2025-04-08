@@ -31,7 +31,7 @@ export const FavoritesContent = () => {
         </div>
 
         <div className="grid grid-cols-[3fr_1.2fr] gap-16 relative max-md:grid-cols-1 max-md:gap-12 max-lg:gap-8">
-          <div className="max-w-5xl w-full flex-shrink-0 max-md:order-1">
+          <div className="flex-shrink-0 max-md:order-1">
             {hasFavorites && (
               <div className="flex items-center justify-between mb-16 max-md:mb-8 max-sm:flex-col max-sm:gap-2">
                 <div
