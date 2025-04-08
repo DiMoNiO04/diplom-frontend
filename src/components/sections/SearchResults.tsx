@@ -51,17 +51,22 @@ export const SearchResults = () => {
             className="text-black placeholder:text-lightGrey box-border text-left w-full"
           />
           {searchQuery && (
-            <button type="button" className="lg:hover:text-black group" onClick={handleClearSearch}>
-              <IconClose size={16} className="group-lg:hover:stroke-greyLight transition-colors" />
+            <button type="button" className="hover:text-black group" onClick={handleClearSearch}>
+              <IconClose size={16} className="group-hover:stroke-greyLight transition-colors" />
             </button>
           )}
         </div>
-        <div className="flex items-center justify-between mb-10">
-          <div className="font-unbounded italic text-greyLight">
+        <div className="flex items-center justify-between mb-10 max-md:flex-col max-md:gap-4 max-md:items-start">
+          <div className="font-unbounded italic text-greyLight max-md:text-sm">
             По вашему запросу <span className="text-orange">{searchQuery}</span> найдено{' '}
             <span className="text-orange">{recipesData.length}</span> рецепта(-ов)
           </div>
-          <Select onChange={onChangeSelect} value={sortRecipes[0]} options={sortRecipes} className="w-52" />
+          <Select
+            onChange={onChangeSelect}
+            value={sortRecipes[0]}
+            options={sortRecipes}
+            className="w-52 max-md:w-full"
+          />
         </div>
 
         <CardsItems type="recipe" cards={initialRecipes} nothingMsg={'По вашему запросу ничего не найдено'} />

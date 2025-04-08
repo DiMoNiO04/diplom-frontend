@@ -31,9 +31,11 @@ export const RecipeTopInfo = ({
       <div className="custom-container">
         <div className="flex justify-between items-center gap-x-8 relative mb-2">
           {percentMakeAgain && (
-            <div className="flex items-start justify-start gap-2 max-w-[700px] mb-1">
+            <div className="flex items-start justify-start gap-2 max-w-[700px]">
               <img src="/icons/trendingUp.svg" alt="" width={20} height={20} />
-              <span className="text-black text-def italic">{percentMakeAgain}% сделали бы это снова</span>
+              <span className="text-black text-def italic max-sm:text-sm">
+                {percentMakeAgain}% сделали бы это снова
+              </span>
             </div>
           )}
           <BtnLike type="recipe" />

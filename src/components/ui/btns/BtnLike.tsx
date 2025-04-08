@@ -38,7 +38,7 @@ export const BtnLike = ({ className = '', type = 'card' }: IBtnLikeProps) => {
       type="button"
       onClick={handleLikeClick}
       className={`
-        flex items-center justify-center 
+        flex items-center justify-center flex-shrink-0
         ${
           type === 'card'
             ? 'absolute top-3 size-8 right-3 bg-white lg:hover:bg-whiteLight max-sm:right-2 max-sm:top-2'

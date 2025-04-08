@@ -4,6 +4,7 @@ import { Onest, Unbounded } from 'next/font/google';
 
 import { Footer, Header, Modals } from '@/components/layouts';
 import { NotificationMsg } from '@/components/ui';
+import { BtnScroll } from '@/components/ui/btns';
 
 const fontUnbounded = Unbounded({
   subsets: ['latin'],
@@ -30,6 +31,7 @@ export default function RootLayout({
         <Footer />
         <Modals />
         <NotificationMsg />
+        <BtnScroll />
       </body>
     </html>
   );
