@@ -39,7 +39,7 @@ export const SearchResults = () => {
   const remainingRecipes = recipesData.slice(RECIPES_PER_PAGE);
 
   return (
-    <section className="my-20">
+    <section className="my-20 max-lg:my-16">
       <div className="custom-container">
         <Title title="Результаты поиска" className="mb-8" />
         <div className="relative w-full flex items-center justify-between gap-x-4 pb-4 mb-8 border-b border-greyLight">
@@ -56,12 +56,17 @@ export const SearchResults = () => {
             </button>
           )}
         </div>
-        <div className="flex items-center justify-between mb-10">
-          <div className="font-unbounded italic text-greyLight">
+        <div className="flex items-center justify-between mb-10 max-md:flex-col max-md:gap-4 max-md:items-start">
+          <div className="font-unbounded italic text-greyLight max-md:text-sm">
             По вашему запросу <span className="text-orange">{searchQuery}</span> найдено{' '}
             <span className="text-orange">{recipesData.length}</span> рецепта(-ов)
           </div>
-          <Select onChange={onChangeSelect} value={sortRecipes[0]} options={sortRecipes} className="w-52" />
+          <Select
+            onChange={onChangeSelect}
+            value={sortRecipes[0]}
+            options={sortRecipes}
+            className="w-52 max-md:w-full"
+          />
         </div>
 
         <CardsItems type="recipe" cards={initialRecipes} nothingMsg={'По вашему запросу ничего не найдено'} />

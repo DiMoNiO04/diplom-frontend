@@ -31,7 +31,7 @@ export const RecipeSlider = ({ images }: IRecipeSliderProps) => {
       >
         {images.map((img, index) => (
           <SwiperSlide key={index} className="relative size-full">
-            <div className="relative w-full h-[700px]">
+            <div className="relative w-full h-[700px] max-lg:h-[500px] max-md:h-[400px] max-sm:h-[350px]">
               <Image
                 src={img}
                 alt="Recipe image"

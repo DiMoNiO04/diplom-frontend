@@ -30,7 +30,7 @@ export const ProfileFoto = () => {
   };
 
   return (
-    <div className="flex items-center gap-x-6 mb-8">
+    <div className="flex items-center gap-x-6 mb-8 max-md:flex-col max-md:gap-4">
       <div className="size-20 rounded-full border border-black overflow-hidden flex items-center justify-center">
         {avatar ? (
           <Image src={avatar} width={80} height={80} alt="User avatar" className="object-cover" />
@@ -41,8 +41,10 @@ export const ProfileFoto = () => {
 
       <input type="file" accept="image/*" ref={fileInputRef} className="hidden" onChange={handleImageChange} />
 
-      <Button text="Изменить фото" variant="orange" size="sm" onClick={handleUploadClick} />
-      <Button text="Удалить фото" size="sm" onClick={handleRemoveAvatar} />
+      <div className="flex items-center gap-x-6 max-md:w-full max-md:gap-4 max-sm:flex-col">
+        <Button text="Изменить фото" variant="orange" size="sm" onClick={handleUploadClick} className="max-md:w-full" />
+        <Button text="Удалить фото" size="sm" onClick={handleRemoveAvatar} className="max-md:w-full" />
+      </div>
     </div>
   );
 };

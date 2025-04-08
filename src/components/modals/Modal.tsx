@@ -39,6 +39,7 @@ export const Modal = ({ isOpen, closeModal, children }: IModalProps) => {
               <Dialog.Panel
                 className={`
                  relative w-[420px] border border-gray-300 rounded-lg bg-white p-10 transition-all
+                 max-sm:w-full max-sm:py-8 max-sm:px-6
                 `}
               >
                 {children}

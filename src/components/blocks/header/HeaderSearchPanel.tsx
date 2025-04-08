@@ -42,8 +42,8 @@ export const HeaderSearchPanel = ({ isOpen, onClose }: IHeaderSearchPanelProps) 
         isOpen ? 'translate-y-0' : '-translate-y-full'
       )}
     >
-      <div className="custom-container h-full py-12 flex flex-col">
-        <div className="flex items-center justify-between border-b border-black pb-2 mb-8">
+      <div className="custom-container h-full py-12 flex flex-col max-md:py-10">
+        <div className="flex items-center justify-between border-b border-black pb-2 mb-8 max-md:mb-4">
           <input
             type="text"
             placeholder="Поиск рецепта по названию..."
@@ -58,7 +58,7 @@ export const HeaderSearchPanel = ({ isOpen, onClose }: IHeaderSearchPanelProps) 
 
         <div className="flex-1 overflow-y-auto scrollbar-hide">
           {hasSearchResult ? (
-            <div className="grid grid-cols-2 gap-x-8">
+            <div className="grid grid-cols-2 gap-x-8 max-md:grid-cols-1">
               {visibleSearchResult.map((card) => (
                 <CardSearchPanel key={card.id} {...card} />
               ))}

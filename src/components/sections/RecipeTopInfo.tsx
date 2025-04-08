@@ -27,21 +27,27 @@ export const RecipeTopInfo = ({
   const authorInfo = teamData[author];
 
   return (
-    <section className="mt-20 mb-12">
+    <section className="mt-20 mb-12 max-md:mt-12">
       <div className="custom-container">
-        <div className="flex justify-between items-center gap-x-8 relative">
+        <div className="flex justify-between items-center gap-x-8 relative mb-2">
           {percentMakeAgain && (
-            <div className="flex items-start justify-start gap-2 max-w-[700px] mb-1">
+            <div className="flex items-start justify-start gap-2 max-w-[700px]">
               <img src="/icons/trendingUp.svg" alt="" width={20} height={20} />
-              <span className="text-black text-def italic">{percentMakeAgain}% сделали бы это снова</span>
+              <span className="text-black text-def italic max-sm:text-sm">
+                {percentMakeAgain}% сделали бы это снова
+              </span>
             </div>
           )}
           <BtnLike type="recipe" />
         </div>
         <Title title={name} className="mb-6" />
-        <div className="flex items-center justify-start gap-x-10 pb-6 mb-6 border-b border-gray-300">
+        <div
+          className={`
+          flex items-center justify-start gap-10 pb-6 mb-6 border-b border-gray-300 flex-wrap max-md:gap-5  
+        `}
+        >
           <div className="flex items-center gap-x-2">
-            <div className="size-8 rounded-full overflow-hidden">
+            <div className="size-8 rounded-full overflow-hidden flex-shrink-0">
               <img src={authorInfo.img} alt="" />
             </div>
             <span className="text-sm">{authorInfo.name}</span>
@@ -57,7 +63,7 @@ export const RecipeTopInfo = ({
             <div className="text-sm">({rating})</div>
           </div>
         </div>
-        <div className="mb-6 text-greyLight max-w-2xl">{description}</div>
+        <div className="mb-6 text-greyLight max-w-2xl text-balance">{description}</div>
 
         <RecipeSlider images={img} />
       </div>

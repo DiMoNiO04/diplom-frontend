@@ -99,10 +99,16 @@ interface ILoadMoreProps<T> {
   perPage: number;
 }
 
+interface IHeaderMenuProps {
+  isOpen: boolean;
+  toggleMenu: () => void;
+}
+
 export type {
   IAuthorRecipe,
   ICategory,
   ICollection,
+  IHeaderMenuProps,
   IIcon,
   ILink,
   ILoadMoreProps,

@@ -9,11 +9,11 @@ interface ITitleProps extends ITitle {
 }
 
 const STYLES = {
-  BORDER: 'pb-8 border-b border-gray-300 mb-16',
+  BORDER: 'pb-8 border-b border-gray-300 mb-16 max-lg:pb-6 max-lg:mb-12',
   BASE: {
-    h1: 'font-unbounded text-5xl',
-    h2: 'font-unbounded text-4xl',
-    h3: 'mb-6 font-unbounded text-xl font-medium',
+    h1: 'font-unbounded text-5xl max-lg:text-4xl hyphens-auto',
+    h2: 'font-unbounded text-4xl max-lg:text-3xl hyphens-auto',
+    h3: 'mb-6 font-unbounded text-xl font-medium hyphens-auto max-sm:mb-5',
   },
 };
 

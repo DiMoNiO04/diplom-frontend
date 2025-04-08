@@ -4,12 +4,12 @@ import { TextDef, Title } from '../ui';
 
 export const SimpleRecipes = () => {
   return (
-    <section className="mb-20">
+    <section className="mb-20 max-lg:mb-16">
       <div className="custom-container">
-        <div className="grid grid-cols-2 gap-x-10 items-stretch">
-          <div className="flex flex-col gap-y-10">
+        <div className="grid grid-cols-2 gap-x-10 items-stretch max-lg:grid-cols-1 max-lg:gap-6">
+          <div className="flex flex-col gap-y-10 max-lg:gap-8">
             <Title title="Простые, легкие рецепты для всех" type="h2" />
-            <div className="flex flex-col gap-y-4">
+            <div className="flex flex-col gap-y-4 max-lg:gap-y-2">
               <TextDef
                 title="
                 Готовить вкусные блюда — проще, чем кажется! Мы собрали коллекцию рецептов, которые подойдут как 

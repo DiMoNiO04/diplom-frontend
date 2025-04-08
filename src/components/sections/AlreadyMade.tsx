@@ -21,11 +21,11 @@ export const AlreadyMade = () => {
   const handleClickBtn = () => (isAuth ? handleOpenModal() : openModalAuth());
 
   return (
-    <section className="mb-20">
+    <section className="mb-20 max-lg:mb-16">
       <div className="custom-container">
-        <div className="border-b-8 border-orange pb-8 flex flex-col gap-y-8">
+        <div className="border-b-8 border-orange pb-8 flex flex-col gap-y-8 max-md:gap-y-6 max-md:pb-6">
           <Title title="Сделали бы это снова?" type="h2" />
-          <Button text="Поделитесь своим отзывом" className="w-fit" onClick={handleClickBtn} />
+          <Button text="Поделитесь своим отзывом" className="w-fit max-sm:w-full" onClick={handleClickBtn} />
         </div>
       </div>
     </section>

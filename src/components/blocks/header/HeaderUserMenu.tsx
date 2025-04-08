@@ -8,11 +8,11 @@ import { IconLogOut } from '@/components/icons';
 import { menuProfileData } from '@/data';
 import { useClickOutside, useLogout } from '@/hooks';
 import { useConfirmModalStore } from '@/stores/confirmModal';
-import { getTrimmedPathame } from '@/utils/functions';
+import { getTrimmedPathname } from '@/utils/functions';
 
 export const HeaderUserMenu = () => {
   const pathname = usePathname();
-  const trimmedPathname = getTrimmedPathame(pathname);
+  const trimmedPathname = getTrimmedPathname(pathname);
 
   const [isOpen, setIsOpen] = useState(false);
   const { openModal } = useConfirmModalStore();
@@ -35,16 +35,16 @@ export const HeaderUserMenu = () => {
         type="button"
         onClick={handleToggle}
         className={clsx(
-          'size-12 overflow-hidden flex items-center justify-center rounded-full border',
+          'size-10 overflow-hidden flex items-center justify-center rounded-full border',
           isOpen ? 'border-black' : 'border-greyLight'
         )}
       >
-        <Image src={'/icons/user.svg'} width={48} height={48} alt="Аватар" />
+        <Image src={'/icons/user.svg'} width={40} height={40} alt="Аватар" />
       </button>
 
       <div
         className={clsx(
-          'w-auto border-black absolute right-0 top-16 overflow-hidden rounded-lg border bg-white ',
+          'w-auto border-black absolute right-0 top-12 overflow-hidden rounded-lg border bg-white ',
           'transition-all duration-300 scrollbar-hide shadow-customLight',
           isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         )}

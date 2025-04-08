@@ -4,15 +4,6 @@ import { recipesData } from './recipes';
 
 export const categoriesData: ICategory[] = [
   {
-    slug: 'seafood',
-    name: 'Морепродукты',
-    img: '/img/categories/seafood.webp',
-    fullImage: '/img/templates/category.webp',
-    description:
-      'Блюда из морепродуктов: креветки, мидии, кальмары, осьминоги и другие дары моря. Наслаждайтесь вкусом океана!',
-    recipes: recipesData,
-  },
-  {
     slug: 'soup',
     name: 'Супы',
     img: '/img/categories/soup.webp',
@@ -66,6 +57,15 @@ export const categoriesData: ICategory[] = [
     img: '/img/categories/cake.webp',
     fullImage: '/img/templates/category.webp',
     description: 'Роскошные торты для праздников и особых случаев.',
+    recipes: recipesData,
+  },
+  {
+    slug: 'seafood',
+    name: 'Морепродукты',
+    img: '/img/categories/seafood.webp',
+    fullImage: '/img/templates/category.webp',
+    description:
+      'Блюда из морепродуктов: креветки, мидии, кальмары, осьминоги и другие дары моря. Наслаждайтесь вкусом океана!',
     recipes: recipesData,
   },
   {

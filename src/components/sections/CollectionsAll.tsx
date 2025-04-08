@@ -5,10 +5,9 @@ import { ChangeEvent, useState } from 'react';
 import { collectionsData } from '@/data';
 import { useDebounce } from '@/hooks';
 
-import { CardsItems, LoadMoreCollections, SearchInputBlock } from '../blocks';
-import { Title } from '../ui';
+import { CardsItems, LoadMoreCollections, SearchHeaderBlock } from '../blocks';
 
-const RECIPES_PER_PAGE: number = 15;
+const RECIPES_PER_PAGE: number = 18;
 const DELAY_DEBOUNCE: number = 300;
 
 export const CollectionsAll = () => {
@@ -25,17 +24,15 @@ export const CollectionsAll = () => {
   const remainingCollections = filteredCollections.slice(RECIPES_PER_PAGE);
 
   return (
-    <section className="my-20">
+    <section className="my-20 max-lg:my-16">
       <div className="custom-container">
-        <div className="flex justify-between items-end mb-16 border-b border-gray-300">
-          <Title title={'Коллекции'} className="pb-8" />
-          <SearchInputBlock
-            placeholder="Поиск коллекций..."
-            value={searchQuery}
-            onChange={handleSearchChange}
-            onClear={handleClearSearch}
-          />
-        </div>
+        <SearchHeaderBlock
+          title="Коллекции"
+          placeholder="Поиск коллекций..."
+          value={searchQuery}
+          onChange={handleSearchChange}
+          onClear={handleClearSearch}
+        />
         <CardsItems type="collection" cards={initialCollections} nothingMsg="Ничего не найдено" />
         <LoadMoreCollections remainingCards={remainingCollections} perPage={RECIPES_PER_PAGE} />
       </div>
