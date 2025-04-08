@@ -42,7 +42,7 @@ export const FavoritesContent = () => {
                   className="group max-sm:w-full"
                   size="sm"
                   variant="red"
-                  icon={<IconDelete size={16} className="fill-white group-hover:fill-red" />}
+                  icon={<IconDelete size={16} className="fill-white group-lg:hover:fill-red" />}
                   onClick={confirmDelete}
                 />
               </div>

@@ -8,7 +8,7 @@ export const FooterCopyright = () => {
         Разработка и продвижение сайта —{' '}
         <Link
           href={'mailto:dima.razumov.04@gmail.com'}
-          className="italic transition-colors duration-300 ease-out hover:text-orange"
+          className="italic transition-colors duration-300 ease-out lg:hover:text-orange"
         >
           dima.razumov.04@gmail.com
         </Link>

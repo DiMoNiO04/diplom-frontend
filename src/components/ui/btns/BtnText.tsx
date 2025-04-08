@@ -15,8 +15,8 @@ export const BtnText = ({ text, variant = 'black', icon, className, ...props }: 
       className={clsx(
         'flex items-center gap-x-2 transition-colors duration-300 group',
         {
-          'text-black hover:text-orange': variant === 'black',
-          'text-orange hover:text-black': variant === 'orange',
+          'text-black lg:hover:text-orange': variant === 'black',
+          'text-orange lg:hover:text-black': variant === 'orange',
         },
         className
       )}

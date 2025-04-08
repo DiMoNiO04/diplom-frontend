@@ -23,10 +23,10 @@ export const BtnNavigation = ({
 }: NavigationButtonProps) => {
   const commonClasses = `flex w-fit items-center gap-x-2 font-unbounded text-greyLight group ${customClasses}`;
   const arrowClass = rotateArrow
-    ? 'group-hover:translate-x-[-4px] transition-all duration-300 ease-out'
-    : 'group-hover:translate-x-1 transition-all duration-300 ease-out';
+    ? 'group-lg:hover:translate-x-[-4px] transition-all duration-300 ease-out'
+    : 'group-lg:hover:translate-x-1 transition-all duration-300 ease-out';
 
-  const textClass = 'group-hover:text-orange transition duration-300 ease-out';
+  const textClass = 'group-lg:hover:text-orange transition duration-300 ease-out';
 
   if (type === 'button') {
     return (

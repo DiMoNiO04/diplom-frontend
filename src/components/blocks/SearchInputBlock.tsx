@@ -20,8 +20,8 @@ export const SearchInputBlock = ({ placeholder, value, onChange, onClear }: ISea
         className="text-black placeholder:text-lightGrey box-border text-left w-full"
       />
       {value && (
-        <button type="button" className="hover:text-black group" onClick={onClear}>
-          <IconClose size={16} className="group-hover:stroke-greyLight transition-colors" />
+        <button type="button" className="lg:hover:text-black group" onClick={onClear}>
+          <IconClose size={16} className="group-lg:hover:stroke-greyLight transition-colors" />
         </button>
       )}
     </div>

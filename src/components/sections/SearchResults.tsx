@@ -51,8 +51,8 @@ export const SearchResults = () => {
             className="text-black placeholder:text-lightGrey box-border text-left w-full"
           />
           {searchQuery && (
-            <button type="button" className="hover:text-black group" onClick={handleClearSearch}>
-              <IconClose size={16} className="group-hover:stroke-greyLight transition-colors" />
+            <button type="button" className="lg:hover:text-black group" onClick={handleClearSearch}>
+              <IconClose size={16} className="group-lg:hover:stroke-greyLight transition-colors" />
             </button>
           )}
         </div>

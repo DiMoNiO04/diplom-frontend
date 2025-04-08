@@ -40,7 +40,7 @@ export const FooterMenu = () => {
             )}
           >
             {links.map((link) => (
-              <li key={link.text} className="text-def text-grey transition-colors duration-300 hover:text-orange">
+              <li key={link.text} className="text-def text-grey transition-colors duration-300 lg:hover:text-orange">
                 <Link href={link.href}>{link.text}</Link>
               </li>
             ))}

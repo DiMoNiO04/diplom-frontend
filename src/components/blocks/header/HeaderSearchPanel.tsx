@@ -52,7 +52,7 @@ export const HeaderSearchPanel = ({ isOpen, onClose }: IHeaderSearchPanelProps) 
             className="w-full font-unbounded placeholder:font-onest bg-transparent focus:outline-none"
           />
           <button type="button" onClick={onClose} className="size-6 group">
-            <IconClose className="group-hover:stroke-greyLight transition-colors" />
+            <IconClose className="group-lg:hover:stroke-greyLight transition-colors" />
           </button>
         </div>
 

@@ -35,7 +35,7 @@ export const ImageUpload = ({ label, error, value = [], onChange }: IImageUpload
       <div
         className={clsx(
           'relative flex items-center justify-center border p-4 rounded-md',
-          'cursor-pointer transition-colors duration-300 hover:bg-whiteDark',
+          'cursor-pointer transition-colors duration-300 lg:hover:bg-whiteDark',
           error && 'border-red'
         )}
       >
@@ -56,7 +56,9 @@ export const ImageUpload = ({ label, error, value = [], onChange }: IImageUpload
               <Image
                 src={src}
                 alt="Preview"
-                className="w-full h-full object-cover rounded-md border transition duration-300 group-hover:opacity-75"
+                className={clsx(
+                  'w-full h-full object-cover rounded-md border transition duration-300 group-lg:hover:opacity-75'
+                )}
                 width={112}
                 height={112}
               />
@@ -64,7 +66,7 @@ export const ImageUpload = ({ label, error, value = [], onChange }: IImageUpload
                 type="button"
                 className={clsx(
                   'absolute top-1 right-1 bg-white text-white rounded-full size-5 flex items-center justify-center',
-                  'transition duration-300 md:opacity-0 md:group-hover:opacity-100 md:hover:bg-gray-300'
+                  'transition duration-300 md:opacity-0 md:group-lg:hover:opacity-100 md:lg:hover:bg-gray-300'
                 )}
                 onClick={() => removeImage(index)}
               >

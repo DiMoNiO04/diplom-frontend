@@ -33,7 +33,7 @@ export const ProfileActions = () => {
       <BtnText text="Выйти" icon={<IconLogOut />} variant="black" onClick={handleOpenModalExitAccount} />
       <BtnText
         text="Удалить аккаунт"
-        icon={<IconDelete className="fill-orange group-hover:fill-black" />}
+        icon={<IconDelete className="fill-orange group-lg:hover:fill-black" />}
         variant="orange"
         onClick={handleOpenModalDeleteAccount}
       />

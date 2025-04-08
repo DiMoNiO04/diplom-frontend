@@ -36,7 +36,7 @@ export const CardMyRecipe = ({ id, name, img, isPublished }: IRecipe) => {
           type="button"
           className={clsx(
             'size-8 flex items-center justify-center rounded-md bg-white',
-            'transition-colors duration-300 hover:bg-whiteLight'
+            'transition-colors duration-300 lg:hover:bg-whiteLight'
           )}
         >
           <IconDelete className="fill-greyLight" />
@@ -46,7 +46,7 @@ export const CardMyRecipe = ({ id, name, img, isPublished }: IRecipe) => {
           onClick={handleEditBtn}
           className={clsx(
             'size-8 flex items-center justify-center rounded-md bg-white',
-            'transition-colors duration-300 hover:bg-whiteLight'
+            'transition-colors duration-300 lg:hover:bg-whiteLight'
           )}
         >
           <IconEdit className="stroke-greyLight" />
@@ -55,10 +55,10 @@ export const CardMyRecipe = ({ id, name, img, isPublished }: IRecipe) => {
 
       {isPublished ? (
         <Link href={linkUrlRecipe} className="group flex flex-col gap-2 relative w-fit group">
-          <div className="rounded-md overflow-hidden transition-transform duration-300 group-hover:scale-105">
+          <div className="rounded-md overflow-hidden transition-transform duration-300 group-lg:hover:scale-105">
             <Image src={img[0]} alt="" width={350} height={265} />
           </div>
-          <div className="text-lg leading-6 font-medium transition-colors duration-300 group-hover:text-orange">
+          <div className="text-lg leading-6 font-medium transition-colors duration-300 group-lg:hover:text-orange">
             {name}
           </div>
         </Link>

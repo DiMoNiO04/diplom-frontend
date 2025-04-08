@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { IRecipe } from '@/utils/interfaces';
 
 const splitBySemicolon = (text: string) => text.split(';').map((item) => item.trim());
-const getTrimmedPathame = (pathname: string) => (pathname.endsWith('/') ? pathname.slice(0, -1) : pathname);
+const getTrimmedPathname = (pathname: string) => (pathname.endsWith('/') ? pathname.slice(0, -1) : pathname);
 
 async function fetchByKey<T>(dataArray: T[], key: keyof T, value: string): Promise<T> {
   const item = dataArray.find((entry) => String(entry[key]) === value);
@@ -29,4 +29,4 @@ const getSimilarRecipes = (recipes: IRecipe[], idRecipe: number, category: strin
   return [...sameCategory, ...additional];
 };
 
-export { fetchByKey, getSimilarRecipes, getTrimmedPathame, splitBySemicolon };
+export { fetchByKey, getSimilarRecipes, getTrimmedPathname, splitBySemicolon };

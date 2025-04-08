@@ -15,12 +15,12 @@ export const CardRecipe = ({ id, name, img }: IRecipe) => {
     <div className="relative w-fit">
       <BtnLike />
       <Link href={linkUrlRecipe} className="flex flex-col gap-2 group">
-        <div className="rounded-md overflow-hidden transition-transform duration-300 group-hover:scale-105">
+        <div className="rounded-md overflow-hidden transition-transform duration-300 group-lg:hover:scale-105">
           <Image src={img[0]} alt="" width={350} height={265} />
         </div>
         <div
           className={`
-          text-lg leading-6 font-medium transition-colors duration-300 group-hover:text-orange max-lg:text-base  
+          text-lg leading-6 font-medium transition-colors duration-300 group-lg:hover:text-orange max-lg:text-base  
         `}
         >
           {name}

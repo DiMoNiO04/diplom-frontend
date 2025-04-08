@@ -11,7 +11,7 @@ export const CardSuperdelicious = ({ id, name, img, createdDate, rating, author 
 
   return (
     <Link href={linkUrlRecipe} className="flex flex-col rounded-xl border group overflow-hidden shadow-customLight">
-      <div className="transition-transform duration-300 group-hover:scale-105 ">
+      <div className="transition-transform duration-300 group-lg:hover:scale-105 ">
         <Image src={img} alt="" width={457} height={280} className="size-full" />
       </div>
       <div className="p-6 flex flex-col gap-10 size-full max-sm:p-5 max-sm:gap-4">
@@ -20,7 +20,7 @@ export const CardSuperdelicious = ({ id, name, img, createdDate, rating, author 
           <div
             className={`
             text-xl font-unbounded font-medium h-14 line-clamp-2 overflow-hidden text-ellipsis whitespace-pre-wrap 
-            transition-colors duration-300 hover:text-orange 
+            transition-colors duration-300 lg:hover:text-orange 
             max-sm:text-lg
           `}
           >

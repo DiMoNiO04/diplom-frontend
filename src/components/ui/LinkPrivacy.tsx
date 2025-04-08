@@ -11,7 +11,7 @@ export const LinkPrivacy = () => {
         tabIndex={-1}
         className={clsx(
           'border-orange text-orange border-b ',
-          'hover:text-black transition-colors duration-300 hover:border-transparent'
+          'lg:hover:text-black transition-colors duration-300 lg:hover:border-transparent'
         )}
       >
         пользовательского соглашения
