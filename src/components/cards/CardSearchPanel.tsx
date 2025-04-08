@@ -11,11 +11,11 @@ export const CardSearchPanel = ({ name, img, id, category }: IRecipe) => {
 
   return (
     <Link href={linkUrl} className="flex items-center justify-start gap-4 py-5 border-b border-greyLight group">
-      <div className="rounded-sm w-24">
+      <div className="rounded-sm w-24 flex-shrink-0 max-md:w-20">
         <Image src={img[0]} alt="" width={96} height={72} />
       </div>
       <div className="flex flex-col gap-1">
-        <p className="font-unbounded transition-colors duration-300 group-hover:text-orange">{name}</p>
+        <p className="font-unbounded transition-colors duration-300 group-hover:text-orange max-md:text-sm">{name}</p>
         <p className="italic text-greyLight text-sm font-medium">{categoryName}</p>
       </div>
     </Link>
