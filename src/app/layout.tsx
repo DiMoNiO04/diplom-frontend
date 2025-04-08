@@ -27,7 +27,7 @@ export default function RootLayout({
       <body className={`${fontUnbounded.variable} ${fontOnest.variable}`}>
         {/* <Header /> */}
         <main className="mt-20">{children}</main>
-        {/* <Footer /> */}
+        <Footer />
         <Modals />
         <NotificationMsg />
       </body>
