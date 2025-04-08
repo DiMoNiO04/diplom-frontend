@@ -22,7 +22,11 @@ export const FormProfile = () => {
   };
 
   return (
-    <form className="grid grid-cols-2 gap-8" onSubmit={handleSubmit(onSubmit)} id="profile">
+    <form
+      className="grid grid-cols-2 gap-8 max-md:flex max-md:flex-col max-md:gap-6"
+      onSubmit={handleSubmit(onSubmit)}
+      id="profile"
+    >
       <Controller
         name="firstName"
         control={control}

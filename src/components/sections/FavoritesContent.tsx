@@ -25,7 +25,7 @@ export const FavoritesContent = () => {
   return (
     <section className="mb-20 max-lg:my-16">
       <div className="custom-container">
-        <div className="flex items-center gap-x-2 pb-8 border-b border-gray-300 mb-8 max-lg:pb-6 max-lg:mb-12">
+        <div className="flex items-center gap-x-2 pb-8 border-b border-gray-300 mb-16 max-lg:pb-6 max-lg:mb-12">
           <img src="/icons/favoritesIcon.svg" alt="" width={44} height={44} className="max-sm:hidden" />
           <Title title="Избранное" />
         </div>

@@ -17,7 +17,7 @@ export const ProfileConnectedAccounts = () => {
     openModal('Вы уверены что хотите отключиться от google?', handleBtnYesDisabledGoogle);
 
   return (
-    <div className="mb-24">
+    <div className="mb-24 max-md:mb-16">
       <Title type="h3" title="Подключенные аккаунты" />
       <div className="flex items-center justify-between mb-6 pb-3 border-b border-gray-300">
         <div className="flex flex-col gap-y-2">

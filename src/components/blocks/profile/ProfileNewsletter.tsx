@@ -13,7 +13,7 @@ export const ProfileNewsletter = () => {
     openModal('Вы уверены что хотите отписаться от еженедельной рассылки?', handleBtnYesUnsubscribe);
 
   return (
-    <div className="mb-16 pb-4 border-b border-greyLight">
+    <div className="mb-16 pb-4 border-b border-greyLight max-md:mb-12">
       <Title type="h3" title="Подписка на рассылку" />
       <div className="flex items-center justify-between gap-x-4">
         <div>В настоящее время вы подписаны на нашу рассылку</div>
