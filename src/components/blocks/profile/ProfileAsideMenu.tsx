@@ -19,7 +19,7 @@ export const ProfileAsideMenu = () => {
   const trimmedPathname = getTrimmedPathame(pathname);
 
   return (
-    <aside className="rounded-md bg-whiteDark w-full h-fit sticky top-28 overflow-hidden">
+    <aside className="rounded-md bg-whiteDark w-full h-fit sticky top-28 overflow-hidden max-md:static">
       <ul className="flex flex-col">
         {menuProfileData.map(({ href, label }, index) => (
           <li key={href} className={clsx(STYLES.ITEM, index === menuProfileData.length - 1 && 'border-none')}>
