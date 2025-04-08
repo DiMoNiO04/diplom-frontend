@@ -13,7 +13,7 @@ export const RecipeInstruction = ({ instructions }: IRecipeInstructionProps) => 
   return (
     <div>
       <Title type="h3" title="Инструкция" />
-      <ul className="flex flex-col gap-y-6 counter-reset">
+      <ul className="flex flex-col gap-y-6 counter-reset max-md:gap-y-4">
         {instructionList.map((instruction, index) => (
           <li key={index} className="flex items-start gap-x-2 relative counter-increment">
             <span
