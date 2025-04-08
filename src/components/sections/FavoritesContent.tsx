@@ -23,7 +23,7 @@ export const FavoritesContent = () => {
   };
 
   return (
-    <section className="mb-20 max-lg:my-16">
+    <section className="my-20 max-lg:my-16">
       <div className="custom-container">
         <div className="flex items-center gap-x-2 pb-8 border-b border-gray-300 mb-16 max-lg:pb-6 max-lg:mb-12">
           <img src="/icons/favoritesIcon.svg" alt="" width={44} height={44} className="max-sm:hidden" />
@@ -42,7 +42,7 @@ export const FavoritesContent = () => {
                   className="group max-sm:w-full"
                   size="sm"
                   variant="red"
-                  icon={<IconDelete size={16} className="fill-white group-lg:hover:fill-red" />}
+                  icon={<IconDelete size={16} className="fill-white group-hover:fill-red" />}
                   onClick={confirmDelete}
                 />
               </div>

@@ -10,7 +10,7 @@ import { getTrimmedPathname } from '@/utils/functions';
 const STYLES = {
   ITEM: 'border-b border-gray-300',
   LINK: 'p-4 text-black font-medium w-full block text-lg',
-  LINK_HOVER: 'transition-colors duration-300 lg:hover:bg-orangeHover',
+  LINK_HOVER: 'transition-colors duration-300 hover:bg-orangeHover',
   LINK_ACTIVE: 'bg-orange text-white',
 };
 

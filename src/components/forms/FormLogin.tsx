@@ -53,7 +53,7 @@ export const FormLogin = () => {
       <button
         className={clsx(
           'text-sm text-right text-orange transition-colors duration-300 cursor-pointer',
-          'lg:hover:text-black'
+          'hover:text-black'
         )}
         type="button"
         onClick={handleClickForgotPassword}

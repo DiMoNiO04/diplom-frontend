@@ -4,7 +4,7 @@ import { TextDef, Title } from '../ui';
 
 export const AboutMain = () => {
   return (
-    <section className="mb-20 max-lg:my-16">
+    <section className="my-20 max-lg:my-16">
       <div className="custom-container">
         <Title title="О нас" isBorder />
         <div className="flex flex-col gap-y-10 max-lg:gap-y-8">

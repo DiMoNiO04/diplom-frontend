@@ -24,7 +24,7 @@ export const SelectList = ({ options, selectedOption, isForm, onSelect }: ISelec
           onClick={() => onSelect(option)}
           className={clsx('shrink-0 cursor-pointer px-6 py-2 transition-all duration-300 ease-out', {
             'bg-orange text-white': selectedOption?.value === option.value,
-            'lg:hover:bg-orange lg:hover:opacity-70 ': selectedOption?.value !== option.value,
+            'hover:bg-orange hover:opacity-70 ': selectedOption?.value !== option.value,
           })}
         >
           {option.text}

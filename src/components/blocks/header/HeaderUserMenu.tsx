@@ -57,7 +57,7 @@ export const HeaderUserMenu = () => {
                 className={clsx(
                   'px-4 py-3 flex-shrink-0 whitespace-nowrap block',
                   'transition-colors duration-300',
-                  trimmedPathname === href ? 'bg-orange text-white' : 'lg:hover:bg-orangeHover'
+                  trimmedPathname === href ? 'bg-orange text-white' : 'hover:bg-orangeHover'
                 )}
               >
                 {label}
@@ -71,7 +71,7 @@ export const HeaderUserMenu = () => {
           type="button"
           className={clsx(
             ' px-4 py-3 group flex-shrink-0 whitespace-nowrap flex items-center justify-center gap-x-2 w-full',
-            'lg:hover:bg-orangeHover lg:hover:text-white transition-colors duration-300'
+            'hover:bg-orangeHover hover:text-white transition-colors duration-300'
           )}
         >
           <IconLogOut isWhiteHover />

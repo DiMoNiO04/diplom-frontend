@@ -26,8 +26,8 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body className={`${fontUnbounded.variable} ${fontOnest.variable}`}>
-        {/* <Header /> */}
-        <main className="mt-20">{children}</main>
+        <Header />
+        <main className="mt-24">{children}</main>
         <Footer />
         <Modals />
         <NotificationMsg />

@@ -22,7 +22,7 @@ export const ProfileContent = () => {
   const onBtnClick = () => showNotification('Данные успешно изменены!');
 
   return (
-    <section className="mb-20 max-lg:my-16">
+    <section className="my-20 max-lg:my-16">
       <div className="custom-container">
         <div
           className={clsx(

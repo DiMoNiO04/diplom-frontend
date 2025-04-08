@@ -12,7 +12,7 @@ export const IconArrow = ({ color, rotateDeg = 0 }: ArrowIconProps) => {
       viewBox="0 0 16 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="group-lg:hover:stroke-orange stroke-current transition-all duration-300"
+      className="group-hover:stroke-orange stroke-current transition-all duration-300"
       style={{
         stroke: color && color,
         transform: `rotate(${rotateDeg}deg)`,

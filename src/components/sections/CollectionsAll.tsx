@@ -24,7 +24,7 @@ export const CollectionsAll = () => {
   const remainingCollections = filteredCollections.slice(RECIPES_PER_PAGE);
 
   return (
-    <section className="mb-20 max-lg:my-16">
+    <section className="my-20 max-lg:my-16">
       <div className="custom-container">
         <SearchHeaderBlock
           title="Коллекции"

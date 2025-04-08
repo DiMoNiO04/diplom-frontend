@@ -34,7 +34,7 @@ export const IconLogOut = ({ size = 20, isWhiteHover = false }: IIconLogOutProps
         fill="black"
         className={clsx(
           'fill-black transition-colors duration-300',
-          isWhiteHover ? 'group-lg:hover:fill-white' : 'group-lg:hover:fill-orange'
+          isWhiteHover ? 'group-hover:fill-white' : 'group-hover:fill-orange'
         )}
       />
     </svg>

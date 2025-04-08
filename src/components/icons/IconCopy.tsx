@@ -8,7 +8,7 @@ export const IconCopy = ({ size = 24 }: IIcon) => {
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="stroke-orange group-lg:hover:stroke-black transition-all duration-300"
+      className="stroke-orange group-hover:stroke-black transition-all duration-300"
     >
       <path d="M9.08203 14.9157L14.9157 9.08203" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
       <path

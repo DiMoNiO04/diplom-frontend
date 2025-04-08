@@ -28,7 +28,7 @@ export const EmailNewsletter = () => {
               href={EUrls.PRIVACY_POLICY}
               className={`
                 border-b border-orange italic
-                transition-colors duration-300 lg:hover:border-transparent lg:hover:text-orange  
+                transition-colors duration-300 hover:border-transparent hover:text-orange  
               `}
             >
               политикой конфиденциальности

@@ -28,11 +28,11 @@ export const Button = ({
   const baseStyles =
     'border transition-colors duration-300 text-center rounded inline-flex items-center justify-center gap-2';
   const variantStyles = {
-    default: 'border-black bg-white text-black lg:hover:bg-black lg:hover:text-white',
-    secondary: 'border-orange-500 bg-orange-500 text-white lg:hover:bg-white lg:hover:text-orange-500',
-    orange: 'border-orange bg-orange text-white lg:hover:bg-white lg:hover:text-orange',
-    red: 'bg-red text-white border-red lg:hover:bg-white lg:hover:text-red',
-    green: 'bg-green text-white border-green lg:hover:bg-white lg:hover:text-green',
+    default: 'border-black bg-white text-black hover:bg-black hover:text-white',
+    secondary: 'border-orange-500 bg-orange-500 text-white hover:bg-white hover:text-orange-500',
+    orange: 'border-orange bg-orange text-white hover:bg-white hover:text-orange',
+    red: 'bg-red text-white border-red hover:bg-white hover:text-red',
+    green: 'bg-green text-white border-green hover:bg-white hover:text-green',
   };
   const sizeStyles = {
     lg: 'px-10 py-2.5 text-lg max-sm:px-8 max-sm:py-2',

@@ -39,7 +39,7 @@ export const SearchResults = () => {
   const remainingRecipes = recipesData.slice(RECIPES_PER_PAGE);
 
   return (
-    <section className="mb-20 max-lg:my-16">
+    <section className="my-20 max-lg:my-16">
       <div className="custom-container">
         <Title title="Результаты поиска" className="mb-8" />
         <div className="relative w-full flex items-center justify-between gap-x-4 pb-4 mb-8 border-b border-greyLight">
