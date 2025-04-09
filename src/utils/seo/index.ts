@@ -1,5 +1,5 @@
-import { createMetadata } from './createMetadata';
+import { createMetadata, createViewport } from './createMetadata';
 import { IOpenGraph, ISEO } from './interfaces';
 
-export { createMetadata };
+export { createMetadata, createViewport };
 export type { IOpenGraph, ISEO };

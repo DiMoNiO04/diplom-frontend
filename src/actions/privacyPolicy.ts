@@ -1,11 +1,11 @@
 import { ISEO } from '@/utils/seo';
 
-import { API_PRIVACY_POLICY, REVALIDATE_HOUR_TIME } from './common';
+import { API_PRIVACY_POLICY, REVALIDATE_HOUR_TIME } from './consts';
 
-export interface IPrivacyPolicyPage {
+interface IPrivacyPolicyPage {
+  seo: ISEO;
   title: string;
   content: string;
-  seo: ISEO;
 }
 
 export async function getPrivacyPolicyPage(): Promise<IPrivacyPolicyPage> {

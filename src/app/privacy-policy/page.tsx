@@ -2,7 +2,9 @@ import { Metadata } from 'next';
 
 import { getPrivacyPolicyPage } from '@/actions';
 import { PrivacyPolicyContent } from '@/components/sections';
-import { createMetadata } from '@/utils/seo';
+import { createMetadata, createViewport } from '@/utils/seo';
+
+export const generateViewport = () => createViewport();
 
 export async function generateMetadata(): Promise<Metadata> {
   const { seo } = await getPrivacyPolicyPage();
@@ -12,9 +14,5 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function PrivacyPolicyPage() {
   const { title, content } = await getPrivacyPolicyPage();
 
-  return (
-    <div>
-      <PrivacyPolicyContent title={title} content={content} />
-    </div>
-  );
+  return <PrivacyPolicyContent title={title} content={content} />;
 }

@@ -13,6 +13,11 @@ interface ISEO {
   metaViewport: string;
   canonicalURL: string;
   structuredData: string | null;
+  metaImage: {
+    url: string;
+    width: number;
+    height: number;
+  };
   openGraph: IOpenGraph;
 }
 
