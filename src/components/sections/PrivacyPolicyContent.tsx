@@ -1,11 +1,11 @@
 import { Title } from '../ui';
 
-interface IPrivacyPolicy {
+interface IPrivacyPolicyProps {
   title: string;
   content: string;
 }
 
-const PrivacyPolicyContent = ({ title, content }: IPrivacyPolicy) => {
+export const PrivacyPolicyContent = ({ title, content }: IPrivacyPolicyProps) => {
   return (
     <section className="my-20 max-lg:my-16">
       <div className="custom-container">
@@ -15,6 +15,3 @@ const PrivacyPolicyContent = ({ title, content }: IPrivacyPolicy) => {
     </section>
   );
 };
-
-export { PrivacyPolicyContent };
-export type { IPrivacyPolicy };

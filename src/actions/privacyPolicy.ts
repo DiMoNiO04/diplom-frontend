@@ -1,8 +1,14 @@
-import { IPrivacyPolicy } from '@/components/sections/PrivacyPolicyContent';
+import { ISEO } from '@/utils/seo';
 
 import { API_PRIVACY_POLICY, REVALIDATE_HOUR_TIME } from './common';
 
-export async function getPrivacyPolicyPage(): Promise<IPrivacyPolicy> {
+export interface IPrivacyPolicyPage {
+  title: string;
+  content: string;
+  seo: ISEO;
+}
+
+export async function getPrivacyPolicyPage(): Promise<IPrivacyPolicyPage> {
   const res = await fetch(API_PRIVACY_POLICY, {
     next: { revalidate: REVALIDATE_HOUR_TIME },
   });
