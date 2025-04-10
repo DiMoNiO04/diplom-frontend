@@ -5,6 +5,9 @@ import { Onest, Unbounded } from 'next/font/google';
 import { Footer, Header, Modals } from '@/components/layouts';
 import { NotificationMsg } from '@/components/ui';
 import { BtnScroll } from '@/components/ui/btns';
+import { createViewport } from '@/utils/seo';
+
+export const generateViewport = () => createViewport();
 
 const fontUnbounded = Unbounded({
   subsets: ['latin'],
