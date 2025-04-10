@@ -5,4 +5,6 @@ const BASE_URL: string = `${process.env.NEXT_PUBLIC_BASE_URL}`;
 const SITE_NAME: string = `${process.env.NEXT_PUBLIC_SITE_NAME}` || 'YummyNom';
 const SITE_LOGO: string = `${STRAPI_URL}/uploads/favicon_b82e379c34.jpg`;
 
-export { API_URL, BASE_URL, SITE_LOGO, SITE_NAME, STRAPI_URL };
+const BREAKPOINT_MOB: number = 1024;
+
+export { API_URL, BASE_URL, BREAKPOINT_MOB, SITE_LOGO, SITE_NAME, STRAPI_URL };

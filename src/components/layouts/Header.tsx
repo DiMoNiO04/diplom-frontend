@@ -3,7 +3,8 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 
-import { useBodyScrollBLock, useHeader } from '@/hooks';
+import { useBodyScrollBLock, useHeader, useIsMobile } from '@/hooks';
+import { BREAKPOINT_MOB } from '@/utils/consts';
 
 import { HeaderMenu, HeaderSearch, HeaderUserProfile } from '../blocks/header';
 import { Logo } from '../ui';
@@ -11,9 +12,14 @@ import { BtnBurger } from '../ui/btns';
 
 export const Header = () => {
   const { isScrolled } = useHeader();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const isMobile = useIsMobile(BREAKPOINT_MOB);
 
-  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+  const toggleMenu = () => {
+    if (isMobile) {
+      setIsMenuOpen((prev) => !prev);
+    }
+  };
 
   useBodyScrollBLock(isMenuOpen);
 
