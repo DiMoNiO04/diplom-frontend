@@ -1,3 +1,5 @@
+import { ISEO } from './seo';
+
 interface ILink {
   linkUrl: string;
   linkTxt: string;
@@ -104,8 +106,36 @@ interface IHeaderMenuProps {
   toggleMenu: () => void;
 }
 
+interface IBasePage {
+  seo: ISEO;
+  title: string;
+}
+
+interface IImage {
+  url: string;
+  width: string;
+  height: string;
+  alternativeText: string;
+}
+
+interface ISimpleContent {
+  title: string;
+  texts: {
+    text: string;
+  }[];
+  img: IImage;
+}
+
+interface ITitleWithTexts {
+  title: string;
+  texts: {
+    text: string;
+  }[];
+}
+
 export type {
   IAuthorRecipe,
+  IBasePage,
   ICategory,
   ICollection,
   IHeaderMenuProps,
@@ -117,7 +147,9 @@ export type {
   IPageSlugProps,
   IRecipe,
   ISelectOption,
+  ISimpleContent,
   ISuperDeliciious,
   ITeamAuthor,
   ITitle,
+  ITitleWithTexts,
 };

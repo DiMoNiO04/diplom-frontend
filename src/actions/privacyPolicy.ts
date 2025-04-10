@@ -1,10 +1,8 @@
-import { ISEO } from '@/utils/seo';
+import { IBasePage } from '@/utils/interfaces';
 
 import { API_PRIVACY_POLICY, REVALIDATE_HOUR_TIME } from './consts';
 
-interface IPrivacyPolicyPage {
-  seo: ISEO;
-  title: string;
+interface IPrivacyPolicyPage extends IBasePage {
   content: string;
 }
 
@@ -17,7 +15,7 @@ export async function getPrivacyPolicyPage(): Promise<IPrivacyPolicyPage> {
     throw new Error('Failed to fetch Privacy Policy');
   }
 
-  const { data } = await res.json();
+  const data = await res.json();
 
   return data;
 }

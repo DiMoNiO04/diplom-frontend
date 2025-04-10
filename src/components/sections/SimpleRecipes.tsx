@@ -1,49 +1,36 @@
 import Image from 'next/image';
 
+import { getImageUrl } from '@/utils/functions';
+import { ISimpleContent } from '@/utils/interfaces';
+
 import { TextDef, Title } from '../ui';
 
-export const SimpleRecipes = () => {
+export const SimpleRecipes = ({ title, img, texts }: ISimpleContent) => {
   return (
     <section className="mb-20 max-lg:mb-16">
       <div className="custom-container">
         <div className="grid grid-cols-2 gap-x-10 items-stretch max-lg:grid-cols-1 max-lg:gap-6">
           <div className="flex flex-col gap-y-10 max-lg:gap-8">
-            <Title title="Простые, легкие рецепты для всех" type="h2" />
-            <div className="flex flex-col gap-y-4 max-lg:gap-y-2">
-              <TextDef
-                title="
-                Готовить вкусные блюда — проще, чем кажется! Мы собрали коллекцию рецептов, которые подойдут как 
-                для начинающих кулинаров, так и для тех, кто хочет быстро и без лишних сложностей приготовить что-то 
-                вкусное. Никаких сложных техник и редких ингредиентов — только доступные продукты и понятные шаги.
-              "
-              />
-              <TextDef
-                title="
-                От нежных котлет и сочных стейков до ароматных супов и хрустящих закусок — наши рецепты помогут 
-                вам с легкостью создавать настоящие кулинарные шедевры. Просто следуйте инструкции, экспериментируйте 
-                с приправами и наслаждайтесь результатом. Ведь вкусная еда — это не только про ингредиенты, но и 
-                про настроение, с которым она готовится!
-              "
-              />
-              <TextDef
-                title="
-                Если вы хотите удивить близких или просто насладиться вкусной домашней едой, не бойтесь 
-                экспериментировать! Готовьте с удовольствием, пробуйте новое и находите свои любимые сочетания вкусов. 
-                Ведь кулинария — это не только необходимость, но и способ выразить себя, подарить радость и 
-                создать незабываемые моменты.
-              "
+            <Title title={title} type="h2" />
+            {texts.length > 0 && (
+              <div className="flex flex-col gap-y-4 max-lg:gap-y-2">
+                {texts.map(({ text }) => (
+                  <TextDef key={text} title={text} />
+                ))}
+              </div>
+            )}
+          </div>
+          {img && (
+            <div className="h-full">
+              <Image
+                src={getImageUrl(img.url)}
+                alt={''}
+                width={570}
+                height={465}
+                className="w-full h-full object-cover"
               />
             </div>
-          </div>
-          <div className="h-full">
-            <Image
-              src="/img/templates/simpleRecipes.webp"
-              alt="Простые рецепты"
-              width={570}
-              height={465}
-              className="w-full h-full object-cover"
-            />
-          </div>
+          )}
         </div>
       </div>
     </section>
