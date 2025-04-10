@@ -118,28 +118,35 @@ interface IImage {
   alternativeText: string;
 }
 
+interface IText {
+  text: string;
+}
+
+interface IBtn {
+  text: string;
+  link: string;
+}
+
 interface ISimpleContent {
   title: string;
-  texts: {
-    text: string;
-  }[];
+  texts: IText[];
   img: IImage;
 }
 
 interface ITitleWithTexts {
   title: string;
-  texts: {
-    text: string;
-  }[];
+  texts: IText[];
 }
 
 export type {
   IAuthorRecipe,
   IBasePage,
+  IBtn,
   ICategory,
   ICollection,
   IHeaderMenuProps,
   IIcon,
+  IImage,
   ILink,
   ILoadMoreProps,
   IMainSliderSlide,
@@ -150,6 +157,7 @@ export type {
   ISimpleContent,
   ISuperDeliciious,
   ITeamAuthor,
+  IText,
   ITitle,
   ITitleWithTexts,
 };
