@@ -16,6 +16,7 @@ interface ICategory {
   fullImage: string;
   description?: string;
   recipes: IRecipe[];
+  seo?: ISEO;
 }
 
 interface IRecipe {
