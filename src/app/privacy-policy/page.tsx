@@ -1,13 +1,16 @@
-import { PrivacyPolicyContent } from '@/components/sections';
-import { IPrivacyPolicy } from '@/components/sections/PrivacyPolicyContent';
-import { mockPrivacyPolicyPage } from '@/data';
+import { Metadata } from 'next';
 
-async function getPrivacyPolicyPage(): Promise<IPrivacyPolicy> {
-  return mockPrivacyPolicyPage;
+import { getPrivacyPolicyPage } from '@/actions';
+import { PrivacyPolicyContent } from '@/components/sections';
+import { createMetadata } from '@/utils/seo';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const { seo } = await getPrivacyPolicyPage();
+  return createMetadata(seo);
 }
 
 export default async function PrivacyPolicyPage() {
-  const { content } = await getPrivacyPolicyPage();
+  const { title, content } = await getPrivacyPolicyPage();
 
-  return <PrivacyPolicyContent content={content} />;
+  return <PrivacyPolicyContent title={title} content={content} />;
 }

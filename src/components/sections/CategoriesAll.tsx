@@ -7,9 +7,13 @@ import { useDebounce } from '@/hooks';
 
 import { CardsItems, SearchHeaderBlock } from '../blocks';
 
+interface ICategoriesAllProps {
+  title: string;
+}
+
 const DELAY_DEBOUNCE: number = 300;
 
-export const CategoriesAll = () => {
+export const CategoriesAll = ({ title }: ICategoriesAllProps) => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const { debouncedValue } = useDebounce({ value: searchQuery, delay: DELAY_DEBOUNCE });
 
@@ -24,7 +28,7 @@ export const CategoriesAll = () => {
     <section className="my-20 max-lg:my-16">
       <div className="custom-container">
         <SearchHeaderBlock
-          title="Категории"
+          title={title}
           placeholder="Поиск категорий..."
           value={searchQuery}
           onChange={handleSearchChange}

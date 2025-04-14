@@ -2,11 +2,12 @@
 
 import Link from 'next/link';
 
+import { IEmailNewsletterTemplate } from '@/actions';
 import { EUrls } from '@/utils/urls';
 
 import { FormEmailNewsletter } from '../forms';
 
-export const EmailNewsletter = () => {
+export const EmailNewsletter = ({ title, description, infoText }: IEmailNewsletterTemplate) => {
   return (
     <section className="bg-pink">
       <div className="custom-container">
@@ -15,15 +16,13 @@ export const EmailNewsletter = () => {
             <h2
               className={`font-unbounded text-4xl text-center font-medium max-lg:text-3xl max-sm:text-2xl text-balance`}
             >
-              Вкуснятина в ваш почтовый ящик
+              {title}
             </h2>
-            <p className="font-onest text-greyLight text-lg max-lg:text-base">
-              Наслаждайтесь еженедельно новыми рецептами
-            </p>
+            {description && <p className="font-onest text-greyLight text-lg max-lg:text-base">{description}</p>}
           </div>
           <FormEmailNewsletter />
           <p className="text-def text-greyLight font-onest">
-            Подписываясь на рассылку, вы соглашаетесь с{' '}
+            {infoText}
             <Link
               href={EUrls.PRIVACY_POLICY}
               className={`

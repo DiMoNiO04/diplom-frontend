@@ -1,10 +1,13 @@
+import { getEmailNewsletterTemplate } from '@/actions';
 import { EmailNewsletter, FavoritesContent } from '@/components/sections';
 
-export default function FavoritesPage() {
+export default async function FavoritesPage() {
+  const emailNewsletterTemplate = await getEmailNewsletterTemplate();
+
   return (
     <>
       <FavoritesContent />
-      <EmailNewsletter />
+      <EmailNewsletter {...emailNewsletterTemplate} />
     </>
   );
 }

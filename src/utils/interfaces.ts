@@ -1,3 +1,5 @@
+import { ISEO } from './seo';
+
 interface ILink {
   linkUrl: string;
   linkTxt: string;
@@ -14,6 +16,7 @@ interface ICategory {
   fullImage: string;
   description?: string;
   recipes: IRecipe[];
+  seo?: ISEO;
 }
 
 interface IRecipe {
@@ -104,12 +107,47 @@ interface IHeaderMenuProps {
   toggleMenu: () => void;
 }
 
+interface IBasePage {
+  seo: ISEO;
+  title: string;
+}
+
+interface IImage {
+  url: string;
+  width: string;
+  height: string;
+  alternativeText: string;
+}
+
+interface IText {
+  text: string;
+}
+
+interface IBtn {
+  text: string;
+  link: string;
+}
+
+interface ISimpleContent {
+  title: string;
+  texts: IText[];
+  img: IImage;
+}
+
+interface ITitleWithTexts {
+  title: string;
+  texts: IText[];
+}
+
 export type {
   IAuthorRecipe,
+  IBasePage,
+  IBtn,
   ICategory,
   ICollection,
   IHeaderMenuProps,
   IIcon,
+  IImage,
   ILink,
   ILoadMoreProps,
   IMainSliderSlide,
@@ -117,7 +155,10 @@ export type {
   IPageSlugProps,
   IRecipe,
   ISelectOption,
+  ISimpleContent,
   ISuperDeliciious,
   ITeamAuthor,
+  IText,
   ITitle,
+  ITitleWithTexts,
 };

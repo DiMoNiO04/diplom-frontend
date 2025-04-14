@@ -1,34 +1,20 @@
+import { ITitleWithTexts } from '@/utils/interfaces';
+
 import { TextDef, Title } from '../ui';
 
-export const Operating = () => {
+export const Operating = ({ title, texts }: ITitleWithTexts) => {
   return (
     <section className="mb-20 max-lg:mb-16">
       <div className="custom-container">
         <div className="flex flex-col gap-y-10 max-w-2xl max-lg:max-w-full max-lg:gap-y-8">
-          <Title title="Наши кухни в Минске, Москве и Берлине" type="h2" />
-          <div className="flex flex-col gap-y-4 max-lg:gap-2">
-            <TextDef
-              size="sm"
-              title="
-                Мы работаем в Минске, Москве и Берлине — городах с богатыми гастрономическими традициями. 
-                Вдохновляясь их культурой, мы создаем блюда, сочетающие классику и современные кулинарные тренды.
-              "
-            />
-            <TextDef
-              size="sm"
-              title="
-                В Минске мы придерживаемся традиционной восточноевропейской кухни, в Москве — экспериментируем с 
-                мировыми вкусами, а в Берлине сочетаем локальные продукты с глобальными трендами.
-              "
-            />
-            <TextDef
-              size="sm"
-              title="
-                Мы готовим не просто еду, а создаем атмосферу уюта и наслаждения вкусом. 
-                Присоединяйтесь к нашему гастрономическому путешествию!
-              "
-            />
-          </div>
+          <Title title={title} type="h2" />
+          {texts.length > 0 && (
+            <div className="flex flex-col gap-y-4 max-lg:gap-2">
+              {texts.map(({ text }) => (
+                <TextDef key={text} size="sm" title={text} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>
