@@ -8,9 +8,11 @@ const API_ABOUT_PAGE: string = `${API_URL}/about-page`;
 const API_SHARE_RECIPE_TEMPLATE: string = `${API_URL}/template-share-recipe`;
 const API_EMAIL_NEWSLETTER_TEMPLATE: string = `${API_URL}/template-email-newsletter`;
 const API_CATEGORIES_PAGE: string = `${API_URL}/categories-page`;
+const API_CATEGORIES: string = `${API_URL}/categories`;
 
 export {
   API_ABOUT_PAGE,
+  API_CATEGORIES,
   API_CATEGORIES_PAGE,
   API_EMAIL_NEWSLETTER_TEMPLATE,
   API_PRIVACY_POLICY,

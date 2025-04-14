@@ -18,7 +18,7 @@ export const CollectionsAll = () => {
   const handleClearSearch = () => setSearchQuery('');
 
   const filteredCollections = collectionsData.filter((collection) =>
-    collection.name.toLowerCase().includes(debouncedValue.toLowerCase())
+    collection.title.toLowerCase().includes(debouncedValue.toLowerCase())
   );
   const initialCollections = filteredCollections.slice(0, RECIPES_PER_PAGE);
   const remainingCollections = filteredCollections.slice(RECIPES_PER_PAGE);

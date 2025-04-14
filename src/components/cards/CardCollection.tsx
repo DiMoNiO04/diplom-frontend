@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { ICollection } from '@/utils/interfaces';
 import { EUrls } from '@/utils/urls';
 
-export const CardCollection = ({ slug, img, name, recipes }: ICollection) => {
+export const CardCollection = ({ slug, img, title, recipes }: ICollection) => {
   const linkUrl: string = `${EUrls.COLLECTIONS}/${slug}`;
 
   return (
@@ -19,7 +19,7 @@ export const CardCollection = ({ slug, img, name, recipes }: ICollection) => {
           transition-colors duration-300 hover:text-orange
           `}
         >
-          {name}
+          {title}
         </div>
         <div
           className={`

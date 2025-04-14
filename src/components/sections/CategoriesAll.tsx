@@ -4,24 +4,26 @@ import { ChangeEvent, useState } from 'react';
 
 import { categoriesData } from '@/data';
 import { useDebounce } from '@/hooks';
+import { ICategory } from '@/utils/interfaces';
 
 import { CardsItems, SearchHeaderBlock } from '../blocks';
 
 interface ICategoriesAllProps {
   title: string;
+  cards: ICategory[];
 }
 
 const DELAY_DEBOUNCE: number = 300;
 
-export const CategoriesAll = ({ title }: ICategoriesAllProps) => {
+export const CategoriesAll = ({ title, cards }: ICategoriesAllProps) => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const { debouncedValue } = useDebounce({ value: searchQuery, delay: DELAY_DEBOUNCE });
 
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => setSearchQuery(event.target.value);
   const handleClearSearch = () => setSearchQuery('');
 
-  const filteredCategories = categoriesData.filter((collection) =>
-    collection.name.toLowerCase().includes(debouncedValue.toLowerCase())
+  const filteredCategories = cards.filter((category) =>
+    category.title.toLowerCase().includes(debouncedValue.toLowerCase())
   );
 
   return (

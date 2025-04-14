@@ -80,7 +80,7 @@ export const FormRecipeCreate = () => {
                 {...field}
                 options={categoriesData.map((category) => ({
                   value: category.slug,
-                  text: category.name,
+                  text: category.title,
                 }))}
                 label="Категория*"
                 isForm

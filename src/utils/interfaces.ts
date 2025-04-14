@@ -11,8 +11,8 @@ interface ITitle {
 
 interface ICategory {
   slug: string;
-  name: string;
-  img: string;
+  title: string;
+  img: IImage;
   fullImage: string;
   description?: string;
   recipes: IRecipe[];
@@ -59,7 +59,7 @@ interface IIcon {
 
 interface ICollection {
   slug: string;
-  name: string;
+  title: string;
   img: string;
   description?: string;
   recipes: IRecipe[];

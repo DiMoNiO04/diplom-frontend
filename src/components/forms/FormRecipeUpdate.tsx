@@ -99,13 +99,13 @@ export const FormRecipeUpdate = ({ defaultValues }: IFormRecipeUpdateProps) => {
                   {...field}
                   options={categoriesData.map((category) => ({
                     value: category.slug,
-                    text: category.name,
+                    text: category.title,
                   }))}
                   label="Категория*"
                   isForm
                   placeholder="Выберите категорию*"
                   error={errors.category?.message}
-                  value={selectedOption ? { value: selectedOption.slug, text: selectedOption.name } : null}
+                  value={selectedOption ? { value: selectedOption.slug, text: selectedOption.title } : null}
                   onChange={(selected) => field.onChange(selected.value)}
                 />
               );

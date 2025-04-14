@@ -14,10 +14,10 @@ const RECIPES_PER_PAGE: number = 16;
 type IRecipesContentProps = {
   recipes: IRecipe[];
   description?: string;
-  name: string;
+  title: string;
 };
 
-export const RecipesContent = ({ recipes, description, name }: IRecipesContentProps) => {
+export const RecipesContent = ({ recipes, description, title }: IRecipesContentProps) => {
   const hasRecipes: boolean = recipes.length > 0;
   const initialRecipes = recipes.slice(0, RECIPES_PER_PAGE);
   const remainingRecipes = recipes.slice(RECIPES_PER_PAGE);
@@ -35,7 +35,7 @@ export const RecipesContent = ({ recipes, description, name }: IRecipesContentPr
         >
           <div className="flex flex-col gap-2 max-w-3xl">
             <div className="flex items-end gap-4 max-lg:flex-col max-lg:items-start">
-              <Title title={name} />
+              <Title title={title} />
               {hasRecipes && (
                 <div className="font-onest italic text-sm flex-shrink-0 text-balance">
                   {recipes.length} рецепта(-ов)

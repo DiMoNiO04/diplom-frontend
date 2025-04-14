@@ -7,7 +7,7 @@ import { EUrls } from '@/utils/urls';
 
 export const CardSearchPanel = ({ name, img, id, category }: IRecipe) => {
   const linkUrl: string = `${EUrls.RECIPES}/${id}`;
-  const categoryName: string = categoriesData.find((item) => item.slug === category)!.name;
+  const categoryName: string = categoriesData.find((item) => item.slug === category)!.title;
 
   return (
     <Link href={linkUrl} className="flex items-center justify-start gap-4 py-5 border-b border-greyLight group">
