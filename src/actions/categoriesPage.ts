@@ -1,9 +1,9 @@
-import { IBasePage } from '@/utils/interfaces';
+import { IBasePage, IHeaderSearchBlockPage } from '@/utils/interfaces';
 
 import { API_CATEGORIES_PAGE } from './consts';
 
 interface ICategoriesPage extends IBasePage {
-  title: string;
+  headerBlock: IHeaderSearchBlockPage;
 }
 
 export async function getCategoriesPage(): Promise<ICategoriesPage> {

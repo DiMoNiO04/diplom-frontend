@@ -2,6 +2,7 @@ import { getAboutPage } from './aboutPage';
 import { getCategories } from './categories';
 import { getCategoriesPage } from './categoriesPage';
 import { getCategory } from './category';
+import { getCollectionsPage } from './collectionsPage';
 import { getEmailNewsletterTemplate, IEmailNewsletterTemplate } from './emailNewsletterTemplate';
 import { getPrivacyPolicyPage } from './privacyPolicyPage';
 import { getShareRecipeTemplate, IShareRecipeTemplate } from './shareRecipeTemplate';
@@ -11,6 +12,7 @@ export {
   getCategories,
   getCategoriesPage,
   getCategory,
+  getCollectionsPage,
   getEmailNewsletterTemplate,
   getPrivacyPolicyPage,
   getShareRecipeTemplate,

@@ -4,13 +4,14 @@ import { ChangeEvent, useState } from 'react';
 
 import { collectionsData } from '@/data';
 import { useDebounce } from '@/hooks';
+import { IHeaderSearchBlockPage } from '@/utils/interfaces';
 
 import { CardsItems, LoadMoreCollections, SearchHeaderBlock } from '../blocks';
 
 const RECIPES_PER_PAGE: number = 18;
 const DELAY_DEBOUNCE: number = 300;
 
-export const CollectionsAll = () => {
+export const CollectionsAll = ({ title, search, nothingText }: IHeaderSearchBlockPage) => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const { debouncedValue } = useDebounce({ value: searchQuery, delay: DELAY_DEBOUNCE });
 
@@ -27,13 +28,13 @@ export const CollectionsAll = () => {
     <section className="my-20 max-lg:my-16">
       <div className="custom-container">
         <SearchHeaderBlock
-          title="Коллекции"
-          placeholder="Поиск коллекций..."
+          title={title}
+          placeholder={search}
           value={searchQuery}
           onChange={handleSearchChange}
           onClear={handleClearSearch}
         />
-        <CardsItems type="collection" cards={initialCollections} nothingMsg="Ничего не найдено" />
+        <CardsItems type="collection" cards={initialCollections} nothingMsg={nothingText} />
         <LoadMoreCollections remainingCards={remainingCollections} perPage={RECIPES_PER_PAGE} />
       </div>
     </section>
