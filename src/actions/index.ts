@@ -2,6 +2,7 @@ import { getAboutPage } from './aboutPage';
 import { getCategories } from './categories';
 import { getCategoriesPage } from './categoriesPage';
 import { getCategory } from './category';
+import { getCollection } from './collection';
 import { getCollections } from './collections';
 import { getCollectionsPage } from './collectionsPage';
 import { getEmailNewsletterTemplate, IEmailNewsletterTemplate } from './emailNewsletterTemplate';
@@ -13,6 +14,7 @@ export {
   getCategories,
   getCategoriesPage,
   getCategory,
+  getCollection,
   getCollections,
   getCollectionsPage,
   getEmailNewsletterTemplate,

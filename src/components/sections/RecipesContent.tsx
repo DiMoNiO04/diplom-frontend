@@ -51,7 +51,7 @@ export const RecipesContent = ({ recipes, description, title }: IRecipesContentP
             />
           )}
         </div>
-        <CardsItems type="recipe" cards={initialRecipes} nothingMsg={'Рецептов данной категории нет'} />
+        <CardsItems type="recipe" cards={initialRecipes} nothingMsg={'Рецептов нет'} />
         <LoadMoreRecipes remainingCards={remainingRecipes} perPage={RECIPES_PER_PAGE} />
       </div>
     </section>
