@@ -60,9 +60,10 @@ interface IIcon {
 interface ICollection {
   slug: string;
   title: string;
-  img: string;
+  img: IImage;
   description?: string;
   recipes: IRecipe[];
+  seo?: ISEO;
 }
 
 interface ISuperDeliciious {

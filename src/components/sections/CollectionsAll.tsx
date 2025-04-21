@@ -2,23 +2,26 @@
 
 import { ChangeEvent, useState } from 'react';
 
-import { collectionsData } from '@/data';
 import { useDebounce } from '@/hooks';
-import { IHeaderSearchBlockPage } from '@/utils/interfaces';
+import { ICollection, IHeaderSearchBlockPage } from '@/utils/interfaces';
 
 import { CardsItems, LoadMoreCollections, SearchHeaderBlock } from '../blocks';
 
 const RECIPES_PER_PAGE: number = 18;
 const DELAY_DEBOUNCE: number = 300;
 
-export const CollectionsAll = ({ title, search, nothingText }: IHeaderSearchBlockPage) => {
+interface ICollectionsAllProps extends IHeaderSearchBlockPage {
+  cards: ICollection[];
+}
+
+export const CollectionsAll = ({ title, search, nothingText, cards }: ICollectionsAllProps) => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const { debouncedValue } = useDebounce({ value: searchQuery, delay: DELAY_DEBOUNCE });
 
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => setSearchQuery(event.target.value);
   const handleClearSearch = () => setSearchQuery('');
 
-  const filteredCollections = collectionsData.filter((collection) =>
+  const filteredCollections = cards.filter((collection) =>
     collection.title.toLowerCase().includes(debouncedValue.toLowerCase())
   );
   const initialCollections = filteredCollections.slice(0, RECIPES_PER_PAGE);
@@ -31,6 +34,7 @@ export const CollectionsAll = ({ title, search, nothingText }: IHeaderSearchBloc
           title={title}
           placeholder={search}
           value={searchQuery}
+          isVisibleSearch={cards.length > 0}
           onChange={handleSearchChange}
           onClear={handleClearSearch}
         />

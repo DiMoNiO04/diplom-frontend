@@ -1,5 +1,4 @@
 import { categoriesData } from './categories';
-import { collectionsData } from './collections';
 import { menuFooterData } from './menuFooter';
 import { menuHeaderData } from './menuHeader';
 import { menuProfileData } from './profileLinks';
@@ -11,7 +10,6 @@ import { teamData } from './team';
 
 export {
   categoriesData,
-  collectionsData,
   menuFooterData,
   menuHeaderData,
   menuProfileData,

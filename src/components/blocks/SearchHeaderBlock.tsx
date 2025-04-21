@@ -10,11 +10,19 @@ interface ISearchHeaderBlockProps {
   title: string;
   placeholder: string;
   value: string;
+  isVisibleSearch?: boolean;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   onClear: () => void;
 }
 
-export const SearchHeaderBlock = ({ title, placeholder, value, onChange, onClear }: ISearchHeaderBlockProps) => {
+export const SearchHeaderBlock = ({
+  title,
+  placeholder,
+  value,
+  isVisibleSearch = true,
+  onChange,
+  onClear,
+}: ISearchHeaderBlockProps) => {
   return (
     <div
       className={clsx(
@@ -23,7 +31,9 @@ export const SearchHeaderBlock = ({ title, placeholder, value, onChange, onClear
       )}
     >
       <Title title={title} className="pb-8" />
-      <SearchInputBlock placeholder={placeholder} value={value} onChange={onChange} onClear={onClear} />
+      {isVisibleSearch && (
+        <SearchInputBlock placeholder={placeholder} value={value} onChange={onChange} onClear={onClear} />
+      )}
     </div>
   );
 };

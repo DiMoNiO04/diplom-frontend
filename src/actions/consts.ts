@@ -10,6 +10,7 @@ const API_EMAIL_NEWSLETTER_TEMPLATE: string = `${API_URL}/template-email-newslet
 const API_CATEGORIES_PAGE: string = `${API_URL}/categories-page`;
 const API_COLLECTIONS_PAGE: string = `${API_URL}/collections-page`;
 const API_CATEGORIES: string = `${API_URL}/categories`;
+const API_COLLECTIONS: string = `${API_URL}/collections`;
 const API_CATEGORY = (slug: string) => `${API_URL}/categories/${slug}`;
 
 export {
@@ -17,6 +18,7 @@ export {
   API_CATEGORIES,
   API_CATEGORIES_PAGE,
   API_CATEGORY,
+  API_COLLECTIONS,
   API_COLLECTIONS_PAGE,
   API_EMAIL_NEWSLETTER_TEMPLATE,
   API_PRIVACY_POLICY,

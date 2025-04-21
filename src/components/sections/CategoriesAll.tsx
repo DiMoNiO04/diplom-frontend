@@ -31,6 +31,7 @@ export const CategoriesAll = ({ title, cards, search, nothingText }: ICategories
           title={title}
           placeholder={search}
           value={searchQuery}
+          isVisibleSearch={cards.length > 0}
           onChange={handleSearchChange}
           onClear={handleClearSearch}
         />

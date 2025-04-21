@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import { getCollectionsPage } from '@/actions';
+import { getCollections, getCollectionsPage } from '@/actions';
 import { CollectionsAll } from '@/components/sections';
 import { createMetadata } from '@/utils/seo';
 
@@ -11,6 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function CollectionsPage() {
   const { headerBlock } = await getCollectionsPage();
+  const { results: cards } = await getCollections();
 
-  return <CollectionsAll {...headerBlock} />;
+  return <CollectionsAll cards={cards} {...headerBlock} />;
 }
