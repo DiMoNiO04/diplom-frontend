@@ -18,9 +18,9 @@ type IRecipesContentProps = {
 };
 
 export const RecipesContent = ({ recipes, description, title }: IRecipesContentProps) => {
-  const hasRecipes: boolean = recipes.length > 0;
-  const initialRecipes = recipes.slice(0, RECIPES_PER_PAGE);
-  const remainingRecipes = recipes.slice(RECIPES_PER_PAGE);
+  const hasRecipes: boolean = recipes && recipes.length > 0;
+  const initialRecipes = hasRecipes ? recipes.slice(0, RECIPES_PER_PAGE) : [];
+  const remainingRecipes = hasRecipes ? recipes.slice(RECIPES_PER_PAGE) : [];
 
   const onChangeSelect = (value: ISelectOption) => alert(`Выбрана сортировка ${value.value}`);
 
@@ -36,20 +36,20 @@ export const RecipesContent = ({ recipes, description, title }: IRecipesContentP
           <div className="flex flex-col gap-2 max-w-3xl">
             <div className="flex items-end gap-4 max-lg:flex-col max-lg:items-start">
               <Title title={title} />
-              {hasRecipes && (
-                <div className="font-onest italic text-sm flex-shrink-0 text-balance">
-                  {recipes.length} рецепта(-ов)
-                </div>
-              )}
+              <div className="font-onest italic text-sm flex-shrink-0 text-balance">
+                {hasRecipes ? `${recipes.length} рецепта(-ов)` : '0 рецептов'}
+              </div>
             </div>
             {description && <p className="text-lg text-greyLight">{description}</p>}
           </div>
-          <Select
-            onChange={onChangeSelect}
-            value={sortRecipes[0]}
-            options={sortRecipes}
-            className="w-52 max-md:w-full"
-          />
+          {hasRecipes && (
+            <Select
+              onChange={onChangeSelect}
+              value={sortRecipes[0]}
+              options={sortRecipes}
+              className="w-52 max-md:w-full"
+            />
+          )}
         </div>
         <CardsItems type="recipe" cards={initialRecipes} nothingMsg={'Рецептов данной категории нет'} />
         <LoadMoreRecipes remainingCards={remainingRecipes} perPage={RECIPES_PER_PAGE} />

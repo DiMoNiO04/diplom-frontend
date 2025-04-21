@@ -1,12 +1,16 @@
-import { categoriesData } from '@/data';
+import { ICategory } from '@/utils/interfaces';
 import { EUrls } from '@/utils/urls';
 
 import { CardsItems, TitleSectionBlock } from '../blocks';
 
 const PER_PAGE_CATEGORIES: number = 6;
 
-export const PopularCategories = () => {
-  const initialCategories = categoriesData.slice(0, PER_PAGE_CATEGORIES);
+interface IPopularCategoriesProps {
+  cards: ICategory[];
+}
+
+export const PopularCategories = ({ cards }: IPopularCategoriesProps) => {
+  const initialCategories = cards.slice(0, PER_PAGE_CATEGORIES);
 
   return (
     <section className="mb-20 max-lg:mb-16">

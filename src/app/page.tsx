@@ -1,4 +1,4 @@
-import { getEmailNewsletterTemplate, getShareRecipeTemplate } from '@/actions';
+import { getCategories, getEmailNewsletterTemplate, getShareRecipeTemplate } from '@/actions';
 import {
   CuratedCollections,
   EmailNewsletter,
@@ -12,11 +12,12 @@ import {
 export default async function MainPage() {
   const shareRecipeTemplate = await getShareRecipeTemplate();
   const emailNewsletterTemplate = await getEmailNewsletterTemplate();
+  const { results: cardsCategories } = await getCategories();
 
   return (
     <>
       <MainSlider />
-      <PopularCategories />
+      <PopularCategories cards={cardsCategories} />
       <SuperDelicioues />
       <ShareYourRecipe {...shareRecipeTemplate} />
       <CuratedCollections />

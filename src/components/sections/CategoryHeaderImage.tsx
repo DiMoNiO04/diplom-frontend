@@ -1,13 +1,16 @@
 import Image from 'next/image';
 
+import { getImageUrl } from '@/utils/functions';
+import { IImage } from '@/utils/interfaces';
+
 interface ICategoryHeaderImageProps {
-  img: string;
+  img: IImage;
 }
 
 export const CategoryHeaderImage = ({ img }: ICategoryHeaderImageProps) => {
   return (
-    <section className="w-full h-72 relative max-xl:h-60 max-md:h-52 max-sm:hidden">
-      <Image src={img} alt="" fill style={{ objectFit: 'cover' }} priority fetchPriority="high" />
+    <section className="w-full h-96 relative max-xl:h-80 max-md:h-64">
+      <Image src={getImageUrl(img.url)} alt="" fill style={{ objectFit: 'cover' }} priority fetchPriority="high" />
     </section>
   );
 };

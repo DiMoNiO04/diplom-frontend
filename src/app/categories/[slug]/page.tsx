@@ -1,10 +1,17 @@
+import { Metadata } from 'next';
+
+import { getCategory } from '@/actions';
 import { CategoryHeaderImage, RecipesContent } from '@/components/sections';
-import { categoriesData } from '@/data';
-import { fetchByKey } from '@/utils/functions';
-import { ICategory, IPageSlugProps } from '@/utils/interfaces';
+import { IPageSlugProps } from '@/utils/interfaces';
+import { createMetadata } from '@/utils/seo';
+
+export async function generateMetadata({ params }: IPageSlugProps): Promise<Metadata> {
+  const { seo } = await getCategory((await params).slug);
+  return createMetadata(seo);
+}
 
 export default async function CategoryPage({ params }: IPageSlugProps) {
-  const category: ICategory = await fetchByKey(categoriesData, 'slug', (await params).slug);
+  const category = await getCategory((await params).slug);
 
   return (
     <>

@@ -2,7 +2,6 @@
 
 import { ChangeEvent, useState } from 'react';
 
-import { categoriesData } from '@/data';
 import { useDebounce } from '@/hooks';
 import { ICategory } from '@/utils/interfaces';
 
