@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 
-import { getCollections, getCollectionsPage } from '@/actions';
+import { getCollections } from '@/actions/collections';
+import { getCollectionsPage } from '@/actions/pages';
 import { CollectionsAll } from '@/components/sections';
 import { createMetadata } from '@/utils/seo';
 

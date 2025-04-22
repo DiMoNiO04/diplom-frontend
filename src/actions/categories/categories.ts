@@ -1,6 +1,6 @@
 import { IBasePage, ICategory } from '@/utils/interfaces';
 
-import { API_CATEGORIES } from './consts';
+import { API_CATEGORIES } from '../consts';
 
 interface ICategoriesPage extends IBasePage {
   results: ICategory[];

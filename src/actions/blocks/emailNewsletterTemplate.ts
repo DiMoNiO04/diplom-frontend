@@ -1,4 +1,4 @@
-import { API_EMAIL_NEWSLETTER_TEMPLATE, REVALIDATE_DAY_TIME } from './consts';
+import { API_EMAIL_NEWSLETTER_TEMPLATE, REVALIDATE_DAY_TIME } from '../consts';
 
 interface IEmailNewsletterTemplate {
   title: string;

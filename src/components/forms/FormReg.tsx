@@ -1,7 +1,9 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 
+import { registerUser } from '@/actions/auth';
 import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
+import { useNotificationStore } from '@/stores/notificationMsg';
 import { IFormRegData, schemaReg } from '@/utils/validations';
 
 import { IconEmail, IconUser } from '../icons';
@@ -21,29 +23,28 @@ export const FormReg = () => {
     reValidateMode: 'onChange',
   });
 
-  const { setTabContent, setEmail } = useAuthModalStore();
+  const { setEmail, setTabContent } = useAuthModalStore();
+  const { showNotification } = useNotificationStore();
 
   const onSubmit = async (data: IFormRegData) => {
-    setEmail(data.email);
-    setTabContent(EAuthContent.CHECK_EMAIL);
-    reset();
-    console.log(data);
+    const result = await registerUser(data);
+
+    if (result.success) {
+      setEmail(data.email);
+      setTabContent(EAuthContent.SUCCESS_REG);
+      reset();
+    } else {
+      showNotification(result.message, '/icons/error.svg');
+    }
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-5">
       <Controller
-        name="firstName"
+        name="username"
         control={control}
         render={({ field }) => (
-          <Input {...field} placeholder="Имя" error={errors.firstName?.message} icon={<IconUser />} />
-        )}
-      />
-      <Controller
-        name="lastName"
-        control={control}
-        render={({ field }) => (
-          <Input {...field} placeholder="Фамилия" error={errors.lastName?.message} icon={<IconUser />} />
+          <Input {...field} placeholder="Логин" error={errors.username?.message} icon={<IconUser />} />
         )}
       />
       <Controller

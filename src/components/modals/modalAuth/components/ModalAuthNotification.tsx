@@ -36,7 +36,9 @@ const ModalAuthNotification = ({ type }: IModalAuthNotificationProps) => {
     [EModalAuthNotification.SUCCESS_REG]: {
       imageSrc: '/icons/checkEmail.svg',
       title: 'Благодарим за регистрацию!',
-      message: 'Ссылка для подтверждения аккаунта будет отправлена на вашу почту.',
+      message: email
+        ? `Отправили Вам письмо с дальнейшими инструкциями на почту ${formatEmail(email)}`
+        : 'Ссылка для подтверждения аккаунта будет отправлена на указанную почту.',
     },
     [EModalAuthNotification.CHANGE_PASS]: {
       imageSrc: '/icons/successChangePassword.svg',

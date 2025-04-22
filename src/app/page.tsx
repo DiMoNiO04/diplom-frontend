@@ -1,4 +1,3 @@
-import { getCategories, getEmailNewsletterTemplate, getShareRecipeTemplate } from '@/actions';
 import {
   CuratedCollections,
   EmailNewsletter,
@@ -10,19 +9,15 @@ import {
 } from '@/components/sections';
 
 export default async function MainPage() {
-  const shareRecipeTemplate = await getShareRecipeTemplate();
-  const emailNewsletterTemplate = await getEmailNewsletterTemplate();
-  const { results: cardsCategories } = await getCategories();
-
   return (
     <>
       <MainSlider />
-      <PopularCategories cards={cardsCategories} />
+      <PopularCategories />
       <SuperDelicioues />
-      <ShareYourRecipe {...shareRecipeTemplate} />
+      <ShareYourRecipe />
       <CuratedCollections />
       <LatestRecipes />
-      <EmailNewsletter {...emailNewsletterTemplate} />
+      <EmailNewsletter />
     </>
   );
 }

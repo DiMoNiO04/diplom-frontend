@@ -13,6 +13,7 @@ const API_CATEGORIES: string = `${API_URL}/categories`;
 const API_COLLECTIONS: string = `${API_URL}/collections`;
 const API_CATEGORY = (slug: string) => `${API_URL}/categories/${slug}`;
 const API_COLLECTION = (slug: string) => `${API_URL}/collections/${slug}`;
+const API_REGISTER_USER: string = `${API_URL}/auth/local/register`;
 
 export {
   API_ABOUT_PAGE,
@@ -24,6 +25,7 @@ export {
   API_COLLECTIONS_PAGE,
   API_EMAIL_NEWSLETTER_TEMPLATE,
   API_PRIVACY_POLICY,
+  API_REGISTER_USER,
   API_SHARE_RECIPE_TEMPLATE,
   REVALIDATE_DAY_TIME,
   REVALIDATE_HOUR_TIME,

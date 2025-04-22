@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import { getCategory } from '@/actions';
+import { getCategory } from '@/actions/categories';
 import { HeaderBlockImage, RecipesContent } from '@/components/sections';
 import { IPageSlugProps } from '@/utils/interfaces';
 import { createMetadata } from '@/utils/seo';

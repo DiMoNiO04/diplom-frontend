@@ -26,7 +26,7 @@ export const Header = () => {
   return (
     <header
       className={clsx(
-        'fixed top-0 left-0 w-full shadow-none h-24 bg-white z-50 transition-colors duration-300 max-lg:h-20',
+        'fixed top-0 left-0 w-full shadow-none h-24 bg-white z-40 transition-colors duration-300 max-lg:h-20',
         isScrolled && 'shadow-customSlide bg-whiteDark',
         isMenuOpen ? 'bg-whiteDark' : 'bg-white'
       )}

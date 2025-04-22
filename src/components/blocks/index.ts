@@ -6,6 +6,7 @@ import { LoadMoreRecipes } from './LoadMoreRecipes';
 import { MainSliderBtns } from './MainSliderBtns';
 import { SearchHeaderBlock } from './SearchHeaderBlock';
 import { SearchInputBlock } from './SearchInputBlock';
+import { ShareYourRecipeClient } from './ShareYourRecipeClient';
 import { TitleSectionBlock } from './TitleSectionBlock';
 
 export {
@@ -17,5 +18,6 @@ export {
   MainSliderBtns,
   SearchHeaderBlock,
   SearchInputBlock,
+  ShareYourRecipeClient,
   TitleSectionBlock,
 };

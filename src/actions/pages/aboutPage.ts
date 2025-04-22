@@ -1,6 +1,6 @@
 import { IBasePage, ISimpleContent, ITitleWithTexts } from '@/utils/interfaces';
 
-import { API_ABOUT_PAGE, REVALIDATE_HOUR_TIME } from './consts';
+import { API_ABOUT_PAGE, REVALIDATE_HOUR_TIME } from '../consts';
 
 interface IAboutPage extends IBasePage {
   aboutMain: ISimpleContent;

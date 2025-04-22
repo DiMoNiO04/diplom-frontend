@@ -1,6 +1,6 @@
 import { IBasePage, IImage, IRecipe } from '@/utils/interfaces';
 
-import { API_COLLECTION } from './consts';
+import { API_COLLECTION } from '../consts';
 
 interface ICollectionPage extends IBasePage {
   title: string;
@@ -9,7 +9,7 @@ interface ICollectionPage extends IBasePage {
   recipes: IRecipe[];
 }
 
-export async function getCollection(slug: string): Promise<ICollectionPage> {
+export async function getSingleCollection(slug: string): Promise<ICollectionPage> {
   const res = await fetch(API_COLLECTION(slug), {
     cache: 'no-cache',
   });

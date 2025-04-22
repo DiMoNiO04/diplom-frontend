@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import { getAboutPage, getEmailNewsletterTemplate, getShareRecipeTemplate } from '@/actions';
+import { getAboutPage } from '@/actions/pages';
 import {
   AboutMain,
   EmailNewsletter,
@@ -18,17 +18,15 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function AboutPage() {
   const { title, aboutMain, simpleRecipes, operating } = await getAboutPage();
-  const shareRecipeTemplate = await getShareRecipeTemplate();
-  const emailNewsletterTemplate = await getEmailNewsletterTemplate();
 
   return (
     <>
       <AboutMain mainTitle={title} {...aboutMain} />
       <SimpleRecipes {...simpleRecipes} />
-      <ShareYourRecipe {...shareRecipeTemplate} />
+      <ShareYourRecipe />
       <TalentTeam />
       <Operating {...operating} />
-      <EmailNewsletter {...emailNewsletterTemplate} />
+      <EmailNewsletter />
     </>
   );
 }

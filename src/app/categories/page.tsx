@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 
-import { getCategories, getCategoriesPage } from '@/actions';
+import { getCategories } from '@/actions/categories';
+import { getCategoriesPage } from '@/actions/pages';
 import { CategoriesAll } from '@/components/sections';
 import { createMetadata } from '@/utils/seo';
 

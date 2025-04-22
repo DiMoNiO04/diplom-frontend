@@ -2,12 +2,14 @@
 
 import Link from 'next/link';
 
-import { IEmailNewsletterTemplate } from '@/actions';
+import { getEmailNewsletterTemplate } from '@/actions/blocks';
 import { EUrls } from '@/utils/urls';
 
 import { FormEmailNewsletter } from '../forms';
 
-export const EmailNewsletter = ({ title, description, infoText }: IEmailNewsletterTemplate) => {
+export const EmailNewsletter = async () => {
+  const { title, description, infoText } = await getEmailNewsletterTemplate();
+
   return (
     <section className="bg-pink">
       <div className="custom-container">

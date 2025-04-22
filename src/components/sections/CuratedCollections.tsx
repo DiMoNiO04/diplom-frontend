@@ -1,4 +1,4 @@
-import { getCollections } from '@/actions';
+import { getCollections } from '@/actions/collections';
 import { EUrls } from '@/utils/urls';
 
 import { CardsItems, TitleSectionBlock } from '../blocks';
