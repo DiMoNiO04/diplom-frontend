@@ -8,8 +8,8 @@ import { useUserStore } from '@/stores/user';
 import { getImageUrl } from '@/utils/functions';
 import { EUrls } from '@/utils/urls';
 
-import { TitleSectionBlock } from '../blocks';
 import { Button } from '../ui/btns';
+import { TitleSectionBlock } from '.';
 
 type Props = {
   img: { url: string };

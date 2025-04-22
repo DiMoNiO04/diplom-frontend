@@ -3,8 +3,8 @@
 import clsx from 'clsx';
 import { ChangeEvent } from 'react';
 
-import { SearchInputBlock } from '../blocks';
 import { Title } from '../ui';
+import { SearchInputBlock } from '.';
 
 interface ISearchHeaderBlockProps {
   title: string;
