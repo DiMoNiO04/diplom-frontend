@@ -2,7 +2,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import clsx from 'clsx';
 import { Controller, useForm } from 'react-hook-form';
 
-import { loginUser } from '@/actions/auth';
+import { apiLoginUser } from '@/actions/auth';
 import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
 import { useNotificationStore } from '@/stores/notificationMsg';
 import { useUserStore } from '@/stores/user';
@@ -29,7 +29,7 @@ export const FormLogin = () => {
   const { setAuth } = useUserStore();
 
   const onSubmit = async (data: IFormLoginData) => {
-    const { isSuccess, message, user } = await loginUser(data);
+    const { isSuccess, message, user } = await apiLoginUser(data);
 
     if (isSuccess && user) {
       closeModal();

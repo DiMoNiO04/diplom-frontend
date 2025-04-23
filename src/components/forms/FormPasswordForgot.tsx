@@ -1,7 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 
-import { forgotPassword } from '@/actions/auth';
+import { apiForgotPassword } from '@/actions/auth';
 import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
 import { useNotificationStore } from '@/stores/notificationMsg';
 import { IFormPasswordForgotData, schemaPasswordForgot } from '@/utils/validations';
@@ -26,7 +26,7 @@ export const FormPasswordForgot = () => {
   const { showNotification } = useNotificationStore();
 
   const onSubmit = async (data: IFormPasswordForgotData) => {
-    const { isSuccess, message } = await forgotPassword(data);
+    const { isSuccess, message } = await apiForgotPassword(data);
 
     if (isSuccess) {
       setTabContent(EAuthContent.CHECK_EMAIL);

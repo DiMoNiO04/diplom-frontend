@@ -1,4 +1,4 @@
-import { getEmailNewsletterTemplate } from './emailNewsletterTemplate';
-import { getShareRecipeTemplate } from './shareRecipeTemplate';
+import { apiGetEmailNewsletterTemplate } from './emailNewsletterTemplate';
+import { apiGetShareRecipeTemplate } from './shareRecipeTemplate';
 
-export { getEmailNewsletterTemplate, getShareRecipeTemplate };
+export { apiGetEmailNewsletterTemplate, apiGetShareRecipeTemplate };

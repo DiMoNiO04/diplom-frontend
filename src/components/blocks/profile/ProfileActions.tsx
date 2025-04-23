@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 
-import { logoutUser } from '@/actions/auth';
+import { apiLogoutUser } from '@/actions/auth';
 import { IconDelete, IconLogOut } from '@/components/icons';
 import { BtnText } from '@/components/ui/btns';
 import { useConfirmModalStore } from '@/stores/confirmModal';
@@ -18,7 +18,7 @@ export const ProfileActions = () => {
   const { exitAccount } = useUserStore();
 
   const logout = async () => {
-    const { isSuccess, message } = await logoutUser();
+    const { isSuccess, message } = await apiLogoutUser();
 
     if (isSuccess) {
       exitAccount();

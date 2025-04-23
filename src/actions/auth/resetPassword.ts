@@ -1,8 +1,8 @@
 import { IFormPasswordNewData } from '@/utils/validations';
 
-import { API_RESET_PASSWORD, IAuthUserReturn } from '../utils';
+import { API_RESET_PASSWORD, EMsgActions, IAuthUserReturn } from '../utils';
 
-export const resetPassword = async (data: IFormPasswordNewData): Promise<IAuthUserReturn> => {
+export const apiResetPassword = async (data: IFormPasswordNewData): Promise<IAuthUserReturn> => {
   try {
     const res = await fetch(API_RESET_PASSWORD, {
       method: 'POST',
@@ -13,15 +13,15 @@ export const resetPassword = async (data: IFormPasswordNewData): Promise<IAuthUs
     const result = await res.json();
 
     if (!res.ok) {
-      return { isSuccess: false, message: result?.error?.message || 'Ошибка при смене пароля' };
+      return { isSuccess: false, message: result?.error?.message };
     }
 
     return {
       isSuccess: true,
-      message: 'Пароль успешно изменен',
+      message: EMsgActions.SUCCESS_CHANGE_PASSWORD,
     };
   } catch (err) {
-    console.error('Ошибка сети или сервера:', err);
-    return { isSuccess: false, message: 'Ошибка сети. Повторите позже.' };
+    console.error(EMsgActions.FAILED_FETCH, err);
+    return { isSuccess: false, message: EMsgActions.FAILED_FETCH_TRY_AGAIN };
   }
 };

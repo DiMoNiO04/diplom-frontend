@@ -4,13 +4,25 @@ import { cookies } from 'next/headers';
 
 import { IFormLoginData } from '@/utils/validations';
 
-import { API_LOGIN, IAuthUserReturn } from '../utils';
+import { API_LOGIN, EMsgActions, IAuthUserReturn } from '../utils';
 
 interface ILoginUserReturn extends IAuthUserReturn {
   user?: unknown;
 }
 
-export const loginUser = async (data: IFormLoginData): Promise<ILoginUserReturn> => {
+const getFailedMsg = (message: string): string => {
+  if (message === 'Invalid identifier or password') {
+    message = EMsgActions.FAILED_LOGIN;
+  } else if (message === 'Your account email is not confirmed') {
+    message = EMsgActions.NO_CONFIRM_ACC;
+  } else if (message === 'Your account has been blocked by an administrator') {
+    message = EMsgActions.BLOCKED_ACC;
+  }
+
+  return message;
+};
+
+export const apiLoginUser = async (data: IFormLoginData): Promise<ILoginUserReturn> => {
   try {
     const res = await fetch(API_LOGIN, {
       method: 'POST',
@@ -21,7 +33,9 @@ export const loginUser = async (data: IFormLoginData): Promise<ILoginUserReturn>
     const result = await res.json();
 
     if (!res.ok) {
-      return { isSuccess: false, message: result?.error?.message || 'Ошибка авторизации' };
+      const message: string = getFailedMsg(result?.error?.message);
+
+      return { isSuccess: false, message };
     }
 
     (await cookies()).set('jwt', result.jwt, {
@@ -34,11 +48,11 @@ export const loginUser = async (data: IFormLoginData): Promise<ILoginUserReturn>
 
     return {
       isSuccess: true,
-      message: 'Вы авторизовались!',
+      message: EMsgActions.SUCCESS_LOGIN,
       user: result.user,
     };
   } catch (err) {
-    console.error('Ошибка сети или сервера', err);
-    return { isSuccess: false, message: 'Ошибка сети. Повторите позже.' };
+    console.error(EMsgActions.FAILED_FETCH, err);
+    return { isSuccess: false, message: EMsgActions.FAILED_FETCH_TRY_AGAIN };
   }
 };

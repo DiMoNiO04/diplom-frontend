@@ -1,18 +1,18 @@
 import { Metadata } from 'next';
 
-import { getCategories } from '@/actions/categories';
-import { getCategoriesPage } from '@/actions/pages';
+import { apiGetCategories } from '@/actions/categories';
+import { apiGetCategoriesPage } from '@/actions/pages';
 import { CategoriesAll } from '@/components/sections';
 import { createMetadata } from '@/utils/seo';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { seo } = await getCategoriesPage();
+  const { seo } = await apiGetCategoriesPage();
   return createMetadata(seo);
 }
 
 export default async function CategoriesPage() {
-  const { headerBlock } = await getCategoriesPage();
-  const { results: cards } = await getCategories();
+  const { headerBlock } = await apiGetCategoriesPage();
+  const { results: cards } = await apiGetCategories();
 
   return <CategoriesAll cards={cards} {...headerBlock} />;
 }

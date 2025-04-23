@@ -23,6 +23,22 @@ interface IAuthUserReturn {
   message: string;
 }
 
+export const EMsgActions = {
+  FAILED_FETCH: 'Ошибка сети или сервера!',
+  FAILED_FETCH_TRY_AGAIN: 'Ошибка сети. Повторите позже!',
+  SUCCESS_CHANGE_PASSWORD: 'Пароль успешно изменен!',
+  SUCCESS_REG: 'Благодарим за регистрацию! Ссылка для подтверждения аккаунта будет отправлена на вашу почту!',
+  SUCCESS_EXIT_ACCOUNT: 'Вы вышли из аккаунта!',
+  SUCCESS_LOGIN: 'Вы авторизовались!',
+  SUCCESS_FORGOT_PASSWORD: 'Отправили Вам письмо с дальнейшими инструкциями на указанную почту!',
+  BLOCKED_ACC: 'Ваш аккаунт заблокирован администратором!',
+  NO_CONFIRM_ACC: 'Ваш адрес электронной почты не подтвержден!',
+  FAILED_LOGIN: 'Неверный идентификатор или пароль!',
+  FAILED_REG: 'Адрес электронной почты или имя пользователя уже заняты',
+} as const;
+
+export type EMsgActions = (typeof EMsgActions)[keyof typeof EMsgActions];
+
 export {
   API_ABOUT_PAGE,
   API_CATEGORIES,

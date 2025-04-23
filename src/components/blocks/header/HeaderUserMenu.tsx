@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useRef, useState } from 'react';
 
-import { logoutUser } from '@/actions/auth';
+import { apiLogoutUser } from '@/actions/auth';
 import { IconLogOut } from '@/components/icons';
 import { menuProfileData } from '@/data';
 import { useClickOutside } from '@/hooks';
@@ -23,7 +23,7 @@ export const HeaderUserMenu = () => {
   const { exitAccount } = useUserStore();
 
   const logout = async () => {
-    const { isSuccess, message } = await logoutUser();
+    const { isSuccess, message } = await apiLogoutUser();
 
     if (isSuccess) {
       exitAccount();

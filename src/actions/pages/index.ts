@@ -1,6 +1,6 @@
-import { getAboutPage } from './aboutPage';
-import { getCategoriesPage } from './categoriesPage';
-import { getCollectionsPage } from './collectionsPage';
-import { getPrivacyPolicyPage } from './privacyPolicyPage';
+import { apiGetAboutPage } from './aboutPage';
+import { apiGetCategoriesPage } from './categoriesPage';
+import { apiGetCollectionsPage } from './collectionsPage';
+import { apiGetPrivacyPolicyPage } from './privacyPolicyPage';
 
-export { getAboutPage, getCategoriesPage, getCollectionsPage, getPrivacyPolicyPage };
+export { apiGetAboutPage, apiGetCategoriesPage, apiGetCollectionsPage, apiGetPrivacyPolicyPage };

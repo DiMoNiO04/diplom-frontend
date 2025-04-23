@@ -1,8 +1,8 @@
 import { IFormPasswordForgotData } from '@/utils/validations';
 
-import { API_FORGOT_PASSWORD, IAuthUserReturn } from '../utils';
+import { API_FORGOT_PASSWORD, EMsgActions, IAuthUserReturn } from '../utils';
 
-export const forgotPassword = async (data: IFormPasswordForgotData): Promise<IAuthUserReturn> => {
+export const apiForgotPassword = async (data: IFormPasswordForgotData): Promise<IAuthUserReturn> => {
   try {
     const res = await fetch(API_FORGOT_PASSWORD, {
       method: 'POST',
@@ -13,15 +13,15 @@ export const forgotPassword = async (data: IFormPasswordForgotData): Promise<IAu
     const result = await res.json();
 
     if (!res.ok) {
-      return { isSuccess: false, message: result?.error?.message || 'Ошибка отправки email' };
+      return { isSuccess: false, message: result?.error?.message };
     }
 
     return {
       isSuccess: true,
-      message: 'Отправили Вам письмо с дальнейшими инструкциями на указанную почту',
+      message: EMsgActions.SUCCESS_FORGOT_PASSWORD,
     };
   } catch (err) {
-    console.error('Ошибка сети или сервера:', err);
-    return { isSuccess: false, message: 'Ошибка сети. Повторите позже.' };
+    console.error(EMsgActions.FAILED_FETCH, err);
+    return { isSuccess: false, message: EMsgActions.FAILED_FETCH_TRY_AGAIN };
   }
 };

@@ -2,17 +2,19 @@
 
 import { cookies } from 'next/headers';
 
-export const logoutUser = async () => {
+import { EMsgActions } from '../utils';
+
+export const apiLogoutUser = async () => {
   try {
     const cookiesStore = await cookies();
     cookiesStore.delete('jwt');
 
     return {
       isSuccess: true,
-      message: 'Вы вышли из аккаунта!',
+      message: EMsgActions.SUCCESS_EXIT_ACCOUNT,
     };
   } catch (err) {
-    console.error('Ошибка выхода:', err);
-    return { isSuccess: false, message: 'Ошибка при выходе. Повторите позже.' };
+    console.error(EMsgActions.FAILED_FETCH, err);
+    return { isSuccess: false, message: EMsgActions.FAILED_FETCH_TRY_AGAIN };
   }
 };

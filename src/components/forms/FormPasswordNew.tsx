@@ -3,7 +3,7 @@ import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
-import { resetPassword } from '@/actions/auth';
+import { apiResetPassword } from '@/actions/auth';
 import { useAuthModalStore } from '@/stores/authModal';
 import { useNotificationStore } from '@/stores/notificationMsg';
 import { IFormPasswordNewData, IFormResetPasswordData, schemaPasswordNew } from '@/utils/validations';
@@ -39,7 +39,7 @@ export const FormPasswordNew = () => {
   const onSubmit = async (data: IFormPasswordNewData) => {
     if (code) {
       const dataResetPassword: IFormResetPasswordData = { code, ...data };
-      const { isSuccess, message } = await resetPassword(dataResetPassword);
+      const { isSuccess, message } = await apiResetPassword(dataResetPassword);
 
       if (isSuccess) {
         closeModal();
