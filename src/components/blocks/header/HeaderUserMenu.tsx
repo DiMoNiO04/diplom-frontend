@@ -4,10 +4,13 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useRef, useState } from 'react';
 
+import { logoutUser } from '@/actions/auth';
 import { IconLogOut } from '@/components/icons';
 import { menuProfileData } from '@/data';
-import { useClickOutside, useLogout } from '@/hooks';
+import { useClickOutside } from '@/hooks';
 import { useConfirmModalStore } from '@/stores/confirmModal';
+import { useNotificationStore } from '@/stores/notificationMsg';
+import { useUserStore } from '@/stores/user';
 import { getTrimmedPathname } from '@/utils/functions';
 
 export const HeaderUserMenu = () => {
@@ -16,7 +19,19 @@ export const HeaderUserMenu = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const { openModal } = useConfirmModalStore();
-  const { logout } = useLogout();
+  const { showNotification } = useNotificationStore();
+  const { exitAccount } = useUserStore();
+
+  const logout = async () => {
+    const { isSuccess, message } = await logoutUser();
+
+    if (isSuccess) {
+      exitAccount();
+      showNotification(message, '/icons/success.svg');
+    } else {
+      showNotification(message, '/icons/error.svg');
+    }
+  };
 
   const dropdownRef = useRef<HTMLDivElement>(null!);
 

@@ -2,9 +2,9 @@
 
 import { useRouter } from 'next/navigation';
 
+import { logoutUser } from '@/actions/auth';
 import { IconDelete, IconLogOut } from '@/components/icons';
 import { BtnText } from '@/components/ui/btns';
-import { useLogout } from '@/hooks';
 import { useConfirmModalStore } from '@/stores/confirmModal';
 import { useNotificationStore } from '@/stores/notificationMsg';
 import { useUserStore } from '@/stores/user';
@@ -16,7 +16,17 @@ export const ProfileActions = () => {
   const { openModal } = useConfirmModalStore();
   const { showNotification } = useNotificationStore();
   const { exitAccount } = useUserStore();
-  const { logout } = useLogout();
+
+  const logout = async () => {
+    const { isSuccess, message } = await logoutUser();
+
+    if (isSuccess) {
+      exitAccount();
+      showNotification(message, '/icons/success.svg');
+    } else {
+      showNotification(message, '/icons/error.svg');
+    }
+  };
 
   const handleBtnYesDeleteAccount = () => {
     exitAccount();

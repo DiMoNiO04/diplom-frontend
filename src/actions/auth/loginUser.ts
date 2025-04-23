@@ -2,9 +2,15 @@
 
 import { cookies } from 'next/headers';
 
-import { API_LOGIN } from '../utils';
+import { IFormLoginData } from '@/utils/validations';
 
-export const loginUser = async (data: { identifier: string; password: string }) => {
+import { API_LOGIN, IAuthUserReturn } from '../utils';
+
+interface ILoginUserReturn extends IAuthUserReturn {
+  user?: unknown;
+}
+
+export const loginUser = async (data: IFormLoginData): Promise<ILoginUserReturn> => {
   try {
     const res = await fetch(API_LOGIN, {
       method: 'POST',
