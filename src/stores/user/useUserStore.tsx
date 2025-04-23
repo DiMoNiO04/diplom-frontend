@@ -12,18 +12,8 @@ export const useUserStore = create<TUserStore>()(
   devtools((set) => ({
     ...initialState,
 
-    setUser: (user) =>
-      set(
-        () => ({
-          isAuth: true,
-          user,
-        }),
-        false,
-        'User/setUser'
-      ),
-
-    setAuth: () => set(() => ({ isAuth: true }), false, 'User/setAuth'),
-
-    exitAccount: () => set(() => ({ ...initialState }), false, 'User/exitAccount'),
+    setUser: (user) => set({ isAuth: true, user }, false, 'User/setUser'),
+    setAuth: (isAuth) => set({ isAuth }, false, 'User/setAuth'),
+    exitAccount: () => set({ ...initialState }, false, 'User/exitAccount'),
   }))
 );
