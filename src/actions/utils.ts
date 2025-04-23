@@ -15,6 +15,8 @@ const API_CATEGORY = (slug: string) => `${API_URL}/categories/${slug}`;
 const API_COLLECTION = (slug: string) => `${API_URL}/collections/${slug}`;
 const API_REGISTER_USER: string = `${API_URL}/auth/local/register`;
 const API_LOGIN: string = `${API_URL}/auth/local`;
+const API_RESET_PASSWORD: string = `${API_URL}/auth/reset-password`;
+const API_FORGOT_PASSWORD: string = `${API_URL}/auth/forgot-password`;
 
 interface IAuthUserReturn {
   isSuccess: boolean;
@@ -30,9 +32,11 @@ export {
   API_COLLECTIONS,
   API_COLLECTIONS_PAGE,
   API_EMAIL_NEWSLETTER_TEMPLATE,
+  API_FORGOT_PASSWORD,
   API_LOGIN,
   API_PRIVACY_POLICY,
   API_REGISTER_USER,
+  API_RESET_PASSWORD,
   API_SHARE_RECIPE_TEMPLATE,
   REVALIDATE_DAY_TIME,
   REVALIDATE_HOUR_TIME,

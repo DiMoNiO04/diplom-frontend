@@ -8,7 +8,7 @@ interface IFormRegDataApi {
 
 export const registerUser = async (data: IFormRegDataApi): Promise<IAuthUserReturn> => {
   try {
-    const response = await fetch(API_REGISTER_USER, {
+    const res = await fetch(API_REGISTER_USER, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -20,14 +20,16 @@ export const registerUser = async (data: IFormRegDataApi): Promise<IAuthUserRetu
       }),
     });
 
-    if (response.ok) {
-      return {
-        isSuccess: true,
-        message: 'Благодарим за регистрацию! Ссылка для подтверждения аккаунта будет отправлена на вашу почту.',
-      };
-    } else {
-      return { isSuccess: false, message: 'Адрес электронной почты или имя пользователя уже заняты!' };
+    const result = await res.json();
+
+    if (!res.ok) {
+      return { isSuccess: false, message: result?.error?.message || 'Ошибка регистрации' };
     }
+
+    return {
+      isSuccess: true,
+      message: 'Благодарим за регистрацию! Ссылка для подтверждения аккаунта будет отправлена на вашу почту.',
+    };
   } catch (error) {
     console.error('Ошибка сети или сервера: ', error);
     return { isSuccess: false, message: 'Произошла ошибка при регистрации. Попробуйте позже.' };

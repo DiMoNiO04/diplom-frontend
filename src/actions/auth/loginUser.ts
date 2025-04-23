@@ -38,7 +38,7 @@ export const loginUser = async (data: IFormLoginData): Promise<ILoginUserReturn>
       user: result.user,
     };
   } catch (err) {
-    console.error('Login error:', err);
+    console.error('Ошибка сети или сервера', err);
     return { isSuccess: false, message: 'Ошибка сети. Повторите позже.' };
   }
 };
