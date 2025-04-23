@@ -14,6 +14,12 @@ const API_COLLECTIONS: string = `${API_URL}/collections`;
 const API_CATEGORY = (slug: string) => `${API_URL}/categories/${slug}`;
 const API_COLLECTION = (slug: string) => `${API_URL}/collections/${slug}`;
 const API_REGISTER_USER: string = `${API_URL}/auth/local/register`;
+const API_LOGIN: string = `${API_URL}/auth/local`;
+
+interface IAuthUserReturn {
+  isSuccess: boolean;
+  message: string;
+}
 
 export {
   API_ABOUT_PAGE,
@@ -24,9 +30,12 @@ export {
   API_COLLECTIONS,
   API_COLLECTIONS_PAGE,
   API_EMAIL_NEWSLETTER_TEMPLATE,
+  API_LOGIN,
   API_PRIVACY_POLICY,
   API_REGISTER_USER,
   API_SHARE_RECIPE_TEMPLATE,
   REVALIDATE_DAY_TIME,
   REVALIDATE_HOUR_TIME,
 };
+
+export type { IAuthUserReturn };

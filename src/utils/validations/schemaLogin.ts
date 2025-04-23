@@ -1,16 +1,16 @@
 import * as yup from 'yup';
 import { ObjectSchema } from 'yup';
 
-import { emailSchema, requiredStringSchema } from './common';
+import { requiredStringSchema } from './common';
 
 interface IFormLoginData {
-  email: string;
+  identifier: string;
   password: string;
 }
 
 const schemaLogin: ObjectSchema<IFormLoginData> = yup
   .object({
-    email: emailSchema,
+    identifier: requiredStringSchema,
     password: requiredStringSchema,
   })
   .required();

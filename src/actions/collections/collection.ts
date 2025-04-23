@@ -1,6 +1,6 @@
 import { IBasePage, IImage, IRecipe } from '@/utils/interfaces';
 
-import { API_COLLECTION } from '../consts';
+import { API_COLLECTION } from '../utils';
 
 interface ICollectionPage extends IBasePage {
   title: string;

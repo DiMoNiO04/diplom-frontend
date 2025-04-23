@@ -1,6 +1,6 @@
 import { IBasePage, ICollection } from '@/utils/interfaces';
 
-import { API_COLLECTIONS } from '../consts';
+import { API_COLLECTIONS } from '../utils';
 
 interface ICollectionsPage extends IBasePage {
   results: ICollection[];

@@ -1,9 +1,4 @@
-import { API_REGISTER_USER } from '../consts';
-
-interface IRegisterUserReturn {
-  success: boolean;
-  message: string;
-}
+import { API_REGISTER_USER, IAuthUserReturn } from '../utils';
 
 interface IFormRegDataApi {
   username: string;
@@ -11,7 +6,7 @@ interface IFormRegDataApi {
   password: string;
 }
 
-export const registerUser = async (data: IFormRegDataApi): Promise<IRegisterUserReturn> => {
+export const registerUser = async (data: IFormRegDataApi): Promise<IAuthUserReturn> => {
   try {
     const response = await fetch(API_REGISTER_USER, {
       method: 'POST',
@@ -27,14 +22,14 @@ export const registerUser = async (data: IFormRegDataApi): Promise<IRegisterUser
 
     if (response.ok) {
       return {
-        success: true,
+        isSuccess: true,
         message: 'Благодарим за регистрацию! Ссылка для подтверждения аккаунта будет отправлена на вашу почту.',
       };
     } else {
-      return { success: false, message: 'Адрес электронной почты или имя пользователя уже заняты!' };
+      return { isSuccess: false, message: 'Адрес электронной почты или имя пользователя уже заняты!' };
     }
   } catch (error) {
     console.error('Ошибка сети или сервера: ', error);
-    return { success: false, message: 'Произошла ошибка при регистрации. Попробуйте позже.' };
+    return { isSuccess: false, message: 'Произошла ошибка при регистрации. Попробуйте позже.' };
   }
 };

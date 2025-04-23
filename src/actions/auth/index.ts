@@ -1,3 +1,4 @@
+import { loginUser } from './loginUser';
 import { registerUser } from './registerUser';
 
-export { registerUser };
+export { loginUser, registerUser };

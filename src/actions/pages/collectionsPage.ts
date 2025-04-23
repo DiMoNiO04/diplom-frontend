@@ -1,6 +1,6 @@
 import { IBasePage, IHeaderSearchBlockPage } from '@/utils/interfaces';
 
-import { API_COLLECTIONS_PAGE } from '../consts';
+import { API_COLLECTIONS_PAGE } from '../utils';
 
 interface ICollectionsPage extends IBasePage {
   headerBlock: IHeaderSearchBlockPage;

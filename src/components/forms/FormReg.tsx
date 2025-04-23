@@ -27,14 +27,14 @@ export const FormReg = () => {
   const { showNotification } = useNotificationStore();
 
   const onSubmit = async (data: IFormRegData) => {
-    const result = await registerUser(data);
+    const { isSuccess, message } = await registerUser(data);
 
-    if (result.success) {
+    if (isSuccess) {
       setEmail(data.email);
       setTabContent(EAuthContent.SUCCESS_REG);
       reset();
     } else {
-      showNotification(result.message, '/icons/error.svg');
+      showNotification(message, '/icons/error.svg');
     }
   };
 
