@@ -8,7 +8,6 @@ import {
   ProfileActions,
   ProfileAsideMenu,
   ProfileChangePassword,
-  ProfileConnectedAccounts,
   ProfileFoto,
   ProfileNewsletter,
 } from '../blocks/profile';
@@ -47,7 +46,6 @@ export const ProfileContent = () => {
               <FormProfile />
               <ProfileChangePassword />
             </div>
-            <ProfileConnectedAccounts />
             <ProfileNewsletter />
             <ProfileActions />
           </div>
