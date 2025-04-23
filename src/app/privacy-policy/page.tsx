@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import { getPrivacyPolicyPage } from '@/actions';
+import { getPrivacyPolicyPage } from '@/actions/pages';
 import { PrivacyPolicyContent } from '@/components/sections';
 import { createMetadata } from '@/utils/seo';
 

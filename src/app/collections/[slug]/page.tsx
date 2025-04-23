@@ -1,10 +1,22 @@
-import { RecipesContent } from '@/components/sections';
-import { collectionsData } from '@/data';
-import { fetchByKey } from '@/utils/functions';
-import { ICollection, IPageSlugProps } from '@/utils/interfaces';
+import { Metadata } from 'next';
+
+import { getSingleCollection } from '@/actions/collections';
+import { HeaderBlockImage, RecipesContent } from '@/components/sections';
+import { IPageSlugProps } from '@/utils/interfaces';
+import { createMetadata } from '@/utils/seo';
+
+export async function generateMetadata({ params }: IPageSlugProps): Promise<Metadata> {
+  const { seo } = await getSingleCollection((await params).slug);
+  return createMetadata(seo);
+}
 
 export default async function CollectionPage({ params }: IPageSlugProps) {
-  const collection: ICollection = await fetchByKey(collectionsData, 'slug', (await params).slug);
+  const collection = await getSingleCollection((await params).slug);
 
-  return <RecipesContent {...collection} />;
+  return (
+    <>
+      <HeaderBlockImage img={collection.img} />
+      <RecipesContent {...collection} />;
+    </>
+  );
 }

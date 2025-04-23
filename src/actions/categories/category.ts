@@ -1,6 +1,6 @@
 import { IBasePage, IImage, IRecipe } from '@/utils/interfaces';
 
-import { API_CATEGORY } from './consts';
+import { API_CATEGORY } from '../utils';
 
 interface ICategoriesPage extends IBasePage {
   title: string;

@@ -1,9 +1,20 @@
+type TUser = {
+  id: number;
+  username: string;
+  email: string;
+  documentId?: string;
+  firstName?: string | null;
+  lastName?: string | null;
+};
+
 type TUserState = {
   isAuth: boolean;
+  user: TUser | null;
 };
 
 type TUserActions = {
-  setUser: (user: TUserState) => void;
+  setUser: (user: TUser) => void;
+  setAuth: (isAuth: boolean) => void;
   exitAccount: () => void;
 };
 

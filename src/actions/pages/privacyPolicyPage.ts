@@ -1,6 +1,6 @@
 import { IBasePage } from '@/utils/interfaces';
 
-import { API_PRIVACY_POLICY, REVALIDATE_HOUR_TIME } from './consts';
+import { API_PRIVACY_POLICY, REVALIDATE_HOUR_TIME } from '../utils';
 
 interface IPrivacyPolicyPage extends IBasePage {
   content: string;

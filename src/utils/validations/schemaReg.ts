@@ -9,8 +9,7 @@ import {
 } from './common';
 
 interface IFormRegData {
-  firstName: string;
-  lastName: string;
+  username: string;
   email: string;
   password: string;
   confirmPassword: string;
@@ -19,12 +18,11 @@ interface IFormRegData {
 
 const schemaReg: yup.ObjectSchema<IFormRegData> = yup
   .object({
-    firstName: requiredStringSchema,
-    lastName: requiredStringSchema,
+    username: requiredStringSchema,
     email: requiredEmailStringSchema,
-    agree: booleanSchema,
     password: passwordSchema,
     confirmPassword: confirmPasswordSchema,
+    agree: booleanSchema,
   })
   .required();
 

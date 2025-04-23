@@ -1,16 +1,14 @@
-import { ICategory } from '@/utils/interfaces';
+import { getCategories } from '@/actions/categories';
 import { EUrls } from '@/utils/urls';
 
 import { CardsItems, TitleSectionBlock } from '../blocks';
 
 const PER_PAGE_CATEGORIES: number = 6;
 
-interface IPopularCategoriesProps {
-  cards: ICategory[];
-}
+export const PopularCategories = async () => {
+  const { results } = await getCategories();
 
-export const PopularCategories = ({ cards }: IPopularCategoriesProps) => {
-  const initialCategories = cards.slice(0, PER_PAGE_CATEGORIES);
+  const initialCategories = results.slice(0, PER_PAGE_CATEGORIES);
 
   return (
     <section className="mb-20 max-lg:mb-16">

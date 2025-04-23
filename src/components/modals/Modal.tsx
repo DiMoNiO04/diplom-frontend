@@ -12,7 +12,7 @@ interface IModalProps {
 export const Modal = ({ isOpen, closeModal, children }: IModalProps) => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
-      <Dialog as="div" className="relative z-50" onClose={closeModal}>
+      <Dialog as="div" className="relative z-40" onClose={closeModal}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"

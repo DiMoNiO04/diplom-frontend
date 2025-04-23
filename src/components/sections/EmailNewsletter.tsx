@@ -1,40 +1,9 @@
-'use client';
+import { getEmailNewsletterTemplate } from '@/actions/blocks';
 
-import Link from 'next/link';
+import { EmailNewsletterClient } from '../blocks';
 
-import { IEmailNewsletterTemplate } from '@/actions';
-import { EUrls } from '@/utils/urls';
+export const EmailNewsletter = async () => {
+  const data = await getEmailNewsletterTemplate();
 
-import { FormEmailNewsletter } from '../forms';
-
-export const EmailNewsletter = ({ title, description, infoText }: IEmailNewsletterTemplate) => {
-  return (
-    <section className="bg-pink">
-      <div className="custom-container">
-        <div className="py-20 flex flex-col gap-6 items-center justify-center max-lg:py-16">
-          <div className="flex flex-col gap-1 items-center justify-center max-w-[500px] max-lg:max-w-full">
-            <h2
-              className={`font-unbounded text-4xl text-center font-medium max-lg:text-3xl max-sm:text-2xl text-balance`}
-            >
-              {title}
-            </h2>
-            {description && <p className="font-onest text-greyLight text-lg max-lg:text-base">{description}</p>}
-          </div>
-          <FormEmailNewsletter />
-          <p className="text-def text-greyLight font-onest">
-            {infoText}
-            <Link
-              href={EUrls.PRIVACY_POLICY}
-              className={`
-                border-b border-orange italic
-                transition-colors duration-300 hover:border-transparent hover:text-orange  
-              `}
-            >
-              политикой конфиденциальности
-            </Link>
-          </p>
-        </div>
-      </div>
-    </section>
-  );
+  return <EmailNewsletterClient {...data} />;
 };

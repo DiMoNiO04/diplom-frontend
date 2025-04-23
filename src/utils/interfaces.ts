@@ -60,9 +60,10 @@ interface IIcon {
 interface ICollection {
   slug: string;
   title: string;
-  img: string;
+  img: IImage;
   description?: string;
   recipes: IRecipe[];
+  seo?: ISEO;
 }
 
 interface ISuperDeliciious {
@@ -139,6 +140,12 @@ interface ITitleWithTexts {
   texts: IText[];
 }
 
+interface IHeaderSearchBlockPage {
+  title: string;
+  search: string;
+  nothingText: string;
+}
+
 export type {
   IAuthorRecipe,
   IBasePage,
@@ -146,6 +153,7 @@ export type {
   ICategory,
   ICollection,
   IHeaderMenuProps,
+  IHeaderSearchBlockPage,
   IIcon,
   IImage,
   ILink,

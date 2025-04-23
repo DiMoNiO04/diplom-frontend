@@ -3,7 +3,7 @@ import { devtools } from 'zustand/middleware';
 
 import { TNotificationState, TNotificationStore } from './types';
 
-const NOTIFICATION_TIME = 2000;
+const NOTIFICATION_TIME = 3000;
 let timeoutId: NodeJS.Timeout;
 
 const initialState: TNotificationState = {

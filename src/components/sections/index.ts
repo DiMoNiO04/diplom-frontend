@@ -2,12 +2,12 @@ import { AboutMain } from './AboutMain';
 import { AlreadyMade } from './AlreadyMade';
 import { AlsoLike } from './AlsoLike';
 import { CategoriesAll } from './CategoriesAll';
-import { CategoryHeaderImage } from './CategoryHeaderImage';
 import { CollectionsAll } from './CollectionsAll';
 import { CuratedCollections } from './CuratedCollections';
 import { Editecipe } from './EditRecipe';
 import { EmailNewsletter } from './EmailNewsletter';
 import { FavoritesContent } from './FavoritesContent';
+import { HeaderBlockImage } from './HeaderBlockImage';
 import { LatestRecipes } from './LatestRecipes';
 import { MainSlider } from './MainSlider';
 import { MyRecipesContent } from './MyRecipesContent';
@@ -31,12 +31,12 @@ export {
   AlreadyMade,
   AlsoLike,
   CategoriesAll,
-  CategoryHeaderImage,
   CollectionsAll,
   CuratedCollections,
   Editecipe,
   EmailNewsletter,
   FavoritesContent,
+  HeaderBlockImage,
   LatestRecipes,
   MainSlider,
   MyRecipesContent,

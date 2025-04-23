@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 
-import { getCategories, getCategoriesPage } from '@/actions';
+import { getCategories } from '@/actions/categories';
+import { getCategoriesPage } from '@/actions/pages';
 import { CategoriesAll } from '@/components/sections';
 import { createMetadata } from '@/utils/seo';
 
@@ -10,8 +11,8 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function CategoriesPage() {
-  const { title } = await getCategoriesPage();
+  const { headerBlock } = await getCategoriesPage();
   const { results: cards } = await getCategories();
 
-  return <CategoriesAll title={title} cards={cards} />;
+  return <CategoriesAll cards={cards} {...headerBlock} />;
 }

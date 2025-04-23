@@ -1,6 +1,6 @@
 import { IBtn, IImage, IText } from '@/utils/interfaces';
 
-import { API_SHARE_RECIPE_TEMPLATE, REVALIDATE_HOUR_TIME } from './consts';
+import { API_SHARE_RECIPE_TEMPLATE, REVALIDATE_HOUR_TIME } from '../utils';
 
 interface IShareRecipeTemplate {
   title: string;
