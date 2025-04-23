@@ -2,7 +2,7 @@ import * as yup from 'yup';
 
 import {
   booleanSchema,
-  confirmPasswordSchema,
+  passwordConfirmationSchema,
   passwordSchema,
   requiredEmailStringSchema,
   requiredStringSchema,
@@ -12,7 +12,7 @@ interface IFormRegData {
   username: string;
   email: string;
   password: string;
-  confirmPassword: string;
+  passwordConfirmation: string;
   agree: boolean;
 }
 
@@ -21,7 +21,7 @@ const schemaReg: yup.ObjectSchema<IFormRegData> = yup
     username: requiredStringSchema,
     email: requiredEmailStringSchema,
     password: passwordSchema,
-    confirmPassword: confirmPasswordSchema,
+    passwordConfirmation: passwordConfirmationSchema,
     agree: booleanSchema,
   })
   .required();

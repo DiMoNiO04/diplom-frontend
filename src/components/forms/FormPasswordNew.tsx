@@ -1,9 +1,12 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
-import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
+import { resetPassword } from '@/actions/auth';
+import { useAuthModalStore } from '@/stores/authModal';
 import { useNotificationStore } from '@/stores/notificationMsg';
-import { IFormPasswordNewData, schemaPasswordNew } from '@/utils/validations';
+import { IFormPasswordNewData, IFormResetPasswordData, schemaPasswordNew } from '@/utils/validations';
 
 import { Button } from '../ui/btns';
 import { InputPassword } from '../ui/inputs';
@@ -20,15 +23,32 @@ export const FormPasswordNew = () => {
     reValidateMode: 'onChange',
   });
 
-  const { closeModal, setTabContent } = useAuthModalStore();
+  const { closeModal } = useAuthModalStore();
   const { showNotification } = useNotificationStore();
 
+  const searchParams = useSearchParams();
+  const [code, setCode] = useState(searchParams.get('code'));
+
+  useEffect(() => {
+    const code = searchParams.get('code');
+    if (code) {
+      setCode(code);
+    }
+  }, [searchParams]);
+
   const onSubmit = async (data: IFormPasswordNewData) => {
-    setTabContent(EAuthContent.CHANGE_PASSWORD);
-    closeModal();
-    reset();
-    console.log(data);
-    showNotification('Пароль успешно изменен!');
+    if (code) {
+      const dataResetPassword: IFormResetPasswordData = { code, ...data };
+      const { isSuccess, message } = await resetPassword(dataResetPassword);
+
+      if (isSuccess) {
+        closeModal();
+        reset();
+        showNotification(message);
+      } else {
+        showNotification(message, '/icons/error.svg');
+      }
+    }
   };
 
   return (
@@ -41,14 +61,14 @@ export const FormPasswordNew = () => {
         )}
       />
       <Controller
-        name="confirmPassword"
+        name="passwordConfirmation"
         control={control}
         render={({ field }) => (
           <InputPassword
             {...field}
             onBlur={field.onBlur}
             placeholder="Повторите пароль"
-            error={errors.confirmPassword?.message}
+            error={errors.passwordConfirmation?.message}
           />
         )}
       />

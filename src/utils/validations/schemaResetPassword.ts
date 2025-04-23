@@ -2,19 +2,19 @@ import * as yup from 'yup';
 
 import { passwordConfirmationSchema, passwordSchema, requiredStringSchema } from './common';
 
-interface IFormChangePasswordData {
-  oldPassword: string;
+interface IFormResetPasswordData {
+  code: string;
   password: string;
   passwordConfirmation: string;
 }
 
-const schemaChangePassword: yup.ObjectSchema<IFormChangePasswordData> = yup
+const schemaResetPassword: yup.ObjectSchema<IFormResetPasswordData> = yup
   .object({
-    oldPassword: requiredStringSchema,
+    code: requiredStringSchema,
     password: passwordSchema,
     passwordConfirmation: passwordConfirmationSchema,
   })
   .required();
 
-export { schemaChangePassword };
-export type { IFormChangePasswordData };
+export { schemaResetPassword };
+export type { IFormResetPasswordData };

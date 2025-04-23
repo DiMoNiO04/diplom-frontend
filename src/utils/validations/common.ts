@@ -23,7 +23,7 @@ const passwordSchema = yup
   .matches(/[0-9]/, EValidateMessages.PASSWORD_NUMBER)
   .required(EValidateMessages.REQUIRED_FIELD);
 
-const confirmPasswordSchema = yup
+const passwordConfirmationSchema = yup
   .string()
   .oneOf([yup.ref('password'), undefined], EValidateMessages.PASSWORDS_MUST_MATCH)
   .required(EValidateMessages.REQUIRED_FIELD);
@@ -55,9 +55,9 @@ const requiredImgsRecipeSchema = yup
 
 export {
   booleanSchema,
-  confirmPasswordSchema,
   emailSchema,
   MIN_LENGTH_PASSWORD,
+  passwordConfirmationSchema,
   passwordSchema,
   requiredEmailStringSchema,
   requiredImgsRecipeSchema,

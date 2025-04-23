@@ -62,14 +62,14 @@ export const FormReg = () => {
         )}
       />
       <Controller
-        name="confirmPassword"
+        name="passwordConfirmation"
         control={control}
         render={({ field }) => (
           <InputPassword
             {...field}
             onBlur={field.onBlur}
             placeholder="Повторите пароль"
-            error={errors.confirmPassword?.message}
+            error={errors.passwordConfirmation?.message}
           />
         )}
       />
