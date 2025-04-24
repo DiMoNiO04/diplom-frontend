@@ -1,10 +1,12 @@
 import '../styles/index.css';
 
 import { Onest, Unbounded } from 'next/font/google';
+import { cookies } from 'next/headers';
 
 import { Footer, Header, Modals } from '@/components/layouts';
 import { NotificationMsg } from '@/components/ui';
 import { BtnScroll } from '@/components/ui/btns';
+import { AuthProvider } from '@/providers';
 import { createViewport } from '@/utils/seo';
 
 export const generateViewport = () => createViewport();
@@ -21,20 +23,25 @@ const fontOnest = Onest({
   variable: '--font-onest',
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const token = cookieStore.get('jwt')?.value;
+
   return (
     <html lang="ru">
       <body className={`${fontUnbounded.variable} ${fontOnest.variable}`}>
-        <Header />
-        <main className="mt-24 max-md:mt-16">{children}</main>
-        <Footer />
-        <Modals />
-        <NotificationMsg />
-        <BtnScroll />
+        <AuthProvider token={token}>
+          <Header />
+          <main className="mt-24 max-md:mt-16">{children}</main>
+          <Footer />
+          <Modals />
+          <NotificationMsg />
+          <BtnScroll />
+        </AuthProvider>
       </body>
     </html>
   );

@@ -4,7 +4,7 @@ import { useConfirmRegEffect } from './useConfirmRegEffect';
 import { useDebounce } from './useDebounce';
 import { useHeader } from './useHeader';
 import { useIsMobile } from './useIsMobile';
-import { useLogout } from './useLogout';
+import { useResetPasswordEffect } from './useResetPasswordEffect';
 import { useSelect } from './useSelect';
 
 export {
@@ -14,6 +14,6 @@ export {
   useDebounce,
   useHeader,
   useIsMobile,
-  useLogout,
+  useResetPasswordEffect,
   useSelect,
 };

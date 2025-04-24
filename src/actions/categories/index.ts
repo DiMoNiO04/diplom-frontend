@@ -1,4 +1,4 @@
-import { getCategories } from './categories';
-import { getCategory } from './category';
+import { apiGetCategories } from './categories';
+import { apiGetCategory } from './category';
 
-export { getCategories, getCategory };
+export { apiGetCategories, apiGetCategory };

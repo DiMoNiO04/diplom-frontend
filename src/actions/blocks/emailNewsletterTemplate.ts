@@ -1,4 +1,4 @@
-import { API_EMAIL_NEWSLETTER_TEMPLATE, REVALIDATE_DAY_TIME } from '../utils';
+import { API_EMAIL_NEWSLETTER_TEMPLATE, EMsgActions, REVALIDATE_DAY_TIME } from '../utils';
 
 interface IEmailNewsletterTemplate {
   title: string;
@@ -6,13 +6,13 @@ interface IEmailNewsletterTemplate {
   infoText: string;
 }
 
-async function getEmailNewsletterTemplate(): Promise<IEmailNewsletterTemplate> {
+async function apiGetEmailNewsletterTemplate(): Promise<IEmailNewsletterTemplate> {
   const res = await fetch(API_EMAIL_NEWSLETTER_TEMPLATE, {
     next: { revalidate: REVALIDATE_DAY_TIME },
   });
 
   if (!res.ok) {
-    throw new Error('Failed to fetch Email Newsletter Template');
+    throw new Error(EMsgActions.FAILED_FETCH);
   }
 
   const data = await res.json();
@@ -20,5 +20,5 @@ async function getEmailNewsletterTemplate(): Promise<IEmailNewsletterTemplate> {
   return data;
 }
 
-export { getEmailNewsletterTemplate };
+export { apiGetEmailNewsletterTemplate };
 export type { IEmailNewsletterTemplate };

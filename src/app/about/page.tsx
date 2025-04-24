@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import { getAboutPage } from '@/actions/pages';
+import { apiGetAboutPage } from '@/actions/pages';
 import {
   AboutMain,
   EmailNewsletter,
@@ -12,12 +12,12 @@ import {
 import { createMetadata } from '@/utils/seo';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { seo } = await getAboutPage();
+  const { seo } = await apiGetAboutPage();
   return createMetadata(seo);
 }
 
 export default async function AboutPage() {
-  const { title, aboutMain, simpleRecipes, operating } = await getAboutPage();
+  const { title, aboutMain, simpleRecipes, operating } = await apiGetAboutPage();
 
   return (
     <>

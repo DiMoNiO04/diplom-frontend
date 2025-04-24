@@ -1,4 +1,4 @@
-import { getCollections } from '@/actions/collections';
+import { apiGetCollections } from '@/actions/collections';
 import { EUrls } from '@/utils/urls';
 
 import { CardsItems, TitleSectionBlock } from '../blocks';
@@ -6,7 +6,7 @@ import { CardsItems, TitleSectionBlock } from '../blocks';
 const CARDS_PER_PAGE: number = 6;
 
 export const CuratedCollections = async () => {
-  const { results: cards } = await getCollections();
+  const { results: cards } = await apiGetCollections();
   const initialCollections = cards.slice(0, CARDS_PER_PAGE);
 
   return (

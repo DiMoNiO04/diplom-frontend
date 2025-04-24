@@ -1,6 +1,6 @@
 'use client';
 
-import { useConfirmRegEffect } from '@/hooks';
+import { useConfirmRegEffect, useResetPasswordEffect } from '@/hooks';
 import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
 
 import { Modal } from '../Modal';
@@ -17,6 +17,7 @@ export const ModalAuth = () => {
   const { isOpen, closeModal, tabContent } = useAuthModalStore();
 
   useConfirmRegEffect();
+  useResetPasswordEffect();
 
   return (
     <Modal isOpen={isOpen} closeModal={closeModal}>

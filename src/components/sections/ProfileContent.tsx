@@ -8,7 +8,6 @@ import {
   ProfileActions,
   ProfileAsideMenu,
   ProfileChangePassword,
-  ProfileConnectedAccounts,
   ProfileFoto,
   ProfileNewsletter,
 } from '../blocks/profile';
@@ -16,7 +15,14 @@ import { FormProfile } from '../forms';
 import { Title } from '../ui';
 import { Button } from '../ui/btns';
 
-export const ProfileContent = () => {
+interface IUserProfileInfo {
+  username: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+}
+
+const ProfileContent = (dataUser: IUserProfileInfo) => {
   const { showNotification } = useNotificationStore();
 
   const onBtnClick = () => showNotification('Данные успешно изменены!');
@@ -47,7 +53,6 @@ export const ProfileContent = () => {
               <FormProfile />
               <ProfileChangePassword />
             </div>
-            <ProfileConnectedAccounts />
             <ProfileNewsletter />
             <ProfileActions />
           </div>
@@ -57,3 +62,6 @@ export const ProfileContent = () => {
     </section>
   );
 };
+
+export { ProfileContent };
+export type { IUserProfileInfo };

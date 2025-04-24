@@ -1,6 +1,6 @@
 import { IBasePage, IImage, IRecipe } from '@/utils/interfaces';
 
-import { API_COLLECTION } from '../utils';
+import { API_COLLECTION, EMsgActions } from '../utils';
 
 interface ICollectionPage extends IBasePage {
   title: string;
@@ -9,13 +9,13 @@ interface ICollectionPage extends IBasePage {
   recipes: IRecipe[];
 }
 
-export async function getSingleCollection(slug: string): Promise<ICollectionPage> {
+export async function apiGetSingleCollection(slug: string): Promise<ICollectionPage> {
   const res = await fetch(API_COLLECTION(slug), {
     cache: 'no-cache',
   });
 
   if (!res.ok) {
-    throw new Error('Failed to fetch Collection');
+    throw new Error(EMsgActions.FAILED_FETCH);
   }
 
   const { data } = await res.json();

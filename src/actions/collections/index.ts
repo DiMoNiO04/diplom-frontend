@@ -1,4 +1,4 @@
-import { getSingleCollection } from './collection';
-import { getCollections } from './collections';
+import { apiGetSingleCollection } from './collection';
+import { apiGetCollections } from './collections';
 
-export { getCollections, getSingleCollection };
+export { apiGetCollections, apiGetSingleCollection };

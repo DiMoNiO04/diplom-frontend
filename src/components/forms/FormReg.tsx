@@ -1,7 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 
-import { registerUser } from '@/actions/auth';
+import { apiRegisterUser } from '@/actions/auth';
 import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
 import { useNotificationStore } from '@/stores/notificationMsg';
 import { IFormRegData, schemaReg } from '@/utils/validations';
@@ -27,7 +27,7 @@ export const FormReg = () => {
   const { showNotification } = useNotificationStore();
 
   const onSubmit = async (data: IFormRegData) => {
-    const { isSuccess, message } = await registerUser(data);
+    const { isSuccess, message } = await apiRegisterUser(data);
 
     if (isSuccess) {
       setEmail(data.email);
@@ -62,14 +62,14 @@ export const FormReg = () => {
         )}
       />
       <Controller
-        name="confirmPassword"
+        name="passwordConfirmation"
         control={control}
         render={({ field }) => (
           <InputPassword
             {...field}
             onBlur={field.onBlur}
             placeholder="Повторите пароль"
-            error={errors.confirmPassword?.message}
+            error={errors.passwordConfirmation?.message}
           />
         )}
       />
