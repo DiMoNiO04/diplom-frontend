@@ -1,3 +1,5 @@
+import { IImage } from '@/utils/interfaces';
+
 interface IUserInfo {
   id: string;
   username: string;
@@ -5,6 +7,7 @@ interface IUserInfo {
   firstName: string | null;
   lastName: string | null;
   patronymic: string | null;
+  avatar: IImage | null;
 }
 
 type TUserState = {

@@ -5,13 +5,7 @@ import clsx from 'clsx';
 import { useNotificationStore } from '@/stores/notificationMsg';
 import { IUserInfo } from '@/stores/user';
 
-import {
-  ProfileActions,
-  ProfileAsideMenu,
-  ProfileChangePassword,
-  ProfileFoto,
-  ProfileNewsletter,
-} from '../blocks/profile';
+import { ProfileActions, ProfileAsideMenu, ProfileChangePassword, ProfileNewsletter } from '../blocks/profile';
 import { FormProfile } from '../forms';
 import { Title } from '../ui';
 import { Button } from '../ui/btns';
@@ -43,7 +37,6 @@ export const ProfileContent = (dataUser: IUserInfo) => {
         <div className="grid grid-cols-[3fr_1.2fr] gap-16 relative max-md:grid-cols-1 max-md:gap-12 max-lg:gap-8">
           <div className="flex-shrink-0 max-md:order-1">
             <div className="mb-24 max-md:mb-16">
-              <ProfileFoto />
               <FormProfile {...dataUser} />
               <ProfileChangePassword />
             </div>

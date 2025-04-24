@@ -4,12 +4,13 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useRef, useState } from 'react';
 
-import { IconLogOut } from '@/components/icons';
+import { IconLogOut, IconUser } from '@/components/icons';
 import { menuProfileData } from '@/data';
 import { useClickOutside } from '@/hooks';
 import { useLogout } from '@/hooks/actions';
 import { useConfirmModalStore } from '@/stores/confirmModal';
-import { getTrimmedPathname } from '@/utils/functions';
+import { useUserStore } from '@/stores/user';
+import { getImageUrl, getTrimmedPathname } from '@/utils/functions';
 
 export const HeaderUserMenu = () => {
   const pathname = usePathname();
@@ -31,6 +32,8 @@ export const HeaderUserMenu = () => {
 
   const handleOpenModalExitAccount = () => openModal('Вы уверены что хотите выйти из аккаунта?', logout);
 
+  const avatar = useUserStore.getState().user?.avatar;
+
   return (
     <div ref={dropdownRef}>
       <button
@@ -41,7 +44,11 @@ export const HeaderUserMenu = () => {
           isOpen ? 'border-black' : 'border-greyLight'
         )}
       >
-        <Image src={'/icons/user.svg'} width={40} height={40} alt="Аватар" />
+        {avatar ? (
+          <Image src={getImageUrl(avatar.url)} width={40} height={40} alt="Аватар" className="w-full h-full" />
+        ) : (
+          <IconUser size={40} />
+        )}
       </button>
 
       <div

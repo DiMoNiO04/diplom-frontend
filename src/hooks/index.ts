@@ -4,5 +4,6 @@ import { useDebounce } from './useDebounce';
 import { useHeader } from './useHeader';
 import { useIsMobile } from './useIsMobile';
 import { useSelect } from './useSelect';
+import { useUpdateImg } from './useUpdateImg';
 
-export { useBodyScrollBLock, useClickOutside, useDebounce, useHeader, useIsMobile, useSelect };
+export { useBodyScrollBLock, useClickOutside, useDebounce, useHeader, useIsMobile, useSelect, useUpdateImg };

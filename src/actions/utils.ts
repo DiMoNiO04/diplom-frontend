@@ -17,7 +17,7 @@ const API_REGISTER_USER: string = `${API_URL}/auth/local/register`;
 const API_LOGIN: string = `${API_URL}/auth/local`;
 const API_RESET_PASSWORD: string = `${API_URL}/auth/reset-password`;
 const API_FORGOT_PASSWORD: string = `${API_URL}/auth/forgot-password`;
-const API_USER_INFO: string = `${API_URL}/users/me`;
+const API_USER_INFO: string = `${API_URL}/users/me?populate=*`;
 const API_USERS: string = `${API_URL}/users/`;
 const API_CHANGE_PASSWORD: string = `${API_URL}/auth/change-password`;
 
