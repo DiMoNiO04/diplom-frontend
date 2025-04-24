@@ -1,3 +1,4 @@
+import { apiDeleteUser } from './deleteUser';
 import { apiGetUserInfo } from './getUserInfo';
 
-export { apiGetUserInfo };
+export { apiDeleteUser, apiGetUserInfo };

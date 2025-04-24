@@ -26,7 +26,7 @@ export const FormLogin = () => {
 
   const { closeModal, setTabContent } = useAuthModalStore();
   const { showNotification } = useNotificationStore();
-  const { setAuth } = useUserStore();
+  const { setUser } = useUserStore();
 
   const onSubmit = async (data: IFormLoginData) => {
     const { isSuccess, message, user } = await apiLoginUser(data);
@@ -34,7 +34,7 @@ export const FormLogin = () => {
     if (isSuccess && user) {
       closeModal();
       reset();
-      setAuth(true);
+      setUser(user, true);
       showNotification(message, '/icons/success.svg');
     } else {
       showNotification(message, '/icons/error.svg');

@@ -1,8 +1,11 @@
 'use client';
 
 import clsx from 'clsx';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 import { useNotificationStore } from '@/stores/notificationMsg';
+import { IUserInfo } from '@/stores/user';
 
 import {
   ProfileActions,
@@ -15,15 +18,15 @@ import { FormProfile } from '../forms';
 import { Title } from '../ui';
 import { Button } from '../ui/btns';
 
-interface IUserProfileInfo {
-  username: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-}
-
-const ProfileContent = (dataUser: IUserProfileInfo) => {
+export const ProfileContent = (dataUser: IUserInfo) => {
   const { showNotification } = useNotificationStore();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!dataUser) {
+      router.push('/');
+    }
+  }, [dataUser, router]);
 
   const onBtnClick = () => showNotification('Данные успешно изменены!');
 
@@ -62,6 +65,3 @@ const ProfileContent = (dataUser: IUserProfileInfo) => {
     </section>
   );
 };
-
-export { ProfileContent };
-export type { IUserProfileInfo };

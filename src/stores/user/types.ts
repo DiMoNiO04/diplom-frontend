@@ -1,23 +1,21 @@
-type TUser = {
-  id: number;
-  username: string;
-  email: string;
-  documentId?: string;
-  firstName?: string | null;
-  lastName?: string | null;
-};
+interface IUserInfo {
+  id?: string;
+  username?: string;
+  email?: string;
+  firstName?: string;
+  lastName?: string;
+}
 
 type TUserState = {
   isAuth: boolean;
-  user: TUser | null;
+  user: IUserInfo | null;
 };
 
 type TUserActions = {
-  setUser: (user: TUser) => void;
-  setAuth: (isAuth: boolean) => void;
+  setUser: (user: IUserInfo | null, isAuth: boolean) => void;
   exitAccount: () => void;
 };
 
 type TUserStore = TUserState & TUserActions;
 
-export type { TUserActions, TUserState, TUserStore };
+export type { IUserInfo, TUserActions, TUserState, TUserStore };

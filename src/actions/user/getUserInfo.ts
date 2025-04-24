@@ -1,28 +1,35 @@
+'use server';
+
 import { cookies } from 'next/headers';
 
-import { IUserProfileInfo } from '@/components/sections/ProfileContent';
+import { IUserInfo } from '@/stores/user';
 
-import { API_USER_INFO, EMsgActions } from '../utils';
+import { API_USER_INFO } from '../utils';
 
-export async function apiGetUserInfo(): Promise<IUserProfileInfo> {
+export async function apiGetUserInfo(): Promise<IUserInfo | null> {
   const cookieStore = await cookies();
   const jwt = cookieStore.get('jwt')?.value;
 
   if (!jwt) {
-    throw new Error(EMsgActions.FAILED_FIND_TOKEN);
+    return null;
   }
 
-  const res = await fetch(API_USER_INFO, {
-    cache: 'no-cache',
-    headers: {
-      Authorization: `Bearer ${jwt}`,
-    },
-  });
+  try {
+    const res = await fetch(API_USER_INFO, {
+      cache: 'no-cache',
+      headers: {
+        Authorization: `Bearer ${jwt}`,
+      },
+    });
 
-  if (!res.ok) {
-    throw new Error(EMsgActions.FAILED_FETCH);
+    if (!res.ok) {
+      return null;
+    }
+
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+    return null;
   }
-
-  const data = await res.json();
-  return data;
 }

@@ -2,12 +2,13 @@
 
 import { cookies } from 'next/headers';
 
+import { IUserInfo } from '@/stores/user';
 import { IFormLoginData } from '@/utils/validations';
 
 import { API_LOGIN, EMsgActions, IAuthUserReturn } from '../utils';
 
 interface ILoginUserReturn extends IAuthUserReturn {
-  user?: unknown;
+  user?: IUserInfo;
 }
 
 const getFailedMsg = (message: string): string => {

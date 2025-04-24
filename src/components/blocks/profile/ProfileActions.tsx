@@ -1,8 +1,10 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 import { apiLogoutUser } from '@/actions/auth';
+import { apiDeleteUser } from '@/actions/user';
 import { IconDelete, IconLogOut } from '@/components/icons';
 import { BtnText } from '@/components/ui/btns';
 import { useConfirmModalStore } from '@/stores/confirmModal';
@@ -22,17 +24,31 @@ export const ProfileActions = () => {
 
     if (isSuccess) {
       exitAccount();
-      showNotification(message, '/icons/success.svg');
+      showNotification(message);
     } else {
       showNotification(message, '/icons/error.svg');
     }
   };
 
-  const handleBtnYesDeleteAccount = () => {
-    exitAccount();
-    showNotification('Аккаунт удален!');
-    router.replace(EUrls.HOME);
+  const handleBtnYesDeleteAccount = async () => {
+    const userId = useUserStore.getState().user?.id;
+
+    if (userId) {
+      const { isSuccess, message } = await apiDeleteUser(userId);
+
+      if (isSuccess) {
+        showNotification(message);
+        exitAccount();
+        router.replace(EUrls.HOME);
+      } else {
+        showNotification(message, '/icons/error.svg');
+      }
+    }
   };
+
+  useEffect(() => {
+    console.log(useUserStore.getState());
+  }, []);
 
   const handleOpenModalDeleteAccount = () =>
     openModal('Вы уверены что хотите удалить свой аккаунт?', handleBtnYesDeleteAccount);

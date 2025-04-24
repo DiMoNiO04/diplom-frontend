@@ -18,6 +18,7 @@ const API_LOGIN: string = `${API_URL}/auth/local`;
 const API_RESET_PASSWORD: string = `${API_URL}/auth/reset-password`;
 const API_FORGOT_PASSWORD: string = `${API_URL}/auth/forgot-password`;
 const API_USER_INFO: string = `${API_URL}/users/me`;
+const API_USERS: string = `${API_URL}/users/`;
 
 interface IAuthUserReturn {
   isSuccess: boolean;
@@ -37,6 +38,8 @@ export const EMsgActions = {
   FAILED_LOGIN: 'Неверный идентификатор или пароль!',
   FAILED_REG: 'Адрес электронной почты или имя пользователя уже заняты!',
   FAILED_FIND_TOKEN: 'Токен не найден в куках!',
+  NOT_FOUND_ID: 'Не удалось найти ID пользователя!',
+  SUCCESS_DELETE_ACCOUNT: 'Аккаунт успешно удален!',
 } as const;
 
 export type EMsgActions = (typeof EMsgActions)[keyof typeof EMsgActions];
@@ -57,6 +60,7 @@ export {
   API_RESET_PASSWORD,
   API_SHARE_RECIPE_TEMPLATE,
   API_USER_INFO,
+  API_USERS,
   REVALIDATE_DAY_TIME,
   REVALIDATE_HOUR_TIME,
 };
