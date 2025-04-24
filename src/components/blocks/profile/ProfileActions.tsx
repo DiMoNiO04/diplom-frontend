@@ -10,6 +10,7 @@ import { BtnText } from '@/components/ui/btns';
 import { useConfirmModalStore } from '@/stores/confirmModal';
 import { useNotificationStore } from '@/stores/notificationMsg';
 import { useUserStore } from '@/stores/user';
+import { ERROR_ICON } from '@/utils/consts';
 import { EUrls } from '@/utils/urls';
 
 export const ProfileActions = () => {
@@ -26,7 +27,7 @@ export const ProfileActions = () => {
       exitAccount();
       showNotification(message);
     } else {
-      showNotification(message, '/icons/error.svg');
+      showNotification(message, ERROR_ICON);
     }
   };
 
@@ -41,7 +42,7 @@ export const ProfileActions = () => {
         exitAccount();
         router.replace(EUrls.HOME);
       } else {
-        showNotification(message, '/icons/error.svg');
+        showNotification(message, ERROR_ICON);
       }
     }
   };

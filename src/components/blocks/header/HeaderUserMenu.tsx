@@ -11,6 +11,7 @@ import { useClickOutside } from '@/hooks';
 import { useConfirmModalStore } from '@/stores/confirmModal';
 import { useNotificationStore } from '@/stores/notificationMsg';
 import { useUserStore } from '@/stores/user';
+import { ERROR_ICON } from '@/utils/consts';
 import { getTrimmedPathname } from '@/utils/functions';
 
 export const HeaderUserMenu = () => {
@@ -27,9 +28,9 @@ export const HeaderUserMenu = () => {
 
     if (isSuccess) {
       exitAccount();
-      showNotification(message, '/icons/success.svg');
+      showNotification(message);
     } else {
-      showNotification(message, '/icons/error.svg');
+      showNotification(message, ERROR_ICON);
     }
   };
 

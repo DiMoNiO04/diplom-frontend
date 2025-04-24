@@ -1,8 +1,6 @@
 'use client';
 
 import clsx from 'clsx';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
 
 import { useNotificationStore } from '@/stores/notificationMsg';
 import { IUserInfo } from '@/stores/user';
@@ -20,13 +18,6 @@ import { Button } from '../ui/btns';
 
 export const ProfileContent = (dataUser: IUserInfo) => {
   const { showNotification } = useNotificationStore();
-  const router = useRouter();
-
-  useEffect(() => {
-    if (!dataUser) {
-      router.push('/');
-    }
-  }, [dataUser, router]);
 
   const onBtnClick = () => showNotification('Данные успешно изменены!');
 

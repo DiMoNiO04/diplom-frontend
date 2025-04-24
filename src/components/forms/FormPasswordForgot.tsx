@@ -1,9 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 
-import { apiForgotPassword } from '@/actions/auth';
-import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
-import { useNotificationStore } from '@/stores/notificationMsg';
+import { usePasswordForgot } from '@/hooks/actions';
 import { IFormPasswordForgotData, schemaPasswordForgot } from '@/utils/validations';
 
 import { IconEmail } from '../icons';
@@ -22,20 +20,9 @@ export const FormPasswordForgot = () => {
     reValidateMode: 'onChange',
   });
 
-  const { setTabContent, setEmail } = useAuthModalStore();
-  const { showNotification } = useNotificationStore();
+  const { forgotPassword } = usePasswordForgot();
 
-  const onSubmit = async (data: IFormPasswordForgotData) => {
-    const { isSuccess, message } = await apiForgotPassword(data);
-
-    if (isSuccess) {
-      setTabContent(EAuthContent.CHECK_EMAIL);
-      setEmail(data.email);
-      reset();
-    } else {
-      showNotification(message, '/icons/error.svg');
-    }
-  };
+  const onSubmit = async (data: IFormPasswordForgotData) => await forgotPassword(data, reset);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-5">

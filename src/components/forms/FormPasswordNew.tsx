@@ -1,12 +1,8 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
-import { apiResetPassword } from '@/actions/auth';
-import { useAuthModalStore } from '@/stores/authModal';
-import { useNotificationStore } from '@/stores/notificationMsg';
-import { IFormPasswordNewData, IFormResetPasswordData, schemaPasswordNew } from '@/utils/validations';
+import { usePasswordReset } from '@/hooks/actions/usePasswordReset';
+import { IFormPasswordNewData, schemaPasswordNew } from '@/utils/validations';
 
 import { Button } from '../ui/btns';
 import { InputPassword } from '../ui/inputs';
@@ -23,33 +19,9 @@ export const FormPasswordNew = () => {
     reValidateMode: 'onChange',
   });
 
-  const { closeModal } = useAuthModalStore();
-  const { showNotification } = useNotificationStore();
+  const { resetPassword } = usePasswordReset();
 
-  const searchParams = useSearchParams();
-  const [code, setCode] = useState(searchParams.get('code'));
-
-  useEffect(() => {
-    const code = searchParams.get('code');
-    if (code) {
-      setCode(code);
-    }
-  }, [searchParams]);
-
-  const onSubmit = async (data: IFormPasswordNewData) => {
-    if (code) {
-      const dataResetPassword: IFormResetPasswordData = { code, ...data };
-      const { isSuccess, message } = await apiResetPassword(dataResetPassword);
-
-      if (isSuccess) {
-        closeModal();
-        reset();
-        showNotification(message);
-      } else {
-        showNotification(message, '/icons/error.svg');
-      }
-    }
-  };
+  const onSubmit = async (data: IFormPasswordNewData) => await resetPassword(data, reset);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-5">

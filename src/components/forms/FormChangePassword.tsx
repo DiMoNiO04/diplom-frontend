@@ -1,9 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 
-import { apiChangePassword } from '@/actions/user';
-import { useChangePasswordModalStore } from '@/stores/changePasswordModal';
-import { useNotificationStore } from '@/stores/notificationMsg';
+import { usePasswordChange } from '@/hooks/actions';
 import { IFormChangePasswordData, schemaChangePassword } from '@/utils/validations';
 
 import { Button } from '../ui/btns';
@@ -21,20 +19,9 @@ export const FormChangePassword = () => {
     reValidateMode: 'onChange',
   });
 
-  const { closeModal } = useChangePasswordModalStore();
-  const { showNotification } = useNotificationStore();
+  const changePassword = usePasswordChange();
 
-  const onSubmit = async (data: IFormChangePasswordData) => {
-    const { isSuccess, message } = await apiChangePassword(data);
-
-    if (isSuccess) {
-      closeModal();
-      reset();
-      showNotification(message);
-    } else {
-      showNotification(message, '/icons/error.svg');
-    }
-  };
+  const onSubmit = async (data: IFormChangePasswordData) => await changePassword(data, reset);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-5">
