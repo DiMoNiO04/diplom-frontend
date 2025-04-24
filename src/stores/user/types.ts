@@ -1,9 +1,10 @@
 interface IUserInfo {
-  id?: string;
-  username?: string;
-  email?: string;
-  firstName?: string;
-  lastName?: string;
+  id: string;
+  username: string;
+  email: string;
+  firstName: string | null;
+  lastName: string | null;
+  patronymic: string | null;
 }
 
 type TUserState = {

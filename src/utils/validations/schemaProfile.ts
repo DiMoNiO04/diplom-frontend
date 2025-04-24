@@ -1,18 +1,18 @@
 import * as yup from 'yup';
 
-import { requiredStringSchema } from './common';
-
 interface IFormProfileData {
-  firstName: string;
-  lastName: string;
+  firstName?: string | null;
+  lastName?: string | null;
+  patronymic?: string | null;
 }
 
 const schemaProfile: yup.ObjectSchema<IFormProfileData> = yup
   .object({
-    firstName: requiredStringSchema,
-    lastName: requiredStringSchema,
+    firstName: yup.string().nullable().notRequired(),
+    lastName: yup.string().nullable().notRequired(),
+    patronymic: yup.string().nullable().notRequired(),
   })
-  .required();
+  .defined();
 
 export { schemaProfile };
 export type { IFormProfileData };

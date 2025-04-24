@@ -44,7 +44,7 @@ export const ProfileContent = (dataUser: IUserInfo) => {
           <div className="flex-shrink-0 max-md:order-1">
             <div className="mb-24 max-md:mb-16">
               <ProfileFoto />
-              <FormProfile />
+              <FormProfile {...dataUser} />
               <ProfileChangePassword />
             </div>
             <ProfileNewsletter />
