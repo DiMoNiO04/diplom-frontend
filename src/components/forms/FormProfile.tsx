@@ -1,8 +1,7 @@
-import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 
+import { useUpdateUser } from '@/hooks/actions';
 import { IUserInfo } from '@/stores/user';
-import { IFormProfileData, schemaProfile } from '@/utils/validations';
 
 import { IconEmail, IconPasswordKey, IconUser } from '../icons';
 import { Input } from '../ui/inputs';
@@ -12,8 +11,7 @@ export const FormProfile = ({ firstName, lastName, patronymic, email, username }
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<IFormProfileData>({
-    resolver: yupResolver(schemaProfile),
+  } = useForm<IUserInfo>({
     mode: 'onBlur',
     reValidateMode: 'onChange',
     defaultValues: {
@@ -23,14 +21,12 @@ export const FormProfile = ({ firstName, lastName, patronymic, email, username }
     },
   });
 
-  const onSubmit = async (data: IFormProfileData) => {
-    console.log(`submit form ${data}`);
-  };
+  const { updateUser } = useUpdateUser();
 
   return (
     <form
       className="grid grid-cols-2 gap-8 max-md:flex max-md:flex-col max-md:gap-6"
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(updateUser)}
       id="profile"
     >
       <Controller
@@ -39,7 +35,7 @@ export const FormProfile = ({ firstName, lastName, patronymic, email, username }
         render={({ field }) => (
           <Input
             {...field}
-            placeholder="Фамилия*"
+            placeholder="Фамилия"
             error={errors.lastName?.message}
             icon={<IconUser />}
             value={field.value || ''}
@@ -52,7 +48,7 @@ export const FormProfile = ({ firstName, lastName, patronymic, email, username }
         render={({ field }) => (
           <Input
             {...field}
-            placeholder="Имя*"
+            placeholder="Имя"
             error={errors.firstName?.message}
             icon={<IconUser />}
             value={field.value || ''}
@@ -65,7 +61,7 @@ export const FormProfile = ({ firstName, lastName, patronymic, email, username }
         render={({ field }) => (
           <Input
             {...field}
-            placeholder="Отчество*"
+            placeholder="Отчество"
             error={errors.patronymic?.message}
             icon={<IconUser />}
             value={field.value || ''}

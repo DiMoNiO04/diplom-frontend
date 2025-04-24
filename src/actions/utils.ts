@@ -41,6 +41,7 @@ export const EMsgActions = {
   FAILED_FIND_TOKEN: 'Токен не найден в куках!',
   NOT_FOUND_ID: 'Не удалось найти ID пользователя!',
   SUCCESS_DELETE_ACCOUNT: 'Аккаунт успешно удален!',
+  SUCCESS_UPDATE_USER: 'Данные успешно обновлены!',
   FAILED_CURRENT_PASSWORD: 'Предоставленный текущий пароль недействителен!',
 } as const;
 
