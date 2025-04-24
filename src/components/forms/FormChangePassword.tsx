@@ -1,6 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 
+import { apiChangePassword } from '@/actions/user';
 import { useChangePasswordModalStore } from '@/stores/changePasswordModal';
 import { useNotificationStore } from '@/stores/notificationMsg';
 import { IFormChangePasswordData, schemaChangePassword } from '@/utils/validations';
@@ -12,6 +13,7 @@ export const FormChangePassword = () => {
   const {
     control,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<IFormChangePasswordData>({
     resolver: yupResolver(schemaChangePassword),
@@ -23,22 +25,28 @@ export const FormChangePassword = () => {
   const { showNotification } = useNotificationStore();
 
   const onSubmit = async (data: IFormChangePasswordData) => {
-    closeModal();
-    console.log(data);
-    showNotification('Пароль успешно изменен!');
+    const { isSuccess, message } = await apiChangePassword(data);
+
+    if (isSuccess) {
+      closeModal();
+      reset();
+      showNotification(message);
+    } else {
+      showNotification(message, '/icons/error.svg');
+    }
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-5">
       <Controller
-        name="oldPassword"
+        name="currentPassword"
         control={control}
         render={({ field }) => (
           <InputPassword
             {...field}
             onBlur={field.onBlur}
             placeholder="Текущий пароль"
-            error={errors.oldPassword?.message}
+            error={errors.currentPassword?.message}
           />
         )}
       />

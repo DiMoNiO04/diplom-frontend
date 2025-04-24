@@ -1,4 +1,5 @@
+import { apiChangePassword } from './changePassword';
 import { apiDeleteUser } from './deleteUser';
 import { apiGetUserInfo } from './getUserInfo';
 
-export { apiDeleteUser, apiGetUserInfo };
+export { apiChangePassword, apiDeleteUser, apiGetUserInfo };

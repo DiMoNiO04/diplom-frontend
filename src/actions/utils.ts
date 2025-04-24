@@ -19,8 +19,9 @@ const API_RESET_PASSWORD: string = `${API_URL}/auth/reset-password`;
 const API_FORGOT_PASSWORD: string = `${API_URL}/auth/forgot-password`;
 const API_USER_INFO: string = `${API_URL}/users/me`;
 const API_USERS: string = `${API_URL}/users/`;
+const API_CHANGE_PASSWORD: string = `${API_URL}/auth/change-password`;
 
-interface IAuthUserReturn {
+interface IApiResultReturn {
   isSuccess: boolean;
   message: string;
 }
@@ -40,6 +41,7 @@ export const EMsgActions = {
   FAILED_FIND_TOKEN: 'Токен не найден в куках!',
   NOT_FOUND_ID: 'Не удалось найти ID пользователя!',
   SUCCESS_DELETE_ACCOUNT: 'Аккаунт успешно удален!',
+  FAILED_CURRENT_PASSWORD: 'Предоставленный текущий пароль недействителен!',
 } as const;
 
 export type EMsgActions = (typeof EMsgActions)[keyof typeof EMsgActions];
@@ -49,6 +51,7 @@ export {
   API_CATEGORIES,
   API_CATEGORIES_PAGE,
   API_CATEGORY,
+  API_CHANGE_PASSWORD,
   API_COLLECTION,
   API_COLLECTIONS,
   API_COLLECTIONS_PAGE,
@@ -65,4 +68,4 @@ export {
   REVALIDATE_HOUR_TIME,
 };
 
-export type { IAuthUserReturn };
+export type { IApiResultReturn };

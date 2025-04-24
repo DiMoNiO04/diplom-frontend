@@ -3,14 +3,14 @@ import * as yup from 'yup';
 import { passwordConfirmationSchema, passwordSchema, requiredStringSchema } from './common';
 
 interface IFormChangePasswordData {
-  oldPassword: string;
+  currentPassword: string;
   password: string;
   passwordConfirmation: string;
 }
 
 const schemaChangePassword: yup.ObjectSchema<IFormChangePasswordData> = yup
   .object({
-    oldPassword: requiredStringSchema,
+    currentPassword: requiredStringSchema,
     password: passwordSchema,
     passwordConfirmation: passwordConfirmationSchema,
   })

@@ -1,8 +1,8 @@
 import { IFormPasswordForgotData } from '@/utils/validations';
 
-import { API_FORGOT_PASSWORD, EMsgActions, IAuthUserReturn } from '../utils';
+import { API_FORGOT_PASSWORD, EMsgActions, IApiResultReturn } from '../utils';
 
-export const apiForgotPassword = async (data: IFormPasswordForgotData): Promise<IAuthUserReturn> => {
+export const apiForgotPassword = async (data: IFormPasswordForgotData): Promise<IApiResultReturn> => {
   try {
     const res = await fetch(API_FORGOT_PASSWORD, {
       method: 'POST',

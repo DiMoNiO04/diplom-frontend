@@ -21,6 +21,7 @@ export const UserProvider = ({ children, token }: IUserProviderProps) => {
           const user = await apiGetUserInfo();
           if (user) {
             setUser(user, true);
+            setReady(true);
           }
         } catch (error) {
           console.error(error);
@@ -30,9 +31,8 @@ export const UserProvider = ({ children, token }: IUserProviderProps) => {
       fetchUserInfo();
     } else {
       setUser(null, false);
+      setReady(true);
     }
-
-    setReady(true);
   }, [token, setUser]);
 
   if (!ready) return null;
