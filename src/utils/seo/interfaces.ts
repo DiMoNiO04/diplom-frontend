@@ -9,15 +9,14 @@ interface ISEO {
   metaTitle: string;
   metaDescription: string;
   keywords: string;
-  metaRobots: string;
-  metaViewport: string;
+  metaRobots: string | null;
   canonicalURL: string;
   structuredData: string | null;
   metaImage: {
     url: string;
     width: number;
     height: number;
-  };
+  } | null;
   openGraph: IOpenGraph;
 }
 

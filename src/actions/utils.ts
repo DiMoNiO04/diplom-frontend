@@ -17,6 +17,7 @@ const API_REGISTER_USER: string = `${API_URL}/auth/local/register`;
 const API_LOGIN: string = `${API_URL}/auth/local`;
 const API_RESET_PASSWORD: string = `${API_URL}/auth/reset-password`;
 const API_FORGOT_PASSWORD: string = `${API_URL}/auth/forgot-password`;
+const API_USER_INFO: string = `${API_URL}/users/me`;
 
 interface IAuthUserReturn {
   isSuccess: boolean;
@@ -34,7 +35,8 @@ export const EMsgActions = {
   BLOCKED_ACC: 'Ваш аккаунт заблокирован администратором!',
   NO_CONFIRM_ACC: 'Ваш адрес электронной почты не подтвержден!',
   FAILED_LOGIN: 'Неверный идентификатор или пароль!',
-  FAILED_REG: 'Адрес электронной почты или имя пользователя уже заняты',
+  FAILED_REG: 'Адрес электронной почты или имя пользователя уже заняты!',
+  FAILED_FIND_TOKEN: 'Токен не найден в куках!',
 } as const;
 
 export type EMsgActions = (typeof EMsgActions)[keyof typeof EMsgActions];
@@ -54,6 +56,7 @@ export {
   API_REGISTER_USER,
   API_RESET_PASSWORD,
   API_SHARE_RECIPE_TEMPLATE,
+  API_USER_INFO,
   REVALIDATE_DAY_TIME,
   REVALIDATE_HOUR_TIME,
 };
