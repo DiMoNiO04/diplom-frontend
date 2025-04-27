@@ -7,6 +7,7 @@ export const categoriesData: ICategory[] = [
     slug: 'soup',
     title: 'Супы',
     img: {
+      id: '12312',
       url: '/img/categories/soup.webp',
       width: '255',
       height: '255',
@@ -20,6 +21,7 @@ export const categoriesData: ICategory[] = [
     slug: 'pancakes',
     title: 'Блины',
     img: {
+      id: '12312123',
       url: '/img/categories/pancakes.webp',
       width: '255',
       height: '255',
@@ -33,6 +35,7 @@ export const categoriesData: ICategory[] = [
     slug: 'meat',
     title: 'Мясо',
     img: {
+      id: '12das2',
       url: '/img/categories/meat.webp',
       width: '255',
       height: '255',
@@ -46,6 +49,7 @@ export const categoriesData: ICategory[] = [
     slug: 'chicken',
     title: 'Курица',
     img: {
+      id: '12312ad',
       url: '/img/categories/chicken.webp',
       width: '255',
       height: '255',
@@ -59,6 +63,7 @@ export const categoriesData: ICategory[] = [
     slug: 'pasta',
     title: 'Паста',
     img: {
+      id: '123asdsd12',
       url: '/img/categories/pasta.webp',
       width: '255',
       height: '255',
@@ -72,6 +77,7 @@ export const categoriesData: ICategory[] = [
     slug: 'pizza',
     title: 'Пицца',
     img: {
+      id: '12312asdsadas',
       url: '/img/categories/pizza.webp',
       width: '255',
       height: '255',
@@ -85,6 +91,7 @@ export const categoriesData: ICategory[] = [
     slug: 'cake',
     title: 'Торт',
     img: {
+      id: '1231123122',
       url: '/img/categories/cake.webp',
       width: '255',
       height: '255',
@@ -98,6 +105,7 @@ export const categoriesData: ICategory[] = [
     slug: 'seafood',
     title: 'Морепродукты',
     img: {
+      id: '1231212312',
       url: '/img/categories/seafood.webp',
       width: '255',
       height: '255',
@@ -112,6 +120,7 @@ export const categoriesData: ICategory[] = [
     slug: 'pastries',
     title: 'Выпечка',
     img: {
+      id: '12312kkfdf',
       url: '/img/categories/pastries.webp',
       width: '255',
       height: '255',
@@ -125,6 +134,7 @@ export const categoriesData: ICategory[] = [
     slug: 'burger',
     title: 'Фаст-фуд',
     img: {
+      id: '12312adsdas',
       url: '/img/categories/burger.webp',
       width: '255',
       height: '255',
@@ -138,6 +148,7 @@ export const categoriesData: ICategory[] = [
     slug: 'vegan',
     title: 'Веганский',
     img: {
+      id: '1231212321',
       url: '/img/categories/vegan.webp',
       width: '255',
       height: '255',
@@ -151,6 +162,7 @@ export const categoriesData: ICategory[] = [
     slug: 'desserts',
     title: 'Десерты',
     img: {
+      id: '12321312312',
       url: '/img/categories/desserts.webp',
       width: '255',
       height: '255',
@@ -164,6 +176,7 @@ export const categoriesData: ICategory[] = [
     slug: 'breakfast',
     title: 'Завтрак',
     img: {
+      id: '12312adssadas',
       url: '/img/categories/breakfast.webp',
       width: '255',
       height: '255',
@@ -177,6 +190,7 @@ export const categoriesData: ICategory[] = [
     slug: 'salad',
     title: 'Салат',
     img: {
+      id: '12312asdasd',
       url: '/img/categories/salad.webp',
       width: '255',
       height: '255',
@@ -190,6 +204,7 @@ export const categoriesData: ICategory[] = [
     slug: 'sandwiches',
     title: 'Сэндвичи',
     img: {
+      id: '12312asdasds',
       url: '/img/categories/sandwiches.webp',
       width: '255',
       height: '255',
@@ -203,6 +218,7 @@ export const categoriesData: ICategory[] = [
     slug: 'waffles',
     title: 'Вафли',
     img: {
+      id: '1231221312',
       url: '/img/categories/waffles.webp',
       width: '255',
       height: '255',

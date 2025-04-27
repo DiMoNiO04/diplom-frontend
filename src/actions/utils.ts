@@ -20,6 +20,8 @@ const API_FORGOT_PASSWORD: string = `${API_URL}/auth/forgot-password`;
 const API_USER_INFO: string = `${API_URL}/users/me?populate=*`;
 const API_USERS: string = `${API_URL}/users/`;
 const API_CHANGE_PASSWORD: string = `${API_URL}/auth/change-password`;
+const API_UPLOAD_FILE: string = `${API_URL}/upload`;
+const API_DELETE_FILE = (fileId: string) => `${API_URL}/upload/files/${fileId}`;
 
 interface IApiResultReturn {
   isSuccess: boolean;
@@ -27,22 +29,26 @@ interface IApiResultReturn {
 }
 
 export const EMsgActions = {
-  FAILED_FETCH: 'Ошибка сети или сервера!',
-  FAILED_FETCH_TRY_AGAIN: 'Ошибка сети. Повторите позже!',
   SUCCESS_CHANGE_PASSWORD: 'Пароль успешно изменен!',
   SUCCESS_REG: 'Благодарим за регистрацию! Ссылка для подтверждения аккаунта будет отправлена на вашу почту!',
   SUCCESS_EXIT_ACCOUNT: 'Вы вышли из аккаунта!',
   SUCCESS_LOGIN: 'Вы авторизовались!',
   SUCCESS_FORGOT_PASSWORD: 'Отправили Вам письмо с дальнейшими инструкциями на указанную почту!',
-  BLOCKED_ACC: 'Ваш аккаунт заблокирован администратором!',
-  NO_CONFIRM_ACC: 'Ваш адрес электронной почты не подтвержден!',
+  SUCCESS_DELETE_ACCOUNT: 'Аккаунт успешно удален!',
+  SUCCESS_UPDATE_USER: 'Данные успешно обновлены!',
+  SUCCESS_UPLOAD_FILE: 'Изображение обновлено!',
+  SUCCESS_DELETE_FILE: 'Изображение удалено!',
+  FAILED_FETCH: 'Ошибка сети или сервера!',
+  FAILED_FETCH_TRY_AGAIN: 'Ошибка сети. Повторите позже!',
   FAILED_LOGIN: 'Неверный идентификатор или пароль!',
   FAILED_REG: 'Адрес электронной почты или имя пользователя уже заняты!',
   FAILED_FIND_TOKEN: 'Токен не найден в куках!',
-  NOT_FOUND_ID: 'Не удалось найти ID пользователя!',
-  SUCCESS_DELETE_ACCOUNT: 'Аккаунт успешно удален!',
-  SUCCESS_UPDATE_USER: 'Данные успешно обновлены!',
   FAILED_CURRENT_PASSWORD: 'Предоставленный текущий пароль недействителен!',
+  FAILED_UPLOAD_FILE: 'Ошибка загрузки файла!',
+  FAILED_DELETE_FILE: 'Ошибка удаления файла!',
+  BLOCKED_ACC: 'Ваш аккаунт заблокирован администратором!',
+  NO_CONFIRM_ACC: 'Ваш адрес электронной почты не подтвержден!',
+  NOT_FOUND_ID: 'Не удалось найти ID пользователя!',
 } as const;
 
 export type EMsgActions = (typeof EMsgActions)[keyof typeof EMsgActions];
@@ -56,6 +62,7 @@ export {
   API_COLLECTION,
   API_COLLECTIONS,
   API_COLLECTIONS_PAGE,
+  API_DELETE_FILE,
   API_EMAIL_NEWSLETTER_TEMPLATE,
   API_FORGOT_PASSWORD,
   API_LOGIN,
@@ -63,6 +70,7 @@ export {
   API_REGISTER_USER,
   API_RESET_PASSWORD,
   API_SHARE_RECIPE_TEMPLATE,
+  API_UPLOAD_FILE,
   API_USER_INFO,
   API_USERS,
   REVALIDATE_DAY_TIME,
