@@ -4,14 +4,13 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useRef, useState } from 'react';
 
-import { apiLogoutUser } from '@/actions/auth';
-import { IconLogOut } from '@/components/icons';
+import { IconLogOut, IconUser } from '@/components/icons';
 import { menuProfileData } from '@/data';
 import { useClickOutside } from '@/hooks';
+import { useLogout } from '@/hooks/actions';
 import { useConfirmModalStore } from '@/stores/confirmModal';
-import { useNotificationStore } from '@/stores/notificationMsg';
 import { useUserStore } from '@/stores/user';
-import { getTrimmedPathname } from '@/utils/functions';
+import { getImageUrl, getTrimmedPathname } from '@/utils/functions';
 
 export const HeaderUserMenu = () => {
   const pathname = usePathname();
@@ -19,19 +18,8 @@ export const HeaderUserMenu = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const { openModal } = useConfirmModalStore();
-  const { showNotification } = useNotificationStore();
-  const { exitAccount } = useUserStore();
 
-  const logout = async () => {
-    const { isSuccess, message } = await apiLogoutUser();
-
-    if (isSuccess) {
-      exitAccount();
-      showNotification(message, '/icons/success.svg');
-    } else {
-      showNotification(message, '/icons/error.svg');
-    }
-  };
+  const { logout } = useLogout();
 
   const dropdownRef = useRef<HTMLDivElement>(null!);
 
@@ -44,6 +32,8 @@ export const HeaderUserMenu = () => {
 
   const handleOpenModalExitAccount = () => openModal('Вы уверены что хотите выйти из аккаунта?', logout);
 
+  const avatar = useUserStore.getState().user?.avatar;
+
   return (
     <div ref={dropdownRef}>
       <button
@@ -54,7 +44,11 @@ export const HeaderUserMenu = () => {
           isOpen ? 'border-black' : 'border-greyLight'
         )}
       >
-        <Image src={'/icons/user.svg'} width={40} height={40} alt="Аватар" />
+        {avatar ? (
+          <Image src={getImageUrl(avatar.url)} width={40} height={40} alt="Аватар" className="w-full h-full" />
+        ) : (
+          <IconUser size={40} />
+        )}
       </button>
 
       <div

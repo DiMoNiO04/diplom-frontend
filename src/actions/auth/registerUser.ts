@@ -1,4 +1,6 @@
-import { API_REGISTER_USER, EMsgActions, IAuthUserReturn } from '../utils';
+import { getFailedMsg } from '@/utils/functions';
+
+import { API_REGISTER_USER, EMsgActions, IApiResultReturn } from '../utils';
 
 interface IFormRegDataApi {
   username: string;
@@ -6,15 +8,7 @@ interface IFormRegDataApi {
   password: string;
 }
 
-const getFailedMsg = (message: string): string => {
-  if (message === 'Email or Username are already taken') {
-    message = EMsgActions.FAILED_REG;
-  }
-
-  return message;
-};
-
-export const apiRegisterUser = async (data: IFormRegDataApi): Promise<IAuthUserReturn> => {
+export const apiRegisterUser = async (data: IFormRegDataApi): Promise<IApiResultReturn> => {
   try {
     const res = await fetch(API_REGISTER_USER, {
       method: 'POST',

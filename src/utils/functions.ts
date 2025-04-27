@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 
+import { EMsgActions } from '@/actions/utils';
 import { IRecipe } from '@/utils/interfaces';
 
 import { STRAPI_URL } from './consts';
@@ -32,4 +33,20 @@ const getSimilarRecipes = (recipes: IRecipe[], idRecipe: number, category: strin
   return [...sameCategory, ...additional];
 };
 
-export { fetchByKey, getImageUrl, getSimilarRecipes, getTrimmedPathname, splitBySemicolon };
+const getFailedMsg = (message: string): string => {
+  if (message === 'Invalid identifier or password') {
+    message = EMsgActions.FAILED_LOGIN;
+  } else if (message === 'Your account email is not confirmed') {
+    message = EMsgActions.NO_CONFIRM_ACC;
+  } else if (message === 'Your account has been blocked by an administrator') {
+    message = EMsgActions.BLOCKED_ACC;
+  } else if (message === 'Email or Username are already taken') {
+    message = EMsgActions.FAILED_REG;
+  } else if (message === 'The provided current password is invalid') {
+    message = EMsgActions.FAILED_CURRENT_PASSWORD;
+  }
+
+  return message;
+};
+
+export { fetchByKey, getFailedMsg, getImageUrl, getSimilarRecipes, getTrimmedPathname, splitBySemicolon };

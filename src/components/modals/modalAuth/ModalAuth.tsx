@@ -1,6 +1,6 @@
 'use client';
 
-import { useConfirmRegEffect, useResetPasswordEffect } from '@/hooks';
+import { useConfirmRegEffect, useResetPasswordEffect } from '@/hooks/effects';
 import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
 
 import { Modal } from '../Modal';

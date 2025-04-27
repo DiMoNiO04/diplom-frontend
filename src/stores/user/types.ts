@@ -1,23 +1,25 @@
-type TUser = {
-  id: number;
+import { IImage } from '@/utils/interfaces';
+
+interface IUserInfo {
+  id: string;
   username: string;
   email: string;
-  documentId?: string;
-  firstName?: string | null;
-  lastName?: string | null;
-};
+  firstName: string | null;
+  lastName: string | null;
+  patronymic: string | null;
+  avatar: IImage | null;
+}
 
 type TUserState = {
   isAuth: boolean;
-  user: TUser | null;
+  user: IUserInfo | null;
 };
 
 type TUserActions = {
-  setUser: (user: TUser) => void;
-  setAuth: (isAuth: boolean) => void;
+  setUser: (user: IUserInfo | null, isAuth: boolean) => void;
   exitAccount: () => void;
 };
 
 type TUserStore = TUserState & TUserActions;
 
-export type { TUserActions, TUserState, TUserStore };
+export type { IUserInfo, TUserActions, TUserState, TUserStore };

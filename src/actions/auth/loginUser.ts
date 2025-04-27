@@ -2,25 +2,15 @@
 
 import { cookies } from 'next/headers';
 
+import { IUserInfo } from '@/stores/user';
+import { getFailedMsg } from '@/utils/functions';
 import { IFormLoginData } from '@/utils/validations';
 
-import { API_LOGIN, EMsgActions, IAuthUserReturn } from '../utils';
+import { API_LOGIN, EMsgActions, IApiResultReturn } from '../utils';
 
-interface ILoginUserReturn extends IAuthUserReturn {
-  user?: unknown;
+interface ILoginUserReturn extends IApiResultReturn {
+  user?: IUserInfo;
 }
-
-const getFailedMsg = (message: string): string => {
-  if (message === 'Invalid identifier or password') {
-    message = EMsgActions.FAILED_LOGIN;
-  } else if (message === 'Your account email is not confirmed') {
-    message = EMsgActions.NO_CONFIRM_ACC;
-  } else if (message === 'Your account has been blocked by an administrator') {
-    message = EMsgActions.BLOCKED_ACC;
-  }
-
-  return message;
-};
 
 export const apiLoginUser = async (data: IFormLoginData): Promise<ILoginUserReturn> => {
   try {

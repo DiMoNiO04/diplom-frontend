@@ -2,10 +2,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import clsx from 'clsx';
 import { Controller, useForm } from 'react-hook-form';
 
-import { apiLoginUser } from '@/actions/auth';
-import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
-import { useNotificationStore } from '@/stores/notificationMsg';
-import { useUserStore } from '@/stores/user';
+import { useLogin } from '@/hooks/actions';
 import { IFormLoginData, schemaLogin } from '@/utils/validations';
 
 import { IconEmail } from '../icons';
@@ -24,24 +21,9 @@ export const FormLogin = () => {
     reValidateMode: 'onChange',
   });
 
-  const { closeModal, setTabContent } = useAuthModalStore();
-  const { showNotification } = useNotificationStore();
-  const { setAuth } = useUserStore();
+  const { login, handleForgotPassword } = useLogin();
 
-  const onSubmit = async (data: IFormLoginData) => {
-    const { isSuccess, message, user } = await apiLoginUser(data);
-
-    if (isSuccess && user) {
-      closeModal();
-      reset();
-      setAuth(true);
-      showNotification(message, '/icons/success.svg');
-    } else {
-      showNotification(message, '/icons/error.svg');
-    }
-  };
-
-  const handleClickForgotPassword = () => setTabContent(EAuthContent.PASSWORD_FORGOT);
+  const onSubmit = async (data: IFormLoginData) => await login(data, reset);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-5">
@@ -65,7 +47,7 @@ export const FormLogin = () => {
           'hover:text-black'
         )}
         type="button"
-        onClick={handleClickForgotPassword}
+        onClick={handleForgotPassword}
       >
         Забыли пароль?
       </button>

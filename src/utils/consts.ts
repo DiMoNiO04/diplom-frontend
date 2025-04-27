@@ -7,4 +7,6 @@ const SITE_LOGO: string = `${STRAPI_URL}/uploads/favicon_b82e379c34.jpg`;
 
 const BREAKPOINT_MOB: number = 1024;
 
-export { API_URL, BASE_URL, BREAKPOINT_MOB, SITE_LOGO, SITE_NAME, STRAPI_URL };
+const ERROR_ICON: string = '/icons/error.svg';
+
+export { API_URL, BASE_URL, BREAKPOINT_MOB, ERROR_ICON, SITE_LOGO, SITE_NAME, STRAPI_URL };

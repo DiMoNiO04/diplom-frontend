@@ -1,41 +1,18 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-
-import { apiLogoutUser } from '@/actions/auth';
 import { IconDelete, IconLogOut } from '@/components/icons';
 import { BtnText } from '@/components/ui/btns';
+import { useDeleteAccount, useLogout } from '@/hooks/actions';
 import { useConfirmModalStore } from '@/stores/confirmModal';
-import { useNotificationStore } from '@/stores/notificationMsg';
-import { useUserStore } from '@/stores/user';
-import { EUrls } from '@/utils/urls';
 
 export const ProfileActions = () => {
-  const router = useRouter();
-
   const { openModal } = useConfirmModalStore();
-  const { showNotification } = useNotificationStore();
-  const { exitAccount } = useUserStore();
 
-  const logout = async () => {
-    const { isSuccess, message } = await apiLogoutUser();
+  const { logout } = useLogout();
+  const { deleteAccount } = useDeleteAccount();
 
-    if (isSuccess) {
-      exitAccount();
-      showNotification(message, '/icons/success.svg');
-    } else {
-      showNotification(message, '/icons/error.svg');
-    }
-  };
+  const handleOpenModalDeleteAccount = () => openModal('Вы уверены что хотите удалить свой аккаунт?', deleteAccount);
 
-  const handleBtnYesDeleteAccount = () => {
-    exitAccount();
-    showNotification('Аккаунт удален!');
-    router.replace(EUrls.HOME);
-  };
-
-  const handleOpenModalDeleteAccount = () =>
-    openModal('Вы уверены что хотите удалить свой аккаунт?', handleBtnYesDeleteAccount);
   const handleOpenModalExitAccount = () => openModal('Вы уверены что хотите выйти из аккаунта?', logout);
 
   return (

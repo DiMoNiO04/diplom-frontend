@@ -1,9 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 
-import { apiRegisterUser } from '@/actions/auth';
-import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
-import { useNotificationStore } from '@/stores/notificationMsg';
+import { useRegisterUser } from '@/hooks/actions';
 import { IFormRegData, schemaReg } from '@/utils/validations';
 
 import { IconEmail, IconUser } from '../icons';
@@ -23,20 +21,9 @@ export const FormReg = () => {
     reValidateMode: 'onChange',
   });
 
-  const { setEmail, setTabContent } = useAuthModalStore();
-  const { showNotification } = useNotificationStore();
+  const register = useRegisterUser();
 
-  const onSubmit = async (data: IFormRegData) => {
-    const { isSuccess, message } = await apiRegisterUser(data);
-
-    if (isSuccess) {
-      setEmail(data.email);
-      setTabContent(EAuthContent.SUCCESS_REG);
-      reset();
-    } else {
-      showNotification(message, '/icons/error.svg');
-    }
-  };
+  const onSubmit = async (data: IFormRegData) => await register(data, reset);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-5">
