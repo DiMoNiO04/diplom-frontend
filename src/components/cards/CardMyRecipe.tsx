@@ -12,7 +12,7 @@ import { EUrls } from '@/utils/urls';
 
 import { IconDelete, IconEdit } from '../icons';
 
-export const CardMyRecipe = ({ id, name, img, isPublished }: IRecipe) => {
+export const CardMyRecipe = ({ id, title, img, isPublished }: IRecipe) => {
   const router = useRouter();
 
   const linkUrlRecipe: string = `${EUrls.RECIPES}/${id}`;
@@ -56,18 +56,18 @@ export const CardMyRecipe = ({ id, name, img, isPublished }: IRecipe) => {
       {isPublished ? (
         <Link href={linkUrlRecipe} className="group flex flex-col gap-2 relative w-fit group">
           <div className="rounded-md overflow-hidden transition-transform duration-300 group-hover:scale-105">
-            <Image src={img[0]} alt="" width={350} height={265} />
+            <Image src={img[0].url} alt="" width={350} height={265} />
           </div>
           <div className="text-lg leading-6 font-medium transition-colors duration-300 group-hover:text-orange">
-            {name}
+            {title}
           </div>
         </Link>
       ) : (
         <div className="group flex flex-col gap-2 relative w-fit cursor-not-allowed opacity-50">
           <div className="rounded-md overflow-hidden">
-            <Image src={img[0]} alt="" width={350} height={265} />
+            <Image src={img[0].url} alt="" width={350} height={265} />
           </div>
-          <div className="text-lg leading-6 font-medium text-greyDark">{name}</div>
+          <div className="text-lg leading-6 font-medium text-greyDark">{title}</div>
         </div>
       )}
     </div>

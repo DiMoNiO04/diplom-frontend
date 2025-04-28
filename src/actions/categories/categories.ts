@@ -1,12 +1,12 @@
-import { IBasePage, ICategory } from '@/utils/interfaces';
+import { ICategory } from '@/utils/interfaces';
 
 import { API_CATEGORIES, EMsgActions } from '../utils';
 
-interface ICategoriesPage extends IBasePage {
+interface ICategoriesAll {
   results: ICategory[];
 }
 
-export async function apiGetCategories(): Promise<ICategoriesPage> {
+export async function apiGetCategories(): Promise<ICategoriesAll> {
   const res = await fetch(API_CATEGORIES, {
     cache: 'no-cache',
   });

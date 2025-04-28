@@ -49,4 +49,15 @@ const getFailedMsg = (message: string): string => {
   return message;
 };
 
-export { fetchByKey, getFailedMsg, getImageUrl, getSimilarRecipes, getTrimmedPathname, splitBySemicolon };
+const getSortedRecipesForCreated = (cards: IRecipe[]) =>
+  cards.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+
+export {
+  fetchByKey,
+  getFailedMsg,
+  getImageUrl,
+  getSimilarRecipes,
+  getSortedRecipesForCreated,
+  getTrimmedPathname,
+  splitBySemicolon,
+};

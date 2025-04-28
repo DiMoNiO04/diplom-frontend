@@ -1,4 +1,5 @@
-import { recipesData } from '@/data';
+import { apiGetRecipes } from '@/actions/recipes';
+import { getSortedRecipesForCreated } from '@/utils/functions';
 import { EUrls } from '@/utils/urls';
 
 import { CardsItems, TitleSectionBlock } from '../blocks';
@@ -6,9 +7,13 @@ import { LoadMoreRecipes } from '../blocks/LoadMoreRecipes';
 
 const RECIPES_PER_PAGE: number = 8;
 
-export const LatestRecipes = () => {
-  const initialRecipes = recipesData.slice(0, RECIPES_PER_PAGE);
-  const remainingRecipes = recipesData.slice(RECIPES_PER_PAGE);
+export const LatestRecipes = async () => {
+  const { results: cards } = await apiGetRecipes();
+
+  const sortedCards = getSortedRecipesForCreated(cards);
+
+  const initialRecipes = sortedCards.slice(0, RECIPES_PER_PAGE);
+  const remainingRecipes = sortedCards.slice(RECIPES_PER_PAGE);
 
   return (
     <section className="mb-20 max-lg:mb-16">

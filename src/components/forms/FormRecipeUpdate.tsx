@@ -54,10 +54,10 @@ export const FormRecipeUpdate = ({ defaultValues }: IFormRecipeUpdateProps) => {
       <div className="flex flex-col gap-y-8">
         <div className="grid grid-cols-2 gap-12 max-md:flex max-md:flex-col max-md:gap-6">
           <Controller
-            name="name"
+            name="title"
             control={control}
             render={({ field }) => (
-              <Input {...field} withBorder label="Название*" placeholder="Название" error={errors.name?.message} />
+              <Input {...field} withBorder label="Название*" placeholder="Название" error={errors.title?.message} />
             )}
           />
           <Controller

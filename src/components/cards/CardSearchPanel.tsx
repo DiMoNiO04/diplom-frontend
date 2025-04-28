@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { IRecipe } from '@/utils/interfaces';
 import { EUrls } from '@/utils/urls';
 
-export const CardSearchPanel = ({ name, img, id, category }: IRecipe) => {
+export const CardSearchPanel = ({ title, img, id, category }: IRecipe) => {
   // const { results: cards } = await getCategories();
 
   const linkUrl: string = `${EUrls.RECIPES}/${id}`;

@@ -3,7 +3,7 @@ import * as yup from 'yup';
 import { requiredImgsRecipeSchema, requiredPositiveIntNumSchema, requiredStringSchema } from './common';
 
 interface IFormRecipeData {
-  name: string;
+  title: string;
   description: string;
   ingredients: string;
   instructions: string;
@@ -14,7 +14,7 @@ interface IFormRecipeData {
 }
 
 const schemaRecipe = yup.object().shape({
-  name: requiredStringSchema,
+  title: requiredStringSchema,
   description: requiredStringSchema,
   cookingTime: requiredPositiveIntNumSchema,
   calories: requiredPositiveIntNumSchema,

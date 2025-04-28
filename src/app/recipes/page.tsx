@@ -1,6 +1,8 @@
+import { apiGetRecipes } from '@/actions/recipes';
 import { RecipesContent } from '@/components/sections';
-import { recipesData } from '@/data';
 
-export default function RecipesPage() {
-  return <RecipesContent recipes={recipesData} title={'Рецепты'} />;
+export default async function RecipesPage() {
+  const { results: cards } = await apiGetRecipes();
+
+  return <RecipesContent recipes={cards} title={'Рецепты'} />;
 }

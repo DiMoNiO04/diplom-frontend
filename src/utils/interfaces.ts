@@ -21,13 +21,13 @@ interface ICategory {
 
 interface IRecipe {
   id: number;
-  name: string;
+  title: string;
   description: string;
   ingredients: string;
   instructions: string;
   cookingTime: number;
   calories: number;
-  img: string[];
+  img: IImage[];
   isPublished: boolean;
   createdAt: string;
   author: number;
