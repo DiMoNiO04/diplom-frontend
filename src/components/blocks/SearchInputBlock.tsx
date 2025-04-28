@@ -3,8 +3,8 @@ import { ChangeEvent } from 'react';
 import { IconClose } from '@/components/icons';
 
 interface ISearchInputBlockProps {
-  placeholder: string;
   value: string;
+  placeholder?: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onClear: () => void;
 }
@@ -14,7 +14,7 @@ export const SearchInputBlock = ({ placeholder, value, onChange, onClear }: ISea
     <div className="relative w-64 flex items-center justify-between gap-x-4 pb-4 max-md:w-full">
       <input
         type="text"
-        placeholder={placeholder}
+        placeholder={placeholder || 'Поиск...'}
         value={value}
         onChange={onChange}
         className="text-black placeholder:text-lightGrey box-border text-left w-full"

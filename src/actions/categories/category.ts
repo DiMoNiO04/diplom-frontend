@@ -2,7 +2,7 @@ import { IBasePage, IImage, IRecipe } from '@/utils/interfaces';
 
 import { API_CATEGORY, EMsgActions } from '../utils';
 
-interface ICategoriesPage extends IBasePage {
+interface ICategoryPage extends IBasePage {
   title: string;
   description: string;
   img: IImage;
@@ -10,7 +10,7 @@ interface ICategoriesPage extends IBasePage {
   recipes: IRecipe[];
 }
 
-export async function apiGetCategory(slug: string): Promise<ICategoriesPage> {
+export async function apiGetCategory(slug: string): Promise<ICategoryPage> {
   const res = await fetch(API_CATEGORY(slug), {
     cache: 'no-cache',
   });

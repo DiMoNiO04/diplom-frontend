@@ -143,8 +143,8 @@ interface ITitleWithTexts {
 
 interface IHeaderSearchBlockPage {
   title: string;
-  search: string;
-  nothingText: string;
+  search?: string;
+  nothingText?: string;
 }
 
 export type {

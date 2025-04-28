@@ -8,8 +8,8 @@ import { SearchInputBlock } from '.';
 
 interface ISearchHeaderBlockProps {
   title: string;
-  placeholder: string;
   value: string;
+  placeholder?: string;
   isVisibleSearch?: boolean;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   onClear: () => void;

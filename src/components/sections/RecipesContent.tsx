@@ -45,7 +45,7 @@ export const RecipesContent = ({ recipes, description, title, nothingText }: IRe
             </div>
             {description && <p className="text-lg text-greyLight">{description}</p>}
           </div>
-          {hasRecipes && (
+          {hasRecipes && recipes.length > 1 && (
             <Select
               onChange={onChangeSelect}
               value={selectedSortOption}
@@ -54,7 +54,7 @@ export const RecipesContent = ({ recipes, description, title, nothingText }: IRe
             />
           )}
         </div>
-        <CardsItems type="recipe" cards={initialRecipes} nothingMsg={nothingText} />
+        <CardsItems type="recipe" cards={initialRecipes} nothingMsg={nothingText || 'Рецептов не найдено!'} />
         <LoadMoreRecipes remainingCards={remainingRecipes} perPage={RECIPES_PER_PAGE} />
       </div>
     </section>

@@ -2,6 +2,7 @@ import { AboutMain } from './AboutMain';
 import { AlreadyMade } from './AlreadyMade';
 import { AlsoLike } from './AlsoLike';
 import { CategoriesAll } from './CategoriesAll';
+import { CategoriesMain } from './CategoriesMain';
 import { CollectionsAll } from './CollectionsAll';
 import { CuratedCollections } from './CuratedCollections';
 import { Editecipe } from './EditRecipe';
@@ -14,7 +15,6 @@ import { MyRecipesContent } from './MyRecipesContent';
 import { NewRecipe } from './NewRecipe';
 import { NotFoundContent } from './NotFoundContent';
 import { Operating } from './Operating';
-import { PopularCategories } from './PopularCategories';
 import { PrivacyPolicyContent } from './PrivacyPolicyContent';
 import { ProfileContent } from './ProfileContent';
 import { RecipeContentInfo } from './RecipeContentInfo';
@@ -31,6 +31,7 @@ export {
   AlreadyMade,
   AlsoLike,
   CategoriesAll,
+  CategoriesMain,
   CollectionsAll,
   CuratedCollections,
   Editecipe,
@@ -43,7 +44,6 @@ export {
   NewRecipe,
   NotFoundContent,
   Operating,
-  PopularCategories,
   PrivacyPolicyContent,
   ProfileContent,
   RecipeContentInfo,
