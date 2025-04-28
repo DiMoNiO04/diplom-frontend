@@ -1,3 +1,4 @@
+import { apiGetRecipe } from './recipe';
 import { apiGetRecipes } from './recipes';
 
-export { apiGetRecipes };
+export { apiGetRecipe, apiGetRecipes };

@@ -13,27 +13,32 @@ interface ICategory {
   slug: string;
   title: string;
   img: IImage;
-  fullImage: string;
-  description?: string;
+  fullImage: IImage;
+  description: string;
   recipes: IRecipe[];
-  seo?: ISEO;
+}
+
+interface ICollection {
+  slug: string;
+  title: string;
+  img: IImage;
+  description: string;
+  recipes: IRecipe[];
 }
 
 interface IRecipe {
   id: number;
+  documentId: string;
   title: string;
   description: string;
   ingredients: string;
   instructions: string;
   cookingTime: number;
   calories: number;
-  img: IImage[];
-  isPublished: boolean;
   createdAt: string;
-  author: number;
-  category: string;
-  percentMakeAgain: number;
-  rating: number;
+  img: IImage[];
+  categories: ICategory[];
+  collections: ICollection[];
 }
 
 interface IAuthorRecipe {
@@ -55,15 +60,6 @@ interface IIcon {
   color?: string;
   className?: string;
   onClick?: () => void;
-}
-
-interface ICollection {
-  slug: string;
-  title: string;
-  img: IImage;
-  description?: string;
-  recipes: IRecipe[];
-  seo?: ISEO;
 }
 
 interface ISuperDeliciious {
@@ -92,10 +88,6 @@ interface ITeamAuthor {
 
 interface IPageSlugProps {
   params: Promise<{ slug: string }>;
-}
-
-interface IPageIdProps {
-  params: Promise<{ id: string }>;
 }
 
 interface ILoadMoreProps<T> {
@@ -160,7 +152,6 @@ export type {
   ILink,
   ILoadMoreProps,
   IMainSliderSlide,
-  IPageIdProps,
   IPageSlugProps,
   IRecipe,
   ISelectOption,

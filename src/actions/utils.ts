@@ -15,6 +15,7 @@ const API_RECIPES_PAGE: string = `${API_URL}/recipes-page`;
 const API_COLLECTIONS: string = `${API_URL}/collections`;
 const API_CATEGORY = (slug: string) => `${API_URL}/categories/${slug}`;
 const API_COLLECTION = (slug: string) => `${API_URL}/collections/${slug}`;
+const API_RECIPE = (slug: string) => `${API_URL}/recipes/${slug}`;
 const API_REGISTER_USER: string = `${API_URL}/auth/local/register`;
 const API_LOGIN: string = `${API_URL}/auth/local`;
 const API_RESET_PASSWORD: string = `${API_URL}/auth/reset-password`;
@@ -69,6 +70,7 @@ export {
   API_FORGOT_PASSWORD,
   API_LOGIN,
   API_PRIVACY_POLICY,
+  API_RECIPE,
   API_RECIPES,
   API_RECIPES_PAGE,
   API_REGISTER_USER,

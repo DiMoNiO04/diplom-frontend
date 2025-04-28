@@ -1,14 +1,8 @@
-import { IBasePage, IImage, IRecipe } from '@/utils/interfaces';
+import { IBasePage, ICategory } from '@/utils/interfaces';
 
 import { API_CATEGORY, EMsgActions } from '../utils';
 
-interface ICategoryPage extends IBasePage {
-  title: string;
-  description: string;
-  img: IImage;
-  fullImage: IImage;
-  recipes: IRecipe[];
-}
+interface ICategoryPage extends IBasePage, ICategory {}
 
 export async function apiGetCategory(slug: string): Promise<ICategoryPage> {
   const res = await fetch(API_CATEGORY(slug), {

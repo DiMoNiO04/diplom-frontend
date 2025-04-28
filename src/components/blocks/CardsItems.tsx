@@ -11,7 +11,7 @@ import { ICategory, ICollection, IRecipe, ISuperDeliciious, ITeamAuthor } from '
 
 interface ICardsItems<T> {
   cards?: T[];
-  nothingMsg: string;
+  nothingMsg?: string;
   hideOnMobileAfter?: number;
 }
 
@@ -26,7 +26,7 @@ export const CardsItems = <T extends ICategory | ICollection | IRecipe | ISuperD
   hideOnMobileAfter,
 }: ICardsItemsProps<T>) => {
   if (!cards || cards.length === 0) {
-    return <NothingMsg title={nothingMsg} />;
+    return <NothingMsg title={nothingMsg || 'Ничего нет!'} />;
   }
 
   const getCardComponent = (card: T) => {

@@ -1,13 +1,8 @@
-import { IBasePage, IImage, IRecipe } from '@/utils/interfaces';
+import { IBasePage, ICollection } from '@/utils/interfaces';
 
 import { API_COLLECTION, EMsgActions } from '../utils';
 
-interface ICollectionPage extends IBasePage {
-  title: string;
-  description: string;
-  img: IImage;
-  recipes: IRecipe[];
-}
+interface ICollectionPage extends IBasePage, ICollection {}
 
 export async function apiGetSingleCollection(slug: string): Promise<ICollectionPage> {
   const res = await fetch(API_COLLECTION(slug), {

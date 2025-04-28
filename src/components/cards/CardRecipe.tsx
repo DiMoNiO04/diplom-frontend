@@ -9,15 +9,19 @@ import { EUrls } from '@/utils/urls';
 
 import { BtnLike } from '../ui/btns';
 
-export const CardRecipe = ({ id, title, img }: IRecipe) => {
-  const linkUrlRecipe: string = `${EUrls.RECIPES}/${id}`;
+export const CardRecipe = ({ documentId, title, img }: IRecipe) => {
+  const linkUrlRecipe: string = `${EUrls.RECIPES}/${documentId}`;
 
   return (
     <div className="relative w-fit">
       <BtnLike />
       <Link href={linkUrlRecipe} className="flex flex-col gap-2 group">
-        <div className="rounded-md overflow-hidden transition-transform duration-300 group-hover:scale-105">
-          <Image src={getImageUrl(img[0].url)} alt="" width={350} height={265} />
+        <div
+          className={`
+          rounded-md  w-full aspect-[350/265] overflow-hidden transition-transform duration-300 group-hover:scale-105
+        `}
+        >
+          <Image src={getImageUrl(img[0].url)} alt="" width={350} height={265} className="size-full object-cover" />
         </div>
         <div
           className={`

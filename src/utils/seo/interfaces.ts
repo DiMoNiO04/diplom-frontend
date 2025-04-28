@@ -10,7 +10,7 @@ interface ISEO {
   metaDescription: string;
   keywords: string;
   metaRobots: string | null;
-  canonicalURL: string;
+  canonicalURL: string | null;
   structuredData: string | null;
   metaImage: {
     url: string;
