@@ -16,7 +16,7 @@ export const CardSearchPanel = ({ title, img, id, category }: IRecipe) => {
         <Image src={img[0]} alt="" width={96} height={72} />
       </div>
       <div className="flex flex-col gap-1">
-        <p className="font-unbounded transition-colors duration-300 group-hover:text-orange max-md:text-sm">{name}</p>
+        <p className="font-unbounded transition-colors duration-300 group-hover:text-orange max-md:text-sm">{title}</p>
         {/* <p className="italic text-greyLight text-sm font-medium">{categoryName}</p> */}
       </div>
     </Link>

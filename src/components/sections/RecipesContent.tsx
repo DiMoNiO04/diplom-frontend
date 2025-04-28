@@ -2,8 +2,9 @@
 
 import clsx from 'clsx';
 
-import { sortRecipes } from '@/data';
-import { IRecipe, ISelectOption } from '@/utils/interfaces';
+import { ESortRecipes, sortRecipes } from '@/data';
+import { useSortRecipes } from '@/hooks';
+import { IHeaderSearchBlockPage, IRecipe } from '@/utils/interfaces';
 
 import { CardsItems, LoadMoreRecipes } from '../blocks';
 import { Title } from '../ui';
@@ -11,18 +12,20 @@ import { Select } from '../ui/selects';
 
 const RECIPES_PER_PAGE: number = 16;
 
-type IRecipesContentProps = {
+interface IRecipesContentProps extends IHeaderSearchBlockPage {
   recipes: IRecipe[];
   description?: string;
-  title: string;
-};
+}
 
-export const RecipesContent = ({ recipes, description, title }: IRecipesContentProps) => {
+export const RecipesContent = ({ recipes, description, title, nothingText }: IRecipesContentProps) => {
   const hasRecipes: boolean = recipes && recipes.length > 0;
-  const initialRecipes = hasRecipes ? recipes.slice(0, RECIPES_PER_PAGE) : [];
-  const remainingRecipes = hasRecipes ? recipes.slice(RECIPES_PER_PAGE) : [];
+  const { sortedRecipes, selectedSortOption, onChangeSelect } = useSortRecipes(
+    recipes,
+    sortRecipes[ESortRecipes.NEWEST]
+  );
 
-  const onChangeSelect = (value: ISelectOption) => alert(`Выбрана сортировка ${value.value}`);
+  const initialRecipes = hasRecipes ? sortedRecipes.slice(0, RECIPES_PER_PAGE) : [];
+  const remainingRecipes = hasRecipes ? sortedRecipes.slice(RECIPES_PER_PAGE) : [];
 
   return (
     <section className="my-20 max-lg:my-16">
@@ -45,13 +48,13 @@ export const RecipesContent = ({ recipes, description, title }: IRecipesContentP
           {hasRecipes && (
             <Select
               onChange={onChangeSelect}
-              value={sortRecipes[0]}
+              value={selectedSortOption}
               options={sortRecipes}
               className="w-52 max-md:w-full"
             />
           )}
         </div>
-        <CardsItems type="recipe" cards={initialRecipes} nothingMsg={'Рецептов нет'} />
+        <CardsItems type="recipe" cards={initialRecipes} nothingMsg={nothingText} />
         <LoadMoreRecipes remainingCards={remainingRecipes} perPage={RECIPES_PER_PAGE} />
       </div>
     </section>

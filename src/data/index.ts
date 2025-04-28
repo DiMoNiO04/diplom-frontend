@@ -4,12 +4,13 @@ import { menuHeaderData } from './menuHeader';
 import { menuProfileData } from './profileLinks';
 import { recipesData } from './recipes';
 import { slidesData } from './slides';
-import { sortRecipes } from './sortRecipes';
+import { ESortRecipes, sortRecipes } from './sortRecipes';
 import { superDeliciouesData } from './superDelicioues';
 import { teamData } from './team';
 
 export {
   categoriesData,
+  ESortRecipes,
   menuFooterData,
   menuHeaderData,
   menuProfileData,

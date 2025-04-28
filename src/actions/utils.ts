@@ -11,6 +11,7 @@ const API_CATEGORIES_PAGE: string = `${API_URL}/categories-page`;
 const API_COLLECTIONS_PAGE: string = `${API_URL}/collections-page`;
 const API_CATEGORIES: string = `${API_URL}/categories`;
 const API_RECIPES: string = `${API_URL}/recipes`;
+const API_RECIPES_PAGE: string = `${API_URL}/recipes-page`;
 const API_COLLECTIONS: string = `${API_URL}/collections`;
 const API_CATEGORY = (slug: string) => `${API_URL}/categories/${slug}`;
 const API_COLLECTION = (slug: string) => `${API_URL}/collections/${slug}`;
@@ -69,6 +70,7 @@ export {
   API_LOGIN,
   API_PRIVACY_POLICY,
   API_RECIPES,
+  API_RECIPES_PAGE,
   API_REGISTER_USER,
   API_RESET_PASSWORD,
   API_SHARE_RECIPE_TEMPLATE,
