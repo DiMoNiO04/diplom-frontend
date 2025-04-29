@@ -7,7 +7,7 @@ import {
   CardTeam,
 } from '@/components/cards';
 import { NothingMsg } from '@/components/ui';
-import { ICategory, ICollection, IRecipe, ITeamAuthor } from '@/utils/interfaces';
+import { ICategory, ICollection, IRecipe, IUser } from '@/utils/interfaces';
 
 interface ICardsItems<T> {
   cards?: T[];
@@ -19,7 +19,7 @@ interface ICardsItemsProps<T> extends ICardsItems<T> {
   type: 'category' | 'collection' | 'recipe' | 'favorites' | 'myRecipes' | 'categoryMain' | 'superDelicious' | 'team';
 }
 
-export const CardsItems = <T extends ICategory | ICollection | IRecipe | ITeamAuthor>({
+export const CardsItems = <T extends ICategory | ICollection | IRecipe | IUser>({
   cards,
   nothingMsg,
   type,
@@ -44,17 +44,13 @@ export const CardsItems = <T extends ICategory | ICollection | IRecipe | ITeamAu
       case 'superDelicious':
         return <CardSuperdelicious {...(card as IRecipe)} />;
       case 'team':
-        return <CardTeam {...(card as ITeamAuthor)} />;
+        return <CardTeam {...(card as IUser)} />;
       default:
         return null;
     }
   };
 
-  const getCardKey = (card: T): string => {
-    if ('id' in card && card.id) return card.id.toString();
-    if ('name' in card && card.name) return card.name;
-    return Math.random().toString();
-  };
+  const getCardKey = (card: T): string => card.documentId.toString();
 
   const gridColsMap: Record<string, string> = {
     category: 'grid-cols-5 max-xl:grid-cols-4 max-lg:grid-cols-3 max-sm:grid-cols-2',

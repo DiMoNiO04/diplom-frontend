@@ -15,7 +15,7 @@ export const FormEmailNewsletter = () => {
     event.preventDefault();
     console.log('Подписка на рассылку с email:', email);
 
-    showNotification('Проверьте почту!', '/icons/checkEmail.svg');
+    showNotification('Проверьте почту!', '/img/icons/checkEmail.svg');
 
     setEmail('');
   };

@@ -25,9 +25,9 @@ export const BtnLike = ({ className = '', type = 'card' }: IBtnLikeProps) => {
     setIsLiked(newState);
 
     if (newState) {
-      showNotification('Добавлено в избранное!', '/icons/onLike.svg');
+      showNotification('Добавлено в избранное!', '/img/icons/onLike.svg');
     } else {
-      showNotification('Удалено из избранного!', '/icons/offLike.svg');
+      showNotification('Удалено из избранного!', '/img/icons/offLike.svg');
     }
   };
 

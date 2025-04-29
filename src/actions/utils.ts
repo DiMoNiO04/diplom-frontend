@@ -22,6 +22,7 @@ const API_RESET_PASSWORD: string = `${API_URL}/auth/reset-password`;
 const API_FORGOT_PASSWORD: string = `${API_URL}/auth/forgot-password`;
 const API_USER_INFO: string = `${API_URL}/users/me?populate=*`;
 const API_USERS: string = `${API_URL}/users/`;
+const API_USERS_TEAM: string = `${API_URL}/users?fields[0]=id&fields[1]=documentId&fields[2]=username&fields[3]=firstName&fields[4]=lastName&fields[5]=patronymic&populate[avatar][fields][0]=url&populate[avatar][fields][1]=alternativeText&populate[avatar][fields][2]=width&populate[avatar][fields][3]=height&populate[avatar][fields][4]=id`;
 const API_CHANGE_PASSWORD: string = `${API_URL}/auth/change-password`;
 const API_UPLOAD_FILE: string = `${API_URL}/upload`;
 const API_DELETE_FILE = (fileId: string) => `${API_URL}/upload/files/${fileId}`;
@@ -81,6 +82,7 @@ export {
   API_UPLOAD_FILE,
   API_USER_INFO,
   API_USERS,
+  API_USERS_TEAM,
   REVALIDATE_DAY_TIME,
   REVALIDATE_HOUR_TIME,
 };

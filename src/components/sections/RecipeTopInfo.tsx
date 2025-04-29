@@ -1,8 +1,12 @@
+import Image from 'next/image';
+
 import { Title } from '@/components/ui';
-import { IImage } from '@/utils/interfaces';
+import { getImageUrl } from '@/utils/functions';
+import { IImage, IUser } from '@/utils/interfaces';
 
 import { RecipeRating } from '../blocks/recipe/RecipeRating';
 import { RecipeSlider } from '../blocks/recipe/RecipeSlider';
+import { IconUser } from '../icons';
 import { BtnLike } from '../ui/btns';
 
 interface IRecipeTopInfoProps {
@@ -10,9 +14,9 @@ interface IRecipeTopInfoProps {
   description: string;
   createdAt: string;
   img: IImage[];
+  user: IUser;
   rating?: number;
   percentMakeAgain?: number;
-  // author: number;
 }
 
 export const RecipeTopInfo = ({
@@ -20,9 +24,9 @@ export const RecipeTopInfo = ({
   description,
   createdAt,
   img,
+  user,
   rating = 5,
   percentMakeAgain = 90,
-  // author,
 }: IRecipeTopInfoProps) => {
   return (
     <section className="mt-20 mb-12 max-md:mt-12">
@@ -30,7 +34,7 @@ export const RecipeTopInfo = ({
         <div className="flex justify-between items-center gap-x-8 relative mb-2">
           {percentMakeAgain && (
             <div className="flex items-start justify-start gap-2 max-w-[700px]">
-              <img src="/icons/trendingUp.svg" alt="" width={20} height={20} />
+              <img src="/img/icons/trendingUp.svg" alt="" width={20} height={20} />
               <span className="text-black text-def italic max-sm:text-sm">
                 {percentMakeAgain}% сделали бы это снова
               </span>
@@ -44,15 +48,31 @@ export const RecipeTopInfo = ({
           flex items-center justify-start gap-10 pb-6 mb-6 border-b border-gray-300 flex-wrap max-md:gap-5  
         `}
         >
-          {/* <div className="flex items-center gap-x-2">
-            <div className="size-8 rounded-full overflow-hidden flex-shrink-0">
-              <img src={authorInfo.img} alt="" />
+          <div className="flex items-center gap-x-2">
+            <div className="rounded-full overflow-hidden size-10 border border-grey shrink-0">
+              {user.avatar ? (
+                <Image
+                  src={getImageUrl(user.avatar.url)}
+                  alt=""
+                  width={32}
+                  height={32}
+                  className="size-full object-cover"
+                />
+              ) : (
+                <IconUser size={40} />
+              )}
             </div>
-            <span className="text-sm">{authorInfo.name}</span>
-          </div> */}
+            {user.lastName && user.firstName ? (
+              <div className="italic text-sm">
+                {user.firstName} {user.lastName} <span className="text-orange">({user.username})</span>
+              </div>
+            ) : (
+              <div className="italic text-sm text-orange">{user.username}</div>
+            )}
+          </div>
           <div className="flex items-center gap-x-2">
             <div className="size-5">
-              <img src="/icons/calendar.svg" width={20} height={20} alt="" />
+              <img src="/img/icons/calendar.svg" width={20} height={20} alt="" />
             </div>
             <span className="text-sm">{new Date(createdAt).toLocaleDateString()}</span>
           </div>

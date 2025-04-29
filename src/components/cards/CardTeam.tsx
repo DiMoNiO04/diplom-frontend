@@ -1,13 +1,25 @@
-import { ITeamAuthor } from '@/utils/interfaces';
+import Image from 'next/image';
 
-export const CardTeam = ({ name, description, img }: ITeamAuthor) => {
+import { getImageUrl } from '@/utils/functions';
+import { IUser } from '@/utils/interfaces';
+
+import { IconUser } from '../icons';
+
+export const CardTeam = ({ firstName, lastName, avatar, username }: IUser) => {
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="mb-4 rounded-full overflow-hidden max-sm:mb-2">
-        <img src={img} alt={name} width={163} height={163} />
+      <div className="mb-4 rounded-full size-40 border border-grey overflow-hidden max-sm:mb-2">
+        {avatar ? <Image src={getImageUrl(avatar.url)} alt="" width={160} height={160} /> : <IconUser size={160} />}
       </div>
-      <h3 className="mb-1 text-black text-center font-unbounded">{name}</h3>
-      <p className="text-center text-greyLight italic text-sm max-sm:text-xs">{description}</p>
+      <h3 className="mb-1 text-black text-center font-unbounded">
+        {lastName && firstName ? (
+          <>
+            {firstName} {lastName} <br /> <span className="text-orange">({username})</span>
+          </>
+        ) : (
+          <>{username}</>
+        )}
+      </h3>
     </div>
   );
 };

@@ -10,6 +10,7 @@ interface ITitle {
 }
 
 interface ICategory {
+  documentId: string;
   slug: string;
   title: string;
   img: IImage;
@@ -19,6 +20,7 @@ interface ICategory {
 }
 
 interface ICollection {
+  documentId: string;
   slug: string;
   title: string;
   img: IImage;
@@ -39,6 +41,17 @@ interface IRecipe {
   img: IImage[];
   categories: ICategory[];
   collections: ICollection[];
+  user: IUser;
+}
+
+interface IUser {
+  id: number;
+  documentId: string;
+  username: string;
+  firstName: string | null;
+  lastName: string | null;
+  patronymic: string | null;
+  avatar: IImage;
 }
 
 interface IAuthorRecipe {
@@ -65,13 +78,6 @@ interface IIcon {
 interface ISelectOption {
   text: string;
   value: string | number;
-}
-
-interface ITeamAuthor {
-  id: number;
-  img: string;
-  name: string;
-  description: string;
 }
 
 interface IPageSlugProps {
@@ -149,8 +155,8 @@ export type {
   IRecipesProps,
   ISelectOption,
   ISimpleContent,
-  ITeamAuthor,
   IText,
   ITitle,
   ITitleWithTexts,
+  IUser,
 };

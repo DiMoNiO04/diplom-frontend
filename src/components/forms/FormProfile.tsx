@@ -76,26 +76,26 @@ export const FormProfile = ({ firstName, lastName, patronymic, email, username, 
       </div>
       <div className="grid grid-cols-2 gap-8 max-md:flex max-md:flex-col max-md:gap-6">
         <Controller
-          name="lastName"
+          name="firstName"
           control={control}
           render={({ field }) => (
             <Input
               {...field}
               placeholder="Фамилия"
-              error={errors.lastName?.message}
+              error={errors.firstName?.message}
               icon={<IconUser />}
               value={field.value || ''}
             />
           )}
         />
         <Controller
-          name="firstName"
+          name="lastName"
           control={control}
           render={({ field }) => (
             <Input
               {...field}
               placeholder="Имя"
-              error={errors.firstName?.message}
+              error={errors.lastName?.message}
               icon={<IconUser />}
               value={field.value || ''}
             />

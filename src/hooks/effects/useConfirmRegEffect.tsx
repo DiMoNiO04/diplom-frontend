@@ -16,7 +16,7 @@ export const useConfirmRegEffect = () => {
 
   useEffect(() => {
     if (confirmation !== null && auth !== null) {
-      showNotification('Регистрация успешно подтверждена!', '/icons/success.svg');
+      showNotification('Регистрация успешно подтверждена!', '/img/icons/success.svg');
       openModal(EAuthContent.SUCCESS_REG);
       setTabContent(EAuthContent.LOGIN);
     }

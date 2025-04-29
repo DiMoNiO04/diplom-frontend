@@ -1,9 +1,11 @@
-import { teamData } from '@/data';
+import { apiGetUsers } from '@/actions/blocks';
 
 import { CardsItems } from '../blocks';
 import { Title } from '../ui';
 
-export const TalentTeam = () => {
+export const TalentTeam = async () => {
+  const teamData = await apiGetUsers();
+
   return (
     <section className="mb-20 max-lg:mb-16">
       <div className="custom-container">
