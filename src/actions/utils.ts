@@ -25,6 +25,7 @@ const API_USERS: string = `${API_URL}/users/`;
 const API_CHANGE_PASSWORD: string = `${API_URL}/auth/change-password`;
 const API_UPLOAD_FILE: string = `${API_URL}/upload`;
 const API_DELETE_FILE = (fileId: string) => `${API_URL}/upload/files/${fileId}`;
+const API_MAIN_PAGE: string = `${API_URL}/main-page`;
 
 interface IApiResultReturn {
   isSuccess: boolean;
@@ -69,6 +70,7 @@ export {
   API_EMAIL_NEWSLETTER_TEMPLATE,
   API_FORGOT_PASSWORD,
   API_LOGIN,
+  API_MAIN_PAGE,
   API_PRIVACY_POLICY,
   API_RECIPE,
   API_RECIPES,

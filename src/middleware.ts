@@ -1,16 +1,17 @@
 import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 
-const protectedRoutes = ['/categories/'];
+import { protectedPaths } from './utils/consts';
+import { EUrls } from './utils/urls';
 
 export default async function middleware(req: NextRequest) {
   const path = req.nextUrl.pathname;
-  const isProtectedRoute = protectedRoutes.includes(path);
-  const cookie = (await cookies()).get('jwt')?.value;
+  const isProtectedRoute = protectedPaths.some((protectedPath) => path.startsWith(protectedPath));
 
-  if (isProtectedRoute && !cookie) {
-    console.log('Redirecting to /recipes because JWT is missing');
-    return NextResponse.redirect(new URL('/recipes', req.nextUrl));
+  const jwtToken = (await cookies()).get('jwt')?.value;
+
+  if (isProtectedRoute && !jwtToken) {
+    return NextResponse.redirect(new URL(EUrls.HOME, req.nextUrl));
   }
 
   return NextResponse.next();

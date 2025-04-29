@@ -19,7 +19,6 @@ export const UserProvider = ({ children, token }: IUserProviderProps) => {
       const fetchUserInfo = async () => {
         try {
           const user = await apiGetUserInfo();
-          console.log(user);
           if (user) {
             setUser(user, true);
             setReady(true);

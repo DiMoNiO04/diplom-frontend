@@ -5,10 +5,9 @@ import { cookies } from 'next/headers';
 import { API_USERS, EMsgActions } from '../utils';
 
 export async function apiDeleteUser(idUser: string) {
-  const cookieStore = await cookies();
-  const jwt = cookieStore.get('jwt')?.value;
+  const jwtToken = (await cookies()).get('jwt')?.value;
 
-  if (!jwt) {
+  if (!jwtToken) {
     return { isSuccess: false, message: EMsgActions.FAILED_FIND_TOKEN };
   }
 
@@ -16,7 +15,7 @@ export async function apiDeleteUser(idUser: string) {
     const res = await fetch(`${API_USERS}${idUser}`, {
       method: 'DELETE',
       headers: {
-        Authorization: `Bearer ${jwt}`,
+        Authorization: `Bearer ${jwtToken}`,
       },
     });
 
