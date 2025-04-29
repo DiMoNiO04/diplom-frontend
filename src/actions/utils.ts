@@ -5,8 +5,6 @@ const REVALIDATE_DAY_TIME: number = 86400;
 
 const API_PRIVACY_POLICY: string = `${API_URL}/privacy-policy-page`;
 const API_ABOUT_PAGE: string = `${API_URL}/about-page`;
-const API_SHARE_RECIPE_TEMPLATE: string = `${API_URL}/template-share-recipe`;
-const API_EMAIL_NEWSLETTER_TEMPLATE: string = `${API_URL}/template-email-newsletter`;
 const API_CATEGORIES_PAGE: string = `${API_URL}/categories-page`;
 const API_COLLECTIONS_PAGE: string = `${API_URL}/collections-page`;
 const API_CATEGORIES: string = `${API_URL}/categories`;
@@ -68,7 +66,6 @@ export {
   API_COLLECTIONS,
   API_COLLECTIONS_PAGE,
   API_DELETE_FILE,
-  API_EMAIL_NEWSLETTER_TEMPLATE,
   API_FORGOT_PASSWORD,
   API_LOGIN,
   API_MAIN_PAGE,
@@ -78,7 +75,6 @@ export {
   API_RECIPES_PAGE,
   API_REGISTER_USER,
   API_RESET_PASSWORD,
-  API_SHARE_RECIPE_TEMPLATE,
   API_UPLOAD_FILE,
   API_USER_INFO,
   API_USERS,

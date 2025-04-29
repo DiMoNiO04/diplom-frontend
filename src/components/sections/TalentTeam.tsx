@@ -1,10 +1,10 @@
-import { apiGetUsers } from '@/actions/blocks';
+import { apiGetUsersTeam } from '@/actions/user';
 
 import { CardsItems } from '../blocks';
 import { Title } from '../ui';
 
 export const TalentTeam = async () => {
-  const teamData = await apiGetUsers();
+  const teamData = await apiGetUsersTeam();
 
   return (
     <section className="mb-20 max-lg:mb-16">
