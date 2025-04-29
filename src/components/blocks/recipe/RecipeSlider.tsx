@@ -44,7 +44,7 @@ export const RecipeSlider = ({ images }: IRecipeSliderProps) => {
                 priority={index === 0}
                 fetchPriority="high"
               />
-              <div className="absolute inset-0 z-2 shadow-customSlide"></div>
+              <div className="absolute inset-0 z-2 shadow-customSlide" />
             </div>
           </SwiperSlide>
         ))}

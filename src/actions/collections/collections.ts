@@ -1,21 +1,10 @@
 import { IBasePage, ICollection } from '@/utils/interfaces';
 
-import { API_COLLECTIONS, EMsgActions } from '../utils';
+import { apiFetch } from '../api';
+import { API_COLLECTIONS } from '../utils';
 
 interface ICollectionsPage extends IBasePage {
   results: ICollection[];
 }
 
-export async function apiGetCollections(): Promise<ICollectionsPage> {
-  const res = await fetch(API_COLLECTIONS, {
-    cache: 'no-cache',
-  });
-
-  if (!res.ok) {
-    throw new Error(EMsgActions.FAILED_FETCH);
-  }
-
-  const data = await res.json();
-
-  return data;
-}
+export const apiGetCollections = async (): Promise<ICollectionsPage> => apiFetch<ICollectionsPage>(API_COLLECTIONS);

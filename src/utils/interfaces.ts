@@ -62,18 +62,6 @@ interface IIcon {
   onClick?: () => void;
 }
 
-interface ISuperDeliciious {
-  id: number;
-  name: string;
-  img: string;
-  createdDate: string;
-  rating: number;
-  author: {
-    name: string;
-    icon: string;
-  };
-}
-
 interface ISelectOption {
   text: string;
   value: string | number;
@@ -139,6 +127,10 @@ interface IHeaderSearchBlockPage {
   nothingText?: string;
 }
 
+interface IRecipesProps {
+  recipes: IRecipe[];
+}
+
 export type {
   IAuthorRecipe,
   IBasePage,
@@ -154,9 +146,9 @@ export type {
   IMainSliderSlide,
   IPageSlugProps,
   IRecipe,
+  IRecipesProps,
   ISelectOption,
   ISimpleContent,
-  ISuperDeliciious,
   ITeamAuthor,
   IText,
   ITitle,

@@ -1,6 +1,7 @@
 import { getFailedMsg } from '@/utils/functions';
 
-import { API_REGISTER_USER, EMsgActions, IApiResultReturn } from '../utils';
+import { apiPost } from '../api';
+import { API_REGISTER_USER, EMsgActions } from '../utils';
 
 interface IFormRegDataApi {
   username: string;
@@ -8,25 +9,10 @@ interface IFormRegDataApi {
   password: string;
 }
 
-export const apiRegisterUser = async (data: IFormRegDataApi): Promise<IApiResultReturn> => {
-  try {
-    const res = await fetch(API_REGISTER_USER, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        username: data.username,
-        email: data.email,
-        password: data.password,
-      }),
-    });
-
-    const result = await res.json();
-
-    if (!res.ok) {
-      const message: string = getFailedMsg(result?.error?.message);
-
+export const apiRegisterUser = (data: IFormRegDataApi) =>
+  apiPost<IFormRegDataApi>(API_REGISTER_USER, data).then((result) => {
+    if (!result.isSuccess) {
+      const message: string = getFailedMsg(result?.message);
       return { isSuccess: false, message };
     }
 
@@ -34,8 +20,4 @@ export const apiRegisterUser = async (data: IFormRegDataApi): Promise<IApiResult
       isSuccess: true,
       message: EMsgActions.SUCCESS_REG,
     };
-  } catch (err) {
-    console.error(EMsgActions.FAILED_FETCH, err);
-    return { isSuccess: false, message: EMsgActions.FAILED_FETCH_TRY_AGAIN };
-  }
-};
+  });

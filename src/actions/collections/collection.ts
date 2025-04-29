@@ -1,19 +1,9 @@
 import { IBasePage, ICollection } from '@/utils/interfaces';
 
-import { API_COLLECTION, EMsgActions } from '../utils';
+import { apiFetch } from '../api';
+import { API_COLLECTION } from '../utils';
 
 interface ICollectionPage extends IBasePage, ICollection {}
 
-export async function apiGetSingleCollection(slug: string): Promise<ICollectionPage> {
-  const res = await fetch(API_COLLECTION(slug), {
-    cache: 'no-cache',
-  });
-
-  if (!res.ok) {
-    throw new Error(EMsgActions.FAILED_FETCH);
-  }
-
-  const { data } = await res.json();
-
-  return data;
-}
+export const apiGetSingleCollection = async (slug: string): Promise<ICollectionPage> =>
+  (await apiFetch<{ data: ICollectionPage }>(API_COLLECTION(slug))).data;

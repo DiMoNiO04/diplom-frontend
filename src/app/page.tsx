@@ -1,3 +1,4 @@
+import { apiGetRecipes } from '@/actions/recipes';
 import {
   CategoriesMain,
   CuratedCollections,
@@ -9,14 +10,16 @@ import {
 } from '@/components/sections';
 
 export default async function MainPage() {
+  const { results: recipes } = await apiGetRecipes();
+
   return (
     <>
-      <MainSlider />
+      <MainSlider recipes={recipes} />
       <CategoriesMain />
-      <SuperDelicioues />
+      <SuperDelicioues recipes={recipes} />
       <ShareYourRecipe />
       <CuratedCollections />
-      <LatestRecipes />
+      <LatestRecipes recipes={recipes} />
       <EmailNewsletter />
     </>
   );
