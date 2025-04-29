@@ -1,6 +1,27 @@
 import { IFormPasswordNewData } from '@/utils/validations';
 
-import { apiPost } from '../api';
-import { API_RESET_PASSWORD } from '../utils';
+import { API_RESET_PASSWORD, EMsgActions, IApiResultReturn } from '../utils';
 
-export const apiResetPassword = (data: IFormPasswordNewData) => apiPost<IFormPasswordNewData>(API_RESET_PASSWORD, data);
+export const apiResetPassword = async (data: IFormPasswordNewData): Promise<IApiResultReturn> => {
+  try {
+    const res = await fetch(API_RESET_PASSWORD, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+
+    const result = await res.json();
+
+    if (!res.ok) {
+      return { isSuccess: false, message: result?.error?.message };
+    }
+
+    return {
+      isSuccess: true,
+      message: EMsgActions.SUCCESS_CHANGE_PASSWORD,
+    };
+  } catch (err) {
+    console.error(EMsgActions.FAILED_FETCH, err);
+    return { isSuccess: false, message: EMsgActions.FAILED_FETCH_TRY_AGAIN };
+  }
+};

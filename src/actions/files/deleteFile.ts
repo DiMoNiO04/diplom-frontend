@@ -1,4 +1,17 @@
-import { apiFileRequest } from '../api';
+'use server';
+
+import { cookies } from 'next/headers';
+
 import { API_DELETE_FILE } from '../utils';
 
-export const apiDeleteFile = async (fileId: string) => await apiFileRequest(API_DELETE_FILE(fileId), 'DELETE');
+export async function apiDeleteFile(fileId: string) {
+  const cookieStore = await cookies();
+  const jwt = cookieStore.get('jwt')?.value;
+
+  await fetch(API_DELETE_FILE(fileId), {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Bearer ${jwt}`,
+    },
+  });
+}

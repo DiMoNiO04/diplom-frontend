@@ -4,7 +4,7 @@ import { BASE_URL, SITE_LOGO, SITE_NAME, STRAPI_URL } from '../consts';
 import { ISEO } from './interfaces';
 
 const createMetadata = (seo: ISEO): Metadata => {
-  const url = `${BASE_URL}${seo.canonicalURL}`;
+  const url = seo.canonicalURL ? `${BASE_URL}${seo.canonicalURL}` : `${BASE_URL}`;
   const imageUrl = seo.metaImage?.url ? `${STRAPI_URL}${seo.metaImage.url}` : SITE_LOGO;
 
   return {

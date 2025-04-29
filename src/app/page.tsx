@@ -1,3 +1,6 @@
+import { Metadata } from 'next';
+
+import { apiGetMainPage } from '@/actions/pages';
 import { apiGetRecipes } from '@/actions/recipes';
 import {
   CategoriesMain,
@@ -8,6 +11,12 @@ import {
   ShareYourRecipe,
   SuperDelicioues,
 } from '@/components/sections';
+import { createMetadata } from '@/utils/seo';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const { seo } = await apiGetMainPage();
+  return createMetadata(seo);
+}
 
 export default async function MainPage() {
   const { results: recipes } = await apiGetRecipes();
