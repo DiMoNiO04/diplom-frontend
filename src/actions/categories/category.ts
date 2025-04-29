@@ -1,25 +1,9 @@
-import { IBasePage, IImage, IRecipe } from '@/utils/interfaces';
+import { IBasePage, ICategory } from '@/utils/interfaces';
 
-import { API_CATEGORY, EMsgActions } from '../utils';
+import { apiFetch } from '../api';
+import { API_CATEGORY } from '../utils';
 
-interface ICategoriesPage extends IBasePage {
-  title: string;
-  description: string;
-  img: IImage;
-  fullImage: IImage;
-  recipes: IRecipe[];
-}
+interface ICategoryPage extends IBasePage, ICategory {}
 
-export async function apiGetCategory(slug: string): Promise<ICategoriesPage> {
-  const res = await fetch(API_CATEGORY(slug), {
-    cache: 'no-cache',
-  });
-
-  if (!res.ok) {
-    throw new Error(EMsgActions.FAILED_FETCH);
-  }
-
-  const { data } = await res.json();
-
-  return data;
-}
+export const apiGetCategory = async (slug: string): Promise<ICategoryPage> =>
+  (await apiFetch<{ data: ICategoryPage }>(API_CATEGORY(slug))).data;

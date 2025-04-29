@@ -11,9 +11,11 @@ const API_CATEGORIES_PAGE: string = `${API_URL}/categories-page`;
 const API_COLLECTIONS_PAGE: string = `${API_URL}/collections-page`;
 const API_CATEGORIES: string = `${API_URL}/categories`;
 const API_RECIPES: string = `${API_URL}/recipes`;
+const API_RECIPES_PAGE: string = `${API_URL}/recipes-page`;
 const API_COLLECTIONS: string = `${API_URL}/collections`;
 const API_CATEGORY = (slug: string) => `${API_URL}/categories/${slug}`;
 const API_COLLECTION = (slug: string) => `${API_URL}/collections/${slug}`;
+const API_RECIPE = (slug: string) => `${API_URL}/recipes/${slug}`;
 const API_REGISTER_USER: string = `${API_URL}/auth/local/register`;
 const API_LOGIN: string = `${API_URL}/auth/local`;
 const API_RESET_PASSWORD: string = `${API_URL}/auth/reset-password`;
@@ -23,6 +25,7 @@ const API_USERS: string = `${API_URL}/users/`;
 const API_CHANGE_PASSWORD: string = `${API_URL}/auth/change-password`;
 const API_UPLOAD_FILE: string = `${API_URL}/upload`;
 const API_DELETE_FILE = (fileId: string) => `${API_URL}/upload/files/${fileId}`;
+const API_MAIN_PAGE: string = `${API_URL}/main-page`;
 
 interface IApiResultReturn {
   isSuccess: boolean;
@@ -67,8 +70,11 @@ export {
   API_EMAIL_NEWSLETTER_TEMPLATE,
   API_FORGOT_PASSWORD,
   API_LOGIN,
+  API_MAIN_PAGE,
   API_PRIVACY_POLICY,
+  API_RECIPE,
   API_RECIPES,
+  API_RECIPES_PAGE,
   API_REGISTER_USER,
   API_RESET_PASSWORD,
   API_SHARE_RECIPE_TEMPLATE,

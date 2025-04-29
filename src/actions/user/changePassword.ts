@@ -8,10 +8,9 @@ import { IFormChangePasswordData } from '@/utils/validations';
 import { API_CHANGE_PASSWORD, EMsgActions, IApiResultReturn } from '../utils';
 
 export async function apiChangePassword(data: IFormChangePasswordData): Promise<IApiResultReturn> {
-  const cookieStore = await cookies();
-  const jwt = cookieStore.get('jwt')?.value;
+  const jwtToken = (await cookies()).get('jwt')?.value;
 
-  if (!jwt) {
+  if (!jwtToken) {
     return { isSuccess: false, message: EMsgActions.FAILED_FIND_TOKEN };
   }
 
@@ -20,7 +19,7 @@ export async function apiChangePassword(data: IFormChangePasswordData): Promise<
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${jwt}`,
+        Authorization: `Bearer ${jwtToken}`,
       },
       body: JSON.stringify(data),
     });

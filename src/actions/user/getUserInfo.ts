@@ -7,10 +7,9 @@ import { IUserInfo } from '@/stores/user';
 import { API_USER_INFO } from '../utils';
 
 export async function apiGetUserInfo(): Promise<IUserInfo | null> {
-  const cookieStore = await cookies();
-  const jwt = cookieStore.get('jwt')?.value;
+  const jwtToken = (await cookies()).get('jwt')?.value;
 
-  if (!jwt) {
+  if (!jwtToken) {
     return null;
   }
 
@@ -18,7 +17,7 @@ export async function apiGetUserInfo(): Promise<IUserInfo | null> {
     const res = await fetch(API_USER_INFO, {
       cache: 'no-cache',
       headers: {
-        Authorization: `Bearer ${jwt}`,
+        Authorization: `Bearer ${jwtToken}`,
       },
     });
 

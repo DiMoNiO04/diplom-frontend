@@ -5,7 +5,7 @@ import { CardsItems, TitleSectionBlock } from '../blocks';
 
 const PER_PAGE_CATEGORIES: number = 6;
 
-export const PopularCategories = async () => {
+export const CategoriesMain = async () => {
   const { results } = await apiGetCategories();
 
   const initialCategories = results.slice(0, PER_PAGE_CATEGORIES);

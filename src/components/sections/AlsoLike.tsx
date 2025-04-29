@@ -1,15 +1,18 @@
-import { recipesData } from '@/data';
+import { apiGetRecipes } from '@/actions/recipes';
 import { getSimilarRecipes } from '@/utils/functions';
+import { ICategory } from '@/utils/interfaces';
 
 import { CardsItems, TitleSectionBlock } from '../blocks';
 
 interface IAlsoLikeProps {
-  idRecipe: number;
-  category: string;
+  idRecipe: string;
+  categories: ICategory[];
 }
 
-export const AlsoLike = ({ idRecipe, category }: IAlsoLikeProps) => {
-  const filteredRecipes = getSimilarRecipes(recipesData, idRecipe, category);
+export const AlsoLike = async ({ idRecipe, categories }: IAlsoLikeProps) => {
+  const { results: recipes } = await apiGetRecipes();
+
+  const filteredRecipes = getSimilarRecipes(recipes, idRecipe, categories);
 
   if (filteredRecipes.length === 0) return null;
 

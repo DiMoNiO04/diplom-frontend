@@ -1,31 +1,29 @@
 import { Title } from '@/components/ui';
-import { teamData } from '@/data';
+import { IImage } from '@/utils/interfaces';
 
 import { RecipeRating } from '../blocks/recipe/RecipeRating';
 import { RecipeSlider } from '../blocks/recipe/RecipeSlider';
 import { BtnLike } from '../ui/btns';
 
 interface IRecipeTopInfoProps {
-  name: string;
-  percentMakeAgain: number;
+  title: string;
   description: string;
-  author: number;
   createdAt: string;
-  rating: number;
-  img: string[];
+  img: IImage[];
+  rating?: number;
+  percentMakeAgain?: number;
+  // author: number;
 }
 
 export const RecipeTopInfo = ({
-  name,
-  percentMakeAgain,
+  title,
   description,
-  author,
   createdAt,
-  rating,
   img,
+  rating = 5,
+  percentMakeAgain = 90,
+  // author,
 }: IRecipeTopInfoProps) => {
-  const authorInfo = teamData[author];
-
   return (
     <section className="mt-20 mb-12 max-md:mt-12">
       <div className="custom-container">
@@ -40,18 +38,18 @@ export const RecipeTopInfo = ({
           )}
           <BtnLike type="recipe" />
         </div>
-        <Title title={name} className="mb-6" />
+        <Title title={title} className="mb-6" />
         <div
           className={`
           flex items-center justify-start gap-10 pb-6 mb-6 border-b border-gray-300 flex-wrap max-md:gap-5  
         `}
         >
-          <div className="flex items-center gap-x-2">
+          {/* <div className="flex items-center gap-x-2">
             <div className="size-8 rounded-full overflow-hidden flex-shrink-0">
               <img src={authorInfo.img} alt="" />
             </div>
             <span className="text-sm">{authorInfo.name}</span>
-          </div>
+          </div> */}
           <div className="flex items-center gap-x-2">
             <div className="size-5">
               <img src="/icons/calendar.svg" width={20} height={20} alt="" />

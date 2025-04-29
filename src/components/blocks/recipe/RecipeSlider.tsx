@@ -4,10 +4,13 @@ import Image from 'next/image';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import { getImageUrl } from '@/utils/functions';
+import { IImage } from '@/utils/interfaces';
+
 import { MainSliderBtns } from '../MainSliderBtns';
 
 interface IRecipeSliderProps {
-  images: string[];
+  images: IImage[];
 }
 
 export const RecipeSlider = ({ images }: IRecipeSliderProps) => {
@@ -33,7 +36,7 @@ export const RecipeSlider = ({ images }: IRecipeSliderProps) => {
           <SwiperSlide key={index} className="relative size-full">
             <div className="relative w-full h-[700px] max-lg:h-[500px] max-md:h-[400px] max-sm:h-[350px]">
               <Image
-                src={img}
+                src={getImageUrl(img.url)}
                 alt="Recipe image"
                 width={1440}
                 height={700}
@@ -41,7 +44,7 @@ export const RecipeSlider = ({ images }: IRecipeSliderProps) => {
                 priority={index === 0}
                 fetchPriority="high"
               />
-              <div className="absolute inset-0 z-2 shadow-customSlide"></div>
+              <div className="absolute inset-0 z-2 shadow-customSlide" />
             </div>
           </SwiperSlide>
         ))}

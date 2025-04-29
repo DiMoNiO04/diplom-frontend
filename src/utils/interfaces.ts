@@ -13,27 +13,32 @@ interface ICategory {
   slug: string;
   title: string;
   img: IImage;
-  fullImage: string;
-  description?: string;
+  fullImage: IImage;
+  description: string;
   recipes: IRecipe[];
-  seo?: ISEO;
+}
+
+interface ICollection {
+  slug: string;
+  title: string;
+  img: IImage;
+  description: string;
+  recipes: IRecipe[];
 }
 
 interface IRecipe {
   id: number;
+  documentId: string;
   title: string;
   description: string;
   ingredients: string;
   instructions: string;
   cookingTime: number;
   calories: number;
-  img: IImage[];
-  isPublished: boolean;
   createdAt: string;
-  author: number;
-  category: string;
-  percentMakeAgain: number;
-  rating: number;
+  img: IImage[];
+  categories: ICategory[];
+  collections: ICollection[];
 }
 
 interface IAuthorRecipe {
@@ -57,27 +62,6 @@ interface IIcon {
   onClick?: () => void;
 }
 
-interface ICollection {
-  slug: string;
-  title: string;
-  img: IImage;
-  description?: string;
-  recipes: IRecipe[];
-  seo?: ISEO;
-}
-
-interface ISuperDeliciious {
-  id: number;
-  name: string;
-  img: string;
-  createdDate: string;
-  rating: number;
-  author: {
-    name: string;
-    icon: string;
-  };
-}
-
 interface ISelectOption {
   text: string;
   value: string | number;
@@ -92,10 +76,6 @@ interface ITeamAuthor {
 
 interface IPageSlugProps {
   params: Promise<{ slug: string }>;
-}
-
-interface IPageIdProps {
-  params: Promise<{ id: string }>;
 }
 
 interface ILoadMoreProps<T> {
@@ -143,8 +123,12 @@ interface ITitleWithTexts {
 
 interface IHeaderSearchBlockPage {
   title: string;
-  search: string;
-  nothingText: string;
+  search?: string;
+  nothingText?: string;
+}
+
+interface IRecipesProps {
+  recipes: IRecipe[];
 }
 
 export type {
@@ -160,12 +144,11 @@ export type {
   ILink,
   ILoadMoreProps,
   IMainSliderSlide,
-  IPageIdProps,
   IPageSlugProps,
   IRecipe,
+  IRecipesProps,
   ISelectOption,
   ISimpleContent,
-  ISuperDeliciious,
   ITeamAuthor,
   IText,
   ITitle,

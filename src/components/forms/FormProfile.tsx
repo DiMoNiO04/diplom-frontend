@@ -1,8 +1,6 @@
 import Image from 'next/image';
 import { Controller, useForm } from 'react-hook-form';
 
-import { apiDeleteFile } from '@/actions/files';
-import { apiGetUserInfo } from '@/actions/user';
 import { useUpdateImg } from '@/hooks';
 import { useUpdateUser } from '@/hooks/actions';
 import { IUserInfo } from '@/stores/user';

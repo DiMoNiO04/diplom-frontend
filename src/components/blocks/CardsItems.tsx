@@ -7,11 +7,11 @@ import {
   CardTeam,
 } from '@/components/cards';
 import { NothingMsg } from '@/components/ui';
-import { ICategory, ICollection, IRecipe, ISuperDeliciious, ITeamAuthor } from '@/utils/interfaces';
+import { ICategory, ICollection, IRecipe, ITeamAuthor } from '@/utils/interfaces';
 
 interface ICardsItems<T> {
   cards?: T[];
-  nothingMsg: string;
+  nothingMsg?: string;
   hideOnMobileAfter?: number;
 }
 
@@ -19,14 +19,14 @@ interface ICardsItemsProps<T> extends ICardsItems<T> {
   type: 'category' | 'collection' | 'recipe' | 'favorites' | 'myRecipes' | 'categoryMain' | 'superDelicious' | 'team';
 }
 
-export const CardsItems = <T extends ICategory | ICollection | IRecipe | ISuperDeliciious | ITeamAuthor>({
+export const CardsItems = <T extends ICategory | ICollection | IRecipe | ITeamAuthor>({
   cards,
   nothingMsg,
   type,
   hideOnMobileAfter,
 }: ICardsItemsProps<T>) => {
   if (!cards || cards.length === 0) {
-    return <NothingMsg title={nothingMsg} />;
+    return <NothingMsg title={nothingMsg || 'Ничего нет!'} />;
   }
 
   const getCardComponent = (card: T) => {
@@ -42,7 +42,7 @@ export const CardsItems = <T extends ICategory | ICollection | IRecipe | ISuperD
       case 'myRecipes':
         return <CardMyRecipe {...(card as IRecipe)} />;
       case 'superDelicious':
-        return <CardSuperdelicious {...(card as ISuperDeliciious)} />;
+        return <CardSuperdelicious {...(card as IRecipe)} />;
       case 'team':
         return <CardTeam {...(card as ITeamAuthor)} />;
       default:

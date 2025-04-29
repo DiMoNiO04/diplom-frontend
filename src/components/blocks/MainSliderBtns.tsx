@@ -16,7 +16,7 @@ export const MainSliderBtns = () => {
       max-md:opacity-100
     `}
     >
-      <button className={clsx('nextButtonSlider', STYLES.btn)}>
+      <button className={clsx('prevButtonSlider', STYLES.btn)}>
         <img src={'/icons/arrowLeft.svg'} alt="" width={32} height={32} />
       </button>
       <button className={clsx('nextButtonSlider', STYLES.btn)}>

@@ -1,8 +1,10 @@
-import { superDeliciouesData } from '@/data';
+import { IRecipesProps } from '@/utils/interfaces';
 
 import { CardsItems, TitleSectionBlock } from '../blocks';
 
-export const SuperDelicioues = () => {
+export const SuperDelicioues = ({ recipes }: IRecipesProps) => {
+  const superDeliciouesData = recipes.slice(0, 6);
+
   return (
     <section className="mb-20 max-lg:mb-16">
       <div className="custom-container">
