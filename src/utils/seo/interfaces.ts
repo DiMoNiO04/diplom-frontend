@@ -1,23 +1,22 @@
 interface IOpenGraph {
   title: string;
   description: string;
-  url: string;
-  type: string;
+  url?: string;
+  type?: string;
 }
 
 interface ISEO {
   metaTitle: string;
   metaDescription: string;
-  keywords: string;
-  metaRobots: string | null;
   canonicalURL: string | null;
-  structuredData: string | null;
-  metaImage: {
+  openGraph: IOpenGraph;
+  keywords?: string;
+  metaRobots?: string | null;
+  metaImage?: {
     url: string;
     width: number;
     height: number;
   } | null;
-  openGraph: IOpenGraph;
 }
 
 export type { IOpenGraph, ISEO };

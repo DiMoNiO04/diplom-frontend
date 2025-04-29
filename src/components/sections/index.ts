@@ -5,6 +5,7 @@ import { CategoriesAll } from './CategoriesAll';
 import { CategoriesMain } from './CategoriesMain';
 import { CollectionsAll } from './CollectionsAll';
 import { CuratedCollections } from './CuratedCollections';
+import { DeliciousRecipes } from './DeliciousRecipes';
 import { Editecipe } from './EditRecipe';
 import { EmailNewsletter } from './EmailNewsletter';
 import { FavoritesContent } from './FavoritesContent';
@@ -23,7 +24,6 @@ import { RecipeTopInfo } from './RecipeTopInfo';
 import { SearchResults } from './SearchResults';
 import { ShareYourRecipe } from './ShareYourRecipe';
 import { SimpleRecipes } from './SimpleRecipes';
-import { SuperDelicioues } from './SuperDelicioues';
 import { TalentTeam } from './TalentTeam';
 
 export {
@@ -34,6 +34,7 @@ export {
   CategoriesMain,
   CollectionsAll,
   CuratedCollections,
+  DeliciousRecipes,
   Editecipe,
   EmailNewsletter,
   FavoritesContent,
@@ -52,6 +53,5 @@ export {
   SearchResults,
   ShareYourRecipe,
   SimpleRecipes,
-  SuperDelicioues,
   TalentTeam,
 };

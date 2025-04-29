@@ -1,11 +1,4 @@
-import {
-  CardCategory,
-  CardCollection,
-  CardMyRecipe,
-  CardRecipe,
-  CardSuperdelicious,
-  CardTeam,
-} from '@/components/cards';
+import { CardCategory, CardCollection, CardDelicious, CardMyRecipe, CardRecipe, CardTeam } from '@/components/cards';
 import { NothingMsg } from '@/components/ui';
 import { ICategory, ICollection, IRecipe, IUser } from '@/utils/interfaces';
 
@@ -16,7 +9,7 @@ interface ICardsItems<T> {
 }
 
 interface ICardsItemsProps<T> extends ICardsItems<T> {
-  type: 'category' | 'collection' | 'recipe' | 'favorites' | 'myRecipes' | 'categoryMain' | 'superDelicious' | 'team';
+  type: 'category' | 'collection' | 'recipe' | 'favorites' | 'myRecipes' | 'categoryMain' | 'deliciousRecipes' | 'team';
 }
 
 export const CardsItems = <T extends ICategory | ICollection | IRecipe | IUser>({
@@ -41,8 +34,8 @@ export const CardsItems = <T extends ICategory | ICollection | IRecipe | IUser>(
         return <CardRecipe {...(card as IRecipe)} />;
       case 'myRecipes':
         return <CardMyRecipe {...(card as IRecipe)} />;
-      case 'superDelicious':
-        return <CardSuperdelicious {...(card as IRecipe)} />;
+      case 'deliciousRecipes':
+        return <CardDelicious {...(card as IRecipe)} />;
       case 'team':
         return <CardTeam {...(card as IUser)} />;
       default:

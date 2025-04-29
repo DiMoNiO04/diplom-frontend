@@ -8,7 +8,7 @@ import { EUrls } from '@/utils/urls';
 import { RecipeRating } from '../blocks/recipe';
 import { IconUser } from '../icons';
 
-export const CardSuperdelicious = ({ documentId, title, img, createdAt, user }: IRecipe) => {
+export const CardDelicious = ({ documentId, title, img, createdAt, user }: IRecipe) => {
   const linkUrlRecipe: string = `${EUrls.RECIPES}/${documentId}`;
 
   return (
