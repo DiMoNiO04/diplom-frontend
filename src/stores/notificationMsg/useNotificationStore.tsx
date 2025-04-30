@@ -15,7 +15,7 @@ const initialState: TNotificationState = {
 export const useNotificationStore = create<TNotificationStore>()(
   devtools((set) => ({
     ...initialState,
-    showNotification: (text, icon = '/img/icons/success.svg') => {
+    showNotification: (text, icon = '/icons/success.svg') => {
       clearTimeout(timeoutId);
       set({ isShow: true, text, icon }, false, 'Notification/showNotification');
       timeoutId = setTimeout(() => {

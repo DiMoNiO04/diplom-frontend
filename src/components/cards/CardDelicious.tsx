@@ -1,10 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { getImageUrl } from '@/utils/functions';
+import { getDate, getImageUrl } from '@/utils/functions';
 import { IRecipe } from '@/utils/interfaces';
 import { EUrls } from '@/utils/urls';
 
+import { CardNewInfo } from '../blocks';
 import { RecipeRating } from '../blocks/recipe';
 import { IconUser } from '../icons';
 
@@ -12,7 +13,11 @@ export const CardDelicious = ({ documentId, title, img, createdAt, user }: IReci
   const linkUrlRecipe: string = `${EUrls.RECIPES}/${documentId}`;
 
   return (
-    <Link href={linkUrlRecipe} className="flex flex-col rounded-xl border group overflow-hidden shadow-customLight">
+    <Link
+      href={linkUrlRecipe}
+      className="flex flex-col rounded-xl border group overflow-hidden shadow-customLight relative"
+    >
+      <CardNewInfo createdAt={createdAt} />
       <div className="w-full aspect-[450/280] overflow-hidden transition-transform duration-300 group-hover:scale-105 ">
         <Image src={getImageUrl(img[0].url)} alt="" width={450} height={280} className="size-full object-cover" />
       </div>
@@ -54,8 +59,8 @@ export const CardDelicious = ({ documentId, title, img, createdAt, user }: IReci
         </div>
         <div className="flex justify-end gap-8">
           <div className="flex items-center gap-2">
-            <img src="/img/icons/calendar.svg" alt="" width={20} height={20} />
-            <div className="text-sm italic text-greyLight">{new Date(createdAt).toLocaleDateString()}</div>
+            <img src="/icons/calendar.svg" alt="" width={20} height={20} />
+            <div className="text-sm italic text-greyLight">{getDate(createdAt)}</div>
           </div>
         </div>
       </div>

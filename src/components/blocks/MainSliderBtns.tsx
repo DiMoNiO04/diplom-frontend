@@ -17,10 +17,10 @@ export const MainSliderBtns = () => {
     `}
     >
       <button className={clsx('prevButtonSlider', STYLES.btn)}>
-        <img src={'/img/icons/arrowLeft.svg'} alt="" width={32} height={32} />
+        <img src={'/icons/arrowLeft.svg'} alt="" width={32} height={32} />
       </button>
       <button className={clsx('nextButtonSlider', STYLES.btn)}>
-        <img src={'/img/icons/arrowRight.svg'} alt="" width={32} height={32} />
+        <img src={'/icons/arrowRight.svg'} alt="" width={32} height={32} />
       </button>
     </div>
   );

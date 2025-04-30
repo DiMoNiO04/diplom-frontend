@@ -1,3 +1,4 @@
+import { CardNewInfo } from './CardNewInfo';
 import { CardsItems } from './CardsItems';
 import { FormInfoNote } from './FormInfoNote';
 import { ImageUpload } from './ImageUpload';
@@ -9,6 +10,7 @@ import { SearchInputBlock } from './SearchInputBlock';
 import { TitleSectionBlock } from './TitleSectionBlock';
 
 export {
+  CardNewInfo,
   CardsItems,
   FormInfoNote,
   ImageUpload,

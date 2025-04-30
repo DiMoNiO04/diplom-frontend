@@ -9,7 +9,7 @@ const SITE_LOGO: string = `${STRAPI_URL}/uploads/favicon_b82e379c34.jpg`;
 
 const BREAKPOINT_MOB: number = 1024;
 
-const ERROR_ICON: string = '/img/icons/error.svg';
+const ERROR_ICON: string = '/icons/error.svg';
 
 const protectedPaths = [`${EUrls.PROFILE}/`, `${EUrls.RECIPES}/new/`, `${EUrls.RECIPES}/edit/`];
 

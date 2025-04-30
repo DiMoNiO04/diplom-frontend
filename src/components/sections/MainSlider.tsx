@@ -55,7 +55,7 @@ export const MainSlider = ({ recipes }: IRecipesProps) => {
                   )}
                 >
                   <div className="flex items-start justify-start gap-2 max-w-[700px] mb-1">
-                    <img src="/img/icons/trendingUp.svg" alt="" width={20} height={20} />
+                    <img src="/icons/trendingUp.svg" alt="" width={20} height={20} />
                     <span className="text-white text-lg italic max-lg:text-base">{description}</span>
                   </div>
                   {index === 0 ? (

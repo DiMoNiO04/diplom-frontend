@@ -58,11 +58,23 @@ const getFailedMsg = (message: string): string => {
 const getSortedRecipesForCreated = (cards: IRecipe[]) =>
   cards.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
 
+const isNewRecipe = (createdAt: string) => {
+  const createdDate = new Date(createdAt);
+  const now = new Date();
+  const diffInMs = now.getTime() - createdDate.getTime();
+  const threeDaysInMs = 2 * 24 * 60 * 60 * 1000;
+  return diffInMs < threeDaysInMs;
+};
+
+const getDate = (date: string) => new Date(date).toLocaleDateString();
+
 export {
+  getDate,
   getFailedMsg,
   getImageUrl,
   getSimilarRecipes,
   getSortedRecipesForCreated,
   getTrimmedPathname,
+  isNewRecipe,
   splitBySemicolon,
 };
