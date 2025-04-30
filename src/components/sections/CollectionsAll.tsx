@@ -3,18 +3,18 @@
 import { ChangeEvent, useState } from 'react';
 
 import { useDebounce } from '@/hooks';
-import { ICollection, IHeaderSearchBlockPage } from '@/utils/interfaces';
+import { ICollection } from '@/utils/interfaces';
 
 import { CardsItems, LoadMoreCollections, SearchHeaderBlock } from '../blocks';
 
 const RECIPES_PER_PAGE: number = 18;
 const DELAY_DEBOUNCE: number = 300;
 
-interface ICollectionsAllProps extends IHeaderSearchBlockPage {
+interface ICollectionsAllProps {
   cards: ICollection[];
 }
 
-export const CollectionsAll = ({ title, search, nothingText, cards }: ICollectionsAllProps) => {
+export const CollectionsAll = ({ cards }: ICollectionsAllProps) => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const { debouncedValue } = useDebounce({ value: searchQuery, delay: DELAY_DEBOUNCE });
 
@@ -31,14 +31,14 @@ export const CollectionsAll = ({ title, search, nothingText, cards }: ICollectio
     <section className="my-20 max-lg:my-16">
       <div className="custom-container">
         <SearchHeaderBlock
-          title={title}
-          placeholder={search}
+          title={'Коллекции'}
+          placeholder={'Поиск коллекций...'}
           value={searchQuery}
           isVisibleSearch={cards.length > 0}
           onChange={handleSearchChange}
           onClear={handleClearSearch}
         />
-        <CardsItems type="collection" cards={initialCollections} nothingMsg={nothingText} />
+        <CardsItems type="collection" cards={initialCollections} nothingMsg={'Коллекций не найдено!'} />
         <LoadMoreCollections remainingCards={remainingCollections} perPage={RECIPES_PER_PAGE} />
       </div>
     </section>

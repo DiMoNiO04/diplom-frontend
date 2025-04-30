@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 import { ESortRecipes, sortRecipes } from '@/data';
 import { useSortRecipes } from '@/hooks';
-import { IHeaderSearchBlockPage, IRecipe } from '@/utils/interfaces';
+import { IRecipe } from '@/utils/interfaces';
 
 import { CardsItems, LoadMoreRecipes } from '../blocks';
 import { Title } from '../ui';
@@ -12,12 +12,12 @@ import { Select } from '../ui/selects';
 
 const RECIPES_PER_PAGE: number = 16;
 
-interface IRecipesContentProps extends IHeaderSearchBlockPage {
+interface IRecipesContentProps {
   recipes: IRecipe[];
   description?: string;
 }
 
-export const RecipesContent = ({ recipes, description, title, nothingText }: IRecipesContentProps) => {
+export const RecipesContent = ({ recipes, description }: IRecipesContentProps) => {
   const hasRecipes: boolean = recipes && recipes.length > 0;
   const { sortedRecipes, selectedSortOption, onChangeSelect } = useSortRecipes(
     recipes,
@@ -38,7 +38,7 @@ export const RecipesContent = ({ recipes, description, title, nothingText }: IRe
         >
           <div className="flex flex-col gap-2 max-w-3xl">
             <div className="flex items-end gap-4 max-lg:flex-col max-lg:items-start">
-              <Title title={title} />
+              <Title title={'Рецепты'} />
               <div className="font-onest italic text-sm flex-shrink-0 text-balance">
                 {hasRecipes ? `${recipes.length} рецепта(-ов)` : '0 рецептов'}
               </div>
@@ -54,7 +54,7 @@ export const RecipesContent = ({ recipes, description, title, nothingText }: IRe
             />
           )}
         </div>
-        <CardsItems type="recipe" cards={initialRecipes} nothingMsg={nothingText || 'Рецептов не найдено!'} />
+        <CardsItems type="recipe" cards={initialRecipes} nothingMsg={'Рецептов не найдено!'} />
         <LoadMoreRecipes remainingCards={remainingRecipes} perPage={RECIPES_PER_PAGE} />
       </div>
     </section>

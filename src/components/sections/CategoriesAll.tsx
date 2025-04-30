@@ -3,17 +3,17 @@
 import { ChangeEvent, useState } from 'react';
 
 import { useDebounce } from '@/hooks';
-import { ICategory, IHeaderSearchBlockPage } from '@/utils/interfaces';
+import { ICategory } from '@/utils/interfaces';
 
 import { CardsItems, SearchHeaderBlock } from '../blocks';
 
-interface ICategoriesAllProps extends IHeaderSearchBlockPage {
+interface ICategoriesAllProps {
   cards: ICategory[];
 }
 
 const DELAY_DEBOUNCE: number = 300;
 
-export const CategoriesAll = ({ title, cards, search, nothingText }: ICategoriesAllProps) => {
+export const CategoriesAll = ({ cards }: ICategoriesAllProps) => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const { debouncedValue } = useDebounce({ value: searchQuery, delay: DELAY_DEBOUNCE });
 
@@ -28,14 +28,14 @@ export const CategoriesAll = ({ title, cards, search, nothingText }: ICategories
     <section className="my-20 max-lg:my-16">
       <div className="custom-container">
         <SearchHeaderBlock
-          title={title}
-          placeholder={search}
+          title={'Категории'}
+          placeholder={'Поиск категорий...'}
           value={searchQuery}
           isVisibleSearch={cards.length > 0}
           onChange={handleSearchChange}
           onClear={handleClearSearch}
         />
-        <CardsItems type="category" cards={filteredCategories} nothingMsg={nothingText} />
+        <CardsItems type="category" cards={filteredCategories} nothingMsg={'Категорий не найдено!'} />
       </div>
     </section>
   );

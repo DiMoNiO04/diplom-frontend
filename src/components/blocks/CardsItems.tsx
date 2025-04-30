@@ -52,7 +52,7 @@ export const CardsItems = <T extends ICategory | ICollection | IRecipe | IUser>(
     recipe: 'grid-cols-4 max-md:grid-cols-2',
     favorites: 'grid-cols-3 max-lg:grid-cols-2',
     myRecipes: 'grid-cols-3 max-lg:grid-cols-2',
-    superDelicious: 'grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1',
+    deliciousRecipes: 'grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1',
     team: 'grid-cols-6 max-lg:grid-cols-4 max-sm:grid-cols-2',
   };
 

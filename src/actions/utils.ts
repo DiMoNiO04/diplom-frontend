@@ -5,23 +5,20 @@ const REVALIDATE_DAY_TIME: number = 86400;
 
 const API_PRIVACY_POLICY: string = `${API_URL}/privacy-policy-page`;
 const API_ABOUT_PAGE: string = `${API_URL}/about-page`;
-const API_CATEGORIES_PAGE: string = `${API_URL}/categories-page`;
-const API_COLLECTIONS_PAGE: string = `${API_URL}/collections-page`;
 const API_CATEGORIES: string = `${API_URL}/categories`;
-const API_RECIPES: string = `${API_URL}/recipes`;
-const API_RECIPES_PAGE: string = `${API_URL}/recipes-page`;
-const API_COLLECTIONS: string = `${API_URL}/collections`;
 const API_CATEGORY = (slug: string) => `${API_URL}/categories/${slug}`;
-const API_COLLECTION = (slug: string) => `${API_URL}/collections/${slug}`;
+const API_RECIPES: string = `${API_URL}/recipes`;
 const API_RECIPE = (slug: string) => `${API_URL}/recipes/${slug}`;
+const API_COLLECTIONS: string = `${API_URL}/collections`;
+const API_COLLECTION = (slug: string) => `${API_URL}/collections/${slug}`;
 const API_REGISTER_USER: string = `${API_URL}/auth/local/register`;
 const API_LOGIN: string = `${API_URL}/auth/local`;
 const API_RESET_PASSWORD: string = `${API_URL}/auth/reset-password`;
 const API_FORGOT_PASSWORD: string = `${API_URL}/auth/forgot-password`;
+const API_CHANGE_PASSWORD: string = `${API_URL}/auth/change-password`;
 const API_USER_INFO: string = `${API_URL}/users/me?populate=*`;
 const API_USERS: string = `${API_URL}/users/`;
 const API_USERS_TEAM: string = `${API_URL}/users?fields[0]=id&fields[1]=documentId&fields[2]=username&fields[3]=firstName&fields[4]=lastName&fields[5]=patronymic&populate[avatar][fields][0]=url&populate[avatar][fields][1]=alternativeText&populate[avatar][fields][2]=width&populate[avatar][fields][3]=height&populate[avatar][fields][4]=id`;
-const API_CHANGE_PASSWORD: string = `${API_URL}/auth/change-password`;
 const API_UPLOAD_FILE: string = `${API_URL}/upload`;
 const API_DELETE_FILE = (fileId: string) => `${API_URL}/upload/files/${fileId}`;
 
@@ -58,19 +55,16 @@ export type EMsgActions = (typeof EMsgActions)[keyof typeof EMsgActions];
 export {
   API_ABOUT_PAGE,
   API_CATEGORIES,
-  API_CATEGORIES_PAGE,
   API_CATEGORY,
   API_CHANGE_PASSWORD,
   API_COLLECTION,
   API_COLLECTIONS,
-  API_COLLECTIONS_PAGE,
   API_DELETE_FILE,
   API_FORGOT_PASSWORD,
   API_LOGIN,
   API_PRIVACY_POLICY,
   API_RECIPE,
   API_RECIPES,
-  API_RECIPES_PAGE,
   API_REGISTER_USER,
   API_RESET_PASSWORD,
   API_UPLOAD_FILE,

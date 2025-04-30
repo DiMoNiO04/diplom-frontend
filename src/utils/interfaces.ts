@@ -127,12 +127,6 @@ interface ITitleWithTexts {
   texts: IText[];
 }
 
-interface IHeaderSearchBlockPage {
-  title: string;
-  search?: string;
-  nothingText?: string;
-}
-
 interface IRecipesProps {
   recipes: IRecipe[];
 }
@@ -144,7 +138,6 @@ export type {
   ICategory,
   ICollection,
   IHeaderMenuProps,
-  IHeaderSearchBlockPage,
   IIcon,
   IImage,
   ILink,
