@@ -11,12 +11,14 @@
     "lint:fix": "eslint ./src --fix",
     "prettier": "prettier ./src --write",
     "prepare": "husky install",
-    "format": "npm run prettier && npm run lint:fix"
+    "format": "npm run prettier && npm run lint:fix",
+    "postbuild": "next-sitemap --config next-sitemap.config.cjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
     "js-cookie": "^3.0.5",
     "next": "15.2.3",
+    "next-sitemap": "^4.2.3",
     "postcss": "^8.5.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
