@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 
 import { apiGetUserInfo } from '@/actions/user';
 import { ProfileContent } from '@/components/sections';
+import { Breadcrumbs } from '@/components/ui';
+import { breadcrumbsProfilePage } from '@/utils/breadcrumbs';
 import { createMetadata, ISEO } from '@/utils/seo';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -11,7 +13,6 @@ export async function generateMetadata(): Promise<Metadata> {
     keywords: 'личный кабинет, профиль, аккаунт, пользователь',
     metaRobots: null,
     canonicalURL: `profile`,
-    structuredData: null,
     metaImage: null,
     openGraph: {
       title: 'Личный кабинет | YummyNom',
@@ -27,5 +28,10 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function ProfilePage() {
   const dataUser = await apiGetUserInfo();
 
-  return <ProfileContent {...dataUser} />;
+  return (
+    <>
+      <Breadcrumbs breadcrumbs={breadcrumbsProfilePage} />
+      <ProfileContent {...dataUser} />;
+    </>
+  );
 }

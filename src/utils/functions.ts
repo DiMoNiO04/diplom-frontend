@@ -1,9 +1,9 @@
-import { notFound } from 'next/navigation';
-
 import { EMsgActions } from '@/actions/utils';
 import { ICategory, IRecipe } from '@/utils/interfaces';
 
 import { STRAPI_URL } from './consts';
+
+const PER_PAGE_RECIPES = 4;
 
 const splitBySemicolon = (text: string) =>
   text
@@ -13,14 +13,6 @@ const splitBySemicolon = (text: string) =>
 
 const getTrimmedPathname = (pathname: string) => (pathname.endsWith('/') ? pathname.slice(0, -1) : pathname);
 const getImageUrl = (url: string) => `${STRAPI_URL}${url}`;
-
-async function fetchByKey<T>(dataArray: T[], key: keyof T, value: string): Promise<T> {
-  const item = dataArray.find((entry) => String(entry[key]) === value);
-  if (!item) notFound();
-  return item;
-}
-
-const PER_PAGE_RECIPES = 4;
 
 const getSimilarRecipes = (recipes: IRecipe[], idRecipe: string, categories: ICategory[]): IRecipe[] => {
   const recipeCategories = categories.map((category) => category.slug);
@@ -67,7 +59,6 @@ const getSortedRecipesForCreated = (cards: IRecipe[]) =>
   cards.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
 
 export {
-  fetchByKey,
   getFailedMsg,
   getImageUrl,
   getSimilarRecipes,

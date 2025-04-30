@@ -28,7 +28,7 @@ export const CollectionsAll = ({ cards }: ICollectionsAllProps) => {
   const remainingCollections = filteredCollections.slice(RECIPES_PER_PAGE);
 
   return (
-    <section className="my-20 max-lg:my-16">
+    <section className="my-12 mb-20 max-lg:mb-16 max-lg:my-12">
       <div className="custom-container">
         <SearchHeaderBlock
           title={'Коллекции'}

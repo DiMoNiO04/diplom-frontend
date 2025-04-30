@@ -29,7 +29,7 @@ export const RecipeTopInfo = ({
   percentMakeAgain = 90,
 }: IRecipeTopInfoProps) => {
   return (
-    <section className="mt-20 mb-12 max-md:mt-12">
+    <section className="my-12 mb-20 max-lg:mb-16 max-lg:my-12">
       <div className="custom-container">
         <div className="flex justify-between items-center gap-x-8 relative mb-2">
           {percentMakeAgain && (

@@ -9,6 +9,8 @@ import {
   SimpleRecipes,
   TalentTeam,
 } from '@/components/sections';
+import { Breadcrumbs } from '@/components/ui';
+import { breadcrumbsAboutPage } from '@/utils/breadcrumbs';
 import { createMetadata } from '@/utils/seo';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -21,6 +23,7 @@ export default async function AboutPage() {
 
   return (
     <>
+      <Breadcrumbs breadcrumbs={breadcrumbsAboutPage} />
       <AboutMain mainTitle={title} {...aboutMain} />
       <SimpleRecipes {...simpleRecipes} />
       <ShareYourRecipe />

@@ -14,7 +14,7 @@ export const MyRecipesContent = () => {
   const publishedCards: IRecipe[] = recipesData.filter((card) => card.isPublished === true);
 
   return (
-    <section className="my-20 max-lg:my-16">
+    <section className="my-12 mb-20 max-lg:mb-16 max-lg:my-12">
       <div className="custom-container">
         <div
           className={clsx(

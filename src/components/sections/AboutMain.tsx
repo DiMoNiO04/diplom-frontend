@@ -11,7 +11,7 @@ interface IAboutMain extends ISimpleContent {
 
 export const AboutMain = ({ mainTitle, title, img, texts }: IAboutMain) => {
   return (
-    <section className="my-20 max-lg:my-16">
+    <section className="my-12 mb-20 max-lg:mb-16 max-lg:my-12">
       <div className="custom-container">
         <Title title={mainTitle} isBorder />
         <div className="flex flex-col gap-y-10 max-lg:gap-y-8">

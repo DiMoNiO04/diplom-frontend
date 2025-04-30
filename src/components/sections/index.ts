@@ -6,7 +6,7 @@ import { CategoriesMain } from './CategoriesMain';
 import { CollectionsAll } from './CollectionsAll';
 import { CuratedCollections } from './CuratedCollections';
 import { DeliciousRecipes } from './DeliciousRecipes';
-import { Editecipe } from './EditRecipe';
+import { EditRecipe } from './EditRecipe';
 import { EmailNewsletter } from './EmailNewsletter';
 import { FavoritesContent } from './FavoritesContent';
 import { HeaderBlockImage } from './HeaderBlockImage';
@@ -35,7 +35,7 @@ export {
   CollectionsAll,
   CuratedCollections,
   DeliciousRecipes,
-  Editecipe,
+  EditRecipe,
   EmailNewsletter,
   FavoritesContent,
   HeaderBlockImage,

@@ -1,3 +1,4 @@
+import { Breadcrumbs } from './Breadcrumbs';
 import { LinkPrivacy } from './LinkPrivacy';
 import { LinkTitleSection } from './LinkTtitleSection';
 import { Logo } from './Logo';
@@ -7,4 +8,4 @@ import { NotificationMsg } from './NotificationMsg';
 import { TextDef } from './TextDef';
 import { Title } from './Title';
 
-export { LinkPrivacy, LinkTitleSection, Logo, ModalTitle, NothingMsg, NotificationMsg, TextDef, Title };
+export { Breadcrumbs, LinkPrivacy, LinkTitleSection, Logo, ModalTitle, NothingMsg, NotificationMsg, TextDef, Title };

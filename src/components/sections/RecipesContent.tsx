@@ -15,9 +15,10 @@ const RECIPES_PER_PAGE: number = 16;
 interface IRecipesContentProps {
   recipes: IRecipe[];
   description?: string;
+  title: string;
 }
 
-export const RecipesContent = ({ recipes, description }: IRecipesContentProps) => {
+export const RecipesContent = ({ recipes, description, title }: IRecipesContentProps) => {
   const hasRecipes: boolean = recipes && recipes.length > 0;
   const { sortedRecipes, selectedSortOption, onChangeSelect } = useSortRecipes(
     recipes,
@@ -28,7 +29,7 @@ export const RecipesContent = ({ recipes, description }: IRecipesContentProps) =
   const remainingRecipes = hasRecipes ? sortedRecipes.slice(RECIPES_PER_PAGE) : [];
 
   return (
-    <section className="my-20 max-lg:my-16">
+    <section className="my-12 max-lg:mи-10">
       <div className="custom-container">
         <div
           className={clsx(
@@ -38,7 +39,7 @@ export const RecipesContent = ({ recipes, description }: IRecipesContentProps) =
         >
           <div className="flex flex-col gap-2 max-w-3xl">
             <div className="flex items-end gap-4 max-lg:flex-col max-lg:items-start">
-              <Title title={'Рецепты'} />
+              <Title title={title} />
               <div className="font-onest italic text-sm flex-shrink-0 text-balance">
                 {hasRecipes ? `${recipes.length} рецепта(-ов)` : '0 рецептов'}
               </div>

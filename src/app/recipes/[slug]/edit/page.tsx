@@ -1,10 +1,18 @@
-import { Editecipe } from '@/components/sections';
-import { recipesData } from '@/data';
-import { fetchByKey } from '@/utils/functions';
+import { apiGetRecipe } from '@/actions/recipes';
+import { EditRecipe } from '@/components/sections';
+import { Breadcrumbs } from '@/components/ui';
+import { getEditRecipeBreadcrumbs } from '@/utils/breadcrumbs';
 import { IPageSlugProps, IRecipe } from '@/utils/interfaces';
 
 export default async function EditRecipePage({ params }: IPageSlugProps) {
-  const recipe: IRecipe = await fetchByKey(recipesData, 'id', (await params).slug);
+  const recipe: IRecipe = await apiGetRecipe((await params).slug);
 
-  return <Editecipe {...recipe} />;
+  const breadcrumbs = getEditRecipeBreadcrumbs(recipe.title, recipe.documentId);
+
+  return (
+    <>
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
+      <EditRecipe {...recipe} />
+    </>
+  );
 }
