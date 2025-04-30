@@ -95,4 +95,25 @@ const seoRecipesPage = (): ISEO => {
   return seoData;
 };
 
-export { seoCategoriesPage, seoCollectionsPage, seoMainPage, seoRecipesPage };
+const seoSearchPage = (): ISEO => {
+  const seoDataTitle: string = 'Результаты поиска | YummyNom';
+  const seoDataDescription: string = 'Найдите рецепты на нашем кулинарном блоге по любому запросу.';
+  const seoUrl = 'search/';
+
+  const seoData = {
+    metaTitle: seoDataTitle,
+    metaDescription: seoDataDescription,
+    canonicalURL: seoUrl,
+    keywords: 'рецепты',
+    metaRobots: 'index, follow',
+    openGraph: {
+      title: seoDataTitle,
+      description: seoDataDescription,
+      url: seoUrl,
+    },
+  };
+
+  return seoData;
+};
+
+export { seoCategoriesPage, seoCollectionsPage, seoMainPage, seoRecipesPage, seoSearchPage };

@@ -5,12 +5,13 @@ import { useState } from 'react';
 
 import { useBodyScrollBLock, useHeader, useIsMobile } from '@/hooks';
 import { BREAKPOINT_MOB } from '@/utils/consts';
+import { IRecipesProps } from '@/utils/interfaces';
 
 import { HeaderMenu, HeaderSearch, HeaderUserProfile } from '../blocks/header';
 import { Logo } from '../ui';
 import { BtnBurger } from '../ui/btns';
 
-export const Header = () => {
+export const Header = ({ recipes }: IRecipesProps) => {
   const { isScrolled } = useHeader();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const isMobile = useIsMobile(BREAKPOINT_MOB);
@@ -36,7 +37,7 @@ export const Header = () => {
           <Logo />
           <HeaderMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
           <div className="flex items-center justify-between gap-8 max-lg:gap-5">
-            <HeaderSearch />
+            <HeaderSearch recipes={recipes} />
             <HeaderUserProfile />
             <BtnBurger isOpen={isMenuOpen} toggleMenu={toggleMenu} />
           </div>

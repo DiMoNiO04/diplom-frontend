@@ -1,33 +1,31 @@
 import clsx from 'clsx';
-import { ChangeEvent, MouseEvent, useState } from 'react';
+import { MouseEvent } from 'react';
 
 import { CardSearchPanel } from '@/components/cards';
 import { IconClose } from '@/components/icons';
 import { NothingMsg } from '@/components/ui';
 import { Button } from '@/components/ui/btns';
-import { recipesData } from '@/data';
-import { useDebounce } from '@/hooks';
-import { IRecipe } from '@/utils/interfaces';
+import { useSearch } from '@/hooks';
+import { IRecipe, IRecipesProps } from '@/utils/interfaces';
 import { EUrls } from '@/utils/urls';
 
-interface IHeaderSearchPanelProps {
+const PER_VISIBLE_RESULT = 16;
+
+interface IHeaderSearchPanelProps extends IRecipesProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const DELAY_DEBOUNCE: number = 300;
-const PER_VISIBLE_RESULT: number = 16;
+export const HeaderSearchPanel = ({ isOpen, onClose, recipes }: IHeaderSearchPanelProps) => {
+  const { searchQuery, filteredData, handleSearchChange } = useSearch<IRecipe>({
+    data: recipes,
+    filterKey: 'title',
+  });
 
-export const HeaderSearchPanel = ({ isOpen, onClose }: IHeaderSearchPanelProps) => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const { debouncedValue } = useDebounce({ value: searchQuery, delay: DELAY_DEBOUNCE });
-
-  const handleSearchInputChange = (event: ChangeEvent<HTMLInputElement>) => setSearchQuery(event.target.value);
-
-  const visibleSearchResult: IRecipe[] = recipesData.slice(0, PER_VISIBLE_RESULT);
-  const hasSearchResult: boolean = recipesData.length > 0;
-  const hasVisibleMoreBtn: boolean = hasSearchResult && recipesData.length > visibleSearchResult.length;
-  const linkUrl: string = debouncedValue ? `${EUrls.SEARCH}?query=${debouncedValue}` : `${EUrls.SEARCH}`;
+  const visibleSearchResult: IRecipe[] = filteredData.slice(0, PER_VISIBLE_RESULT);
+  const hasSearchResult: boolean = filteredData.length > 0;
+  const hasVisibleMoreBtn: boolean = hasSearchResult && filteredData.length > PER_VISIBLE_RESULT;
+  const linkUrl: string = searchQuery ? `${EUrls.SEARCH}?title=${searchQuery}` : `${EUrls.SEARCH}`;
 
   const handleViewAllClick = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -48,7 +46,7 @@ export const HeaderSearchPanel = ({ isOpen, onClose }: IHeaderSearchPanelProps) 
             type="text"
             placeholder="Поиск рецепта по названию..."
             value={searchQuery}
-            onChange={handleSearchInputChange}
+            onChange={handleSearchChange}
             className="w-full font-unbounded placeholder:font-onest bg-transparent focus:outline-none"
           />
           <button type="button" onClick={onClose} className="size-6 group">
@@ -58,19 +56,19 @@ export const HeaderSearchPanel = ({ isOpen, onClose }: IHeaderSearchPanelProps) 
 
         <div className="flex-1 overflow-y-auto scrollbar-hide">
           {hasSearchResult ? (
-            <div className="grid grid-cols-2 gap-x-8 max-md:grid-cols-1">
+            <div className="grid grid-cols-2 gap-x-8 max-md:grid-cols-1" onClick={onClose}>
               {visibleSearchResult.map((card) => (
                 <CardSearchPanel key={card.id} {...card} />
               ))}
             </div>
           ) : (
-            <NothingMsg title="По данному запросу рецептов не найдено" />
+            <NothingMsg title="По данному запросу рецептов не найдено!" />
           )}
         </div>
 
         {hasVisibleMoreBtn && (
           <div className="mt-6 flex justify-center">
-            <Button size="sm" text={`Посмотреть все ${recipesData.length} результата`} onClick={handleViewAllClick} />
+            <Button size="sm" text={`Посмотреть все ${filteredData.length} результата`} onClick={handleViewAllClick} />
           </div>
         )}
       </div>

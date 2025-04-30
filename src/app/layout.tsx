@@ -3,6 +3,7 @@ import '../styles/index.css';
 import { Onest, Unbounded } from 'next/font/google';
 import { ReactNode } from 'react';
 
+import { apiGetRecipes } from '@/actions/recipes';
 import { Footer, Header, Modals } from '@/components/layouts';
 import { NotificationMsg } from '@/components/ui';
 import { BtnScroll } from '@/components/ui/btns';
@@ -23,16 +24,18 @@ const fontOnest = Onest({
   variable: '--font-onest',
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: ReactNode;
 }>) {
+  const { results: recipes } = await apiGetRecipes();
+
   return (
     <html lang="ru">
       <body className={`${fontUnbounded.variable} ${fontOnest.variable}`}>
         <TokenProvider>
-          <Header />
+          <Header recipes={recipes} />
           <main className="mt-24 max-md:mt-16">{children}</main>
           <Footer />
           <Modals />

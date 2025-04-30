@@ -8,9 +8,20 @@ const SITE_NAME: string = `${process.env.NEXT_PUBLIC_SITE_NAME}` || 'YummyNom';
 const SITE_LOGO: string = `${STRAPI_URL}/uploads/favicon_b82e379c34.jpg`;
 
 const BREAKPOINT_MOB: number = 1024;
+const DELAY_DEBOUNCE: number = 300;
 
 const ERROR_ICON: string = '/icons/error.svg';
 
 const protectedPaths = [`${EUrls.PROFILE}/`, `${EUrls.RECIPES}/new/`, `${EUrls.RECIPES}/edit/`];
 
-export { API_URL, BASE_URL, BREAKPOINT_MOB, ERROR_ICON, protectedPaths, SITE_LOGO, SITE_NAME, STRAPI_URL };
+export {
+  API_URL,
+  BASE_URL,
+  BREAKPOINT_MOB,
+  DELAY_DEBOUNCE,
+  ERROR_ICON,
+  protectedPaths,
+  SITE_LOGO,
+  SITE_NAME,
+  STRAPI_URL,
+};
