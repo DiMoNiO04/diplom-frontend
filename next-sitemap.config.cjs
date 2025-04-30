@@ -34,6 +34,8 @@ module.exports = {
       '/search',
       '/recipes',
       '/collections',
+      '/categories',
+      '/sitemap'
     ].map((path) => ({ loc: path }));
 
     const [recipes, collections, categories] = await Promise.all([

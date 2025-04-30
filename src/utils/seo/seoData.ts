@@ -116,4 +116,28 @@ const seoSearchPage = (): ISEO => {
   return seoData;
 };
 
-export { seoCategoriesPage, seoCollectionsPage, seoMainPage, seoRecipesPage, seoSearchPage };
+const seoSitemapPage = (): ISEO => {
+  const seoDataTitle: string = 'Карта сайта | YummyNom';
+  const seoDataDescription: string = `
+    Посмотрите полную карту сайта YummyNom, чтобы легко найти рецепты, коллекции и категории.
+    Удобный доступ ко всем разделам для удобства навигации.
+  `;
+  const seoUrl: string = 'sitemap/';
+
+  const seoData = {
+    metaTitle: seoDataTitle,
+    metaDescription: seoDataDescription,
+    canonicalURL: seoUrl,
+    keywords: 'карта сайта, навигация, рецепты, коллекции, категории',
+    metaRobots: 'index, follow',
+    openGraph: {
+      title: seoDataTitle,
+      description: seoDataDescription,
+      url: seoUrl,
+    },
+  };
+
+  return seoData;
+};
+
+export { seoCategoriesPage, seoCollectionsPage, seoMainPage, seoRecipesPage, seoSearchPage, seoSitemapPage };

@@ -6,6 +6,8 @@
 <url><loc>http://localhost:3000/search/</loc></url>
 <url><loc>http://localhost:3000/recipes/</loc></url>
 <url><loc>http://localhost:3000/collections/</loc></url>
+<url><loc>http://localhost:3000/categories/</loc></url>
+<url><loc>http://localhost:3000/sitemap/</loc></url>
 <url><loc>http://localhost:3000/recipes/ezm2iw1gh7991xjmf56xux8m/</loc></url>
 <url><loc>http://localhost:3000/recipes/rbw0d7s8ywo0rizb5n24ektf/</loc></url>
 <url><loc>http://localhost:3000/recipes/bex5bmg77qb23bc3dgdcmcp7/</loc></url>

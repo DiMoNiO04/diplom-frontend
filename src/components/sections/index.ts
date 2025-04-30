@@ -24,6 +24,7 @@ import { RecipeTopInfo } from './RecipeTopInfo';
 import { SearchResults } from './SearchResults';
 import { ShareYourRecipe } from './ShareYourRecipe';
 import { SimpleRecipes } from './SimpleRecipes';
+import { SitemapContent } from './SitemapContent';
 import { TalentTeam } from './TalentTeam';
 
 export {
@@ -53,5 +54,6 @@ export {
   SearchResults,
   ShareYourRecipe,
   SimpleRecipes,
+  SitemapContent,
   TalentTeam,
 };
