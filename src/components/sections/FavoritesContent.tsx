@@ -1,6 +1,5 @@
 'use client';
 
-import { recipesData } from '@/data';
 import { useConfirmModalStore } from '@/stores/confirmModal';
 import { useNotificationStore } from '@/stores/notificationMsg';
 
@@ -11,6 +10,7 @@ import { Title } from '../ui';
 import { Button } from '../ui/btns';
 
 export const FavoritesContent = () => {
+  const recipesData = [];
   const hasFavorites = recipesData && recipesData.length > 0;
 
   const { openModal } = useConfirmModalStore();

@@ -26,7 +26,7 @@ export const MyRecipesContent = async () => {
 
         <div className="grid grid-cols-[3fr_1.2fr] gap-16 relative max-md:grid-cols-1 max-md:gap-12 max-lg:gap-8">
           <div className="flex-shrink-0 max-md:order-1">
-            <CardsItems cards={recipes} type={'myRecipes'} nothingMsg={'У вас нет добавленных рецептов!'} />
+            <CardsItems cards={recipes} type={'myRecipes'} nothingMsg={'У вас нет созданных рецептов!'} />
           </div>
           <ProfileAsideMenu />
         </div>

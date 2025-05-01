@@ -1,7 +1,5 @@
 import { ICategory } from '@/utils/interfaces';
 
-import { recipesData } from './recipes';
-
 export const categoriesData: ICategory[] = [
   {
     slug: 'soup',
@@ -15,7 +13,7 @@ export const categoriesData: ICategory[] = [
     },
     fullImage: '/img/templates/category.webp',
     description: 'Вкусные и сытные супы на любой вкус: крем-супы, борщи, бульоны и многое другое.',
-    recipes: recipesData,
+    recipes: [],
   },
   {
     slug: 'pancakes',
@@ -29,7 +27,7 @@ export const categoriesData: ICategory[] = [
     },
     fullImage: '/img/templates/category.webp',
     description: 'Золотистые блины и оладьи с разнообразными начинками и соусами.',
-    recipes: recipesData,
+    recipes: [],
   },
   {
     slug: 'meat',
@@ -43,7 +41,7 @@ export const categoriesData: ICategory[] = [
     },
     fullImage: '/img/templates/category.webp',
     description: 'Рецепты сочных мясных блюд: стейки, гуляш, запеченное и жареное мясо.',
-    recipes: recipesData,
+    recipes: [],
   },
   {
     slug: 'chicken',
@@ -57,7 +55,7 @@ export const categoriesData: ICategory[] = [
     },
     fullImage: '/img/templates/category.webp',
     description: 'Лучшие блюда из курицы: запеченная, жареная, тушеная курица и многое другое.',
-    recipes: recipesData,
+    recipes: [],
   },
   {
     slug: 'pasta',
@@ -71,7 +69,7 @@ export const categoriesData: ICategory[] = [
     },
     fullImage: '/img/templates/category.webp',
     description: 'Аутентичные итальянские рецепты пасты с различными соусами.',
-    recipes: recipesData,
+    recipes: [],
   },
   {
     slug: 'pizza',
@@ -85,7 +83,7 @@ export const categoriesData: ICategory[] = [
     },
     fullImage: '/img/templates/category.webp',
     description: 'Домашние рецепты пиццы с разными видами теста и начинок.',
-    recipes: recipesData,
+    recipes: [],
   },
   {
     slug: 'cake',
@@ -99,7 +97,7 @@ export const categoriesData: ICategory[] = [
     },
     fullImage: '/img/templates/category.webp',
     description: 'Роскошные торты для праздников и особых случаев.',
-    recipes: recipesData,
+    recipes: [],
   },
   {
     slug: 'seafood',
@@ -114,7 +112,7 @@ export const categoriesData: ICategory[] = [
     fullImage: '/img/templates/category.webp',
     description:
       'Блюда из морепродуктов: креветки, мидии, кальмары, осьминоги и другие дары моря. Наслаждайтесь вкусом океана!',
-    recipes: recipesData,
+    recipes: [],
   },
   {
     slug: 'pastries',
@@ -128,7 +126,7 @@ export const categoriesData: ICategory[] = [
     },
     fullImage: '/img/templates/category.webp',
     description: 'Ароматная выпечка: пироги, булочки, печенье и многое другое.',
-    recipes: recipesData,
+    recipes: [],
   },
   {
     slug: 'burger',
@@ -142,7 +140,7 @@ export const categoriesData: ICategory[] = [
     },
     fullImage: '/img/templates/category.webp',
     description: 'Домашние рецепты бургеров, шаурмы, картофеля фри и других блюд быстрого приготовления.',
-    recipes: recipesData,
+    recipes: [],
   },
   {
     slug: 'vegan',
@@ -156,7 +154,7 @@ export const categoriesData: ICategory[] = [
     },
     fullImage: '/img/templates/category.webp',
     description: 'Полностью растительные блюда без продуктов животного происхождения.',
-    recipes: recipesData,
+    recipes: [],
   },
   {
     slug: 'desserts',
@@ -170,7 +168,7 @@ export const categoriesData: ICategory[] = [
     },
     fullImage: '/img/templates/category.webp',
     description: 'Сладкие угощения: торты, пирожные, муссы и многое другое.',
-    recipes: recipesData,
+    recipes: [],
   },
   {
     slug: 'breakfast',
@@ -184,7 +182,7 @@ export const categoriesData: ICategory[] = [
     },
     fullImage: '/img/templates/category.webp',
     description: 'Полезные и вкусные идеи для завтрака: каши, омлеты, тосты и смузи.',
-    recipes: recipesData,
+    recipes: [],
   },
   {
     slug: 'salad',
@@ -198,7 +196,7 @@ export const categoriesData: ICategory[] = [
     },
     fullImage: '/img/templates/category.webp',
     description: 'Свежие и легкие салаты с овощами, мясом, рыбой и заправками.',
-    recipes: recipesData,
+    recipes: [],
   },
   {
     slug: 'sandwiches',
@@ -212,7 +210,7 @@ export const categoriesData: ICategory[] = [
     },
     fullImage: '/img/templates/category.webp',
     description: 'Быстрые и вкусные сэндвичи, панини и бутерброды.',
-    recipes: recipesData,
+    recipes: [],
   },
   {
     slug: 'waffles',
@@ -226,6 +224,6 @@ export const categoriesData: ICategory[] = [
     },
     fullImage: '/img/templates/category.webp',
     description: 'Хрустящие и воздушные вафли с различными начинками и сиропами.',
-    recipes: recipesData,
+    recipes: [],
   },
 ];
