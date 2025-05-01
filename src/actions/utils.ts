@@ -9,6 +9,7 @@ const API_CATEGORIES: string = `${API_URL}/categories`;
 const API_CATEGORY = (slug: string) => `${API_URL}/categories/${slug}`;
 const API_RECIPES: string = `${API_URL}/recipes`;
 const API_RECIPE = (slug: string) => `${API_URL}/recipes/${slug}`;
+const API_MY_RECIPES: string = `${API_URL}/recipes/my`;
 const API_COLLECTIONS: string = `${API_URL}/collections`;
 const API_COLLECTION = (slug: string) => `${API_URL}/collections/${slug}`;
 const API_REGISTER_USER: string = `${API_URL}/auth/local/register`;
@@ -62,6 +63,7 @@ export {
   API_DELETE_FILE,
   API_FORGOT_PASSWORD,
   API_LOGIN,
+  API_MY_RECIPES,
   API_PRIVACY_POLICY,
   API_RECIPE,
   API_RECIPES,

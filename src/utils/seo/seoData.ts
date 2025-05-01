@@ -140,4 +140,57 @@ const seoSitemapPage = (): ISEO => {
   return seoData;
 };
 
-export { seoCategoriesPage, seoCollectionsPage, seoMainPage, seoRecipesPage, seoSearchPage, seoSitemapPage };
+const seoProfilePage = (): ISEO => {
+  const seoDataTitle: string = 'Личный кабинет | YummyNom';
+  const seoDataDescription: string =
+    'Управляйте своими рецептами, коллекциями и настройками профиля в личном кабинете YummyNom.';
+  const seoUrl: string = 'profile/';
+
+  const seoData = {
+    metaTitle: seoDataTitle,
+    metaDescription: seoDataDescription,
+    canonicalURL: seoUrl,
+    keywords: 'личный кабинет, мои рецепты, настройки',
+    metaRobots,
+    openGraph: {
+      title: seoDataTitle,
+      description: seoDataDescription,
+      url: seoUrl,
+    },
+  };
+
+  return seoData;
+};
+
+const seoMyRecipesPage = (): ISEO => {
+  const seoDataTitle: string = 'Мои рецепты | YummyNom';
+  const seoDataDescription: string =
+    'Просматривайте, редактируйте и управляйте своими рецептами. Храните любимые блюда в одном месте и делитесь ими с другими.';
+  const seoUrl: string = 'profile/my-recipes/';
+
+  const seoData = {
+    metaTitle: seoDataTitle,
+    metaDescription: seoDataDescription,
+    canonicalURL: seoUrl,
+    keywords: 'мои рецепты, управление рецептами, личный кабинет',
+    metaRobots,
+    openGraph: {
+      title: seoDataTitle,
+      description: seoDataDescription,
+      url: seoUrl,
+    },
+  };
+
+  return seoData;
+};
+
+export {
+  seoCategoriesPage,
+  seoCollectionsPage,
+  seoMainPage,
+  seoMyRecipesPage,
+  seoProfilePage,
+  seoRecipesPage,
+  seoSearchPage,
+  seoSitemapPage,
+};

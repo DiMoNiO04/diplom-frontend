@@ -7,15 +7,16 @@ import { useRouter } from 'next/navigation';
 
 import { useConfirmModalStore } from '@/stores/confirmModal';
 import { useNotificationStore } from '@/stores/notificationMsg';
+import { getImageUrl } from '@/utils/functions';
 import { IRecipe } from '@/utils/interfaces';
 import { EUrls } from '@/utils/urls';
 
 import { IconDelete, IconEdit } from '../icons';
 
-export const CardMyRecipe = ({ id, title, img, isPublished }: IRecipe) => {
+export const CardMyRecipe = ({ documentId, title, img }: IRecipe) => {
   const router = useRouter();
 
-  const linkUrlRecipe: string = `${EUrls.RECIPES}/${id}`;
+  const linkUrlRecipe: string = `${EUrls.RECIPES}/${documentId}`;
 
   const { openModal } = useConfirmModalStore();
   const { showNotification } = useNotificationStore();
@@ -26,7 +27,7 @@ export const CardMyRecipe = ({ id, title, img, isPublished }: IRecipe) => {
     openModal(`Вы уверены что хотите удалить рецепт "${name}"?`, handleBtnYes);
   };
 
-  const handleEditBtn = () => router.replace(`${EUrls.RECIPES}/${id}/${EUrls.EDIT_RECIPE}`);
+  const handleEditBtn = () => router.replace(`${EUrls.RECIPES}${EUrls.EDIT_RECIPE}/${documentId}/`);
 
   return (
     <div className="flex flex-col gap-2 relative w-fit">
@@ -53,23 +54,14 @@ export const CardMyRecipe = ({ id, title, img, isPublished }: IRecipe) => {
         </button>
       </div>
 
-      {isPublished ? (
-        <Link href={linkUrlRecipe} className="group flex flex-col gap-2 relative w-fit group">
-          <div className="rounded-md overflow-hidden transition-transform duration-300 group-hover:scale-105">
-            <Image src={img[0].url} alt="" width={350} height={265} />
-          </div>
-          <div className="text-lg leading-6 font-medium transition-colors duration-300 group-hover:text-orange">
-            {title}
-          </div>
-        </Link>
-      ) : (
-        <div className="group flex flex-col gap-2 relative w-fit cursor-not-allowed opacity-50">
-          <div className="rounded-md overflow-hidden">
-            <Image src={img[0].url} alt="" width={350} height={265} />
-          </div>
-          <div className="text-lg leading-6 font-medium text-greyDark">{title}</div>
+      <Link href={linkUrlRecipe} className="group flex flex-col gap-2 relative w-fit group">
+        <div className="rounded-md w-full aspect-[350/265] overflow-hidden transition-transform duration-300 group-hover:scale-105">
+          <Image src={getImageUrl(img[0].url)} alt="" width={350} height={265} className="size-full object-cover" />
         </div>
-      )}
+        <div className="text-lg leading-6 font-medium transition-colors duration-300 group-hover:text-orange">
+          {title}
+        </div>
+      </Link>
     </div>
   );
 };
