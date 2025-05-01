@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-import { requiredImgsRecipeSchema, requiredPositiveIntNumSchema, requiredStringSchema } from './common';
+import { requiredPositiveIntNumSchema, requiredStringSchema } from './common';
 
 interface IFormRecipeData {
   title: string;
@@ -9,9 +9,9 @@ interface IFormRecipeData {
   instructions: string;
   cookingTime: number;
   calories: number;
-  img: string[];
-  category: string;
-  collection: string;
+  // img: string[];
+  categories: string[];
+  collections: string[];
 }
 
 const schemaRecipe = yup.object().shape({
@@ -19,11 +19,19 @@ const schemaRecipe = yup.object().shape({
   description: requiredStringSchema,
   cookingTime: requiredPositiveIntNumSchema,
   calories: requiredPositiveIntNumSchema,
-  img: requiredImgsRecipeSchema,
+  // img: requiredImgsRecipeSchema,
   ingredients: requiredStringSchema,
   instructions: requiredStringSchema,
-  category: requiredStringSchema,
-  collection: requiredStringSchema,
+  categories: yup
+    .array()
+    .of(yup.string().required())
+    .min(1, 'Укажите хотя бы одну категорию')
+    .required('Поле обязательно'),
+  collections: yup
+    .array()
+    .of(yup.string().required())
+    .min(1, 'Укажите хотя бы одну коллекцию')
+    .required('Поле обязательно'),
 });
 
 export { schemaRecipe };

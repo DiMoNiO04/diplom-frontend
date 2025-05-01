@@ -2,21 +2,15 @@
 
 import clsx from 'clsx';
 
-import { IconArrowCarretRounded } from '@/components/icons';
+import { IconArrowCarretRounded, IconClose } from '@/components/icons';
 import { useMultiSelect } from '@/hooks/useMultiSelect';
-import { ISelectOption } from '@/utils/interfaces';
+import { ISelectBase, ISelectOption } from '@/utils/interfaces';
 
 import { ErrorMsgInput } from '../inputs/ErrorMsgInput';
 import { SelectList } from './SelectList';
 
-interface IMultiSelect {
-  options: ISelectOption[];
+interface IMultiSelect extends ISelectBase {
   value: ISelectOption[];
-  placeholder?: string;
-  error?: string;
-  className?: string;
-  label?: string;
-  isForm?: boolean;
   onChange: (value: ISelectOption[]) => void;
 }
 
@@ -94,13 +88,14 @@ export const MultiSelect = ({
         />
       )}
 
-      {/* Выбранные значения снизу */}
       {selectedOptions.length > 0 && (
         <div className="mt-2 flex flex-wrap gap-2">
           {selectedOptions.map((option) => (
             <div
               key={option.value}
-              className="flex items-center gap-2 rounded-full bg-orange/10 px-3 py-1 text-sm text-orange border border-orange"
+              className={`
+                flex items-center gap-2 rounded-full bg-orange/10 px-3 py-1 text-sm text-orange border border-orange  
+              `}
             >
               {option.text}
               <button
@@ -108,7 +103,7 @@ export const MultiSelect = ({
                 className="text-orange hover:text-red transition"
                 type="button"
               >
-                x
+                <IconClose size={16} color="#ff642f" />
               </button>
             </div>
           ))}

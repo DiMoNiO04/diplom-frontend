@@ -4,19 +4,13 @@ import clsx from 'clsx';
 
 import { IconArrowCarretRounded } from '@/components/icons';
 import { useSelect } from '@/hooks';
-import { ISelectOption } from '@/utils/interfaces';
+import { ISelectBase, ISelectOption } from '@/utils/interfaces';
 
 import { ErrorMsgInput } from '../inputs/ErrorMsgInput';
 import { SelectList } from './SelectList';
 
-export interface ISelect {
-  options: ISelectOption[];
+interface ISelect extends ISelectBase {
   value?: ISelectOption | null;
-  placeholder?: string;
-  error?: string;
-  className?: string;
-  label?: string;
-  isForm?: boolean;
   onChange: (value: ISelectOption) => void;
 }
 

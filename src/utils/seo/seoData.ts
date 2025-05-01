@@ -162,6 +162,28 @@ const seoProfilePage = (): ISEO => {
   return seoData;
 };
 
+const seoAddRecipePage = (): ISEO => {
+  const seoDataTitle: string = 'Добавление рецепта | YummyNom';
+  const seoDataDescription: string =
+    'Поделитесь своим рецептом на платформе YummyNom и вдохновите других на приготовление вкусных блюд.';
+  const seoUrl: string = 'recipes/new/';
+
+  const seoData = {
+    metaTitle: seoDataTitle,
+    metaDescription: seoDataDescription,
+    canonicalURL: seoUrl,
+    keywords: 'добавить рецепт, кулинария, вкусные рецепты, YummyNom',
+    metaRobots,
+    openGraph: {
+      title: seoDataTitle,
+      description: seoDataDescription,
+      url: seoUrl,
+    },
+  };
+
+  return seoData;
+};
+
 const seoMyRecipesPage = (): ISEO => {
   const seoDataTitle: string = 'Мои рецепты | YummyNom';
   const seoDataDescription: string = 'Просматривайте, редактируйте и управляйте своими рецептами.';
@@ -184,6 +206,7 @@ const seoMyRecipesPage = (): ISEO => {
 };
 
 export {
+  seoAddRecipePage,
   seoCategoriesPage,
   seoCollectionsPage,
   seoMainPage,

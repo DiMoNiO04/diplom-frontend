@@ -10,6 +10,7 @@ interface ITitle {
 }
 
 interface ICategory {
+  id: number;
   documentId: string;
   slug: string;
   title: string;
@@ -20,6 +21,7 @@ interface ICategory {
 }
 
 interface ICollection {
+  id: number;
   documentId: string;
   slug: string;
   title: string;
@@ -141,6 +143,15 @@ interface ICollectionsProps {
 
 interface ICategoriesAndCollectionsProps extends ICollectionsProps, ICategoriesProps {}
 
+interface ISelectBase {
+  options: ISelectOption[];
+  placeholder?: string;
+  error?: string;
+  className?: string;
+  label?: string;
+  isForm?: boolean;
+}
+
 export type {
   IAuthorRecipe,
   IBasePage,
@@ -159,6 +170,7 @@ export type {
   IPageSlugProps,
   IRecipe,
   IRecipesProps,
+  ISelectBase,
   ISelectOption,
   ISimpleContent,
   IText,

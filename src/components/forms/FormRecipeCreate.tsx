@@ -5,16 +5,14 @@ import { useNotificationStore } from '@/stores/notificationMsg';
 import { ICategoriesAndCollectionsProps } from '@/utils/interfaces';
 import { IFormRecipeData, schemaRecipe } from '@/utils/validations';
 
-import { FormInfoNote, ImageUpload } from '../blocks';
+import { FormInfoNote } from '../blocks';
 import { Button } from '../ui/btns';
 import { Input, InputTextarea } from '../ui/inputs';
-import { Select } from '../ui/selects';
 import { MultiSelect } from '../ui/selects/MultiSelect';
 
 export const FormRecipeCreate = ({ categories, collections }: ICategoriesAndCollectionsProps) => {
   const {
     control,
-    setValue,
     handleSubmit,
     formState: { errors },
     reset,
@@ -28,6 +26,7 @@ export const FormRecipeCreate = ({ categories, collections }: ICategoriesAndColl
 
   const onSubmit = async (data: IFormRecipeData) => {
     console.log(data);
+
     reset();
     showNotification('Рецепт создан!');
   };
@@ -74,50 +73,64 @@ export const FormRecipeCreate = ({ categories, collections }: ICategoriesAndColl
             )}
           />
           <Controller
-            name="category"
+            name="categories"
             control={control}
             render={({ field }) => (
-              <Select
+              <MultiSelect
                 {...field}
                 options={categories.map((category) => ({
-                  value: category.slug,
+                  value: category.id,
                   text: category.title,
                 }))}
                 label="Категории*"
                 isForm
                 placeholder="Выберите категории*"
-                error={errors.category?.message}
-                value={field.value ? { value: field.value, text: field.value } : null}
-                onChange={(selected) => field.onChange(selected.value)}
-              />
-            )}
-          />
-          <Controller
-            name="collection"
-            control={control}
-            render={({ field }) => (
-              <MultiSelect
-                options={collections.map((c) => ({ value: c.slug, text: c.title }))}
-                label="Коллекции*"
-                isForm
-                placeholder="Выберите коллекции*"
-                error={errors.category?.message}
-                // Приведение field.value к массиву (на случай, если оно строка)
+                error={errors.categories?.message}
                 value={
                   Array.isArray(field.value)
                     ? field.value.map((v) => ({
                         value: v,
-                        text: collections.find((c) => c.slug === v)?.title || v,
+                        text: categories.find((c) => c.id === Number(v))?.title || `${v}`,
                       }))
                     : []
                 }
                 onChange={(selected) => {
-                  const slugs = selected.map((o) => o.value);
-                  field.onChange(slugs);
+                  const ids = selected.map((o) => o.value);
+                  field.onChange(ids);
                 }}
               />
             )}
           />
+          <Controller
+            name="collections"
+            control={control}
+            render={({ field }) => (
+              <MultiSelect
+                {...field}
+                options={collections.map((collection) => ({
+                  value: collection.id,
+                  text: collection.title,
+                }))}
+                label="Коллекции*"
+                isForm
+                placeholder="Выберите коллекции*"
+                error={errors.collections?.message}
+                value={
+                  Array.isArray(field.value)
+                    ? field.value.map((v) => ({
+                        value: v,
+                        text: collections.find((c) => c.id === Number(v))?.title || `${v}`,
+                      }))
+                    : []
+                }
+                onChange={(selected) => {
+                  const ids = selected.map((o) => o.value);
+                  field.onChange(ids);
+                }}
+              />
+            )}
+          />
+
           <Controller
             name="description"
             control={control}
@@ -158,7 +171,7 @@ export const FormRecipeCreate = ({ categories, collections }: ICategoriesAndColl
             )}
           />
 
-          <Controller
+          {/* <Controller
             name="img"
             control={control}
             render={({ field }) => (
@@ -171,7 +184,7 @@ export const FormRecipeCreate = ({ categories, collections }: ICategoriesAndColl
                 }}
               />
             )}
-          />
+          /> */}
         </div>
 
         <Button type="submit" text="Создать рецепт" variant="orange" />
