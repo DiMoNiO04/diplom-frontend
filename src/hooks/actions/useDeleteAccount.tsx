@@ -1,6 +1,6 @@
 import { useRouter } from 'next/navigation';
 
-import { apiDeleteUser } from '@/actions/user';
+import { apiUserDelete } from '@/actions/user';
 import { useNotificationStore } from '@/stores/notificationMsg';
 import { useUserStore } from '@/stores/user';
 import { ERROR_ICON } from '@/utils/consts';
@@ -16,7 +16,7 @@ export const useDeleteAccount = () => {
 
     if (!userId) return;
 
-    const { isSuccess, message } = await apiDeleteUser(userId);
+    const { isSuccess, message } = await apiUserDelete(userId);
 
     if (isSuccess) {
       showNotification(message);

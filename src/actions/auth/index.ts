@@ -1,7 +1,7 @@
-import { apiForgotPassword } from './forgotPassword';
-import { apiLoginUser } from './loginUser';
-import { apiLogoutUser } from './logoutUser';
-import { apiRegisterUser } from './registerUser';
-import { apiResetPassword } from './resetPassword';
+import { apiAuthForgotPassword } from './authForgotPassword';
+import { apiAuthLoginUser } from './authLoginUser';
+import { apiAuthLogoutUser } from './authLogoutUser';
+import { apiAuthRegisterUser } from './authRegisterUser';
+import { apiAuthResetPassword } from './authResetPassword';
 
-export { apiForgotPassword, apiLoginUser, apiLogoutUser, apiRegisterUser, apiResetPassword };
+export { apiAuthForgotPassword, apiAuthLoginUser, apiAuthLogoutUser, apiAuthRegisterUser, apiAuthResetPassword };

@@ -52,7 +52,11 @@ export const CardMyRecipe = ({ documentId, title, img }: IRecipe) => {
       </div>
 
       <Link href={linkUrlRecipe} className="group flex flex-col gap-2 relative w-fit group">
-        <div className="rounded-md w-full aspect-[350/265] overflow-hidden transition-transform duration-300 group-hover:scale-105">
+        <div
+          className={`
+          rounded-md w-full aspect-[350/265] overflow-hidden transition-transform duration-300 group-hover:scale-105  
+        `}
+        >
           <Image src={getImageUrl(img[0].url)} alt="" width={350} height={265} className="size-full object-cover" />
         </div>
         <div className="text-lg leading-6 font-medium transition-colors duration-300 group-hover:text-orange">

@@ -1,4 +1,4 @@
-import { apiForgotPassword } from '@/actions/auth';
+import { apiAuthForgotPassword } from '@/actions/auth';
 import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
 import { useNotificationStore } from '@/stores/notificationMsg';
 import { ERROR_ICON } from '@/utils/consts';
@@ -9,7 +9,7 @@ export const usePasswordForgot = () => {
   const { showNotification } = useNotificationStore();
 
   const forgotPassword = async (data: IFormPasswordForgotData, reset: () => void) => {
-    const { isSuccess, message } = await apiForgotPassword(data);
+    const { isSuccess, message } = await apiAuthForgotPassword(data);
 
     if (isSuccess) {
       setTabContent(EAuthContent.CHECK_EMAIL);

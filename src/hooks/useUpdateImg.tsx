@@ -2,9 +2,9 @@
 
 import { ChangeEvent, useRef, useState } from 'react';
 
-import { apiUploadFile } from '@/actions/files';
+import { apiFileUpload } from '@/actions/files';
 import { EMsgActions } from '@/actions/utils';
-// import { apiDeleteFile } from '@/actions/files';
+// import { apiFileDelete } from '@/actions/files';
 import { useNotificationStore } from '@/stores/notificationMsg';
 import { ERROR_ICON } from '@/utils/consts';
 import { IImage } from '@/utils/interfaces';
@@ -20,7 +20,7 @@ export const useUpdateImg = (initialAvatar: IImage | null, nameValue: string, se
 
     if (file) {
       try {
-        const uploadResult = await apiUploadFile(file);
+        const uploadResult = await apiFileUpload(file);
 
         if (uploadResult && uploadResult[0]?.url) {
           setImg(uploadResult[0]);
@@ -36,7 +36,7 @@ export const useUpdateImg = (initialAvatar: IImage | null, nameValue: string, se
   // const handleRemoveImg = async () => {
   //   if (img?.id) {
   //     try {
-  //       await apiDeleteFile(img.id);
+  //       await apiFileDelete(img.id);
   //       setImg(null);
   //       setValue(nameValue, null);
   //       showNotification(EMsgActions.SUCCESS_DELETE_FILE);

@@ -1,5 +1,5 @@
-import { apiDeleteFile } from '@/actions/files';
-import { apiUpdateUser } from '@/actions/user';
+import { apiFileDelete } from '@/actions/files';
+import { apiUserUpdate } from '@/actions/user';
 import { apiGetUserInfo } from '@/actions/user';
 import { useNotificationStore } from '@/stores/notificationMsg';
 import { IUserInfo, useUserStore } from '@/stores/user';
@@ -15,10 +15,10 @@ export const useUpdateUser = () => {
 
     if (userId) {
       if (initialAvatar && !data.avatar) {
-        await apiDeleteFile(initialAvatar.id);
+        await apiFileDelete(initialAvatar.id);
       }
 
-      const { isSuccess, message } = await apiUpdateUser(userId, data);
+      const { isSuccess, message } = await apiUserUpdate(userId, data);
 
       if (isSuccess) {
         showNotification(message);

@@ -7,7 +7,7 @@ interface IPrivacyPolicyPage extends IBasePage {
   content: string;
 }
 
-export const apiGetPrivacyPolicyPage = (): Promise<IPrivacyPolicyPage> =>
+export const apiGetPagePrivacyPolicy = (): Promise<IPrivacyPolicyPage> =>
   apiFetch<IPrivacyPolicyPage>(API_PRIVACY_POLICY, {
     next: { revalidate: REVALIDATE_HOUR_TIME },
   });

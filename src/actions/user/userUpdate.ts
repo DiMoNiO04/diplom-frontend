@@ -2,12 +2,11 @@
 
 import { cookies } from 'next/headers';
 
-import { getFailedMsg } from '@/utils/functions';
-import { IFormChangePasswordData } from '@/utils/validations';
+import { IUserInfo } from '@/stores/user';
 
-import { API_CHANGE_PASSWORD, EMsgActions, IApiResultReturn } from '../utils';
+import { API_USERS, EMsgActions } from '../utils';
 
-export async function apiChangePassword(data: IFormChangePasswordData): Promise<IApiResultReturn> {
+export async function apiUserUpdate(idUser: string, data: IUserInfo) {
   const jwtToken = (await cookies()).get('jwt')?.value;
 
   if (!jwtToken) {
@@ -15,8 +14,8 @@ export async function apiChangePassword(data: IFormChangePasswordData): Promise<
   }
 
   try {
-    const res = await fetch(API_CHANGE_PASSWORD, {
-      method: 'POST',
+    const res = await fetch(`${API_USERS}${idUser}`, {
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${jwtToken}`,
@@ -24,18 +23,13 @@ export async function apiChangePassword(data: IFormChangePasswordData): Promise<
       body: JSON.stringify(data),
     });
 
-    const result = await res.json();
-
     if (!res.ok) {
-      const message: string = getFailedMsg(result?.error?.message);
-
+      const result = await res.json();
+      const message = result?.error?.message || EMsgActions.FAILED_FETCH;
       return { isSuccess: false, message };
     }
 
-    return {
-      isSuccess: true,
-      message: EMsgActions.SUCCESS_CHANGE_PASSWORD,
-    };
+    return { isSuccess: true, message: EMsgActions.SUCCESS_UPDATE_USER };
   } catch (err) {
     console.error(EMsgActions.FAILED_FETCH, err);
     return { isSuccess: false, message: EMsgActions.FAILED_FETCH_TRY_AGAIN };

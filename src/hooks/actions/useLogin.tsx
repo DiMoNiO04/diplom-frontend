@@ -1,4 +1,4 @@
-import { apiLoginUser } from '@/actions/auth';
+import { apiAuthLoginUser } from '@/actions/auth';
 import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
 import { useNotificationStore } from '@/stores/notificationMsg';
 import { useUserStore } from '@/stores/user';
@@ -11,7 +11,7 @@ export const useLogin = () => {
   const { setUser } = useUserStore();
 
   const login = async (data: IFormLoginData, reset: () => void) => {
-    const { isSuccess, message, user } = await apiLoginUser(data);
+    const { isSuccess, message, user } = await apiAuthLoginUser(data);
 
     if (isSuccess && user) {
       closeModal();

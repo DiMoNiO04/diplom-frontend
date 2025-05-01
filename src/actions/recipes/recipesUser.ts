@@ -2,8 +2,6 @@
 
 import { cookies } from 'next/headers';
 
-import { IRecipesProps } from '@/utils/interfaces';
-
 import { API_MY_RECIPES } from '../utils';
 
 export const apiGetRecipesUser = async () => {

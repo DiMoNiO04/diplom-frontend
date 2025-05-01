@@ -164,8 +164,7 @@ const seoProfilePage = (): ISEO => {
 
 const seoMyRecipesPage = (): ISEO => {
   const seoDataTitle: string = 'Мои рецепты | YummyNom';
-  const seoDataDescription: string =
-    'Просматривайте, редактируйте и управляйте своими рецептами. Храните любимые блюда в одном месте и делитесь ими с другими.';
+  const seoDataDescription: string = 'Просматривайте, редактируйте и управляйте своими рецептами.';
   const seoUrl: string = 'profile/my-recipes/';
 
   const seoData = {

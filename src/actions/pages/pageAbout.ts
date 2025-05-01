@@ -9,7 +9,7 @@ interface IAboutPage extends IBasePage {
   operating: ITitleWithTexts;
 }
 
-export const apiGetAboutPage = async (): Promise<IAboutPage> =>
+export const apiGetPageAbout = async (): Promise<IAboutPage> =>
   apiFetch<IAboutPage>(API_ABOUT_PAGE, {
     next: { revalidate: REVALIDATE_HOUR_TIME },
   });

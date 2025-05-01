@@ -12,7 +12,7 @@ interface ILoginUserReturn extends IApiResultReturn {
   user?: IUserInfo;
 }
 
-export const apiLoginUser = async (data: IFormLoginData): Promise<ILoginUserReturn> => {
+export const apiAuthLoginUser = async (data: IFormLoginData): Promise<ILoginUserReturn> => {
   try {
     const res = await fetch(API_LOGIN, {
       method: 'POST',

@@ -2,7 +2,7 @@ import { IFormPasswordNewData } from '@/utils/validations';
 
 import { API_RESET_PASSWORD, EMsgActions, IApiResultReturn } from '../utils';
 
-export const apiResetPassword = async (data: IFormPasswordNewData): Promise<IApiResultReturn> => {
+export const apiAuthResetPassword = async (data: IFormPasswordNewData): Promise<IApiResultReturn> => {
   try {
     const res = await fetch(API_RESET_PASSWORD, {
       method: 'POST',

@@ -4,7 +4,7 @@ import { cookies } from 'next/headers';
 
 import { API_USERS, EMsgActions } from '../utils';
 
-export async function apiDeleteUser(idUser: string) {
+export async function apiUserDelete(idUser: string) {
   const jwtToken = (await cookies()).get('jwt')?.value;
 
   if (!jwtToken) {

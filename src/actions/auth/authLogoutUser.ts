@@ -7,7 +7,7 @@ import { EUrls } from '@/utils/urls';
 
 import { EMsgActions } from '../utils';
 
-export const apiLogoutUser = async () => {
+export const apiAuthLogoutUser = async () => {
   try {
     const cookiesStore = await cookies();
     cookiesStore.delete('jwt');

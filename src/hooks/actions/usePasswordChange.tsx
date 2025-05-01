@@ -1,4 +1,4 @@
-import { apiChangePassword } from '@/actions/user';
+import { apiUserChangePassword } from '@/actions/user';
 import { useChangePasswordModalStore } from '@/stores/changePasswordModal';
 import { useNotificationStore } from '@/stores/notificationMsg';
 import { ERROR_ICON } from '@/utils/consts';
@@ -9,7 +9,7 @@ export const usePasswordChange = () => {
   const { showNotification } = useNotificationStore();
 
   const changePassword = async (data: IFormChangePasswordData, reset: () => void) => {
-    const { isSuccess, message } = await apiChangePassword(data);
+    const { isSuccess, message } = await apiUserChangePassword(data);
 
     if (isSuccess) {
       closeModal();
