@@ -3,7 +3,6 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
-import { categoriesData } from '@/data';
 import { useNotificationStore } from '@/stores/notificationMsg';
 import { EUrls } from '@/utils/urls';
 import { IFormRecipeData, schemaRecipe } from '@/utils/validations';
@@ -12,6 +11,7 @@ import { FormInfoNote, ImageUpload } from '../blocks';
 import { Button } from '../ui/btns';
 import { Input, InputTextarea } from '../ui/inputs';
 import { Select } from '../ui/selects';
+import { MultiSelect } from '../ui/selects/MultiSelect';
 
 interface IFormRecipeUpdateProps {
   defaultValues: IFormRecipeData;
@@ -91,25 +91,46 @@ export const FormRecipeUpdate = ({ defaultValues }: IFormRecipeUpdateProps) => {
           <Controller
             name="category"
             control={control}
-            render={({ field }) => {
-              const selectedOption = categoriesData.find((cat) => cat.slug === field.value);
-
-              return (
-                <Select
-                  {...field}
-                  options={categoriesData.map((category) => ({
-                    value: category.slug,
-                    text: category.title,
-                  }))}
-                  label="Категория*"
-                  isForm
-                  placeholder="Выберите категорию*"
-                  error={errors.category?.message}
-                  value={selectedOption ? { value: selectedOption.slug, text: selectedOption.title } : null}
-                  onChange={(selected) => field.onChange(selected.value)}
-                />
-              );
-            }}
+            render={({ field }) => (
+              <Select
+                {...field}
+                options={categories.map((category) => ({
+                  value: category.slug,
+                  text: category.title,
+                }))}
+                label="Категории*"
+                isForm
+                placeholder="Выберите категории*"
+                error={errors.category?.message}
+                value={field.value ? { value: field.value, text: field.value } : null}
+                onChange={(selected) => field.onChange(selected.value)}
+              />
+            )}
+          />
+          <Controller
+            name="collection"
+            control={control}
+            render={({ field }) => (
+              <MultiSelect
+                options={collections.map((c) => ({ value: c.slug, text: c.title }))}
+                label="Коллекции*"
+                isForm
+                placeholder="Выберите коллекции*"
+                error={errors.category?.message}
+                value={
+                  Array.isArray(field.value)
+                    ? field.value.map((v) => ({
+                        value: v,
+                        text: collections.find((c) => c.slug === v)?.title || v,
+                      }))
+                    : []
+                }
+                onChange={(selected) => {
+                  const slugs = selected.map((o) => o.value);
+                  field.onChange(slugs);
+                }}
+              />
+            )}
           />
           <Controller
             name="description"

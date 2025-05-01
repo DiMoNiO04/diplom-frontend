@@ -11,6 +11,7 @@ interface IFormRecipeData {
   calories: number;
   img: string[];
   category: string;
+  collection: string;
 }
 
 const schemaRecipe = yup.object().shape({
@@ -22,6 +23,7 @@ const schemaRecipe = yup.object().shape({
   ingredients: requiredStringSchema,
   instructions: requiredStringSchema,
   category: requiredStringSchema,
+  collection: requiredStringSchema,
 });
 
 export { schemaRecipe };

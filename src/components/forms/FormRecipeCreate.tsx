@@ -1,16 +1,17 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 
-import { categoriesData } from '@/data';
 import { useNotificationStore } from '@/stores/notificationMsg';
+import { ICategoriesAndCollectionsProps } from '@/utils/interfaces';
 import { IFormRecipeData, schemaRecipe } from '@/utils/validations';
 
 import { FormInfoNote, ImageUpload } from '../blocks';
 import { Button } from '../ui/btns';
 import { Input, InputTextarea } from '../ui/inputs';
 import { Select } from '../ui/selects';
+import { MultiSelect } from '../ui/selects/MultiSelect';
 
-export const FormRecipeCreate = () => {
+export const FormRecipeCreate = ({ categories, collections }: ICategoriesAndCollectionsProps) => {
   const {
     control,
     setValue,
@@ -38,10 +39,10 @@ export const FormRecipeCreate = () => {
       <div className="flex flex-col gap-y-8">
         <div className="grid grid-cols-2 gap-12 max-md:flex max-md:flex-col max-md:gap-6">
           <Controller
-            name="name"
+            name="title"
             control={control}
             render={({ field }) => (
-              <Input {...field} withBorder label="Название*" placeholder="Название" error={errors.name?.message} />
+              <Input {...field} withBorder label="Название*" placeholder="Название" error={errors.title?.message} />
             )}
           />
           <Controller
@@ -78,16 +79,42 @@ export const FormRecipeCreate = () => {
             render={({ field }) => (
               <Select
                 {...field}
-                options={categoriesData.map((category) => ({
+                options={categories.map((category) => ({
                   value: category.slug,
                   text: category.title,
                 }))}
-                label="Категория*"
+                label="Категории*"
                 isForm
-                placeholder="Выберите категорию*"
+                placeholder="Выберите категории*"
                 error={errors.category?.message}
                 value={field.value ? { value: field.value, text: field.value } : null}
                 onChange={(selected) => field.onChange(selected.value)}
+              />
+            )}
+          />
+          <Controller
+            name="collection"
+            control={control}
+            render={({ field }) => (
+              <MultiSelect
+                options={collections.map((c) => ({ value: c.slug, text: c.title }))}
+                label="Коллекции*"
+                isForm
+                placeholder="Выберите коллекции*"
+                error={errors.category?.message}
+                // Приведение field.value к массиву (на случай, если оно строка)
+                value={
+                  Array.isArray(field.value)
+                    ? field.value.map((v) => ({
+                        value: v,
+                        text: collections.find((c) => c.slug === v)?.title || v,
+                      }))
+                    : []
+                }
+                onChange={(selected) => {
+                  const slugs = selected.map((o) => o.value);
+                  field.onChange(slugs);
+                }}
               />
             )}
           />

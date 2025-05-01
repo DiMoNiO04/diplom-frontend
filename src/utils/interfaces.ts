@@ -131,12 +131,25 @@ interface IRecipesProps {
   recipes: IRecipe[];
 }
 
+interface ICategoriesProps {
+  categories: ICategory[];
+}
+
+interface ICollectionsProps {
+  collections: ICollection[];
+}
+
+interface ICategoriesAndCollectionsProps extends ICollectionsProps, ICategoriesProps {}
+
 export type {
   IAuthorRecipe,
   IBasePage,
   IBtn,
+  ICategoriesAndCollectionsProps,
+  ICategoriesProps,
   ICategory,
   ICollection,
+  ICollectionsProps,
   IHeaderMenuProps,
   IIcon,
   IImage,

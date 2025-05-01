@@ -9,7 +9,7 @@ import { ISelectOption } from '@/utils/interfaces';
 import { ErrorMsgInput } from '../inputs/ErrorMsgInput';
 import { SelectList } from './SelectList';
 
-interface ISelect {
+export interface ISelect {
   options: ISelectOption[];
   value?: ISelectOption | null;
   placeholder?: string;
