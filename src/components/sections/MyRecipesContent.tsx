@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import { apiGetMyRecipes } from '@/actions/user';
+import { apiGetRecipesUser } from '@/actions/recipes';
 import { EUrls } from '@/utils/urls';
 
 import { CardsItems } from '../blocks';
@@ -9,7 +9,7 @@ import { Title } from '../ui';
 import { Button } from '../ui/btns';
 
 export const MyRecipesContent = async () => {
-  const { results: recipes } = await apiGetMyRecipes();
+  const { results: recipes } = await apiGetRecipesUser();
 
   return (
     <section className="my-12 mb-20 max-lg:mb-16 max-lg:my-12">

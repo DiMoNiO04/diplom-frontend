@@ -6,7 +6,7 @@ import { IRecipesProps } from '@/utils/interfaces';
 
 import { API_MY_RECIPES } from '../utils';
 
-export const apiGetMyRecipes = async () => {
+export const apiGetRecipesUser = async () => {
   const jwtToken = (await cookies()).get('jwt')?.value;
 
   if (!jwtToken) {

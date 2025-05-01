@@ -5,8 +5,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
+import { useDeleteRecipe } from '@/hooks/actions';
 import { useConfirmModalStore } from '@/stores/confirmModal';
-import { useNotificationStore } from '@/stores/notificationMsg';
 import { getImageUrl } from '@/utils/functions';
 import { IRecipe } from '@/utils/interfaces';
 import { EUrls } from '@/utils/urls';
@@ -19,15 +19,12 @@ export const CardMyRecipe = ({ documentId, title, img }: IRecipe) => {
   const linkUrlRecipe: string = `${EUrls.RECIPES}/${documentId}`;
 
   const { openModal } = useConfirmModalStore();
-  const { showNotification } = useNotificationStore();
+  const { deleteRecipe } = useDeleteRecipe();
 
-  const handleBtnYes = () => showNotification('Рецепт удален!');
-
-  const handleOpenModalDeleteRecipe = () => {
-    openModal(`Вы уверены что хотите удалить рецепт "${name}"?`, handleBtnYes);
-  };
-
+  const handleDeleteRecipe = () => deleteRecipe(documentId);
   const handleEditBtn = () => router.replace(`${EUrls.RECIPES}${EUrls.EDIT_RECIPE}/${documentId}/`);
+  const handleOpenModalDeleteRecipe = () =>
+    openModal(`Вы уверены что хотите удалить рецепт "${title}"?`, handleDeleteRecipe);
 
   return (
     <div className="flex flex-col gap-2 relative w-fit">
