@@ -17,7 +17,8 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function EditRecipePage({ params }: IPageSlugProps) {
   const [categoriesData, recipe] = await Promise.all([apiGetCategories(), apiGetRecipe((await params).slug)]);
 
-  const { title, documentId, seo, description, ingredients, instructions, cookingTime, calories, categories } = recipe;
+  const { title, documentId, seo, description, ingredients, instructions, cookingTime, calories, categories, img } =
+    recipe;
 
   const recipeData: IFormRecipeData = {
     title,
@@ -28,6 +29,7 @@ export default async function EditRecipePage({ params }: IPageSlugProps) {
     cookingTime,
     calories,
     categories: categories.map((category) => category.documentId),
+    img: img.map((i) => i.url),
   };
 
   const breadcrumbs = getEditRecipeBreadcrumbs(recipe.title, recipe.documentId);

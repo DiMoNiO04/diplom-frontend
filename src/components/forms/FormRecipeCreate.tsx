@@ -9,7 +9,7 @@ import { IFormRecipeData, schemaRecipe } from '@/utils/validations';
 
 import { FormInfoNote } from '../blocks';
 import { Button } from '../ui/btns';
-import { ControllerInput, ControllerMultiSelect, ControllerTextarea } from '../ui/controllers';
+import { ControllerImageUpload, ControllerInput, ControllerMultiSelect, ControllerTextarea } from '../ui/controllers';
 
 export const FormRecipeCreate = ({ categories }: ICategoriesProps) => {
   const {
@@ -103,20 +103,7 @@ export const FormRecipeCreate = ({ categories }: ICategoriesProps) => {
             error={errors.instructions?.message}
             helperText={helperTexts.instruction}
           />
-          {/* <Controller
-            name="img"
-            control={control}
-            render={({ field }) => (
-              <ImageUpload
-                label="Фото блюда*"
-                error={errors.img?.message}
-                value={field.value}
-                onChange={(files) => {
-                  setValue('img', files, { shouldValidate: true });
-                }}
-              />
-            )}
-          /> */}
+          <ControllerImageUpload name="img" control={control} label="Фото блюда*" error={errors.img?.message} />
         </div>
 
         <Button type="submit" text="Создать рецепт" variant="orange" />

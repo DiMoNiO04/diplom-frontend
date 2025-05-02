@@ -2,6 +2,7 @@ import * as yup from 'yup';
 
 import {
   requiredCategory,
+  requiredImg,
   requiredPositiveIntNumSchema,
   requiredShortDescription,
   requiredStringSchema,
@@ -16,6 +17,7 @@ interface IFormRecipeData {
   cookingTime: number;
   calories: number;
   categories: string[];
+  img: string[];
 }
 
 const schemaRecipe = yup.object().shape({
@@ -27,6 +29,7 @@ const schemaRecipe = yup.object().shape({
   ingredients: requiredStringSchema,
   instructions: requiredStringSchema,
   categories: requiredCategory,
+  img: requiredImg,
 });
 
 export { schemaRecipe };

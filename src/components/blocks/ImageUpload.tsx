@@ -4,6 +4,8 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import { ChangeEvent } from 'react';
 
+import { getImageUrl } from '@/utils/functions';
+
 import { IconClose } from '../icons';
 import { ErrorMsgInput } from '../ui/inputs';
 
@@ -54,7 +56,7 @@ export const ImageUpload = ({ label, error, value = [], onChange }: IImageUpload
           {value.map((src, index) => (
             <div key={index} className="relative w-28 h-28 group">
               <Image
-                src={src}
+                src={getImageUrl(src)}
                 alt="Preview"
                 className={clsx(
                   'w-full h-full object-cover rounded-md border transition duration-300 group-hover:opacity-75'
