@@ -23,7 +23,7 @@ export const CardMyRecipe = ({ documentId, createdAt, title, img }: IRecipe) => 
   const { deleteRecipe } = useDeleteRecipe();
 
   const handleDeleteRecipe = () => deleteRecipe(documentId);
-  const handleEditBtn = () => router.replace(`${EUrls.RECIPES}${EUrls.EDIT_RECIPE}/${documentId}/`);
+  const handleEditBtn = () => router.replace(`${EUrls.RECIPES}/${documentId}/${EUrls.EDIT_RECIPE}/`);
   const handleOpenModalDeleteRecipe = () =>
     openModal(`Вы уверены что хотите удалить рецепт "${title}"?`, handleDeleteRecipe);
 

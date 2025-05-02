@@ -12,7 +12,13 @@ const DELAY_DEBOUNCE: number = 300;
 
 const ERROR_ICON: string = '/icons/error.svg';
 
-const protectedPaths = [`${EUrls.PROFILE}/`, `${EUrls.RECIPES}/new/`, `${EUrls.RECIPES}/edit/`];
+const protectedPaths = [
+  `${EUrls.PROFILE}/`,
+  `${EUrls.FAVORITES}/`,
+  `${EUrls.MY_RECIPES}/`,
+  `${EUrls.EDIT_RECIPE}/`,
+  `${EUrls.NEW_RECIPE}/`,
+];
 
 export {
   API_URL,

@@ -184,6 +184,28 @@ const seoAddRecipePage = (): ISEO => {
   return seoData;
 };
 
+const seoEditRecipePage = (): ISEO => {
+  const seoDataTitle: string = 'Редактирование рецепта | YummyNom';
+  const seoDataDescription: string =
+    'Отредактируйте свой рецепт и сделайте его ещё лучше, чтобы вдохновить других на приготовление вкусных блюд.';
+  const seoUrl: string = 'recipes/edit/';
+
+  const seoData = {
+    metaTitle: seoDataTitle,
+    metaDescription: seoDataDescription,
+    canonicalURL: seoUrl,
+    keywords: 'редактировать рецепт, кулинария, вкусные рецепты, YummyNom',
+    metaRobots,
+    openGraph: {
+      title: seoDataTitle,
+      description: seoDataDescription,
+      url: seoUrl,
+    },
+  };
+
+  return seoData;
+};
+
 const seoMyRecipesPage = (): ISEO => {
   const seoDataTitle: string = 'Мои рецепты | YummyNom';
   const seoDataDescription: string = 'Просматривайте, редактируйте и управляйте своими рецептами.';
@@ -209,6 +231,7 @@ export {
   seoAddRecipePage,
   seoCategoriesPage,
   seoCollectionsPage,
+  seoEditRecipePage,
   seoMainPage,
   seoMyRecipesPage,
   seoProfilePage,

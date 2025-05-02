@@ -1,4 +1,5 @@
 import { ISEO } from './seo';
+import { IFormRecipeData } from './validations';
 
 interface ILink {
   linkUrl: string;
@@ -143,6 +144,12 @@ interface ICollectionsProps {
 
 interface ICategoriesAndCollectionsProps extends ICollectionsProps, ICategoriesProps {}
 
+interface ICategoriesAndRecipeEdit {
+  categories: ICategory[];
+  recipe: IFormRecipeData;
+  idRecipe: string;
+}
+
 interface ISelectBase {
   options: ISelectOption[];
   placeholder?: string;
@@ -157,6 +164,7 @@ export type {
   IBasePage,
   IBtn,
   ICategoriesAndCollectionsProps,
+  ICategoriesAndRecipeEdit,
   ICategoriesProps,
   ICategory,
   ICollection,
