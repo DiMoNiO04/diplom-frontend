@@ -1,17 +1,17 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 
-import { useNotificationStore } from '@/stores/notificationMsg';
-import { ICategoriesAndCollectionsProps } from '@/utils/interfaces';
-import { EUrls } from '@/utils/urls';
+import { helperTexts } from '@/data';
+import { useRecipeCreate } from '@/hooks/actions';
+import { useUserStore } from '@/stores/user';
+import { ICategoriesProps } from '@/utils/interfaces';
 import { IFormRecipeData, schemaRecipe } from '@/utils/validations';
 
 import { FormInfoNote } from '../blocks';
 import { Button } from '../ui/btns';
 import { ControllerInput, ControllerMultiSelect, ControllerTextarea } from '../ui/controllers';
 
-export const FormRecipeCreate = ({ categories, collections }: ICategoriesAndCollectionsProps) => {
+export const FormRecipeCreate = ({ categories }: ICategoriesProps) => {
   const {
     control,
     handleSubmit,
@@ -23,16 +23,12 @@ export const FormRecipeCreate = ({ categories, collections }: ICategoriesAndColl
     reValidateMode: 'onChange',
   });
 
-  const router = useRouter();
-  const { showNotification } = useNotificationStore();
+  const { createRecipe } = useRecipeCreate();
 
   const onSubmit = async (data: IFormRecipeData) => {
-    console.log(data);
-
-    reset();
-    showNotification('Рецепт создан!');
-
-    router.push(EUrls.MY_RECIPES);
+    const user = useUserStore.getState().user?.id;
+    const createRecipeData = { ...data, user };
+    createRecipe(createRecipeData, reset);
   };
 
   return (
@@ -75,13 +71,13 @@ export const FormRecipeCreate = ({ categories, collections }: ICategoriesAndColl
             placeholder="Выберите категории*"
             error={errors.categories?.message}
           />
-          <ControllerMultiSelect<IFormRecipeData>
-            name="collections"
+          <ControllerTextarea<IFormRecipeData>
+            name="shortDescription"
             control={control}
-            options={collections}
-            label="Коллекции*"
-            placeholder="Выберите коллекции*"
-            error={errors.collections?.message}
+            label="Краткое описание*"
+            placeholder="Краткое описание*"
+            error={errors.shortDescription?.message}
+            helperText={helperTexts.shortDescription}
           />
           <ControllerTextarea<IFormRecipeData>
             name="description"
@@ -89,6 +85,7 @@ export const FormRecipeCreate = ({ categories, collections }: ICategoriesAndColl
             label="Описание*"
             placeholder="Описание*"
             error={errors.description?.message}
+            helperText={helperTexts.description}
           />
           <ControllerTextarea<IFormRecipeData>
             name="ingredients"
@@ -96,6 +93,7 @@ export const FormRecipeCreate = ({ categories, collections }: ICategoriesAndColl
             label="Список ингредиентов*"
             placeholder="Список ингредиентов*"
             error={errors.ingredients?.message}
+            helperText={helperTexts.ingredients}
           />
           <ControllerTextarea<IFormRecipeData>
             name="instructions"
@@ -103,6 +101,7 @@ export const FormRecipeCreate = ({ categories, collections }: ICategoriesAndColl
             label="Инструкция по приготовлению*"
             placeholder="Инструкция по приготовлению*"
             error={errors.instructions?.message}
+            helperText={helperTexts.instruction}
           />
           {/* <Controller
             name="img"

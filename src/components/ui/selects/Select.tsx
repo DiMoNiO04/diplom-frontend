@@ -58,7 +58,7 @@ export const Select = ({ options, value, placeholder, error, className, label, i
       </div>
 
       {hasOptions && isOpen && (
-        <SelectList isForm={isForm} options={options} selectedOption={selectedOption} onSelect={handleSelectChange} />
+        <SelectList options={options} selectedOption={selectedOption} onSelect={handleSelectChange} />
       )}
 
       <ErrorMsgInput error={error} />

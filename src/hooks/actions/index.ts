@@ -4,6 +4,7 @@ import { useLogin } from './useLogin';
 import { useLogout } from './useLogout';
 import { usePasswordChange } from './usePasswordChange';
 import { usePasswordForgot } from './usePasswordForgot';
+import { useRecipeCreate } from './useRecipeCreate';
 import { useRegisterUser } from './useRegisterUser';
 import { useUpdateUser } from './useUpdateUser';
 
@@ -14,6 +15,7 @@ export {
   useLogout,
   usePasswordChange,
   usePasswordForgot,
+  useRecipeCreate,
   useRegisterUser,
   useUpdateUser,
 };

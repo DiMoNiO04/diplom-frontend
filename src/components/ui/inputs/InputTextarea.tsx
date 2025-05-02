@@ -3,13 +3,14 @@ import { TextareaHTMLAttributes } from 'react';
 
 import { ErrorMsgInput } from './ErrorMsgInput';
 
-interface IInputTextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+export interface IInputTextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   error?: string;
   label?: string;
   withBorder?: boolean;
+  helperText?: string;
 }
 
-const InputTextarea = ({
+export const InputTextarea = ({
   error,
   label,
   withBorder = false,
@@ -18,6 +19,7 @@ const InputTextarea = ({
   disabled,
   onChange,
   rows = 5,
+  helperText,
 }: IInputTextareaProps) => {
   const isDisabled: boolean = Boolean(disabled);
   const isError: boolean = Boolean(error) && !isDisabled;
@@ -51,9 +53,8 @@ const InputTextarea = ({
       </div>
 
       {!isDisabled && <ErrorMsgInput error={error} />}
+
+      {helperText && <div className="text-sm text-grey leading-snug whitespace-pre-line mt-1">{helperText}</div>}
     </div>
   );
 };
-
-export { InputTextarea };
-export type { IInputTextareaProps };

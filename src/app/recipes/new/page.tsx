@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 
 import { apiGetCategories } from '@/actions/categories';
-import { apiGetCollections } from '@/actions/collections';
 import { NewRecipe } from '@/components/sections';
 import { Breadcrumbs } from '@/components/ui';
 import { breadcrumbsNewRecipePage } from '@/utils/breadcrumbs';
@@ -13,12 +12,12 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function NewRecipePage() {
-  const [categoriesData, collectionsData] = await Promise.all([apiGetCategories(), apiGetCollections()]);
+  const categoriesData = await apiGetCategories();
 
   return (
     <>
       <Breadcrumbs breadcrumbs={breadcrumbsNewRecipePage} />
-      <NewRecipe collections={collectionsData.results} categories={categoriesData.results} />;
+      <NewRecipe categories={categoriesData.results} />;
     </>
   );
 }

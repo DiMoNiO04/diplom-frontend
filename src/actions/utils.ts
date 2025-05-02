@@ -39,6 +39,7 @@ export const EMsgActions = {
   SUCCESS_UPLOAD_FILE: 'Изображение обновлено!',
   SUCCESS_DELETE_FILE: 'Изображение удалено!',
   SUCCESS_DELETE_RECIPE: 'Рецепт удален!',
+  SUCCESS_CREATE_RECIPE: 'Рецепт добавлен!',
   FAILED_FETCH: 'Ошибка сети или сервера!',
   FAILED_FETCH_TRY_AGAIN: 'Ошибка сети. Повторите позже!',
   FAILED_LOGIN: 'Неверный идентификатор или пароль!',

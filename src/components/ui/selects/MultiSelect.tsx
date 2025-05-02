@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import { useMemo, useState } from 'react';
 
 import { IconArrowCarretRounded, IconClose } from '@/components/icons';
 import { useMultiSelect } from '@/hooks/useMultiSelect';
@@ -25,6 +26,7 @@ export const MultiSelect = ({
   onChange,
 }: IMultiSelect) => {
   const { selectedOptions, isOpen, selectRef, handleSelect, toggleOpen } = useMultiSelect(value);
+  const [searchValue, setSearchValue] = useState('');
 
   const handleSelectChange = (option: ISelectOption) => {
     const updated = selectedOptions.some((o) => o.value === option.value)
@@ -42,6 +44,11 @@ export const MultiSelect = ({
   };
 
   const hasOptions = options.length > 0;
+
+  const filteredOptions = useMemo(() => {
+    if (!searchValue.trim()) return options;
+    return options.filter((o) => o.text.toLowerCase().includes(searchValue.trim().toLowerCase()));
+  }, [options, searchValue]);
 
   return (
     <div className={clsx('relative flex flex-col gap-y-1 flex-shrink-0', className)} ref={selectRef}>
@@ -78,14 +85,22 @@ export const MultiSelect = ({
         )}
       </div>
 
-      {hasOptions && isOpen && (
-        <SelectList
-          isForm={isForm}
-          options={options}
-          selectedOption={selectedOptions}
-          isMulti
-          onSelect={handleSelectChange}
-        />
+      {isOpen && (
+        <div className="absolute top-full z-10 mt-2 w-full rounded-md border bg-white shadow-md">
+          <input
+            type="text"
+            placeholder="Поиск..."
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+            className="w-full border-b px-3 py-2 text-sm focus:outline-none"
+          />
+          <SelectList
+            options={filteredOptions}
+            selectedOption={selectedOptions}
+            isMulti
+            onSelect={handleSelectChange}
+          />
+        </div>
       )}
 
       {selectedOptions.length > 0 && (

@@ -5,7 +5,7 @@ import { MultiSelect } from '../selects/MultiSelect';
 interface IControllerMultiSelectProps<T extends FieldValues> {
   name: Path<T>;
   control: Control<T>;
-  options: { id: number; title: string }[];
+  options: { documentId: string; title: string }[];
   label: string;
   placeholder: string;
   error?: string;
@@ -27,7 +27,7 @@ export const ControllerMultiSelect = <T extends FieldValues>({
         <MultiSelect
           {...field}
           options={options.map((item) => ({
-            value: item.id,
+            value: item.documentId,
             text: item.title,
           }))}
           label={label}
@@ -36,9 +36,9 @@ export const ControllerMultiSelect = <T extends FieldValues>({
           error={error}
           value={
             Array.isArray(field.value)
-              ? field.value.map((v: unknown) => ({
+              ? field.value.map((v: string) => ({
                   value: v,
-                  text: options.find((o) => o.id === Number(v))?.title || `${v}`,
+                  text: options.find((o) => o.documentId === v)?.title || `${v}`,
                 }))
               : []
           }

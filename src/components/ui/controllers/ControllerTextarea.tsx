@@ -9,6 +9,7 @@ interface IControllerTextareaProps<T extends FieldValues> {
   placeholder: string;
   error?: string;
   withBorder?: boolean;
+  helperText?: string;
 }
 
 export const ControllerTextarea = <T extends FieldValues>({
@@ -18,13 +19,21 @@ export const ControllerTextarea = <T extends FieldValues>({
   placeholder,
   error,
   withBorder = true,
+  helperText,
 }: IControllerTextareaProps<T>) => {
   return (
     <Controller
       name={name}
       control={control}
       render={({ field }) => (
-        <InputTextarea {...field} withBorder={withBorder} label={label} placeholder={placeholder} error={error} />
+        <InputTextarea
+          {...field}
+          withBorder={withBorder}
+          label={label}
+          placeholder={placeholder}
+          error={error}
+          helperText={helperText}
+        />
       )}
     />
   );

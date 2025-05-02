@@ -13,6 +13,8 @@ import { BtnLike } from '../ui/btns';
 export const CardRecipe = ({ documentId, title, img, createdAt }: IRecipe) => {
   const linkUrlRecipe: string = `${EUrls.RECIPES}/${documentId}`;
 
+  if (!img && !title) return null;
+
   return (
     <div className="relative w-fit">
       <CardNewInfo createdAt={createdAt} />
@@ -23,15 +25,19 @@ export const CardRecipe = ({ documentId, title, img, createdAt }: IRecipe) => {
           rounded-md w-full aspect-[350/265] overflow-hidden transition-transform duration-300 group-hover:scale-105
         `}
         >
-          <Image src={getImageUrl(img[0].url)} alt="" width={350} height={265} className="size-full object-cover" />
+          {img && (
+            <Image src={getImageUrl(img[0].url)} alt="" width={350} height={265} className="size-full object-cover" />
+          )}
         </div>
-        <div
-          className={`
+        {title && (
+          <div
+            className={`
           text-lg leading-6 font-medium transition-colors duration-300 group-hover:text-orange max-lg:text-base  
         `}
-        >
-          {title}
-        </div>
+          >
+            {title}
+          </div>
+        )}
       </Link>
     </div>
   );

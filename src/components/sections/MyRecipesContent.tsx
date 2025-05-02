@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 
 import { apiGetRecipesUser } from '@/actions/recipes';
+import { getSortedRecipesForCreated } from '@/utils/functions';
 import { EUrls } from '@/utils/urls';
 
 import { CardsItems } from '../blocks';
@@ -10,6 +11,8 @@ import { Button } from '../ui/btns';
 
 export const MyRecipesContent = async () => {
   const { results: recipes } = await apiGetRecipesUser();
+
+  const sortedRecipes = getSortedRecipesForCreated(recipes);
 
   return (
     <section className="my-12 mb-20 max-lg:mb-16 max-lg:my-12">
@@ -26,7 +29,7 @@ export const MyRecipesContent = async () => {
 
         <div className="grid grid-cols-[3fr_1.2fr] gap-16 relative max-md:grid-cols-1 max-md:gap-12 max-lg:gap-8">
           <div className="flex-shrink-0 max-md:order-1">
-            <CardsItems cards={recipes} type={'myRecipes'} nothingMsg={'У вас нет созданных рецептов!'} />
+            <CardsItems cards={sortedRecipes} type={'myRecipes'} nothingMsg={'У вас нет созданных рецептов!'} />
           </div>
           <ProfileAsideMenu />
         </div>

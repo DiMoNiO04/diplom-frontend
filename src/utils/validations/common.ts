@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-const EValidateMessages = {
+export const EValidateMessages = {
   REQUIRED_FIELD: 'Заполните поле',
   INCORRECT_EMAIL: 'Некорректный email',
   PASSWORD_MIN_LENGTH: 'Пароль должен содержать минимум 8 символов',
@@ -9,9 +9,12 @@ const EValidateMessages = {
   PASSWORD_NUMBER: 'Пароль должен содержать хотя бы одну цифру',
   PASSWORDS_MUST_MATCH: 'Пароли должны совпадать',
   AGREE_CHECKBOX: 'Вы должны согласиться с условиями обработки данных',
+  SHORT_DESC_MIN: 'Описание должно содержать минимум 50 символов',
+  SHORT_DESC_MAX: 'Описание должно содержать не более 160 символов',
+  CATEGORY_MIN: 'Укажите хотя бы одну категорию',
 };
 
-type EValidateMessages = (typeof EValidateMessages)[keyof typeof EValidateMessages];
+export type EValidateMessages = (typeof EValidateMessages)[keyof typeof EValidateMessages];
 
 const MIN_LENGTH_PASSWORD: number = 8;
 
@@ -53,14 +56,28 @@ const requiredImgsRecipeSchema = yup
   .min(1, EValidateMessages.REQUIRED_FIELD)
   .default([]);
 
+const requiredShortDescription = yup
+  .string()
+  .min(50, EValidateMessages.SHORT_DESC_MIN)
+  .max(160, EValidateMessages.SHORT_DESC_MAX)
+  .required(EValidateMessages.REQUIRED_FIELD);
+
+const requiredCategory = yup
+  .array()
+  .of(yup.string().required())
+  .min(1, EValidateMessages.CATEGORY_MIN)
+  .required(EValidateMessages.REQUIRED_FIELD);
+
 export {
   booleanSchema,
   emailSchema,
   MIN_LENGTH_PASSWORD,
   passwordConfirmationSchema,
   passwordSchema,
+  requiredCategory,
   requiredEmailStringSchema,
   requiredImgsRecipeSchema,
   requiredPositiveIntNumSchema,
+  requiredShortDescription,
   requiredStringSchema,
 };

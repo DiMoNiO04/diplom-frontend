@@ -5,12 +5,11 @@ import { ISelectOption } from '@/utils/interfaces';
 interface ISelectList {
   options: ISelectOption[];
   selectedOption: ISelectOption | ISelectOption[] | null;
-  isForm?: boolean;
   isMulti?: boolean;
   onSelect: (option: ISelectOption) => void;
 }
 
-export const SelectList = ({ options, selectedOption, isForm, isMulti, onSelect }: ISelectList) => {
+export const SelectList = ({ options, selectedOption, isMulti, onSelect }: ISelectList) => {
   const isSelected = (option: ISelectOption): boolean => {
     if (isMulti && Array.isArray(selectedOption)) {
       return selectedOption.some((o) => o.value === option.value);
@@ -23,21 +22,25 @@ export const SelectList = ({ options, selectedOption, isForm, isMulti, onSelect 
       className={clsx(
         'shadow-customLight border-black scrollbar-hide max-h-60 min-w-full overflow-auto rounded-lg border bg-white',
         'absolute left-0 top-12 z-50',
-        isForm && 'top-20'
+        isMulti && 'top-12'
       )}
     >
-      {options.map((option) => (
-        <li
-          key={option.value}
-          onClick={() => onSelect(option)}
-          className={clsx(
-            'shrink-0 cursor-pointer px-6 py-2 transition-all duration-300 ease-out',
-            isSelected(option) ? 'bg-orange text-white' : 'hover:bg-orange hover:opacity-70'
-          )}
-        >
-          {option.text}
-        </li>
-      ))}
+      {options.length === 0 ? (
+        <li className="px-6 py-2 text-greyLight select-none">Ничего не найдено!</li>
+      ) : (
+        options.map((option) => (
+          <li
+            key={option.value}
+            onClick={() => onSelect(option)}
+            className={clsx(
+              'shrink-0 cursor-pointer px-6 py-2 transition-all duration-300 ease-out',
+              isSelected(option) ? 'bg-orange text-white' : 'hover:bg-orange hover:opacity-70'
+            )}
+          >
+            {option.text}
+          </li>
+        ))
+      )}
     </ul>
   );
 };

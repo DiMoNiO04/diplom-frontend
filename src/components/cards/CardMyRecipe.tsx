@@ -11,9 +11,10 @@ import { getImageUrl } from '@/utils/functions';
 import { IRecipe } from '@/utils/interfaces';
 import { EUrls } from '@/utils/urls';
 
+import { CardNewInfo } from '../blocks';
 import { IconDelete, IconEdit } from '../icons';
 
-export const CardMyRecipe = ({ documentId, title, img }: IRecipe) => {
+export const CardMyRecipe = ({ documentId, createdAt, title, img }: IRecipe) => {
   const router = useRouter();
 
   const linkUrlRecipe: string = `${EUrls.RECIPES}/${documentId}`;
@@ -26,8 +27,11 @@ export const CardMyRecipe = ({ documentId, title, img }: IRecipe) => {
   const handleOpenModalDeleteRecipe = () =>
     openModal(`Вы уверены что хотите удалить рецепт "${title}"?`, handleDeleteRecipe);
 
+  if (!img && !title) return null;
+
   return (
     <div className="flex flex-col gap-2 relative w-fit">
+      <CardNewInfo createdAt={createdAt} />
       <div className="absolute top-3 right-3 flex items-center gap-x-2 z-20">
         <button
           onClick={handleOpenModalDeleteRecipe}
@@ -57,11 +61,15 @@ export const CardMyRecipe = ({ documentId, title, img }: IRecipe) => {
           rounded-md w-full aspect-[350/265] overflow-hidden transition-transform duration-300 group-hover:scale-105  
         `}
         >
-          <Image src={getImageUrl(img[0].url)} alt="" width={350} height={265} className="size-full object-cover" />
+          {img && (
+            <Image src={getImageUrl(img[0].url)} alt="" width={350} height={265} className="size-full object-cover" />
+          )}
         </div>
-        <div className="text-lg leading-6 font-medium transition-colors duration-300 group-hover:text-orange">
-          {title}
-        </div>
+        {title && (
+          <div className="text-lg leading-6 font-medium transition-colors duration-300 group-hover:text-orange">
+            {title}
+          </div>
+        )}
       </Link>
     </div>
   );
