@@ -1,13 +1,13 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import clsx from 'clsx';
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
 import { useLogin } from '@/hooks/actions';
 import { IFormLoginData, schemaLogin } from '@/utils/validations';
 
 import { IconEmail } from '../icons';
 import { Button } from '../ui/btns';
-import { Input, InputPassword } from '../ui/inputs';
+import { ControllerInput, ControllerInputPassword } from '../ui/controllers';
 
 export const FormLogin = () => {
   const {
@@ -27,20 +27,21 @@ export const FormLogin = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-5">
-      <Controller
+      <ControllerInput<IFormLoginData>
         name="identifier"
         control={control}
-        render={({ field }) => (
-          <Input {...field} placeholder="Email или логин" error={errors.identifier?.message} icon={<IconEmail />} />
-        )}
+        placeholder="Email или логин"
+        error={errors.identifier?.message}
+        icon={<IconEmail />}
       />
-      <Controller
+
+      <ControllerInputPassword<IFormLoginData>
         name="password"
         control={control}
-        render={({ field }) => (
-          <InputPassword {...field} onBlur={field.onBlur} placeholder="Пароль" error={errors.password?.message} />
-        )}
+        placeholder="Пароль"
+        error={errors.password?.message}
       />
+
       <button
         className={clsx(
           'text-sm text-right text-orange transition-colors duration-300 cursor-pointer',
@@ -51,7 +52,8 @@ export const FormLogin = () => {
       >
         Забыли пароль?
       </button>
-      <Button text={'Войти'} variant="orange" type="submit" className="mt-4" />
+
+      <Button text="Войти" variant="orange" type="submit" className="mt-4" />
     </form>
   );
 };

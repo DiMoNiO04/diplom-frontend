@@ -1,5 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
 import { useRegisterUser } from '@/hooks/actions';
 import { IFormRegData, schemaReg } from '@/utils/validations';
@@ -7,7 +7,7 @@ import { IFormRegData, schemaReg } from '@/utils/validations';
 import { IconEmail, IconUser } from '../icons';
 import { LinkPrivacy } from '../ui';
 import { Button } from '../ui/btns';
-import { Input, InputCheckbox, InputPassword } from '../ui/inputs';
+import { ControllerInput, ControllerInputCheckbox, ControllerInputPassword } from '../ui/controllers';
 
 export const FormReg = () => {
   const {
@@ -27,52 +27,39 @@ export const FormReg = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-5">
-      <Controller
+      <ControllerInput<IFormRegData>
         name="username"
         control={control}
-        render={({ field }) => (
-          <Input {...field} placeholder="Логин" error={errors.username?.message} icon={<IconUser />} />
-        )}
+        placeholder="Логин"
+        error={errors.username?.message}
+        icon={<IconUser />}
       />
-      <Controller
+      <ControllerInput<IFormRegData>
         name="email"
         control={control}
-        render={({ field }) => (
-          <Input {...field} placeholder="Email" error={errors.email?.message} icon={<IconEmail />} />
-        )}
+        placeholder="Email"
+        error={errors.email?.message}
+        icon={<IconEmail />}
       />
-      <Controller
+      <ControllerInputPassword<IFormRegData>
         name="password"
         control={control}
-        render={({ field }) => (
-          <InputPassword {...field} onBlur={field.onBlur} placeholder="Пароль" error={errors.password?.message} />
-        )}
+        placeholder="Пароль"
+        error={errors.password?.message}
       />
-      <Controller
+      <ControllerInputPassword<IFormRegData>
         name="passwordConfirmation"
         control={control}
-        render={({ field }) => (
-          <InputPassword
-            {...field}
-            onBlur={field.onBlur}
-            placeholder="Повторите пароль"
-            error={errors.passwordConfirmation?.message}
-          />
-        )}
+        placeholder="Повторите пароль"
+        error={errors.passwordConfirmation?.message}
       />
-      <Controller
+      <ControllerInputCheckbox<IFormRegData>
         name="agree"
         control={control}
-        render={({ field }) => (
-          <InputCheckbox
-            id="agree"
-            label={<LinkPrivacy />}
-            className="mt-2"
-            error={errors.agree?.message}
-            checked={field.value}
-            onChange={field.onChange}
-          />
-        )}
+        id="agree"
+        label={<LinkPrivacy />}
+        className="mt-2"
+        error={errors.agree?.message}
       />
 
       <Button text={'Зарегистрироваться'} variant="orange" type="submit" className="mt-4" />

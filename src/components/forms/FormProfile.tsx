@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
 import { useUpdateImg } from '@/hooks';
 import { useUpdateUser } from '@/hooks/actions';
@@ -8,6 +8,7 @@ import { getImageUrl } from '@/utils/functions';
 
 import { IconEmail, IconPasswordKey, IconUser } from '../icons';
 import { Button } from '../ui/btns';
+import { ControllerInput } from '../ui/controllers';
 import { Input } from '../ui/inputs';
 
 export const FormProfile = ({ firstName, lastName, patronymic, email, username, avatar: initialAvatar }: IUserInfo) => {
@@ -75,44 +76,26 @@ export const FormProfile = ({ firstName, lastName, patronymic, email, username, 
         </div>
       </div>
       <div className="grid grid-cols-2 gap-8 max-md:flex max-md:flex-col max-md:gap-6">
-        <Controller
+        <ControllerInput<IUserInfo>
           name="firstName"
           control={control}
-          render={({ field }) => (
-            <Input
-              {...field}
-              placeholder="Фамилия"
-              error={errors.firstName?.message}
-              icon={<IconUser />}
-              value={field.value || ''}
-            />
-          )}
+          placeholder="Фамилия"
+          error={errors.firstName?.message}
+          icon={<IconUser />}
         />
-        <Controller
+        <ControllerInput<IUserInfo>
           name="lastName"
           control={control}
-          render={({ field }) => (
-            <Input
-              {...field}
-              placeholder="Имя"
-              error={errors.lastName?.message}
-              icon={<IconUser />}
-              value={field.value || ''}
-            />
-          )}
+          placeholder="Имя"
+          error={errors.lastName?.message}
+          icon={<IconUser />}
         />
-        <Controller
+        <ControllerInput<IUserInfo>
           name="patronymic"
           control={control}
-          render={({ field }) => (
-            <Input
-              {...field}
-              placeholder="Отчество"
-              error={errors.patronymic?.message}
-              icon={<IconUser />}
-              value={field.value || ''}
-            />
-          )}
+          placeholder="Отчество"
+          error={errors.patronymic?.message}
+          icon={<IconUser />}
         />
         <Input value={email || ''} placeholder="Email" icon={<IconEmail />} disabled />
         <Input value={username || ''} placeholder="Логин" icon={<IconUser />} disabled />

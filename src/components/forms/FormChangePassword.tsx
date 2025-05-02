@@ -1,11 +1,11 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
 import { usePasswordChange } from '@/hooks/actions';
 import { IFormChangePasswordData, schemaChangePassword } from '@/utils/validations';
 
 import { Button } from '../ui/btns';
-import { InputPassword } from '../ui/inputs';
+import { ControllerInputPassword } from '../ui/controllers';
 
 export const FormChangePassword = () => {
   const {
@@ -25,36 +25,23 @@ export const FormChangePassword = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-5">
-      <Controller
+      <ControllerInputPassword<IFormChangePasswordData>
         name="currentPassword"
         control={control}
-        render={({ field }) => (
-          <InputPassword
-            {...field}
-            onBlur={field.onBlur}
-            placeholder="Текущий пароль"
-            error={errors.currentPassword?.message}
-          />
-        )}
+        placeholder="Текущий пароль"
+        error={errors.currentPassword?.message}
       />
-      <Controller
+      <ControllerInputPassword<IFormChangePasswordData>
         name="password"
         control={control}
-        render={({ field }) => (
-          <InputPassword {...field} onBlur={field.onBlur} placeholder="Новый пароль" error={errors.password?.message} />
-        )}
+        placeholder="Новый пароль"
+        error={errors.password?.message}
       />
-      <Controller
+      <ControllerInputPassword<IFormChangePasswordData>
         name="passwordConfirmation"
         control={control}
-        render={({ field }) => (
-          <InputPassword
-            {...field}
-            onBlur={field.onBlur}
-            placeholder="Повторите пароль"
-            error={errors.passwordConfirmation?.message}
-          />
-        )}
+        placeholder="Повторите пароль"
+        error={errors.passwordConfirmation?.message}
       />
       <Button text={'Сохранить пароль'} variant="orange" type="submit" className="mt-4" />
     </form>

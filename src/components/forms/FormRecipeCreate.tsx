@@ -1,14 +1,15 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Controller, useForm } from 'react-hook-form';
+import { useRouter } from 'next/navigation';
+import { useForm } from 'react-hook-form';
 
 import { useNotificationStore } from '@/stores/notificationMsg';
 import { ICategoriesAndCollectionsProps } from '@/utils/interfaces';
+import { EUrls } from '@/utils/urls';
 import { IFormRecipeData, schemaRecipe } from '@/utils/validations';
 
 import { FormInfoNote } from '../blocks';
 import { Button } from '../ui/btns';
-import { Input, InputTextarea } from '../ui/inputs';
-import { MultiSelect } from '../ui/selects/MultiSelect';
+import { ControllerInput, ControllerMultiSelect, ControllerTextarea } from '../ui/controllers';
 
 export const FormRecipeCreate = ({ categories, collections }: ICategoriesAndCollectionsProps) => {
   const {
@@ -22,6 +23,7 @@ export const FormRecipeCreate = ({ categories, collections }: ICategoriesAndColl
     reValidateMode: 'onChange',
   });
 
+  const router = useRouter();
   const { showNotification } = useNotificationStore();
 
   const onSubmit = async (data: IFormRecipeData) => {
@@ -29,6 +31,8 @@ export const FormRecipeCreate = ({ categories, collections }: ICategoriesAndColl
 
     reset();
     showNotification('Рецепт создан!');
+
+    router.push(EUrls.MY_RECIPES);
   };
 
   return (
@@ -37,140 +41,69 @@ export const FormRecipeCreate = ({ categories, collections }: ICategoriesAndColl
 
       <div className="flex flex-col gap-y-8">
         <div className="grid grid-cols-2 gap-12 max-md:flex max-md:flex-col max-md:gap-6">
-          <Controller
+          <ControllerInput<IFormRecipeData>
             name="title"
             control={control}
-            render={({ field }) => (
-              <Input {...field} withBorder label="Название*" placeholder="Название" error={errors.title?.message} />
-            )}
+            label="Название*"
+            placeholder="Название"
+            error={errors.title?.message}
+            withBorder
           />
-          <Controller
+          <ControllerInput<IFormRecipeData>
             name="cookingTime"
             control={control}
-            render={({ field }) => (
-              <Input
-                {...field}
-                withBorder
-                label="Время приготовления*"
-                type="number"
-                placeholder="Время приготовления (мин)*"
-                error={errors.cookingTime?.message}
-              />
-            )}
+            label="Время приготовления*"
+            placeholder="Время приготовления (мин)*"
+            type="number"
+            error={errors.cookingTime?.message}
+            withBorder
           />
-          <Controller
+          <ControllerInput<IFormRecipeData>
             name="calories"
             control={control}
-            render={({ field }) => (
-              <Input
-                {...field}
-                withBorder
-                label="Количество калорий*"
-                type="number"
-                placeholder="Количество калорий*"
-                error={errors.calories?.message}
-              />
-            )}
+            label="Количество калорий*"
+            placeholder="Количество калорий*"
+            type="number"
+            error={errors.calories?.message}
+            withBorder
           />
-          <Controller
+          <ControllerMultiSelect<IFormRecipeData>
             name="categories"
             control={control}
-            render={({ field }) => (
-              <MultiSelect
-                {...field}
-                options={categories.map((category) => ({
-                  value: category.id,
-                  text: category.title,
-                }))}
-                label="Категории*"
-                isForm
-                placeholder="Выберите категории*"
-                error={errors.categories?.message}
-                value={
-                  Array.isArray(field.value)
-                    ? field.value.map((v) => ({
-                        value: v,
-                        text: categories.find((c) => c.id === Number(v))?.title || `${v}`,
-                      }))
-                    : []
-                }
-                onChange={(selected) => {
-                  const ids = selected.map((o) => o.value);
-                  field.onChange(ids);
-                }}
-              />
-            )}
+            options={categories}
+            label="Категории*"
+            placeholder="Выберите категории*"
+            error={errors.categories?.message}
           />
-          <Controller
+          <ControllerMultiSelect<IFormRecipeData>
             name="collections"
             control={control}
-            render={({ field }) => (
-              <MultiSelect
-                {...field}
-                options={collections.map((collection) => ({
-                  value: collection.id,
-                  text: collection.title,
-                }))}
-                label="Коллекции*"
-                isForm
-                placeholder="Выберите коллекции*"
-                error={errors.collections?.message}
-                value={
-                  Array.isArray(field.value)
-                    ? field.value.map((v) => ({
-                        value: v,
-                        text: collections.find((c) => c.id === Number(v))?.title || `${v}`,
-                      }))
-                    : []
-                }
-                onChange={(selected) => {
-                  const ids = selected.map((o) => o.value);
-                  field.onChange(ids);
-                }}
-              />
-            )}
+            options={collections}
+            label="Коллекции*"
+            placeholder="Выберите коллекции*"
+            error={errors.collections?.message}
           />
-
-          <Controller
+          <ControllerTextarea<IFormRecipeData>
             name="description"
             control={control}
-            render={({ field }) => (
-              <InputTextarea
-                withBorder
-                label="Описание*"
-                {...field}
-                placeholder="Описание*"
-                error={errors.description?.message}
-              />
-            )}
+            label="Описание*"
+            placeholder="Описание*"
+            error={errors.description?.message}
           />
-          <Controller
+          <ControllerTextarea<IFormRecipeData>
             name="ingredients"
             control={control}
-            render={({ field }) => (
-              <InputTextarea
-                withBorder
-                label="Список ингредиентов*"
-                {...field}
-                placeholder="Список ингредиентов*"
-                error={errors.ingredients?.message}
-              />
-            )}
+            label="Список ингредиентов*"
+            placeholder="Список ингредиентов*"
+            error={errors.ingredients?.message}
           />
-          <Controller
+          <ControllerTextarea<IFormRecipeData>
             name="instructions"
             control={control}
-            render={({ field }) => (
-              <InputTextarea
-                withBorder
-                label="Инструкция по приготовлению*"
-                {...field}
-                placeholder="Инструкция по приготовлению*"
-                error={errors.instructions?.message}
-              />
-            )}
+            label="Инструкция по приготовлению*"
+            placeholder="Инструкция по приготовлению*"
+            error={errors.instructions?.message}
           />
-
           {/* <Controller
             name="img"
             control={control}
