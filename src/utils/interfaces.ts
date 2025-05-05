@@ -45,6 +45,7 @@ interface IRecipe {
   categories: ICategory[];
   collections: ICollection[];
   user: IUser;
+  reviews: IReview[];
 }
 
 interface IUser {
@@ -56,6 +57,12 @@ interface IUser {
   patronymic: string | null;
   avatar: IImage;
   blocked: boolean;
+}
+
+interface IReview {
+  id: number;
+  documentId: string;
+  reviewType: string;
 }
 
 interface IAuthorRecipe {
@@ -179,6 +186,7 @@ export type {
   IPageSlugProps,
   IRecipe,
   IRecipesProps,
+  IReview,
   ISelectBase,
   ISelectOption,
   ISimpleContent,

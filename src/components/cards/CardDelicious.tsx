@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { getDate, getImageUrl } from '@/utils/functions';
+import { getDate, getImageUrl, getPercentMakeAgain, getRating } from '@/utils/functions';
 import { IRecipe } from '@/utils/interfaces';
 import { EUrls } from '@/utils/urls';
 
@@ -9,8 +9,11 @@ import { CardNewInfo } from '../blocks';
 import { RecipeRating } from '../blocks/recipe';
 import { IconUser } from '../icons';
 
-export const CardDelicious = ({ documentId, title, img, createdAt, user }: IRecipe) => {
+export const CardDelicious = ({ documentId, title, img, createdAt, user, reviews }: IRecipe) => {
   const linkUrlRecipe: string = `${EUrls.RECIPES}/${documentId}`;
+
+  const percentMakeAgain = getPercentMakeAgain(reviews);
+  const rating = getRating(percentMakeAgain);
 
   if (!img && !title) return null;
 
@@ -27,7 +30,7 @@ export const CardDelicious = ({ documentId, title, img, createdAt, user }: IReci
       </div>
       <div className="p-6 flex flex-col gap-10 size-full max-sm:p-5 max-sm:gap-4">
         <div className="flex flex-col gap-3 max-sm:gap-2">
-          <RecipeRating rating={5} />
+          <RecipeRating rating={rating} />
           {title && (
             <div
               className={`

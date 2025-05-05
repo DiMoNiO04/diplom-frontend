@@ -1,5 +1,5 @@
 import { EMsgActions } from '@/actions/utils';
-import { ICategory, IRecipe } from '@/utils/interfaces';
+import { ICategory, IRecipe, IReview } from '@/utils/interfaces';
 
 import { STRAPI_URL } from './consts';
 
@@ -68,10 +68,26 @@ const isNewRecipe = (createdAt: string) => {
 
 const getDate = (date: string) => new Date(date).toLocaleDateString();
 
+const getPercentMakeAgain = (reviews: IReview[]): number => {
+  if (!reviews || reviews.length === 0) return 0;
+
+  const yesCount = reviews.filter((r) => r.reviewType === 'yes').length;
+  return Math.round((yesCount / reviews.length) * 100);
+};
+
+const getRating = (percentMakeAgain: number): number => {
+  const maxPercentMakeAgain: number = 100;
+  const maxRating: number = 5;
+
+  return (percentMakeAgain * maxRating) / maxPercentMakeAgain;
+};
+
 export {
   getDate,
   getFailedMsg,
   getImageUrl,
+  getPercentMakeAgain,
+  getRating,
   getSimilarRecipes,
   getSortedRecipesForCreated,
   getTrimmedPathname,

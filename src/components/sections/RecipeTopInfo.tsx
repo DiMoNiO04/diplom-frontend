@@ -1,8 +1,9 @@
+import clsx from 'clsx';
 import Image from 'next/image';
 
 import { Title } from '@/components/ui';
-import { getDate, getImageUrl, isNewRecipe } from '@/utils/functions';
-import { IImage, IUser } from '@/utils/interfaces';
+import { getDate, getImageUrl, getPercentMakeAgain, getRating, isNewRecipe } from '@/utils/functions';
+import { IImage, IReview, IUser } from '@/utils/interfaces';
 
 import { RecipeRating } from '../blocks/recipe/RecipeRating';
 import { RecipeSlider } from '../blocks/recipe/RecipeSlider';
@@ -15,30 +16,29 @@ interface IRecipeTopInfoProps {
   createdAt: string;
   img: IImage[];
   user: IUser;
-  rating?: number;
-  percentMakeAgain?: number;
+  reviews: IReview[];
 }
 
-export const RecipeTopInfo = ({
-  title,
-  description,
-  createdAt,
-  img,
-  user,
-  rating = 5,
-  percentMakeAgain = 90,
-}: IRecipeTopInfoProps) => {
+export const RecipeTopInfo = ({ title, description, createdAt, img, user, reviews }: IRecipeTopInfoProps) => {
   const isNew: boolean = isNewRecipe(createdAt);
+
+  const percentMakeAgain = getPercentMakeAgain(reviews);
+  const rating = getRating(percentMakeAgain);
 
   return (
     <section className="my-12 mb-20 max-lg:mb-16 max-lg:my-12">
       <div className="custom-container">
-        <div className="flex justify-between items-center gap-x-8 relative mb-2">
-          {percentMakeAgain && (
+        <div
+          className={clsx(
+            'flex items-center gap-x-8 relative mb-2 w-full',
+            percentMakeAgain === 0 ? 'justify-end' : 'justify-between'
+          )}
+        >
+          {percentMakeAgain !== 0 && (
             <div className="flex items-start justify-start gap-2 max-w-[700px]">
               <img src="/icons/trendingUp.svg" alt="" width={20} height={20} />
               <span className="text-black text-def italic max-sm:text-sm">
-                {percentMakeAgain}% сделали бы это снова
+                {percentMakeAgain}% приготовили бы еще раз
               </span>
             </div>
           )}
@@ -72,10 +72,12 @@ export const RecipeTopInfo = ({
               <div className="italic text-sm text-orange">{user.username}</div>
             )}
           </div>
-          <div className="flex items-center gap-x-2">
-            <RecipeRating rating={rating} />
-            <div className="text-sm">({rating})</div>
-          </div>
+          {rating !== 0 && (
+            <div className="flex items-center gap-x-2">
+              <RecipeRating rating={rating} />
+              <div className="text-sm">({rating})</div>
+            </div>
+          )}
           <div className="flex items-center gap-x-2">
             <div className="size-5">
               <img src="/icons/calendar.svg" width={20} height={20} alt="" />

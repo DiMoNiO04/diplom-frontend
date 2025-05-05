@@ -8,6 +8,7 @@ const API_ABOUT_PAGE: string = `${API_URL}/about-page`;
 const API_CATEGORIES: string = `${API_URL}/categories`;
 const API_CATEGORY = (slug: string) => `${API_URL}/categories/${slug}`;
 const API_RECIPES: string = `${API_URL}/recipes`;
+const API_RECIPES_BEST: string = `${API_URL}/recipes/bestRating`;
 const API_RECIPE = (slug: string) => `${API_URL}/recipes/${slug}`;
 const API_MY_RECIPES: string = `${API_URL}/recipes/my`;
 const API_COLLECTIONS: string = `${API_URL}/collections`;
@@ -70,6 +71,7 @@ export {
   API_PRIVACY_POLICY,
   API_RECIPE,
   API_RECIPES,
+  API_RECIPES_BEST,
   API_REGISTER_USER,
   API_RESET_PASSWORD,
   API_UPLOAD_FILE,

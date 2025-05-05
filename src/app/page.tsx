@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import { apiGetRecipes } from '@/actions/recipes';
+import { apiGetRecipes, apiGetRecipesBest } from '@/actions/recipes';
 import {
   CategoriesMain,
   CuratedCollections,
@@ -10,6 +10,7 @@ import {
   MainSlider,
   ShareYourRecipe,
 } from '@/components/sections';
+import { IRecipe } from '@/utils/interfaces';
 import { createMetadata, seoMainPage } from '@/utils/seo';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -17,16 +18,19 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function MainPage() {
-  const { results: recipes } = await apiGetRecipes();
+  const [recipes, recipesBest]: [{ results: IRecipe[] }, IRecipe[]] = await Promise.all([
+    apiGetRecipes(),
+    apiGetRecipesBest(),
+  ]);
 
   return (
     <>
-      <MainSlider recipes={recipes} />
+      <MainSlider recipes={recipesBest} />
       <CategoriesMain />
-      <DeliciousRecipes recipes={recipes} />
+      <DeliciousRecipes recipes={recipesBest} />
       <ShareYourRecipe />
       <CuratedCollections />
-      <LatestRecipes recipes={recipes} />
+      <LatestRecipes recipes={recipes.results} />
       <EmailNewsletter />
     </>
   );
