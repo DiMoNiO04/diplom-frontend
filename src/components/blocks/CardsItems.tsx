@@ -10,6 +10,8 @@ import {
 import { NothingMsg } from '@/components/ui';
 import { ICategory, ICollection, IRecipe, IUser } from '@/utils/interfaces';
 
+import { ICardCookAgain } from '../cards/CardCookAgain';
+
 interface ICardsItems<T> {
   cards?: T[];
   nothingMsg?: string;
@@ -29,7 +31,7 @@ interface ICardsItemsProps<T> extends ICardsItems<T> {
     | 'cookAgain';
 }
 
-export const CardsItems = <T extends ICategory | ICollection | IRecipe | IUser>({
+export const CardsItems = <T extends ICategory | ICollection | IRecipe | IUser | ICardCookAgain>({
   cards,
   nothingMsg,
   type,
@@ -56,7 +58,7 @@ export const CardsItems = <T extends ICategory | ICollection | IRecipe | IUser>(
       case 'team':
         return <CardTeam {...(card as IUser)} />;
       case 'cookAgain':
-        return <CardCookAgain {...(card as IRecipe)} />;
+        return <CardCookAgain {...(card as ICardCookAgain)} />;
       default:
         return null;
     }

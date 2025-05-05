@@ -23,7 +23,8 @@ const API_USERS: string = `${API_URL}/users/`;
 const API_USERS_TEAM: string = `${API_URL}/users?fields[0]=id&fields[1]=documentId&fields[2]=username&fields[3]=firstName&fields[4]=lastName&fields[5]=patronymic&populate[avatar][fields][0]=url&populate[avatar][fields][1]=alternativeText&populate[avatar][fields][2]=width&populate[avatar][fields][3]=height&populate[avatar][fields][4]=id`;
 const API_UPLOAD_FILE: string = `${API_URL}/upload`;
 const API_DELETE_FILE = (fileId: string) => `${API_URL}/upload/files/${fileId}`;
-const API_COOK_AGAIN_RECIPES = `${API_URL}/review/cookAgain`;
+const API_COOK_AGAIN_RECIPES = `${API_URL}/reviews/cookAgain`;
+const API_REVIEW = `${API_URL}/reviews`;
 
 interface IApiResultReturn {
   isSuccess: boolean;
@@ -43,6 +44,8 @@ export const EMsgActions = {
   SUCCESS_DELETE_RECIPE: 'Рецепт удален!',
   SUCCESS_CREATE_RECIPE: 'Рецепт добавлен!',
   SUCCESS_UPDATE_RECIPE: 'Рецепт обновлен!',
+  SUCCESS_DELETE_REVIEW: 'Отзыв удален!',
+  SUCCESS_CREATE_REVIEW: 'Отзыв добавлен!',
   FAILED_FETCH: 'Ошибка сети или сервера!',
   FAILED_FETCH_TRY_AGAIN: 'Ошибка сети. Повторите позже!',
   FAILED_LOGIN: 'Неверный идентификатор или пароль!',
@@ -76,6 +79,7 @@ export {
   API_RECIPES_BEST,
   API_REGISTER_USER,
   API_RESET_PASSWORD,
+  API_REVIEW,
   API_UPLOAD_FILE,
   API_USER_INFO,
   API_USERS,

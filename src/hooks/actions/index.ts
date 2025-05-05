@@ -6,6 +6,7 @@ import { usePasswordChange } from './usePasswordChange';
 import { usePasswordForgot } from './usePasswordForgot';
 import { useRecipeCreate } from './useRecipeCreate';
 import { useRegisterUser } from './useRegisterUser';
+import { useReview } from './useReview';
 import { useRecipeUpdate } from './useUpdateRecipe';
 import { useUpdateUser } from './useUpdateUser';
 
@@ -19,5 +20,6 @@ export {
   useRecipeCreate,
   useRecipeUpdate,
   useRegisterUser,
+  useReview,
   useUpdateUser,
 };

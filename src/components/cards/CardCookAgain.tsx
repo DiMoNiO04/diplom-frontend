@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { useReview } from '@/hooks/actions';
 import { useConfirmModalStore } from '@/stores/confirmModal';
 import { getImageUrl } from '@/utils/functions';
 import { IRecipe } from '@/utils/interfaces';
@@ -12,17 +13,24 @@ import { EUrls } from '@/utils/urls';
 import { CardNewInfo } from '../blocks';
 import { IconDelete } from '../icons';
 
-export const CardCookAgain = ({ documentId, createdAt, title, img: images }: IRecipe) => {
-  const linkUrlRecipe: string = `${EUrls.RECIPES}/${documentId}`;
+export interface ICardCookAgain {
+  id: number;
+  documentId: string;
+  recipe: IRecipe;
+}
+
+export const CardCookAgain = ({ documentId, recipe }: ICardCookAgain) => {
+  const { img: images, title, createdAt, documentId: idRecipe } = recipe;
+
+  const linkUrlRecipe: string = `${EUrls.RECIPES}/${idRecipe}`;
 
   const { openModal } = useConfirmModalStore();
+  const { deleteReview } = useReview();
 
-  const handleDeleteRecipe = () => {
-    console.log('Рецепт удален из хочу приготовить еще');
-  };
+  const handleDeleteRecipe = () => deleteReview(documentId);
 
   const handleOpenModalDeleteRecipe = () =>
-    openModal(`Вы уверены что хотите удалить рецепт "${title}"?`, handleDeleteRecipe);
+    openModal(`Вы уверены, что хотите удалить данный отзыв?`, handleDeleteRecipe);
 
   if (!images && !title) return null;
 

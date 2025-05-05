@@ -9,6 +9,7 @@ const SITE_LOGO: string = `${STRAPI_URL}/uploads/favicon_b82e379c34.jpg`;
 
 const BREAKPOINT_MOB: number = 1024;
 const DELAY_DEBOUNCE: number = 300;
+const DELAY_ONE_MIN: number = 60000;
 
 const ERROR_ICON: string = '/icons/error.svg';
 
@@ -26,6 +27,7 @@ export {
   BASE_URL,
   BREAKPOINT_MOB,
   DELAY_DEBOUNCE,
+  DELAY_ONE_MIN,
   ERROR_ICON,
   protectedPaths,
   SITE_LOGO,

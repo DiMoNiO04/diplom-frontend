@@ -1,10 +1,10 @@
 import { Metadata } from 'next';
 
-import { apiGetRecipe } from '@/actions/recipes';
+import { apiGetRecipe, apiGetRecipesCookAgain } from '@/actions/recipes';
 import { AlreadyMade, AlsoLike, EmailNewsletter, RecipeContentInfo, RecipeTopInfo } from '@/components/sections';
 import { Breadcrumbs } from '@/components/ui';
 import { getRecipeBreadcrumbs } from '@/utils/breadcrumbs';
-import { IPageSlugProps, IRecipe } from '@/utils/interfaces';
+import { IPageSlugProps } from '@/utils/interfaces';
 import { createMetadata } from '@/utils/seo';
 import { EUrls } from '@/utils/urls';
 
@@ -18,7 +18,16 @@ export async function generateMetadata({ params }: IPageSlugProps): Promise<Meta
 }
 
 export default async function RecipePage({ params }: IPageSlugProps) {
-  const recipe: IRecipe = await apiGetRecipe((await params).slug);
+  const slug = (await params).slug;
+
+  const [recipe, { data: recipesCookAgain }] = await Promise.all([apiGetRecipe(slug), apiGetRecipesCookAgain()]);
+
+  const cookAgainItem = recipesCookAgain.find(
+    (r: { recipe: { documentId: string } }) => r.recipe?.documentId === recipe.documentId
+  );
+
+  const isRecipeInCookAgain = !!cookAgainItem;
+  const reviewId = cookAgainItem?.documentId || null;
 
   const breadcrumbs = getRecipeBreadcrumbs(recipe.title);
 
@@ -27,7 +36,7 @@ export default async function RecipePage({ params }: IPageSlugProps) {
       <Breadcrumbs breadcrumbs={breadcrumbs} />
       <RecipeTopInfo {...recipe} />
       <RecipeContentInfo {...recipe} />
-      <AlreadyMade />
+      <AlreadyMade idRecipe={recipe.documentId} isRecipeInCookAgain={isRecipeInCookAgain} reviewId={reviewId} />
       <AlsoLike idRecipe={recipe.documentId} categories={recipe.categories} />
       <EmailNewsletter />
     </>

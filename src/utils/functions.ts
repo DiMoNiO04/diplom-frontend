@@ -66,7 +66,26 @@ const isNewRecipe = (createdAt: string) => {
   return diffInMs < threeDaysInMs;
 };
 
-const getDate = (date: string) => new Date(date).toLocaleDateString();
+const getDate = (dateStr: string) => {
+  const inputDate = new Date(dateStr);
+  const today = new Date();
+  const tomorrow = new Date();
+
+  today.setHours(0, 0, 0, 0);
+  tomorrow.setDate(today.getDate() + 1);
+  tomorrow.setHours(0, 0, 0, 0);
+  inputDate.setHours(0, 0, 0, 0);
+
+  if (inputDate.getTime() === today.getTime()) {
+    return 'Сегодня';
+  }
+
+  if (inputDate.getTime() === tomorrow.getTime()) {
+    return 'Завтра';
+  }
+
+  return inputDate.toLocaleDateString('ru-RU');
+};
 
 const getPercentMakeAgain = (reviews: IReview[]): number => {
   if (!reviews || reviews.length === 0) return 0;
