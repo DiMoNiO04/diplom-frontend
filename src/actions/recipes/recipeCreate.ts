@@ -18,6 +18,7 @@ export const apiCreateRecipe = async (data: IFormRecipeData): Promise<IApiResult
 
   const extendedData = {
     ...restData,
+    img: data.img.map((img) => img.id),
     seo: {
       metaTitle: `${data.title} | ${SITE_NAME}`,
       metaDescription: shortDescription,

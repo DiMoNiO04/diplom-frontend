@@ -1,5 +1,6 @@
 import * as yup from 'yup';
 
+import { IImage } from '../interfaces';
 import {
   requiredCategory,
   requiredImg,
@@ -17,7 +18,7 @@ interface IFormRecipeData {
   cookingTime: number;
   calories: number;
   categories: string[];
-  img: string[];
+  img: IImage[];
 }
 
 const schemaRecipe = yup.object().shape({

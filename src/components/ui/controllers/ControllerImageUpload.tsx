@@ -1,26 +1,26 @@
 import { Control, Controller, FieldValues, Path } from 'react-hook-form';
 
-import { ImageUpload } from '@/components/blocks';
+import { MultiImageUploadInternal } from '../inputs/MultiImageUpload';
 
-interface IControllerImageUploadProps<T extends FieldValues> {
+interface IControllerMultiImageUpload<T extends FieldValues> {
   name: Path<T>;
   control: Control<T>;
+  label?: string;
   error?: string;
-  label: string;
 }
 
-export const ControllerImageUpload = <T extends FieldValues>({
+export const ControllerMultiImageUpload = <T extends FieldValues>({
   name,
   control,
-  error,
   label,
-}: IControllerImageUploadProps<T>) => {
+  error,
+}: IControllerMultiImageUpload<T>) => {
   return (
     <Controller
       name={name}
       control={control}
-      render={({ field: { value, onChange } }) => (
-        <ImageUpload label={label} error={error} value={value || []} onChange={(urls) => onChange(urls)} />
+      render={({ field: { onChange, value } }) => (
+        <MultiImageUploadInternal<T> name={name} value={value} onChange={onChange} label={label} error={error} />
       )}
     />
   );

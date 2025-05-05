@@ -3,7 +3,7 @@ import { Control, Controller, FieldValues, Path } from 'react-hook-form';
 
 import { Input } from '../inputs';
 
-interface ControllerInputProps<T extends FieldValues> {
+interface IControllerInputProps<T extends FieldValues> {
   name: Path<T>;
   control: Control<T>;
   label?: string;
@@ -23,7 +23,7 @@ export const ControllerInput = <T extends FieldValues>({
   withBorder = false,
   type = 'text',
   icon,
-}: ControllerInputProps<T>) => {
+}: IControllerInputProps<T>) => {
   return (
     <Controller
       name={name}

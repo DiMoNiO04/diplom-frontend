@@ -29,7 +29,7 @@ export default async function EditRecipePage({ params }: IPageSlugProps) {
     cookingTime,
     calories,
     categories: categories.map((category) => category.documentId),
-    img: img.map((i) => i.url),
+    img,
   };
 
   const breadcrumbs = getEditRecipeBreadcrumbs(recipe.title, recipe.documentId);

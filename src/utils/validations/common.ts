@@ -19,6 +19,10 @@ export const EValidateMessages = {
 export type EValidateMessages = (typeof EValidateMessages)[keyof typeof EValidateMessages];
 
 const MIN_LENGTH_PASSWORD: number = 8;
+const MIN_LENGTH_SHORT_DESC: number = 50;
+const MAX_LENGTH_SHORT_DESC: number = 160;
+const MIN_COUNT_IMG: number = 1;
+const MIN_COUNT_CATEGORY: number = 1;
 
 const passwordSchema = yup
   .string()
@@ -60,20 +64,19 @@ const requiredImgsRecipeSchema = yup
 
 const requiredShortDescription = yup
   .string()
-  .min(50, EValidateMessages.SHORT_DESC_MIN)
-  .max(160, EValidateMessages.SHORT_DESC_MAX)
+  .min(MIN_LENGTH_SHORT_DESC, EValidateMessages.SHORT_DESC_MIN)
+  .max(MAX_LENGTH_SHORT_DESC, EValidateMessages.SHORT_DESC_MAX)
   .required(EValidateMessages.REQUIRED_FIELD);
 
 const requiredCategory = yup
   .array()
   .of(yup.string().required())
-  .min(1, EValidateMessages.CATEGORY_MIN)
+  .min(MIN_COUNT_CATEGORY, EValidateMessages.CATEGORY_MIN)
   .required(EValidateMessages.REQUIRED_FIELD);
 
 const requiredImg = yup
   .array()
-  .of(yup.string().required(EValidateMessages.IMAGE_REQUIRED))
-  .min(1, EValidateMessages.IMAGE_MIN)
+  .min(MIN_COUNT_IMG, EValidateMessages.IMAGE_MIN)
   .required(EValidateMessages.IMAGE_REQUIRED);
 
 export {

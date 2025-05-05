@@ -30,7 +30,9 @@ export const FormProfile = ({ firstName, lastName, patronymic, email, username, 
 
   const { updateUser } = useUpdateUser();
 
-  const onSubmit = async (data: IUserInfo) => await updateUser(data, initialAvatar);
+  const onSubmit = async (data: IUserInfo) => {
+    await updateUser(data, initialAvatar);
+  };
 
   const {
     img: avatar,

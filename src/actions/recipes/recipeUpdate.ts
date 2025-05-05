@@ -18,6 +18,7 @@ export const apiUpdateRecipe = async (data: IFormRecipeData, idRecipe: string): 
 
   const extendedData = {
     ...restData,
+    img: data.img.map((img) => img.id),
     seo: {
       metaTitle: `${data.title} | ${SITE_NAME}`,
       metaDescription: shortDescription,

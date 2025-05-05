@@ -55,6 +55,7 @@ interface IUser {
   lastName: string | null;
   patronymic: string | null;
   avatar: IImage;
+  blocked: boolean;
 }
 
 interface IAuthorRecipe {

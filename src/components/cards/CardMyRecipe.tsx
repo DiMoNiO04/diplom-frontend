@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
+import { apiFileDelete } from '@/actions/files';
 import { useDeleteRecipe } from '@/hooks/actions';
 import { useConfirmModalStore } from '@/stores/confirmModal';
 import { getImageUrl } from '@/utils/functions';
@@ -14,7 +15,7 @@ import { EUrls } from '@/utils/urls';
 import { CardNewInfo } from '../blocks';
 import { IconDelete, IconEdit } from '../icons';
 
-export const CardMyRecipe = ({ documentId, createdAt, title, img }: IRecipe) => {
+export const CardMyRecipe = ({ documentId, createdAt, title, img: images }: IRecipe) => {
   const router = useRouter();
 
   const linkUrlRecipe: string = `${EUrls.RECIPES}/${documentId}`;
@@ -22,12 +23,17 @@ export const CardMyRecipe = ({ documentId, createdAt, title, img }: IRecipe) => 
   const { openModal } = useConfirmModalStore();
   const { deleteRecipe } = useDeleteRecipe();
 
-  const handleDeleteRecipe = () => deleteRecipe(documentId);
+  const handleDeleteRecipe = () => {
+    deleteRecipe(documentId);
+
+    images.forEach(async (img) => await apiFileDelete(img.id));
+  };
+
   const handleEditBtn = () => router.replace(`${EUrls.RECIPES}/${documentId}/${EUrls.EDIT_RECIPE}/`);
   const handleOpenModalDeleteRecipe = () =>
     openModal(`Вы уверены что хотите удалить рецепт "${title}"?`, handleDeleteRecipe);
 
-  if (!img && !title) return null;
+  if (!images && !title) return null;
 
   return (
     <div className="flex flex-col gap-2 relative w-fit">
@@ -61,8 +67,14 @@ export const CardMyRecipe = ({ documentId, createdAt, title, img }: IRecipe) => 
           rounded-md w-full aspect-[350/265] overflow-hidden transition-transform duration-300 group-hover:scale-105  
         `}
         >
-          {img && (
-            <Image src={getImageUrl(img[0].url)} alt="" width={350} height={265} className="size-full object-cover" />
+          {images && (
+            <Image
+              src={getImageUrl(images[0].url)}
+              alt=""
+              width={350}
+              height={265}
+              className="size-full object-cover"
+            />
           )}
         </div>
         {title && (
