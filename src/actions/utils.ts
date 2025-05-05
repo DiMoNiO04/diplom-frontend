@@ -23,6 +23,7 @@ const API_USERS: string = `${API_URL}/users/`;
 const API_USERS_TEAM: string = `${API_URL}/users?fields[0]=id&fields[1]=documentId&fields[2]=username&fields[3]=firstName&fields[4]=lastName&fields[5]=patronymic&populate[avatar][fields][0]=url&populate[avatar][fields][1]=alternativeText&populate[avatar][fields][2]=width&populate[avatar][fields][3]=height&populate[avatar][fields][4]=id`;
 const API_UPLOAD_FILE: string = `${API_URL}/upload`;
 const API_DELETE_FILE = (fileId: string) => `${API_URL}/upload/files/${fileId}`;
+const API_COOK_AGAIN_RECIPES = `${API_URL}/review/cookAgain`;
 
 interface IApiResultReturn {
   isSuccess: boolean;
@@ -64,6 +65,7 @@ export {
   API_CHANGE_PASSWORD,
   API_COLLECTION,
   API_COLLECTIONS,
+  API_COOK_AGAIN_RECIPES,
   API_DELETE_FILE,
   API_FORGOT_PASSWORD,
   API_LOGIN,

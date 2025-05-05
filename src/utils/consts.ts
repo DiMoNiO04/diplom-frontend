@@ -18,6 +18,7 @@ const protectedPaths = [
   `${EUrls.MY_RECIPES}/`,
   `${EUrls.EDIT_RECIPE}/`,
   `${EUrls.NEW_RECIPE}/`,
+  `${EUrls.WANT_COOK_AGAIN}/`,
 ];
 
 export {

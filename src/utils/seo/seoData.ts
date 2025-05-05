@@ -227,6 +227,28 @@ const seoMyRecipesPage = (): ISEO => {
   return seoData;
 };
 
+const seoWantCookAgainPage = (): ISEO => {
+  const seoDataTitle: string = 'Хочу приготовить снова | YummyNom';
+  const seoDataDescription: string =
+    'Рецепты, которые вы уже готовили и хотите повторить. Возвращайтесь к своим любимым блюдам!';
+  const seoUrl: string = 'profile/want-cook-again/';
+
+  const seoData = {
+    metaTitle: seoDataTitle,
+    metaDescription: seoDataDescription,
+    canonicalURL: seoUrl,
+    keywords: 'повторные рецепты, любимые блюда, готовлю снова, личный опыт',
+    metaRobots,
+    openGraph: {
+      title: seoDataTitle,
+      description: seoDataDescription,
+      url: seoUrl,
+    },
+  };
+
+  return seoData;
+};
+
 export {
   seoAddRecipePage,
   seoCategoriesPage,
@@ -238,4 +260,5 @@ export {
   seoRecipesPage,
   seoSearchPage,
   seoSitemapPage,
+  seoWantCookAgainPage,
 };

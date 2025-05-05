@@ -26,6 +26,7 @@ import { ShareYourRecipe } from './ShareYourRecipe';
 import { SimpleRecipes } from './SimpleRecipes';
 import { SitemapContent } from './SitemapContent';
 import { TalentTeam } from './TalentTeam';
+import { WantCookAgainContent } from './WantCookAgainContent';
 
 export {
   AboutMain,
@@ -56,4 +57,5 @@ export {
   SimpleRecipes,
   SitemapContent,
   TalentTeam,
+  WantCookAgainContent,
 };

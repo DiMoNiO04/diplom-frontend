@@ -19,6 +19,7 @@ const breadcrumbsSearchPage = createBreadcrumbs('Поиск');
 const breadcrumbsProfilePage = createBreadcrumbs('Личный кабинет');
 const breadcrumbsSitemapPage = createBreadcrumbs('Карта сайта');
 const breadcrumbsMyRecipesPage = createBreadcrumbs(PROFILE_CRUMB, 'Мои рецепты');
+const breadcrumbsWantCookAgainPage = createBreadcrumbs(PROFILE_CRUMB, 'Хочу приготовить снова');
 const breadcrumbsFavoritesPage = createBreadcrumbs(PROFILE_CRUMB, 'Избранные рецепты');
 const breadcrumbsNewRecipePage = createBreadcrumbs(RECIPES_CRUMB, 'Добавление рецепта');
 
@@ -45,6 +46,7 @@ export {
   breadcrumbsRecipesPage,
   breadcrumbsSearchPage,
   breadcrumbsSitemapPage,
+  breadcrumbsWantCookAgainPage,
   createBreadcrumbs,
   getCategoryBreadcrumbs,
   getCollectionBreadcrumbs,

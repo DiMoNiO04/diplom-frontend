@@ -1,0 +1,69 @@
+'use client';
+
+import clsx from 'clsx';
+import Image from 'next/image';
+import Link from 'next/link';
+
+import { useConfirmModalStore } from '@/stores/confirmModal';
+import { getImageUrl } from '@/utils/functions';
+import { IRecipe } from '@/utils/interfaces';
+import { EUrls } from '@/utils/urls';
+
+import { CardNewInfo } from '../blocks';
+import { IconDelete } from '../icons';
+
+export const CardCookAgain = ({ documentId, createdAt, title, img: images }: IRecipe) => {
+  const linkUrlRecipe: string = `${EUrls.RECIPES}/${documentId}`;
+
+  const { openModal } = useConfirmModalStore();
+
+  const handleDeleteRecipe = () => {
+    console.log('Рецепт удален из хочу приготовить еще');
+  };
+
+  const handleOpenModalDeleteRecipe = () =>
+    openModal(`Вы уверены что хотите удалить рецепт "${title}"?`, handleDeleteRecipe);
+
+  if (!images && !title) return null;
+
+  return (
+    <div className="flex flex-col gap-2 relative w-fit">
+      <CardNewInfo createdAt={createdAt} />
+      <div className="absolute top-3 right-3 flex items-center gap-x-2 z-20">
+        <button
+          onClick={handleOpenModalDeleteRecipe}
+          type="button"
+          className={clsx(
+            'size-8 flex items-center justify-center rounded-md bg-white',
+            'transition-colors duration-300 hover:bg-whiteLight'
+          )}
+        >
+          <IconDelete className="fill-greyLight" />
+        </button>
+      </div>
+
+      <Link href={linkUrlRecipe} className="group flex flex-col gap-2 relative w-fit group">
+        <div
+          className={`
+          rounded-md w-full aspect-[350/265] overflow-hidden transition-transform duration-300 group-hover:scale-105  
+        `}
+        >
+          {images && (
+            <Image
+              src={getImageUrl(images[0].url)}
+              alt=""
+              width={350}
+              height={265}
+              className="size-full object-cover"
+            />
+          )}
+        </div>
+        {title && (
+          <div className="text-lg leading-6 font-medium transition-colors duration-300 group-hover:text-orange">
+            {title}
+          </div>
+        )}
+      </Link>
+    </div>
+  );
+};
