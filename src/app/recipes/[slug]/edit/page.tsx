@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 import { apiGetCategories } from '@/actions/categories';
 import { apiGetRecipe } from '@/actions/recipes';
@@ -15,7 +16,11 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function EditRecipePage({ params }: IPageSlugProps) {
-  const [categoriesData, recipe] = await Promise.all([apiGetCategories(), apiGetRecipe((await params).slug)]);
+  const slug = (await params).slug;
+
+  const [categoriesData, recipe] = await Promise.all([apiGetCategories(), apiGetRecipe(slug).catch(() => null)]);
+
+  if (!recipe) notFound();
 
   const { title, documentId, seo, description, ingredients, instructions, cookingTime, calories, categories, img } =
     recipe;

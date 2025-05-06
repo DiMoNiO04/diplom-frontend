@@ -8,6 +8,7 @@ import { CuratedCollections } from './CuratedCollections';
 import { DeliciousRecipes } from './DeliciousRecipes';
 import { EditRecipe } from './EditRecipe';
 import { EmailNewsletter } from './EmailNewsletter';
+import { FallbackContent } from './FallbackContent';
 import { FavoritesContent } from './FavoritesContent';
 import { HeaderBlockImage } from './HeaderBlockImage';
 import { LatestRecipes } from './LatestRecipes';
@@ -39,6 +40,7 @@ export {
   DeliciousRecipes,
   EditRecipe,
   EmailNewsletter,
+  FallbackContent,
   FavoritesContent,
   HeaderBlockImage,
   LatestRecipes,

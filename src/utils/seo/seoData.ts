@@ -271,6 +271,13 @@ const seoFavoritesPage = (): ISEO => {
   return seoData;
 };
 
+const seoNotFoundPage = () => {
+  return {
+    title: '404 | YummyNom',
+    description: 'Страница не найдена. Возможно, вы перешли по неверной ссылке или страница была удалена.',
+  };
+};
+
 export {
   seoAddRecipePage,
   seoCategoriesPage,
@@ -279,6 +286,7 @@ export {
   seoFavoritesPage,
   seoMainPage,
   seoMyRecipesPage,
+  seoNotFoundPage,
   seoProfilePage,
   seoRecipesPage,
   seoSearchPage,

@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 import { apiGetRecipe, apiGetRecipesCookAgain } from '@/actions/recipes';
 import { AlreadyMade, AlsoLike, EmailNewsletter, RecipeContentInfo, RecipeTopInfo } from '@/components/sections';
@@ -11,17 +12,20 @@ import { EUrls } from '@/utils/urls';
 export async function generateMetadata({ params }: IPageSlugProps): Promise<Metadata> {
   const slug = (await params).slug;
 
-  const { seo } = await apiGetRecipe(slug);
-  seo.canonicalURL = `${EUrls.RECIPES.slice(1)}/${slug}`;
+  const recipe = await apiGetRecipe(slug).catch(() => null);
+  if (!recipe) return {};
 
-  return createMetadata(seo);
+  recipe.seo.canonicalURL = `${EUrls.RECIPES.slice(1)}/${slug}`;
+  return createMetadata(recipe.seo);
 }
 
 export default async function RecipePage({ params }: IPageSlugProps) {
   const slug = (await params).slug;
 
-  const [recipe, recipesCookAgainRes] = await Promise.all([apiGetRecipe(slug), apiGetRecipesCookAgain()]);
+  const recipe = await apiGetRecipe(slug).catch(() => null);
+  if (!recipe) notFound();
 
+  const recipesCookAgainRes = await apiGetRecipesCookAgain();
   const recipesCookAgain = recipesCookAgainRes?.data || [];
 
   const cookAgainItem = recipesCookAgain.find(

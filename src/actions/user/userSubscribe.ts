@@ -37,7 +37,7 @@ export async function apiUserSubscribe(idUser: number, data: IApiUserSubscribe) 
     return {
       isSuccess: true,
       message: isSubscribe
-        ? `Подписка на еженедельную рассылку оформлена на почту: ${data.email}!`
+        ? `Подписка на еженедельную рассылку оформлена на почту: ${email}!`
         : 'Вы отписались от еженедельной рассылки!',
     };
   } catch (err) {
