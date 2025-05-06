@@ -8,6 +8,7 @@ interface IUserInfo {
   lastName: string | null;
   patronymic: string | null;
   avatar: IImage | null;
+  isSubscribe: boolean;
 }
 
 type TUserState = {

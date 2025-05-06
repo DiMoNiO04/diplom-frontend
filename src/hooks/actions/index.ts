@@ -8,6 +8,7 @@ import { usePasswordForgot } from './usePasswordForgot';
 import { useRecipeCreate } from './useRecipeCreate';
 import { useRegisterUser } from './useRegisterUser';
 import { useReviews } from './useReview';
+import { useSubscribeUser } from './useSubscribeUser';
 import { useRecipeUpdate } from './useUpdateRecipe';
 import { useUpdateUser } from './useUpdateUser';
 
@@ -23,5 +24,6 @@ export {
   useRecipeUpdate,
   useRegisterUser,
   useReviews,
+  useSubscribeUser,
   useUpdateUser,
 };

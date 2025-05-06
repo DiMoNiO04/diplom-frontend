@@ -35,7 +35,8 @@ export const RecipeTopInfo = async ({
   const percentMakeAgain = getPercentMakeAgain(reviews);
   const rating = getRating(percentMakeAgain);
 
-  const { data: favoritesRecipes } = await apiGetFavoritesUser();
+  const favoritesRecipesRes = await apiGetFavoritesUser();
+  const favoritesRecipes = favoritesRecipesRes?.data || [];
 
   const favoriteEntry = favoritesRecipes?.find(
     (fav: { recipe: { documentId: string }; documentId: string }) => fav.recipe?.documentId === documentId

@@ -1,5 +1,4 @@
 import { FormChangePassword } from './FormChangePassword';
-import { FormEmailNewsletter } from './FormEmailNewsletter';
 import { FormLogin } from './FormLogin';
 import { FormPasswordForgot } from './FormPasswordForgot';
 import { FormPasswordNew } from './FormPasswordNew';
@@ -11,7 +10,6 @@ import { FormReg } from './FormReg';
 
 export {
   FormChangePassword,
-  FormEmailNewsletter,
   FormLogin,
   FormPasswordForgot,
   FormPasswordNew,

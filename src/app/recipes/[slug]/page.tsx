@@ -20,7 +20,9 @@ export async function generateMetadata({ params }: IPageSlugProps): Promise<Meta
 export default async function RecipePage({ params }: IPageSlugProps) {
   const slug = (await params).slug;
 
-  const [recipe, { data: recipesCookAgain }] = await Promise.all([apiGetRecipe(slug), apiGetRecipesCookAgain()]);
+  const [recipe, recipesCookAgainRes] = await Promise.all([apiGetRecipe(slug), apiGetRecipesCookAgain()]);
+
+  const recipesCookAgain = recipesCookAgainRes?.data || [];
 
   const cookAgainItem = recipesCookAgain.find(
     (r: { recipe: { documentId: string } }) => r.recipe?.documentId === recipe.documentId

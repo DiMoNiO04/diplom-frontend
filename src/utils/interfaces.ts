@@ -58,6 +58,7 @@ interface IUser {
   patronymic: string | null;
   avatar: IImage;
   blocked: boolean;
+  isSubscribe: boolean;
 }
 
 interface IReview {
@@ -181,6 +182,10 @@ interface ISelectBase {
   isForm?: boolean;
 }
 
+interface IClassNameProps {
+  className?: string;
+}
+
 export type {
   IAuthorRecipe,
   IBasePage,
@@ -189,6 +194,7 @@ export type {
   ICategoriesAndRecipeEdit,
   ICategoriesProps,
   ICategory,
+  IClassNameProps,
   ICollection,
   ICollectionsProps,
   IHeaderMenuProps,
