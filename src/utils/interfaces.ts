@@ -46,6 +46,7 @@ interface IRecipe {
   collections: ICollection[];
   user: IUser;
   reviews: IReview[];
+  favorites: IFavorite[];
 }
 
 interface IUser {
@@ -63,6 +64,19 @@ interface IReview {
   id: number;
   documentId: string;
   reviewType: string;
+}
+
+interface IFavorite {
+  id: number;
+  documentId: string;
+  user: {
+    id: number;
+    documentId: string;
+  };
+  recipe: {
+    id: number;
+    documentId: string;
+  };
 }
 
 interface IAuthorRecipe {

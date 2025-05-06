@@ -2,37 +2,33 @@
 
 import { cookies } from 'next/headers';
 
-import { API_REVIEW, EMsgActions, IApiResultReturn } from '../utils';
+import { API_FAVORITES, EMsgActions, IApiResultReturn } from '../utils';
 
-type TReviewType = 'yes' | 'no';
-
-export interface IReviewCreateData {
+export interface IFavoriteAddData {
   recipeId: string;
   userId?: number;
-  reviewType: TReviewType;
 }
 
-export const apiReviewCreate = async (data: IReviewCreateData): Promise<IApiResultReturn> => {
+export const apiFavoriteAdd = async (data: IFavoriteAddData): Promise<IApiResultReturn> => {
   const jwtToken = (await cookies()).get('jwt')?.value;
 
   if (!jwtToken) {
     return { isSuccess: false, message: EMsgActions.FAILED_FIND_TOKEN };
   }
 
-  const reviewPayload = {
+  const favoritePayload = {
     recipe: data.recipeId,
     user: data.userId,
-    reviewType: data.reviewType,
   };
 
   try {
-    const res = await fetch(API_REVIEW, {
+    const res = await fetch(API_FAVORITES, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${jwtToken}`,
       },
-      body: JSON.stringify({ data: reviewPayload }),
+      body: JSON.stringify({ data: favoritePayload }),
     });
 
     const result = await res.json();
@@ -43,7 +39,7 @@ export const apiReviewCreate = async (data: IReviewCreateData): Promise<IApiResu
 
     return {
       isSuccess: true,
-      message: EMsgActions.SUCCESS_CREATE_REVIEW,
+      message: EMsgActions.SUCCESS_ADD_FAVORITE,
     };
   } catch (err) {
     console.error(EMsgActions.FAILED_FETCH, err);

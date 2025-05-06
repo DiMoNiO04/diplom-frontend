@@ -249,11 +249,34 @@ const seoWantCookAgainPage = (): ISEO => {
   return seoData;
 };
 
+const seoFavoritesPage = (): ISEO => {
+  const seoDataTitle: string = 'Избранные рецепты | YummyNom';
+  const seoDataDescription: string =
+    'Список ваших любимых рецептов. Быстрый доступ к лучшим блюдам, которые вы сохранили.';
+  const seoUrl: string = 'profile/favorites/';
+
+  const seoData = {
+    metaTitle: seoDataTitle,
+    metaDescription: seoDataDescription,
+    canonicalURL: seoUrl,
+    keywords: 'избранные рецепты, сохраненные блюда, любимое, быстрый доступ',
+    metaRobots,
+    openGraph: {
+      title: seoDataTitle,
+      description: seoDataDescription,
+      url: seoUrl,
+    },
+  };
+
+  return seoData;
+};
+
 export {
   seoAddRecipePage,
   seoCategoriesPage,
   seoCollectionsPage,
   seoEditRecipePage,
+  seoFavoritesPage,
   seoMainPage,
   seoMyRecipesPage,
   seoProfilePage,

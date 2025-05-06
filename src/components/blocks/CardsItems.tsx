@@ -3,6 +3,7 @@ import {
   CardCollection,
   CardCookAgain,
   CardDelicious,
+  CardFavorite,
   CardMyRecipe,
   CardRecipe,
   CardTeam,
@@ -11,6 +12,7 @@ import { NothingMsg } from '@/components/ui';
 import { ICategory, ICollection, IRecipe, IUser } from '@/utils/interfaces';
 
 import { ICardCookAgain } from '../cards/CardCookAgain';
+import { ICardFavorite } from '../cards/CardFavorite';
 
 interface ICardsItems<T> {
   cards?: T[];
@@ -49,8 +51,9 @@ export const CardsItems = <T extends ICategory | ICollection | IRecipe | IUser |
       case 'collection':
         return <CardCollection {...(card as ICollection)} />;
       case 'recipe':
-      case 'favorites':
         return <CardRecipe {...(card as IRecipe)} />;
+      case 'favorites':
+        return <CardFavorite {...(card as ICardFavorite)} />;
       case 'myRecipes':
         return <CardMyRecipe {...(card as IRecipe)} />;
       case 'deliciousRecipes':

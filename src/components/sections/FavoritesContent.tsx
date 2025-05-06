@@ -1,7 +1,8 @@
 'use client';
 
+import { useFavorites } from '@/hooks/actions';
 import { useConfirmModalStore } from '@/stores/confirmModal';
-import { useNotificationStore } from '@/stores/notificationMsg';
+import { IRecipesProps } from '@/utils/interfaces';
 
 import { CardsItems } from '../blocks';
 import { ProfileAsideMenu } from '../blocks/profile';
@@ -9,18 +10,14 @@ import { IconDelete } from '../icons';
 import { Title } from '../ui';
 import { Button } from '../ui/btns';
 
-export const FavoritesContent = () => {
-  const recipesData = [];
-  const hasFavorites = recipesData && recipesData.length > 0;
+export const FavoritesContent = ({ recipes }: IRecipesProps) => {
+  const hasFavorites = recipes && recipes.length > 0;
 
   const { openModal } = useConfirmModalStore();
-  const { showNotification } = useNotificationStore();
+  const { deleteAllFavorites } = useFavorites();
 
-  const handleBtnYes = () => showNotification('Все избранные рецепты удалены!');
-
-  const confirmDelete = () => {
-    openModal('Удалить все ваши избранные рецепты?', handleBtnYes);
-  };
+  const handleBtnYes = () => deleteAllFavorites();
+  const confirmDelete = () => openModal('Удалить все ваши избранные рецепты?', handleBtnYes);
 
   return (
     <section className="my-12 mb-20 max-lg:mb-16 max-lg:my-12">
@@ -34,9 +31,7 @@ export const FavoritesContent = () => {
           <div className="flex-shrink-0 max-md:order-1">
             {hasFavorites && (
               <div className="flex items-center justify-between mb-16 max-md:mb-8 max-sm:flex-col max-sm:gap-2">
-                <div
-                  className={'text-lg italic font-unbounded text-greyLight'}
-                >{`${recipesData.length} рецепта(-ов)`}</div>
+                <div className={'text-lg italic font-unbounded text-greyLight'}>{`${recipes.length} рецепта(-ов)`}</div>
                 <Button
                   text="Удалить все"
                   className="group max-sm:w-full"
@@ -48,7 +43,7 @@ export const FavoritesContent = () => {
               </div>
             )}
 
-            <CardsItems type="favorites" cards={recipesData} nothingMsg="У вас нет избранных рецептов" />
+            <CardsItems type="favorites" cards={recipes} nothingMsg="У вас нет избранных рецептов!" />
           </div>
           <ProfileAsideMenu />
         </div>

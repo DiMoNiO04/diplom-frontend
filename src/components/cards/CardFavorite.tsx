@@ -11,8 +11,16 @@ import { EUrls } from '@/utils/urls';
 import { CardNewInfo } from '../blocks';
 import { BtnLike } from '../ui/btns';
 
-export const CardRecipe = ({ documentId, title, img, createdAt, favorites }: IRecipe) => {
-  const linkUrlRecipe: string = `${EUrls.RECIPES}/${documentId}`;
+export interface ICardFavorite {
+  id: number;
+  documentId: string;
+  recipe: IRecipe;
+}
+
+export const CardFavorite = ({ documentId, recipe }: ICardFavorite) => {
+  const { img: images, title, createdAt, documentId: idRecipe, favorites } = recipe;
+
+  const linkUrlRecipe: string = `${EUrls.RECIPES}/${idRecipe}`;
 
   const userId = useUserStore.getState().user?.id;
 
@@ -20,7 +28,7 @@ export const CardRecipe = ({ documentId, title, img, createdAt, favorites }: IRe
   const isInitiallyLiked = Boolean(userFavorite);
   const likeId = userFavorite?.documentId;
 
-  if (!img && !title) return null;
+  if (!images && !title) return null;
 
   return (
     <div className="relative w-fit">
@@ -32,8 +40,14 @@ export const CardRecipe = ({ documentId, title, img, createdAt, favorites }: IRe
           rounded-md w-full aspect-[350/265] overflow-hidden transition-transform duration-300 group-hover:scale-105
         `}
         >
-          {img && (
-            <Image src={getImageUrl(img[0].url)} alt="" width={350} height={265} className="size-full object-cover" />
+          {images && (
+            <Image
+              src={getImageUrl(images[0].url)}
+              alt=""
+              width={350}
+              height={265}
+              className="size-full object-cover"
+            />
           )}
         </div>
         {title && (

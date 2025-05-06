@@ -22,9 +22,12 @@ const API_USER_INFO: string = `${API_URL}/users/me?populate=*`;
 const API_USERS: string = `${API_URL}/users/`;
 const API_USERS_TEAM: string = `${API_URL}/users?fields[0]=id&fields[1]=documentId&fields[2]=username&fields[3]=firstName&fields[4]=lastName&fields[5]=patronymic&populate[avatar][fields][0]=url&populate[avatar][fields][1]=alternativeText&populate[avatar][fields][2]=width&populate[avatar][fields][3]=height&populate[avatar][fields][4]=id`;
 const API_UPLOAD_FILE: string = `${API_URL}/upload`;
-const API_DELETE_FILE = (fileId: string) => `${API_URL}/upload/files/${fileId}`;
-const API_COOK_AGAIN_RECIPES = `${API_URL}/reviews/cookAgain`;
-const API_REVIEW = `${API_URL}/reviews`;
+const API_DELETE_FILE = (fileId: string): string => `${API_URL}/upload/files/${fileId}`;
+const API_COOK_AGAIN_RECIPES: string = `${API_URL}/reviews/cookAgain`;
+const API_REVIEW: string = `${API_URL}/reviews`;
+const API_FAVORITES: string = `${API_URL}/favorites`;
+const API_FAVORITES_ALL_DELETE: string = `${API_URL}/favorite/deleteAll`;
+const API_FAVORITES_USER: string = `${API_URL}/favorite/userFavorites`;
 
 interface IApiResultReturn {
   isSuccess: boolean;
@@ -46,6 +49,9 @@ export const EMsgActions = {
   SUCCESS_UPDATE_RECIPE: 'Рецепт обновлен!',
   SUCCESS_DELETE_REVIEW: 'Отзыв удален!',
   SUCCESS_CREATE_REVIEW: 'Отзыв добавлен!',
+  SUCCESS_DELETE_FAVORITE: 'Рецепт удален из избранного!',
+  SUCCESS_ADD_FAVORITE: 'Рецепт добавлен в избранное!',
+  SUCCESS_DELETE_ALL_FAVORITES: 'Все рецепты удалены из избранного!',
   FAILED_FETCH: 'Ошибка сети или сервера!',
   FAILED_FETCH_TRY_AGAIN: 'Ошибка сети. Повторите позже!',
   FAILED_LOGIN: 'Неверный идентификатор или пароль!',
@@ -70,6 +76,9 @@ export {
   API_COLLECTIONS,
   API_COOK_AGAIN_RECIPES,
   API_DELETE_FILE,
+  API_FAVORITES,
+  API_FAVORITES_ALL_DELETE,
+  API_FAVORITES_USER,
   API_FORGOT_PASSWORD,
   API_LOGIN,
   API_MY_RECIPES,

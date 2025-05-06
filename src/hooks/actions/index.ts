@@ -1,18 +1,20 @@
 import { useDeleteAccount } from './useDeleteAccount';
 import { useDeleteRecipe } from './useDeleteRecipe';
+import { useFavorites } from './useFavorites';
 import { useLogin } from './useLogin';
 import { useLogout } from './useLogout';
 import { usePasswordChange } from './usePasswordChange';
 import { usePasswordForgot } from './usePasswordForgot';
 import { useRecipeCreate } from './useRecipeCreate';
 import { useRegisterUser } from './useRegisterUser';
-import { useReview } from './useReview';
+import { useReviews } from './useReview';
 import { useRecipeUpdate } from './useUpdateRecipe';
 import { useUpdateUser } from './useUpdateUser';
 
 export {
   useDeleteAccount,
   useDeleteRecipe,
+  useFavorites,
   useLogin,
   useLogout,
   usePasswordChange,
@@ -20,6 +22,6 @@ export {
   useRecipeCreate,
   useRecipeUpdate,
   useRegisterUser,
-  useReview,
+  useReviews,
   useUpdateUser,
 };

@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { useReview } from '@/hooks/actions';
+import { useReviews } from '@/hooks/actions';
 import { useConfirmModalStore } from '@/stores/confirmModal';
 import { getImageUrl } from '@/utils/functions';
 import { IRecipe } from '@/utils/interfaces';
@@ -25,7 +25,7 @@ export const CardCookAgain = ({ documentId, recipe }: ICardCookAgain) => {
   const linkUrlRecipe: string = `${EUrls.RECIPES}/${idRecipe}`;
 
   const { openModal } = useConfirmModalStore();
-  const { deleteReview } = useReview();
+  const { deleteReview } = useReviews();
 
   const handleDeleteRecipe = () => deleteReview(documentId);
 

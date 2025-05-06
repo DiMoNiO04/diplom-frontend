@@ -5,7 +5,7 @@ import { apiReviewCreate, IReviewCreateData } from '@/actions/reviews/reviewCrea
 import { useNotificationStore } from '@/stores/notificationMsg';
 import { ERROR_ICON } from '@/utils/consts';
 
-export const useReview = () => {
+export const useReviews = () => {
   const { showNotification } = useNotificationStore();
   const router = useRouter();
 

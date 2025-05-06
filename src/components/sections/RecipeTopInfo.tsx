@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 
+import { apiGetFavoritesUser } from '@/actions/favorites';
 import { Title } from '@/components/ui';
 import { getDate, getImageUrl, getPercentMakeAgain, getRating, isNewRecipe } from '@/utils/functions';
 import { IImage, IReview, IUser } from '@/utils/interfaces';
@@ -11,6 +12,7 @@ import { IconUser } from '../icons';
 import { BtnLike } from '../ui/btns';
 
 interface IRecipeTopInfoProps {
+  documentId: string;
   title: string;
   description: string;
   createdAt: string;
@@ -19,11 +21,28 @@ interface IRecipeTopInfoProps {
   reviews: IReview[];
 }
 
-export const RecipeTopInfo = ({ title, description, createdAt, img, user, reviews }: IRecipeTopInfoProps) => {
+export const RecipeTopInfo = async ({
+  title,
+  documentId,
+  description,
+  createdAt,
+  img,
+  user,
+  reviews,
+}: IRecipeTopInfoProps) => {
   const isNew: boolean = isNewRecipe(createdAt);
 
   const percentMakeAgain = getPercentMakeAgain(reviews);
   const rating = getRating(percentMakeAgain);
+
+  const { data: favoritesRecipes } = await apiGetFavoritesUser();
+
+  const favoriteEntry = favoritesRecipes?.find(
+    (fav: { recipe: { documentId: string }; documentId: string }) => fav.recipe?.documentId === documentId
+  );
+
+  const isLiked: boolean = !!favoriteEntry;
+  const likeId: string = favoriteEntry?.documentId;
 
   return (
     <section className="my-12 mb-20 max-lg:mb-16 max-lg:my-12">
@@ -42,7 +61,7 @@ export const RecipeTopInfo = ({ title, description, createdAt, img, user, review
               </span>
             </div>
           )}
-          <BtnLike type="recipe" />
+          <BtnLike type="recipe" recipeId={documentId} likeId={likeId} isInitiallyLiked={isLiked} />
         </div>
         <Title title={title} className="mb-6" />
         <div

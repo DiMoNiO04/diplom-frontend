@@ -1,7 +1,7 @@
 import { IImage } from '@/utils/interfaces';
 
 interface IUserInfo {
-  id: string;
+  id: number;
   username: string;
   email: string;
   firstName: string | null;
