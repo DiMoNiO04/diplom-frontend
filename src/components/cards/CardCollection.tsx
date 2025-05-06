@@ -8,20 +8,24 @@ import { EUrls } from '@/utils/urls';
 export const CardCollection = ({ slug, img, title, recipes }: ICollection) => {
   const linkUrl: string = `${EUrls.COLLECTIONS}/${slug}`;
 
+  if (!img && !title) return null;
+
   return (
     <Link href={linkUrl} className="flex flex-col rounded-xl border group overflow-hidden shadow-customLight">
       <div className="relative w-full aspect-[540/330] transition-transform duration-300 group-hover:scale-105">
-        <Image src={getImageUrl(img.url)} alt="" fill className="object-cover" />
+        {img && <Image src={getImageUrl(img.url)} alt="" fill className="object-cover" />}
       </div>
       <div className="p-6 flex items-end justify-between gap-4 size-full max-xl:flex-col max-xl:items-start max-sm:p-5">
-        <div
-          className={`
-          line-clamp-2 overflow-hidden h-14 font-unbounded text-lg font-medium 
-          transition-colors duration-300 hover:text-orange
-          `}
-        >
-          {title}
-        </div>
+        {title && (
+          <div
+            className={`
+            line-clamp-2 overflow-hidden h-14 font-unbounded text-lg font-medium 
+            transition-colors duration-300 hover:text-orange
+            `}
+          >
+            {title}
+          </div>
+        )}
         {recipes && (
           <div
             className={`

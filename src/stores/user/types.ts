@@ -1,13 +1,14 @@
 import { IImage } from '@/utils/interfaces';
 
 interface IUserInfo {
-  id: string;
+  id: number;
   username: string;
   email: string;
   firstName: string | null;
   lastName: string | null;
   patronymic: string | null;
   avatar: IImage | null;
+  isSubscribe: boolean;
 }
 
 type TUserState = {

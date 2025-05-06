@@ -1,6 +1,18 @@
-import { CardCategory, CardCollection, CardDelicious, CardMyRecipe, CardRecipe, CardTeam } from '@/components/cards';
+import {
+  CardCategory,
+  CardCollection,
+  CardCookAgain,
+  CardDelicious,
+  CardFavorite,
+  CardMyRecipe,
+  CardRecipe,
+  CardTeam,
+} from '@/components/cards';
 import { NothingMsg } from '@/components/ui';
 import { ICategory, ICollection, IRecipe, IUser } from '@/utils/interfaces';
+
+import { ICardCookAgain } from '../cards/CardCookAgain';
+import { ICardFavorite } from '../cards/CardFavorite';
 
 interface ICardsItems<T> {
   cards?: T[];
@@ -9,10 +21,19 @@ interface ICardsItems<T> {
 }
 
 interface ICardsItemsProps<T> extends ICardsItems<T> {
-  type: 'category' | 'collection' | 'recipe' | 'favorites' | 'myRecipes' | 'categoryMain' | 'deliciousRecipes' | 'team';
+  type:
+    | 'category'
+    | 'collection'
+    | 'recipe'
+    | 'favorites'
+    | 'myRecipes'
+    | 'categoryMain'
+    | 'deliciousRecipes'
+    | 'team'
+    | 'cookAgain';
 }
 
-export const CardsItems = <T extends ICategory | ICollection | IRecipe | IUser>({
+export const CardsItems = <T extends ICategory | ICollection | IRecipe | IUser | ICardCookAgain>({
   cards,
   nothingMsg,
   type,
@@ -30,14 +51,17 @@ export const CardsItems = <T extends ICategory | ICollection | IRecipe | IUser>(
       case 'collection':
         return <CardCollection {...(card as ICollection)} />;
       case 'recipe':
-      case 'favorites':
         return <CardRecipe {...(card as IRecipe)} />;
+      case 'favorites':
+        return <CardFavorite {...(card as ICardFavorite)} />;
       case 'myRecipes':
         return <CardMyRecipe {...(card as IRecipe)} />;
       case 'deliciousRecipes':
         return <CardDelicious {...(card as IRecipe)} />;
       case 'team':
         return <CardTeam {...(card as IUser)} />;
+      case 'cookAgain':
+        return <CardCookAgain {...(card as ICardCookAgain)} />;
       default:
         return null;
     }
@@ -52,6 +76,7 @@ export const CardsItems = <T extends ICategory | ICollection | IRecipe | IUser>(
     recipe: 'grid-cols-4 max-md:grid-cols-2',
     favorites: 'grid-cols-3 max-lg:grid-cols-2',
     myRecipes: 'grid-cols-3 max-lg:grid-cols-2',
+    cookAgain: 'grid-cols-3 max-lg:grid-cols-2',
     deliciousRecipes: 'grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1',
     team: 'grid-cols-6 max-lg:grid-cols-4 max-sm:grid-cols-2',
   };

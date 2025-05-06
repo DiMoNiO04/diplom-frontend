@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-const EValidateMessages = {
+export const EValidateMessages = {
   REQUIRED_FIELD: 'Заполните поле',
   INCORRECT_EMAIL: 'Некорректный email',
   PASSWORD_MIN_LENGTH: 'Пароль должен содержать минимум 8 символов',
@@ -9,11 +9,20 @@ const EValidateMessages = {
   PASSWORD_NUMBER: 'Пароль должен содержать хотя бы одну цифру',
   PASSWORDS_MUST_MATCH: 'Пароли должны совпадать',
   AGREE_CHECKBOX: 'Вы должны согласиться с условиями обработки данных',
+  SHORT_DESC_MIN: 'Описание должно содержать минимум 50 символов',
+  SHORT_DESC_MAX: 'Описание должно содержать не более 160 символов',
+  CATEGORY_MIN: 'Укажите хотя бы одну категорию',
+  IMAGE_REQUIRED: 'Изображение обязательно',
+  IMAGE_MIN: 'Добавьте хотя бы одно изображение',
 };
 
-type EValidateMessages = (typeof EValidateMessages)[keyof typeof EValidateMessages];
+export type EValidateMessages = (typeof EValidateMessages)[keyof typeof EValidateMessages];
 
 const MIN_LENGTH_PASSWORD: number = 8;
+const MIN_LENGTH_SHORT_DESC: number = 50;
+const MAX_LENGTH_SHORT_DESC: number = 160;
+const MIN_COUNT_IMG: number = 1;
+const MIN_COUNT_CATEGORY: number = 1;
 
 const passwordSchema = yup
   .string()
@@ -53,14 +62,34 @@ const requiredImgsRecipeSchema = yup
   .min(1, EValidateMessages.REQUIRED_FIELD)
   .default([]);
 
+const requiredShortDescription = yup
+  .string()
+  .min(MIN_LENGTH_SHORT_DESC, EValidateMessages.SHORT_DESC_MIN)
+  .max(MAX_LENGTH_SHORT_DESC, EValidateMessages.SHORT_DESC_MAX)
+  .required(EValidateMessages.REQUIRED_FIELD);
+
+const requiredCategory = yup
+  .array()
+  .of(yup.string().required())
+  .min(MIN_COUNT_CATEGORY, EValidateMessages.CATEGORY_MIN)
+  .required(EValidateMessages.REQUIRED_FIELD);
+
+const requiredImg = yup
+  .array()
+  .min(MIN_COUNT_IMG, EValidateMessages.IMAGE_MIN)
+  .required(EValidateMessages.IMAGE_REQUIRED);
+
 export {
   booleanSchema,
   emailSchema,
   MIN_LENGTH_PASSWORD,
   passwordConfirmationSchema,
   passwordSchema,
+  requiredCategory,
   requiredEmailStringSchema,
+  requiredImg,
   requiredImgsRecipeSchema,
   requiredPositiveIntNumSchema,
+  requiredShortDescription,
   requiredStringSchema,
 };

@@ -4,19 +4,13 @@ import clsx from 'clsx';
 
 import { IconArrowCarretRounded } from '@/components/icons';
 import { useSelect } from '@/hooks';
-import { ISelectOption } from '@/utils/interfaces';
+import { ISelectBase, ISelectOption } from '@/utils/interfaces';
 
 import { ErrorMsgInput } from '../inputs/ErrorMsgInput';
 import { SelectList } from './SelectList';
 
-interface ISelect {
-  options: ISelectOption[];
+interface ISelect extends ISelectBase {
   value?: ISelectOption | null;
-  placeholder?: string;
-  error?: string;
-  className?: string;
-  label?: string;
-  isForm?: boolean;
   onChange: (value: ISelectOption) => void;
 }
 
@@ -64,7 +58,7 @@ export const Select = ({ options, value, placeholder, error, className, label, i
       </div>
 
       {hasOptions && isOpen && (
-        <SelectList isForm={isForm} options={options} selectedOption={selectedOption} onSelect={handleSelectChange} />
+        <SelectList options={options} selectedOption={selectedOption} onSelect={handleSelectChange} />
       )}
 
       <ErrorMsgInput error={error} />

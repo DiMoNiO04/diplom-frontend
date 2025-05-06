@@ -1,4 +1,4 @@
-import { apiRegisterUser } from '@/actions/auth';
+import { apiAuthRegisterUser } from '@/actions/auth';
 import { useAuthModalStore } from '@/stores/authModal';
 import { EAuthContent } from '@/stores/authModal';
 import { useNotificationStore } from '@/stores/notificationMsg';
@@ -10,7 +10,7 @@ export const useRegisterUser = () => {
   const { showNotification } = useNotificationStore();
 
   const register = async (data: IFormRegData, reset: () => void) => {
-    const { isSuccess, message } = await apiRegisterUser(data);
+    const { isSuccess, message } = await apiAuthRegisterUser(data);
 
     if (isSuccess) {
       setEmail(data.email);

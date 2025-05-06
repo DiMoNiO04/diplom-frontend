@@ -1,4 +1,4 @@
-import { apiDeleteFile } from './deleteFile';
-import { apiUploadFile } from './uploadFile';
+import { apiFileDelete } from './fileDelete';
+import { apiFileUpload } from './fileUpload';
 
-export { apiDeleteFile, apiUploadFile };
+export { apiFileDelete, apiFileUpload };

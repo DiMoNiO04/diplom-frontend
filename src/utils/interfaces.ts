@@ -1,4 +1,5 @@
 import { ISEO } from './seo';
+import { IFormRecipeData } from './validations';
 
 interface ILink {
   linkUrl: string;
@@ -10,6 +11,7 @@ interface ITitle {
 }
 
 interface ICategory {
+  id: number;
   documentId: string;
   slug: string;
   title: string;
@@ -20,6 +22,7 @@ interface ICategory {
 }
 
 interface ICollection {
+  id: number;
   documentId: string;
   slug: string;
   title: string;
@@ -42,6 +45,8 @@ interface IRecipe {
   categories: ICategory[];
   collections: ICollection[];
   user: IUser;
+  reviews: IReview[];
+  favorites: IFavorite[];
 }
 
 interface IUser {
@@ -52,6 +57,27 @@ interface IUser {
   lastName: string | null;
   patronymic: string | null;
   avatar: IImage;
+  blocked: boolean;
+  isSubscribe: boolean;
+}
+
+interface IReview {
+  id: number;
+  documentId: string;
+  reviewType: string;
+}
+
+interface IFavorite {
+  id: number;
+  documentId: string;
+  user: {
+    id: number;
+    documentId: string;
+  };
+  recipe: {
+    id: number;
+    documentId: string;
+  };
 }
 
 interface IAuthorRecipe {
@@ -131,12 +157,46 @@ interface IRecipesProps {
   recipes: IRecipe[];
 }
 
+interface ICategoriesProps {
+  categories: ICategory[];
+}
+
+interface ICollectionsProps {
+  collections: ICollection[];
+}
+
+interface ICategoriesAndCollectionsProps extends ICollectionsProps, ICategoriesProps {}
+
+interface ICategoriesAndRecipeEdit {
+  categories: ICategory[];
+  recipe: IFormRecipeData;
+  idRecipe: string;
+}
+
+interface ISelectBase {
+  options: ISelectOption[];
+  placeholder?: string;
+  error?: string;
+  className?: string;
+  label?: string;
+  isForm?: boolean;
+}
+
+interface IClassNameProps {
+  className?: string;
+}
+
 export type {
   IAuthorRecipe,
   IBasePage,
   IBtn,
+  ICategoriesAndCollectionsProps,
+  ICategoriesAndRecipeEdit,
+  ICategoriesProps,
   ICategory,
+  IClassNameProps,
   ICollection,
+  ICollectionsProps,
   IHeaderMenuProps,
   IIcon,
   IImage,
@@ -146,6 +206,8 @@ export type {
   IPageSlugProps,
   IRecipe,
   IRecipesProps,
+  IReview,
+  ISelectBase,
   ISelectOption,
   ISimpleContent,
   IText,

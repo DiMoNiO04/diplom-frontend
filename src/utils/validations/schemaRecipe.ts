@@ -1,27 +1,36 @@
 import * as yup from 'yup';
 
-import { requiredImgsRecipeSchema, requiredPositiveIntNumSchema, requiredStringSchema } from './common';
+import { IImage } from '../interfaces';
+import {
+  requiredCategory,
+  requiredImg,
+  requiredPositiveIntNumSchema,
+  requiredShortDescription,
+  requiredStringSchema,
+} from './common';
 
 interface IFormRecipeData {
   title: string;
+  shortDescription: string;
   description: string;
   ingredients: string;
   instructions: string;
   cookingTime: number;
   calories: number;
-  img: string[];
-  category: string;
+  categories: string[];
+  img: IImage[];
 }
 
 const schemaRecipe = yup.object().shape({
   title: requiredStringSchema,
   description: requiredStringSchema,
+  shortDescription: requiredShortDescription,
   cookingTime: requiredPositiveIntNumSchema,
   calories: requiredPositiveIntNumSchema,
-  img: requiredImgsRecipeSchema,
   ingredients: requiredStringSchema,
   instructions: requiredStringSchema,
-  category: requiredStringSchema,
+  categories: requiredCategory,
+  img: requiredImg,
 });
 
 export { schemaRecipe };

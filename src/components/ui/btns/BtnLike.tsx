@@ -1,34 +1,49 @@
 'use client';
 
-import { MouseEvent, useState } from 'react';
+import { MouseEvent, useEffect, useState } from 'react';
 
 import { IconLike } from '@/components/icons';
-import { useNotificationStore } from '@/stores/notificationMsg';
+import { useFavorites } from '@/hooks/actions';
 import { useUserStore } from '@/stores/user';
 
 type TBtnLike = 'card' | 'recipe';
 
 interface IBtnLikeProps {
+  recipeId: string;
+  likeId?: string;
+  isInitiallyLiked?: boolean;
   className?: string;
   type?: TBtnLike;
 }
 
-export const BtnLike = ({ className = '', type = 'card' }: IBtnLikeProps) => {
+export const BtnLike = ({
+  className = '',
+  type = 'card',
+  recipeId,
+  likeId,
+  isInitiallyLiked = false,
+}: IBtnLikeProps) => {
   const { isAuth } = useUserStore();
-  const { showNotification } = useNotificationStore();
-  const [isLiked, setIsLiked] = useState(false);
+  const { addFavorite, deleteFavorite } = useFavorites();
 
-  const handleLikeClick = (event: MouseEvent<HTMLButtonElement>) => {
+  const [isLiked, setIsLiked] = useState(isInitiallyLiked);
+
+  useEffect(() => {
+    setIsLiked(isInitiallyLiked);
+  }, [isInitiallyLiked]);
+
+  const handleLikeClick = async (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
-    const newState = !isLiked;
-    setIsLiked(newState);
+    const userId = useUserStore.getState().user?.id;
 
-    if (newState) {
-      showNotification('Добавлено в избранное!', '/icons/onLike.svg');
+    if (isLiked) {
+      if (likeId) await deleteFavorite(likeId);
     } else {
-      showNotification('Удалено из избранного!', '/icons/offLike.svg');
+      if (userId) await addFavorite({ recipeId, userId });
     }
+
+    setIsLiked(!isLiked);
   };
 
   if (!isAuth) return null;
@@ -43,8 +58,8 @@ export const BtnLike = ({ className = '', type = 'card' }: IBtnLikeProps) => {
           type === 'card'
             ? 'absolute top-3 size-8 right-3 bg-white hover:bg-whiteLight max-sm:right-2 max-sm:top-2'
             : 'relative size-12 bg-whiteDark hover:bg-white'
-        } 
-         rounded-md z-10 transition-colors duration-300  
+        }
+        rounded-md z-10 transition-colors duration-300  
         ${className}
       `}
     >

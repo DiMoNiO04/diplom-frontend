@@ -1,4 +1,4 @@
-import { apiGetAboutPage } from './aboutPage';
-import { apiGetPrivacyPolicyPage } from './privacyPolicyPage';
+import { apiGetPageAbout } from './pageAbout';
+import { apiGetPagePrivacyPolicy } from './pagePrivacyPolicy';
 
-export { apiGetAboutPage, apiGetPrivacyPolicyPage };
+export { apiGetPageAbout, apiGetPagePrivacyPolicy };

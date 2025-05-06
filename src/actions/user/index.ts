@@ -1,7 +1,8 @@
-import { apiChangePassword } from './changePassword';
-import { apiDeleteUser } from './deleteUser';
-import { apiGetUserInfo } from './getUserInfo';
-import { apiUpdateUser } from './updateUser';
+import { apiUserChangePassword } from './userChangePassword';
+import { apiUserDelete } from './userDelete';
+import { apiGetUserInfo } from './userInfo';
 import { apiGetUsersTeam } from './usersTeam';
+import { apiUserSubscribe } from './userSubscribe';
+import { apiUserUpdate } from './userUpdate';
 
-export { apiChangePassword, apiDeleteUser, apiGetUserInfo, apiGetUsersTeam, apiUpdateUser };
+export { apiGetUserInfo, apiGetUsersTeam, apiUserChangePassword, apiUserDelete, apiUserSubscribe, apiUserUpdate };

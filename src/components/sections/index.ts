@@ -8,6 +8,7 @@ import { CuratedCollections } from './CuratedCollections';
 import { DeliciousRecipes } from './DeliciousRecipes';
 import { EditRecipe } from './EditRecipe';
 import { EmailNewsletter } from './EmailNewsletter';
+import { FallbackContent } from './FallbackContent';
 import { FavoritesContent } from './FavoritesContent';
 import { HeaderBlockImage } from './HeaderBlockImage';
 import { LatestRecipes } from './LatestRecipes';
@@ -26,6 +27,7 @@ import { ShareYourRecipe } from './ShareYourRecipe';
 import { SimpleRecipes } from './SimpleRecipes';
 import { SitemapContent } from './SitemapContent';
 import { TalentTeam } from './TalentTeam';
+import { WantCookAgainContent } from './WantCookAgainContent';
 
 export {
   AboutMain,
@@ -38,6 +40,7 @@ export {
   DeliciousRecipes,
   EditRecipe,
   EmailNewsletter,
+  FallbackContent,
   FavoritesContent,
   HeaderBlockImage,
   LatestRecipes,
@@ -56,4 +59,5 @@ export {
   SimpleRecipes,
   SitemapContent,
   TalentTeam,
+  WantCookAgainContent,
 };

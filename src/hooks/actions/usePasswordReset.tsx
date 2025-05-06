@@ -1,7 +1,7 @@
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import { apiResetPassword } from '@/actions/auth';
+import { apiAuthResetPassword } from '@/actions/auth';
 import { useAuthModalStore } from '@/stores/authModal';
 import { useNotificationStore } from '@/stores/notificationMsg';
 import { ERROR_ICON } from '@/utils/consts';
@@ -24,7 +24,7 @@ export const usePasswordReset = () => {
   const resetPassword = async (data: Omit<IFormResetPasswordData, 'code'>, reset: () => void) => {
     if (code) {
       const dataResetPassword: IFormResetPasswordData = { ...data, code };
-      const { isSuccess, message } = await apiResetPassword(dataResetPassword);
+      const { isSuccess, message } = await apiAuthResetPassword(dataResetPassword);
 
       if (isSuccess) {
         closeModal();

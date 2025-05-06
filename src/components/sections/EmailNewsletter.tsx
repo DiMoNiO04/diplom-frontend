@@ -1,12 +1,12 @@
 'use client';
 
-import Link from 'next/link';
+import { useUserStore } from '@/stores/user';
 
-import { EUrls } from '@/utils/urls';
-
-import { FormEmailNewsletter } from '../forms';
+import { PrivacyPolicyNote, SubscribeNewsletter } from '../blocks';
 
 export const EmailNewsletter = () => {
+  const isSubscribe = useUserStore.getState().user?.isSubscribe;
+
   return (
     <section className="bg-pink">
       <div className="custom-container">
@@ -21,19 +21,14 @@ export const EmailNewsletter = () => {
               Наслаждайтесь еженедельно новыми рецептами
             </p>
           </div>
-          <FormEmailNewsletter />
-          <p className="text-def text-greyLight font-onest text-center">
-            Подписываясь на рассылку, вы соглашаетесь с{' '}
-            <Link
-              href={EUrls.PRIVACY_POLICY}
-              className={`
-                border-b border-orange italic
-                transition-colors duration-300 hover:border-transparent hover:text-orange 
-              `}
-            >
-              политикой конфиденциальности
-            </Link>
-          </p>
+          {isSubscribe ? (
+            <div className="italic text-green">Вы подписаны на еженедельную рассылку!</div>
+          ) : (
+            <>
+              <SubscribeNewsletter />
+              <PrivacyPolicyNote />
+            </>
+          )}
         </div>
       </div>
     </section>

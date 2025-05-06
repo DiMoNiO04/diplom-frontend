@@ -1,5 +1,5 @@
 import { EMsgActions } from '@/actions/utils';
-import { ICategory, IRecipe } from '@/utils/interfaces';
+import { ICategory, IRecipe, IReview } from '@/utils/interfaces';
 
 import { STRAPI_URL } from './consts';
 
@@ -66,12 +66,47 @@ const isNewRecipe = (createdAt: string) => {
   return diffInMs < threeDaysInMs;
 };
 
-const getDate = (date: string) => new Date(date).toLocaleDateString();
+const getDate = (dateStr: string) => {
+  const inputDate = new Date(dateStr);
+  const today = new Date();
+  const tomorrow = new Date();
+
+  today.setHours(0, 0, 0, 0);
+  tomorrow.setDate(today.getDate() + 1);
+  tomorrow.setHours(0, 0, 0, 0);
+  inputDate.setHours(0, 0, 0, 0);
+
+  if (inputDate.getTime() === today.getTime()) {
+    return 'Сегодня';
+  }
+
+  if (inputDate.getTime() === tomorrow.getTime()) {
+    return 'Завтра';
+  }
+
+  return inputDate.toLocaleDateString('ru-RU');
+};
+
+const getPercentMakeAgain = (reviews: IReview[]): number => {
+  if (!reviews || reviews.length === 0) return 0;
+
+  const yesCount = reviews.filter((r) => r.reviewType === 'yes').length;
+  return Math.round((yesCount / reviews.length) * 100);
+};
+
+const getRating = (percentMakeAgain: number): number => {
+  const maxPercentMakeAgain: number = 100;
+  const maxRating: number = 5;
+
+  return (percentMakeAgain * maxRating) / maxPercentMakeAgain;
+};
 
 export {
   getDate,
   getFailedMsg,
   getImageUrl,
+  getPercentMakeAgain,
+  getRating,
   getSimilarRecipes,
   getSortedRecipesForCreated,
   getTrimmedPathname,

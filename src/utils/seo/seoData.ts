@@ -140,4 +140,156 @@ const seoSitemapPage = (): ISEO => {
   return seoData;
 };
 
-export { seoCategoriesPage, seoCollectionsPage, seoMainPage, seoRecipesPage, seoSearchPage, seoSitemapPage };
+const seoProfilePage = (): ISEO => {
+  const seoDataTitle: string = 'Личный кабинет | YummyNom';
+  const seoDataDescription: string =
+    'Управляйте своими рецептами, коллекциями и настройками профиля в личном кабинете YummyNom.';
+  const seoUrl: string = 'profile/';
+
+  const seoData = {
+    metaTitle: seoDataTitle,
+    metaDescription: seoDataDescription,
+    canonicalURL: seoUrl,
+    keywords: 'личный кабинет, мои рецепты, настройки',
+    metaRobots,
+    openGraph: {
+      title: seoDataTitle,
+      description: seoDataDescription,
+      url: seoUrl,
+    },
+  };
+
+  return seoData;
+};
+
+const seoAddRecipePage = (): ISEO => {
+  const seoDataTitle: string = 'Добавление рецепта | YummyNom';
+  const seoDataDescription: string =
+    'Поделитесь своим рецептом на платформе YummyNom и вдохновите других на приготовление вкусных блюд.';
+  const seoUrl: string = 'recipes/new/';
+
+  const seoData = {
+    metaTitle: seoDataTitle,
+    metaDescription: seoDataDescription,
+    canonicalURL: seoUrl,
+    keywords: 'добавить рецепт, кулинария, вкусные рецепты, YummyNom',
+    metaRobots,
+    openGraph: {
+      title: seoDataTitle,
+      description: seoDataDescription,
+      url: seoUrl,
+    },
+  };
+
+  return seoData;
+};
+
+const seoEditRecipePage = (): ISEO => {
+  const seoDataTitle: string = 'Редактирование рецепта | YummyNom';
+  const seoDataDescription: string =
+    'Отредактируйте свой рецепт и сделайте его ещё лучше, чтобы вдохновить других на приготовление вкусных блюд.';
+  const seoUrl: string = 'recipes/edit/';
+
+  const seoData = {
+    metaTitle: seoDataTitle,
+    metaDescription: seoDataDescription,
+    canonicalURL: seoUrl,
+    keywords: 'редактировать рецепт, кулинария, вкусные рецепты, YummyNom',
+    metaRobots,
+    openGraph: {
+      title: seoDataTitle,
+      description: seoDataDescription,
+      url: seoUrl,
+    },
+  };
+
+  return seoData;
+};
+
+const seoMyRecipesPage = (): ISEO => {
+  const seoDataTitle: string = 'Мои рецепты | YummyNom';
+  const seoDataDescription: string = 'Просматривайте, редактируйте и управляйте своими рецептами.';
+  const seoUrl: string = 'profile/my-recipes/';
+
+  const seoData = {
+    metaTitle: seoDataTitle,
+    metaDescription: seoDataDescription,
+    canonicalURL: seoUrl,
+    keywords: 'мои рецепты, управление рецептами, личный кабинет',
+    metaRobots,
+    openGraph: {
+      title: seoDataTitle,
+      description: seoDataDescription,
+      url: seoUrl,
+    },
+  };
+
+  return seoData;
+};
+
+const seoWantCookAgainPage = (): ISEO => {
+  const seoDataTitle: string = 'Хочу приготовить снова | YummyNom';
+  const seoDataDescription: string =
+    'Рецепты, которые вы уже готовили и хотите повторить. Возвращайтесь к своим любимым блюдам!';
+  const seoUrl: string = 'profile/want-cook-again/';
+
+  const seoData = {
+    metaTitle: seoDataTitle,
+    metaDescription: seoDataDescription,
+    canonicalURL: seoUrl,
+    keywords: 'повторные рецепты, любимые блюда, готовлю снова, личный опыт',
+    metaRobots,
+    openGraph: {
+      title: seoDataTitle,
+      description: seoDataDescription,
+      url: seoUrl,
+    },
+  };
+
+  return seoData;
+};
+
+const seoFavoritesPage = (): ISEO => {
+  const seoDataTitle: string = 'Избранные рецепты | YummyNom';
+  const seoDataDescription: string =
+    'Список ваших любимых рецептов. Быстрый доступ к лучшим блюдам, которые вы сохранили.';
+  const seoUrl: string = 'profile/favorites/';
+
+  const seoData = {
+    metaTitle: seoDataTitle,
+    metaDescription: seoDataDescription,
+    canonicalURL: seoUrl,
+    keywords: 'избранные рецепты, сохраненные блюда, любимое, быстрый доступ',
+    metaRobots,
+    openGraph: {
+      title: seoDataTitle,
+      description: seoDataDescription,
+      url: seoUrl,
+    },
+  };
+
+  return seoData;
+};
+
+const seoNotFoundPage = () => {
+  return {
+    title: '404 | YummyNom',
+    description: 'Страница не найдена. Возможно, вы перешли по неверной ссылке или страница была удалена.',
+  };
+};
+
+export {
+  seoAddRecipePage,
+  seoCategoriesPage,
+  seoCollectionsPage,
+  seoEditRecipePage,
+  seoFavoritesPage,
+  seoMainPage,
+  seoMyRecipesPage,
+  seoNotFoundPage,
+  seoProfilePage,
+  seoRecipesPage,
+  seoSearchPage,
+  seoSitemapPage,
+  seoWantCookAgainPage,
+};

@@ -4,7 +4,7 @@ import { cookies } from 'next/headers';
 
 import { API_UPLOAD_FILE } from '../utils';
 
-export async function apiUploadFile(file: File) {
+export async function apiFileUpload(file: File) {
   const jwtToken = (await cookies()).get('jwt')?.value;
 
   const formData = new FormData();

@@ -5,31 +5,39 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
+import { apiFileDelete } from '@/actions/files';
+import { useDeleteRecipe } from '@/hooks/actions';
 import { useConfirmModalStore } from '@/stores/confirmModal';
-import { useNotificationStore } from '@/stores/notificationMsg';
+import { getImageUrl } from '@/utils/functions';
 import { IRecipe } from '@/utils/interfaces';
 import { EUrls } from '@/utils/urls';
 
+import { CardNewInfo } from '../blocks';
 import { IconDelete, IconEdit } from '../icons';
 
-export const CardMyRecipe = ({ id, title, img, isPublished }: IRecipe) => {
+export const CardMyRecipe = ({ documentId, createdAt, title, img: images }: IRecipe) => {
   const router = useRouter();
 
-  const linkUrlRecipe: string = `${EUrls.RECIPES}/${id}`;
+  const linkUrlRecipe: string = `${EUrls.RECIPES}/${documentId}`;
 
   const { openModal } = useConfirmModalStore();
-  const { showNotification } = useNotificationStore();
+  const { deleteRecipe } = useDeleteRecipe();
 
-  const handleBtnYes = () => showNotification('Рецепт удален!');
+  const handleDeleteRecipe = () => {
+    deleteRecipe(documentId);
 
-  const handleOpenModalDeleteRecipe = () => {
-    openModal(`Вы уверены что хотите удалить рецепт "${name}"?`, handleBtnYes);
+    images.forEach(async (img) => await apiFileDelete(img.id));
   };
 
-  const handleEditBtn = () => router.replace(`${EUrls.RECIPES}/${id}/${EUrls.EDIT_RECIPE}`);
+  const handleEditBtn = () => router.replace(`${EUrls.RECIPES}/${documentId}/${EUrls.EDIT_RECIPE}/`);
+  const handleOpenModalDeleteRecipe = () =>
+    openModal(`Вы уверены что хотите удалить рецепт "${title}"?`, handleDeleteRecipe);
+
+  if (!images && !title) return null;
 
   return (
     <div className="flex flex-col gap-2 relative w-fit">
+      <CardNewInfo createdAt={createdAt} />
       <div className="absolute top-3 right-3 flex items-center gap-x-2 z-20">
         <button
           onClick={handleOpenModalDeleteRecipe}
@@ -53,23 +61,28 @@ export const CardMyRecipe = ({ id, title, img, isPublished }: IRecipe) => {
         </button>
       </div>
 
-      {isPublished ? (
-        <Link href={linkUrlRecipe} className="group flex flex-col gap-2 relative w-fit group">
-          <div className="rounded-md overflow-hidden transition-transform duration-300 group-hover:scale-105">
-            <Image src={img[0].url} alt="" width={350} height={265} />
-          </div>
+      <Link href={linkUrlRecipe} className="group flex flex-col gap-2 relative w-fit group">
+        <div
+          className={`
+          rounded-md w-full aspect-[350/265] overflow-hidden transition-transform duration-300 group-hover:scale-105  
+        `}
+        >
+          {images && (
+            <Image
+              src={getImageUrl(images[0].url)}
+              alt=""
+              width={350}
+              height={265}
+              className="size-full object-cover"
+            />
+          )}
+        </div>
+        {title && (
           <div className="text-lg leading-6 font-medium transition-colors duration-300 group-hover:text-orange">
             {title}
           </div>
-        </Link>
-      ) : (
-        <div className="group flex flex-col gap-2 relative w-fit cursor-not-allowed opacity-50">
-          <div className="rounded-md overflow-hidden">
-            <Image src={img[0].url} alt="" width={350} height={265} />
-          </div>
-          <div className="text-lg leading-6 font-medium text-greyDark">{title}</div>
-        </div>
-      )}
+        )}
+      </Link>
     </div>
   );
 };

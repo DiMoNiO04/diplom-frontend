@@ -8,7 +8,7 @@ interface IFormRegDataApi {
   password: string;
 }
 
-export const apiRegisterUser = async (data: IFormRegDataApi): Promise<IApiResultReturn> => {
+export const apiAuthRegisterUser = async (data: IFormRegDataApi): Promise<IApiResultReturn> => {
   try {
     const res = await fetch(API_REGISTER_USER, {
       method: 'POST',

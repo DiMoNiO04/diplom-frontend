@@ -11,7 +11,7 @@ export const TokenProvider = async ({ children }: { children: React.ReactNode })
   const token = (await cookies()).get('jwt')?.value;
   const currentPath = (await headers()).get('x-next-url') || '';
 
-  const isProtectedRoute = protectedPaths.some((path) => currentPath.startsWith(path));
+  const isProtectedRoute = protectedPaths.some((path) => currentPath.endsWith(path));
 
   if (!token && isProtectedRoute) {
     redirect(EUrls.HOME);

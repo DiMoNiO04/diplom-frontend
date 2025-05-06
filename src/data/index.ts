@@ -1,8 +1,7 @@
-import { categoriesData } from './categories';
+import { helperTexts } from './helpersTexts';
 import { menuFooterData } from './menuFooter';
 import { menuHeaderData } from './menuHeader';
 import { menuProfileData } from './profileLinks';
-import { recipesData } from './recipes';
 import { ESortRecipes, sortRecipes } from './sortRecipes';
 
-export { categoriesData, ESortRecipes, menuFooterData, menuHeaderData, menuProfileData, recipesData, sortRecipes };
+export { ESortRecipes, helperTexts, menuFooterData, menuHeaderData, menuProfileData, sortRecipes };

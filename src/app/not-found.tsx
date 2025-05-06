@@ -1,13 +1,9 @@
 import { Metadata } from 'next';
 
 import { NotFoundContent } from '@/components/sections';
+import { seoNotFoundPage } from '@/utils/seo/seoData';
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: '404 | YummyNom',
-    description: 'Страница не найдена',
-  };
-}
+export const metadata: Metadata = seoNotFoundPage();
 
 export default function NotFoundPage() {
   return <NotFoundContent />;

@@ -30,6 +30,7 @@ const userStaticLinks = [
   { href: EUrls.NEW_RECIPE, label: 'Добавление рецепта' },
   { href: EUrls.MY_RECIPES, label: 'Мои рецепты' },
   { href: EUrls.FAVORITES, label: 'Избранные рецепты' },
+  { href: EUrls.WANT_COOK_AGAIN, label: 'Хочу приготовить снова' },
 ];
 
 export const SitemapContent = async ({ recipes, categories, collections }: ISitemapContentProps) => {

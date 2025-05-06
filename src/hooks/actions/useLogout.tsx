@@ -1,6 +1,6 @@
 import { useRouter } from 'next/navigation';
 
-import { apiLogoutUser } from '@/actions/auth';
+import { apiAuthLogoutUser } from '@/actions/auth';
 import { useNotificationStore } from '@/stores/notificationMsg';
 import { useUserStore } from '@/stores/user';
 import { ERROR_ICON } from '@/utils/consts';
@@ -11,7 +11,7 @@ export const useLogout = () => {
   const router = useRouter();
 
   const logout = async () => {
-    const { isSuccess, message, redirectTo } = await apiLogoutUser();
+    const { isSuccess, message, redirectTo } = await apiAuthLogoutUser();
 
     if (isSuccess) {
       exitAccount();
