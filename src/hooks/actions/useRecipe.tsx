@@ -1,8 +1,6 @@
 import { useRouter } from 'next/navigation';
 
-import { apiCreateRecipe } from '@/actions/recipes';
-import { apiDeleteRecipe } from '@/actions/recipes/recipeDelete';
-import { apiUpdateRecipe } from '@/actions/recipes/recipeUpdate';
+import { apiCreateRecipe, apiDeleteRecipe, apiUpdateRecipe } from '@/actions/recipes';
 import { useNotificationStore } from '@/stores/notificationMsg';
 import { ERROR_ICON } from '@/utils/consts';
 import { EUrls } from '@/utils/urls';

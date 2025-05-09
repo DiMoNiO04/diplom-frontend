@@ -2,9 +2,7 @@
 
 import { cookies } from 'next/headers';
 
-import { API_MY_RECIPES } from '../utils';
-
-export const apiGetRecipesUser = async () => {
+export const apiFetchGetWithToken = async (url: string) => {
   const jwtToken = (await cookies()).get('jwt')?.value;
 
   if (!jwtToken) {
@@ -12,7 +10,7 @@ export const apiGetRecipesUser = async () => {
   }
 
   try {
-    const res = await fetch(API_MY_RECIPES, {
+    const res = await fetch(url, {
       cache: 'no-cache',
       headers: {
         Authorization: `Bearer ${jwtToken}`,

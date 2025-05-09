@@ -1,7 +1,6 @@
 import { useRouter } from 'next/navigation';
 
-import { apiReviewDelete } from '@/actions/reviews';
-import { apiReviewCreate, IReviewCreateData } from '@/actions/reviews/reviewCreate';
+import { apiReviewCreate, apiReviewDelete, IReviewCreateData } from '@/actions/reviews';
 import { useNotificationStore } from '@/stores/notificationMsg';
 import { ERROR_ICON } from '@/utils/consts';
 

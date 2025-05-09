@@ -33,7 +33,7 @@ export default async function EditRecipePage({ params }: IPageSlugProps) {
     instructions,
     cookingTime,
     calories,
-    categories: categories.map((category) => category.documentId),
+    categories: categories.map((category: { documentId: string }) => category.documentId),
     img,
   };
 

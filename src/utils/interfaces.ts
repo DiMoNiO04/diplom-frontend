@@ -186,7 +186,13 @@ interface IClassNameProps {
   className?: string;
 }
 
+interface IApiFetchReturn {
+  isSuccess: boolean;
+  message: string;
+}
+
 export type {
+  IApiFetchReturn,
   IAuthorRecipe,
   IBasePage,
   IBtn,

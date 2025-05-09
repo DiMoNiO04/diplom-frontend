@@ -2,9 +2,11 @@
 
 import { cookies } from 'next/headers';
 
-import { API_FAVORITES, EMsgActions } from '../utils';
+import { IApiFetchReturn } from '@/utils/interfaces';
 
-export async function apiFavoriteDelete(idFavorite: string) {
+import { EMsgActions } from '../utils';
+
+export const apiFetchDelete = async (url: string, successMessage: string): Promise<IApiFetchReturn> => {
   const jwtToken = (await cookies()).get('jwt')?.value;
 
   if (!jwtToken) {
@@ -12,7 +14,7 @@ export async function apiFavoriteDelete(idFavorite: string) {
   }
 
   try {
-    const res = await fetch(`${API_FAVORITES}/${idFavorite}`, {
+    const res = await fetch(url, {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -25,9 +27,9 @@ export async function apiFavoriteDelete(idFavorite: string) {
       return { isSuccess: false, message };
     }
 
-    return { isSuccess: true, message: EMsgActions.SUCCESS_DELETE_FAVORITE };
+    return { isSuccess: true, message: successMessage };
   } catch (err) {
     console.error(EMsgActions.FAILED_FETCH, err);
     return { isSuccess: false, message: EMsgActions.FAILED_FETCH_TRY_AGAIN };
   }
-}
+};
