@@ -3,7 +3,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 
-import { useRecipeCreate } from '@/hooks/actions';
+import { useRecipe } from '@/hooks/actions';
 import { useUserStore } from '@/stores/user';
 import { ICategoriesProps } from '@/utils/interfaces';
 import { IFormRecipeData, schemaRecipe } from '@/utils/validations';
@@ -22,7 +22,7 @@ export const FormRecipeCreate = ({ categories }: ICategoriesProps) => {
     reValidateMode: 'onChange',
   });
 
-  const { createRecipe } = useRecipeCreate();
+  const { createRecipe } = useRecipe();
 
   const onSubmit = async (data: IFormRecipeData) => {
     const user = useUserStore.getState().user?.id;

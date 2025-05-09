@@ -7,7 +7,7 @@ import { useRef, useState } from 'react';
 import { IconLogOut, IconUser } from '@/components/icons';
 import { menuProfileData } from '@/data';
 import { useClickOutside } from '@/hooks';
-import { useLogout } from '@/hooks/actions';
+import { useAuth } from '@/hooks/actions';
 import { useConfirmModalStore } from '@/stores/confirmModal';
 import { useUserStore } from '@/stores/user';
 import { getImageUrl, getTrimmedPathname } from '@/utils/functions';
@@ -19,7 +19,7 @@ export const HeaderUserMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { openModal } = useConfirmModalStore();
 
-  const { logout } = useLogout();
+  const { logout } = useAuth();
 
   const dropdownRef = useRef<HTMLDivElement>(null!);
 

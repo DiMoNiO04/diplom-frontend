@@ -2,14 +2,14 @@
 
 import { IconDelete, IconLogOut } from '@/components/icons';
 import { BtnText } from '@/components/ui/btns';
-import { useDeleteAccount, useLogout } from '@/hooks/actions';
+import { useAuth, useUser } from '@/hooks/actions';
 import { useConfirmModalStore } from '@/stores/confirmModal';
 
 export const ProfileActions = () => {
   const { openModal } = useConfirmModalStore();
 
-  const { logout } = useLogout();
-  const { deleteAccount } = useDeleteAccount();
+  const { logout } = useAuth();
+  const { deleteAccount } = useUser();
 
   const handleOpenModalDeleteAccount = () => openModal('Вы уверены что хотите удалить свой аккаунт?', deleteAccount);
 

@@ -1,7 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 
-import { usePasswordForgot } from '@/hooks/actions';
+import { useAuth } from '@/hooks/actions';
 import { IFormPasswordForgotData, schemaPasswordForgot } from '@/utils/validations';
 
 import { IconEmail } from '../icons';
@@ -20,7 +20,7 @@ export const FormPasswordForgot = () => {
     reValidateMode: 'onChange',
   });
 
-  const { forgotPassword } = usePasswordForgot();
+  const { forgotPassword } = useAuth();
 
   const onSubmit = async (data: IFormPasswordForgotData) => await forgotPassword(data, reset);
 

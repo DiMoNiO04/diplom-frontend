@@ -1,29 +1,8 @@
-import { useDeleteAccount } from './useDeleteAccount';
-import { useDeleteRecipe } from './useDeleteRecipe';
-import { useFavorites } from './useFavorites';
-import { useLogin } from './useLogin';
-import { useLogout } from './useLogout';
-import { usePasswordChange } from './usePasswordChange';
-import { usePasswordForgot } from './usePasswordForgot';
-import { useRecipeCreate } from './useRecipeCreate';
-import { useRegisterUser } from './useRegisterUser';
-import { useReviews } from './useReview';
+import { useAuth } from './useAuth';
+import { useFavorite } from './useFavorite';
+import { useRecipe } from './useRecipe';
+import { useReview } from './useReview';
 import { useSubscribeUser } from './useSubscribeUser';
-import { useRecipeUpdate } from './useUpdateRecipe';
-import { useUpdateUser } from './useUpdateUser';
+import { useUser } from './useUser';
 
-export {
-  useDeleteAccount,
-  useDeleteRecipe,
-  useFavorites,
-  useLogin,
-  useLogout,
-  usePasswordChange,
-  usePasswordForgot,
-  useRecipeCreate,
-  useRecipeUpdate,
-  useRegisterUser,
-  useReviews,
-  useSubscribeUser,
-  useUpdateUser,
-};
+export { useAuth, useFavorite, useRecipe, useReview, useSubscribeUser,useUser };

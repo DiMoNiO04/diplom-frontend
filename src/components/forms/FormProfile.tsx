@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useForm } from 'react-hook-form';
 
 import { useUpdateImg } from '@/hooks';
-import { useUpdateUser } from '@/hooks/actions';
+import { useUser } from '@/hooks/actions';
 import { IUserInfo } from '@/stores/user';
 import { getImageUrl } from '@/utils/functions';
 
@@ -28,7 +28,7 @@ export const FormProfile = ({ firstName, lastName, patronymic, email, username, 
     },
   });
 
-  const { updateUser } = useUpdateUser();
+  const { updateUser } = useUser();
 
   const onSubmit = async (data: IUserInfo) => {
     await updateUser(data, initialAvatar);

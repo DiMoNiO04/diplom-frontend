@@ -2,7 +2,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import clsx from 'clsx';
 import { useForm } from 'react-hook-form';
 
-import { useLogin } from '@/hooks/actions';
+import { useAuth } from '@/hooks/actions';
 import { IFormLoginData, schemaLogin } from '@/utils/validations';
 
 import { IconEmail } from '../icons';
@@ -21,7 +21,7 @@ export const FormLogin = () => {
     reValidateMode: 'onChange',
   });
 
-  const { login, handleForgotPassword } = useLogin();
+  const { login, handleForgotPassword } = useAuth();
 
   const onSubmit = async (data: IFormLoginData) => await login(data, reset);
 

@@ -1,7 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 
-import { useRegisterUser } from '@/hooks/actions';
+import { useAuth } from '@/hooks/actions';
 import { IFormRegData, schemaReg } from '@/utils/validations';
 
 import { IconEmail, IconUser } from '../icons';
@@ -21,7 +21,7 @@ export const FormReg = () => {
     reValidateMode: 'onChange',
   });
 
-  const register = useRegisterUser();
+  const { register } = useAuth();
 
   const onSubmit = async (data: IFormRegData) => await register(data, reset);
 

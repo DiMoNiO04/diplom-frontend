@@ -1,7 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 
-import { usePasswordChange } from '@/hooks/actions';
+import { useUser } from '@/hooks/actions';
 import { IFormChangePasswordData, schemaChangePassword } from '@/utils/validations';
 
 import { Button } from '../ui/btns';
@@ -19,7 +19,7 @@ export const FormChangePassword = () => {
     reValidateMode: 'onChange',
   });
 
-  const changePassword = usePasswordChange();
+  const { changePassword } = useUser();
 
   const onSubmit = async (data: IFormChangePasswordData) => await changePassword(data, reset);
 

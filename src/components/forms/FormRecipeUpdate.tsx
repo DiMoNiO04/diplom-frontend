@@ -2,7 +2,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { useRecipeUpdate } from '@/hooks/actions';
+import { useRecipe } from '@/hooks/actions';
 import { ICategoriesAndRecipeEdit } from '@/utils/interfaces';
 import { IFormRecipeData, schemaRecipe } from '@/utils/validations';
 
@@ -27,7 +27,7 @@ export const FormRecipeUpdate = ({ recipe: defaultValues, categories, idRecipe }
     }
   }, [defaultValues, reset]);
 
-  const { updateRecipe } = useRecipeUpdate();
+  const { updateRecipe } = useRecipe();
 
   const onSubmit = async (data: IFormRecipeData) => updateRecipe(data, idRecipe, reset);
 

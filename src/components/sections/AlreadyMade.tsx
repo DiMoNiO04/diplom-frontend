@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect } from 'react';
 
-import { useReviews } from '@/hooks/actions';
+import { useReview } from '@/hooks/actions';
 import { useAuthModalStore } from '@/stores/authModal';
 import { useConfirmModalStore } from '@/stores/confirmModal';
 import { useUserStore } from '@/stores/user';
@@ -23,7 +23,7 @@ export const AlreadyMade = ({ idRecipe, isRecipeInCookAgain, reviewId }: IAlread
   const { openModal: openConfirmModal } = useConfirmModalStore();
   const { openModal: openAuthModal } = useAuthModalStore();
   const { isAuth } = useUserStore();
-  const { createReview, deleteReview } = useReviews();
+  const { createReview, deleteReview } = useReview();
 
   const userId = useUserStore.getState().user?.id;
 

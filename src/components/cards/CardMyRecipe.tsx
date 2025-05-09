@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 import { apiFileDelete } from '@/actions/files';
-import { useDeleteRecipe } from '@/hooks/actions';
+import { useRecipe } from '@/hooks/actions';
 import { useConfirmModalStore } from '@/stores/confirmModal';
 import { getImageUrl } from '@/utils/functions';
 import { IRecipe } from '@/utils/interfaces';
@@ -21,7 +21,7 @@ export const CardMyRecipe = ({ documentId, createdAt, title, img: images }: IRec
   const linkUrlRecipe: string = `${EUrls.RECIPES}/${documentId}`;
 
   const { openModal } = useConfirmModalStore();
-  const { deleteRecipe } = useDeleteRecipe();
+  const { deleteRecipe } = useRecipe();
 
   const handleDeleteRecipe = () => {
     deleteRecipe(documentId);
@@ -64,17 +64,11 @@ export const CardMyRecipe = ({ documentId, createdAt, title, img: images }: IRec
       <Link href={linkUrlRecipe} className="group flex flex-col gap-2 relative w-fit group">
         <div
           className={`
-          rounded-md w-full aspect-[350/265] overflow-hidden transition-transform duration-300 group-hover:scale-105  
+          rounded-md w-full aspect-[306/231] overflow-hidden transition-transform duration-300 group-hover:scale-105  
         `}
         >
           {images && (
-            <Image
-              src={getImageUrl(images[0].url)}
-              alt=""
-              width={350}
-              height={265}
-              className="size-full object-cover"
-            />
+            <Image src={getImageUrl(images[0].url)} alt="" width={306} height={231} className="object-cover h-full" />
           )}
         </div>
         {title && (

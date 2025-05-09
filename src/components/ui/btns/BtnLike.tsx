@@ -3,7 +3,7 @@
 import { MouseEvent, useEffect, useState } from 'react';
 
 import { IconLike } from '@/components/icons';
-import { useFavorites } from '@/hooks/actions';
+import { useFavorite } from '@/hooks/actions';
 import { useUserStore } from '@/stores/user';
 
 type TBtnLike = 'card' | 'recipe';
@@ -24,7 +24,7 @@ export const BtnLike = ({
   isInitiallyLiked = false,
 }: IBtnLikeProps) => {
   const { isAuth } = useUserStore();
-  const { addFavorite, deleteFavorite } = useFavorites();
+  const { addFavorite, deleteFavorite } = useFavorite();
 
   const [isLiked, setIsLiked] = useState(isInitiallyLiked);
 

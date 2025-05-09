@@ -1,6 +1,6 @@
 'use client';
 
-import { useFavorites } from '@/hooks/actions';
+import { useFavorite } from '@/hooks/actions';
 import { useConfirmModalStore } from '@/stores/confirmModal';
 import { IRecipesProps } from '@/utils/interfaces';
 
@@ -14,7 +14,7 @@ export const FavoritesContent = ({ recipes }: IRecipesProps) => {
   const hasFavorites = recipes && recipes.length > 0;
 
   const { openModal } = useConfirmModalStore();
-  const { deleteAllFavorites } = useFavorites();
+  const { deleteAllFavorites } = useFavorite();
 
   const handleBtnYes = () => deleteAllFavorites();
   const confirmDelete = () => openModal('Удалить все ваши избранные рецепты?', handleBtnYes);

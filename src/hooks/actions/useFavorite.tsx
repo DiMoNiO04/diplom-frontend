@@ -5,7 +5,7 @@ import { IFavoriteAddData } from '@/actions/favorites/favoritesAdd';
 import { useNotificationStore } from '@/stores/notificationMsg';
 import { ERROR_ICON } from '@/utils/consts';
 
-export const useFavorites = () => {
+export const useFavorite = () => {
   const { showNotification } = useNotificationStore();
   const router = useRouter();
 
