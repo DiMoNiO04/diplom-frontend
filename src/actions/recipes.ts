@@ -1,9 +1,10 @@
 import { SITE_NAME } from '@/utils/consts';
-import { IBasePage, IRecipe } from '@/utils/interfaces';
+import { IRecipe } from '@/utils/interfaces';
 import { IFormRecipeData } from '@/utils/validations';
 
 import { apiFetch, apiFetchDelete, apiFetchGetWithToken, apiFetchPostWithToken } from './api';
 import { apiFetchPut } from './api/apiFetchPut';
+import { IApiResultReturn, IRecipePage, IRecipesAll } from './interfaces';
 import {
   API_COOK_AGAIN_RECIPES,
   API_MY_RECIPES,
@@ -11,14 +12,7 @@ import {
   API_RECIPES,
   API_RECIPES_BEST,
   EMsgActions,
-  IApiResultReturn,
 } from './utils';
-
-interface IRecipePage extends IBasePage, IRecipe {}
-
-interface IRecipesAll {
-  results: IRecipe[];
-}
 
 const apiGetRecipe = async (slug: string): Promise<IRecipePage> =>
   (await apiFetch<{ data: IRecipePage }>(API_RECIPE(slug))).data;

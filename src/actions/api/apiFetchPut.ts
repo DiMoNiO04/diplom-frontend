@@ -2,14 +2,17 @@
 
 import { cookies } from 'next/headers';
 
-import { EMsgActions, IApiResultReturn } from '../utils';
+import { BEARER_AUTH, CONTENT_TYPE, COOKIES_JWT } from '@/utils/consts';
+
+import { IApiResultReturn } from '../interfaces';
+import { EApiMethods, EMsgActions } from '../utils';
 
 export const apiFetchPut = async <T>(
   url: string,
   data: T,
   successMessage: string | ((data: T) => string)
 ): Promise<IApiResultReturn> => {
-  const jwtToken = (await cookies()).get('jwt')?.value;
+  const jwtToken = (await cookies()).get(COOKIES_JWT)?.value;
 
   if (!jwtToken) {
     return { isSuccess: false, message: EMsgActions.FAILED_FIND_TOKEN };
@@ -17,10 +20,10 @@ export const apiFetchPut = async <T>(
 
   try {
     const res = await fetch(url, {
-      method: 'PUT',
+      method: EApiMethods.PUT,
       headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${jwtToken}`,
+        'Content-Type': CONTENT_TYPE,
+        Authorization: `${BEARER_AUTH} ${jwtToken}`,
       },
       body: JSON.stringify(data),
     });

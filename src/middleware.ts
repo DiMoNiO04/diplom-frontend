@@ -1,14 +1,14 @@
 import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 
-import { protectedPaths } from './utils/consts';
+import { COOKIES_JWT, protectedPaths } from './utils/consts';
 import { EUrls } from './utils/urls';
 
 export default async function middleware(req: NextRequest) {
   const path = req.nextUrl.pathname;
   const isProtectedRoute = protectedPaths.some((protectedPath) => path.endsWith(protectedPath));
 
-  const jwtToken = (await cookies()).get('jwt')?.value;
+  const jwtToken = (await cookies()).get(COOKIES_JWT)?.value;
 
   if (isProtectedRoute && !jwtToken) {
     return NextResponse.redirect(new URL(EUrls.HOME, req.nextUrl));

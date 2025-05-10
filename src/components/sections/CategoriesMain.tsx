@@ -1,14 +1,13 @@
 import { apiGetCategories } from '@/actions/categories';
+import { PER_VISIBLE_PAGE_CATEGORIES } from '@/utils/consts';
 import { EUrls } from '@/utils/urls';
 
 import { CardsItems, TitleSectionBlock } from '../blocks';
 
-const PER_PAGE_CATEGORIES: number = 6;
-
 export const CategoriesMain = async () => {
   const { results } = await apiGetCategories();
 
-  const initialCategories = results.slice(0, PER_PAGE_CATEGORIES);
+  const initialCategories = results.slice(0, PER_VISIBLE_PAGE_CATEGORIES);
 
   return (
     <section className="mb-20 max-lg:mb-16">

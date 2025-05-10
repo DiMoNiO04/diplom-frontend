@@ -9,13 +9,13 @@ import { Button } from '../ui/btns';
 import { ControllerInput, ControllerMultiSelect, ControllerTextarea } from '../ui/controllers';
 import { ControllerMultiImageUpload } from '../ui/controllers/ControllerImageUpload';
 
-interface FormRecipeFieldsProps {
+interface IFormRecipeFieldsProps {
   control: Control<IFormRecipeData>;
   errors: FieldErrors<IFormRecipeData>;
   categories: ICategory[];
 }
 
-export const FormRecipeFields = ({ control, errors, categories }: FormRecipeFieldsProps) => (
+export const FormRecipeFields = ({ control, errors, categories }: IFormRecipeFieldsProps) => (
   <>
     <FormInfoNote />
 

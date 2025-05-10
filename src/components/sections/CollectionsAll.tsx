@@ -1,11 +1,10 @@
 'use client';
 
 import { useSearch } from '@/hooks';
+import { PER_PAGE_RECIPES } from '@/utils/consts';
 import { ICollection } from '@/utils/interfaces';
 
 import { CardsItems, LoadMoreCollections, SearchHeaderBlock } from '../blocks';
-
-const RECIPES_PER_PAGE: number = 18;
 
 interface ICollectionsAllProps {
   cards: ICollection[];
@@ -17,8 +16,8 @@ export const CollectionsAll = ({ cards }: ICollectionsAllProps) => {
     filterKey: 'title',
   });
 
-  const initialCollections = filteredData.slice(0, RECIPES_PER_PAGE);
-  const remainingCollections = filteredData.slice(RECIPES_PER_PAGE);
+  const initialCollections = filteredData.slice(0, PER_PAGE_RECIPES);
+  const remainingCollections = filteredData.slice(PER_PAGE_RECIPES);
 
   return (
     <section className="my-12 mb-20 max-lg:mb-16 max-lg:my-12">
@@ -32,7 +31,7 @@ export const CollectionsAll = ({ cards }: ICollectionsAllProps) => {
           onClear={handleClearSearch}
         />
         <CardsItems type="collection" cards={initialCollections} nothingMsg={'Коллекций не найдено!'} />
-        <LoadMoreCollections remainingCards={remainingCollections} perPage={RECIPES_PER_PAGE} />
+        <LoadMoreCollections remainingCards={remainingCollections} perPage={PER_PAGE_RECIPES} />
       </div>
     </section>
   );

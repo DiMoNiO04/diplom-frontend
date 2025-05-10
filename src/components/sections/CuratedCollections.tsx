@@ -1,13 +1,12 @@
 import { apiGetCollections } from '@/actions/collections';
+import { PER_VISIBLE_CURRATED_COLLECTION } from '@/utils/consts';
 import { EUrls } from '@/utils/urls';
 
 import { CardsItems, TitleSectionBlock } from '../blocks';
 
-const CARDS_PER_PAGE: number = 6;
-
 export const CuratedCollections = async () => {
   const { results: cards } = await apiGetCollections();
-  const initialCollections = cards.slice(0, CARDS_PER_PAGE);
+  const initialCollections = cards.slice(0, PER_VISIBLE_CURRATED_COLLECTION);
 
   return (
     <section className="mb-20 max-lg:mb-16">

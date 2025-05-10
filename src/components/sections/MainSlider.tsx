@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import { VISIBLE_SLIDER_RECIPES } from '@/utils/consts';
 import { getImageUrl } from '@/utils/functions';
 import { IRecipesProps } from '@/utils/interfaces';
 import { EUrls } from '@/utils/urls';
@@ -17,7 +18,7 @@ const STYLES = {
 };
 
 export const MainSlider = ({ recipes }: IRecipesProps) => {
-  const recipesSlider = recipes.slice(0, 4);
+  const recipesSlider = recipes.slice(0, VISIBLE_SLIDER_RECIPES);
 
   return (
     <section className="mb-20 max-lg:mb-16">

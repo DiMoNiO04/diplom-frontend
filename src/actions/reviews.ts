@@ -1,13 +1,9 @@
 import { apiFetchDelete, apiFetchPostWithToken } from './api';
-import { API_REVIEW, EMsgActions, IApiResultReturn } from './utils';
+import { IApiResultReturn, IReviewCreateData } from './interfaces';
+import { API_REVIEW, EMsgActions } from './utils';
 
-type TReviewType = 'yes' | 'no';
-
-export interface IReviewCreateData {
-  recipeId: string;
-  userId?: number;
-  reviewType: TReviewType;
-}
+const apiReviewDelete = (idReview: string) =>
+  apiFetchDelete(`${API_REVIEW}/${idReview}`, EMsgActions.SUCCESS_DELETE_REVIEW);
 
 const apiReviewCreate = (data: IReviewCreateData): Promise<IApiResultReturn> => {
   const payload = {
@@ -20,8 +16,5 @@ const apiReviewCreate = (data: IReviewCreateData): Promise<IApiResultReturn> => 
 
   return apiFetchPostWithToken(API_REVIEW, payload, EMsgActions.SUCCESS_CREATE_REVIEW);
 };
-
-const apiReviewDelete = (idReview: string) =>
-  apiFetchDelete(`${API_REVIEW}/${idReview}`, EMsgActions.SUCCESS_DELETE_REVIEW);
 
 export { apiReviewCreate, apiReviewDelete };

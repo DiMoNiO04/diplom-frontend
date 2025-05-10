@@ -6,10 +6,9 @@ import { IconClose } from '@/components/icons';
 import { NothingMsg } from '@/components/ui';
 import { Button } from '@/components/ui/btns';
 import { useSearch } from '@/hooks';
+import { PER_VISIBLE_SEARCH_RECIPES } from '@/utils/consts';
 import { IRecipe, IRecipesProps } from '@/utils/interfaces';
 import { EUrls } from '@/utils/urls';
-
-const PER_VISIBLE_RESULT = 16;
 
 interface IHeaderSearchPanelProps extends IRecipesProps {
   isOpen: boolean;
@@ -22,9 +21,9 @@ export const HeaderSearchPanel = ({ isOpen, onClose, recipes }: IHeaderSearchPan
     filterKey: 'title',
   });
 
-  const visibleSearchResult: IRecipe[] = filteredData.slice(0, PER_VISIBLE_RESULT);
+  const visibleSearchResult: IRecipe[] = filteredData.slice(0, PER_VISIBLE_SEARCH_RECIPES);
   const hasSearchResult: boolean = filteredData.length > 0;
-  const hasVisibleMoreBtn: boolean = hasSearchResult && filteredData.length > PER_VISIBLE_RESULT;
+  const hasVisibleMoreBtn: boolean = hasSearchResult && filteredData.length > PER_VISIBLE_SEARCH_RECIPES;
   const linkUrl: string = searchQuery ? `${EUrls.SEARCH}?title=${searchQuery}` : `${EUrls.SEARCH}`;
 
   const handleViewAllClick = (event: MouseEvent<HTMLButtonElement>) => {

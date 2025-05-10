@@ -2,40 +2,36 @@
 
 import { cookies, headers } from 'next/headers';
 
-import { IUserInfo } from '@/stores/user';
-import { protectedPaths } from '@/utils/consts';
+import { CONTENT_TYPE, COOKIES_JWT, protectedPaths } from '@/utils/consts';
 import { getFailedMsg } from '@/utils/functions';
 import { EUrls } from '@/utils/urls';
 import { IFormLoginData, IFormPasswordForgotData, IFormPasswordNewData } from '@/utils/validations';
 
 import { apiFetchPost } from './api';
+import { IApiResultReturn, IFormRegDataApi, ILoginUserReturn } from './interfaces';
 import {
   API_FORGOT_PASSWORD,
   API_LOGIN,
   API_REGISTER_USER,
   API_RESET_PASSWORD,
+  EApiMethods,
   EMsgActions,
-  IApiResultReturn,
 } from './utils';
-
-interface ILoginUserReturn extends IApiResultReturn {
-  user?: IUserInfo;
-}
-
-interface IFormRegDataApi {
-  username: string;
-  email: string;
-  password: string;
-}
 
 const apiAuthForgotPassword = (data: IFormPasswordForgotData): Promise<IApiResultReturn> =>
   apiFetchPost(API_FORGOT_PASSWORD, data, EMsgActions.SUCCESS_FORGOT_PASSWORD);
 
+const apiAuthRegisterUser = (data: IFormRegDataApi): Promise<IApiResultReturn> =>
+  apiFetchPost<IFormRegDataApi>(API_REGISTER_USER, data, EMsgActions.SUCCESS_REG);
+
+const apiAuthResetPassword = (data: IFormPasswordNewData): Promise<IApiResultReturn> =>
+  apiFetchPost(API_RESET_PASSWORD, data, EMsgActions.SUCCESS_CHANGE_PASSWORD);
+
 const apiAuthLoginUser = async (data: IFormLoginData): Promise<ILoginUserReturn> => {
   try {
     const res = await fetch(API_LOGIN, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      method: EApiMethods.POST,
+      headers: { 'Content-Type': CONTENT_TYPE },
       body: JSON.stringify(data),
     });
 
@@ -47,7 +43,7 @@ const apiAuthLoginUser = async (data: IFormLoginData): Promise<ILoginUserReturn>
       return { isSuccess: false, message };
     }
 
-    (await cookies()).set('jwt', result.jwt, {
+    (await cookies()).set(COOKIES_JWT, result.jwt, {
       httpOnly: true,
       secure: true,
       sameSite: 'strict',
@@ -69,7 +65,7 @@ const apiAuthLoginUser = async (data: IFormLoginData): Promise<ILoginUserReturn>
 const apiAuthLogoutUser = async () => {
   try {
     const cookiesStore = await cookies();
-    cookiesStore.delete('jwt');
+    cookiesStore.delete(COOKIES_JWT);
 
     const referer = (await headers()).get('referer') || '';
     const isProtectedRoute = protectedPaths.some((path) => referer.includes(path));
@@ -88,11 +84,5 @@ const apiAuthLogoutUser = async () => {
     };
   }
 };
-
-const apiAuthRegisterUser = (data: IFormRegDataApi): Promise<IApiResultReturn> =>
-  apiFetchPost<IFormRegDataApi>(API_REGISTER_USER, data, EMsgActions.SUCCESS_REG);
-
-const apiAuthResetPassword = (data: IFormPasswordNewData): Promise<IApiResultReturn> =>
-  apiFetchPost(API_RESET_PASSWORD, data, EMsgActions.SUCCESS_CHANGE_PASSWORD);
 
 export { apiAuthForgotPassword, apiAuthLoginUser, apiAuthLogoutUser, apiAuthRegisterUser, apiAuthResetPassword };

@@ -3,26 +3,23 @@
 import { cookies } from 'next/headers';
 
 import { IUserInfo } from '@/stores/user';
+import { BEARER_AUTH, CONTENT_TYPE, COOKIES_JWT } from '@/utils/consts';
 import { getFailedMsg } from '@/utils/functions';
 import { IUser } from '@/utils/interfaces';
 import { IFormChangePasswordData } from '@/utils/validations';
 
 import { apiFetch, apiFetchDelete, apiFetchGetWithToken, apiFetchPostWithToken } from './api';
 import { apiFetchPut } from './api/apiFetchPut';
+import { IApiResultReturn, IApiUserSubscribe } from './interfaces';
 import {
   API_CHANGE_PASSWORD,
   API_USER_INFO,
   API_USERS,
   API_USERS_TEAM,
+  EApiMethods,
   EMsgActions,
-  IApiResultReturn,
   REVALIDATE_DAY_TIME,
 } from './utils';
-
-export interface IApiUserSubscribe {
-  email: string;
-  isSubscribe: boolean;
-}
 
 const apiUserChangePassword = async (data: IFormChangePasswordData): Promise<IApiResultReturn> => {
   const result = await apiFetchPostWithToken(API_CHANGE_PASSWORD, data, EMsgActions.SUCCESS_CHANGE_PASSWORD);
@@ -47,7 +44,7 @@ const apiGetUsersTeam = (): Promise<IUser[]> =>
   });
 
 const apiUserSubscribe = async (idUser: number, data: IApiUserSubscribe) => {
-  const jwtToken = (await cookies()).get('jwt')?.value;
+  const jwtToken = (await cookies()).get(COOKIES_JWT)?.value;
 
   const { email, isSubscribe } = data;
 
@@ -57,10 +54,10 @@ const apiUserSubscribe = async (idUser: number, data: IApiUserSubscribe) => {
 
   try {
     const res = await fetch(`${API_USERS}${idUser}`, {
-      method: 'PUT',
+      method: EApiMethods.PUT,
       headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${jwtToken}`,
+        'Content-Type': CONTENT_TYPE,
+        Authorization: `${BEARER_AUTH} ${jwtToken}`,
       },
       body: JSON.stringify(data),
     });
@@ -73,9 +70,7 @@ const apiUserSubscribe = async (idUser: number, data: IApiUserSubscribe) => {
 
     return {
       isSuccess: true,
-      message: isSubscribe
-        ? `Подписка на еженедельную рассылку оформлена на почту: ${email}!`
-        : 'Вы отписались от еженедельной рассылки!',
+      message: isSubscribe ? `${EMsgActions.SUCCESS_SUBSCRIBE} ${email}!` : EMsgActions.SUCCESS_UNSUBSCRIBE,
     };
   } catch (err) {
     console.error(EMsgActions.FAILED_FETCH, err);

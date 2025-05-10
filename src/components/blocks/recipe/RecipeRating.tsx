@@ -1,9 +1,10 @@
+import { TOTAL_STARS } from '@/utils/consts';
+
 interface IRating {
   rating: number;
 }
 
 export const RecipeRating = ({ rating }: IRating) => {
-  const totalStars = 5;
   const fullStars = Math.floor(rating);
   const decimalPart = +(rating - fullStars).toFixed(2);
   const getStarType = (index: number) => {
@@ -14,7 +15,7 @@ export const RecipeRating = ({ rating }: IRating) => {
 
   return (
     <div className="flex gap-x-0.5">
-      {[...Array(totalStars)].map((_, index) => {
+      {[...Array(TOTAL_STARS)].map((_, index) => {
         const starType = getStarType(index);
         const partialWidth = Math.round(decimalPart * 100);
 

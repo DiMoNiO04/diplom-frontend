@@ -29,12 +29,7 @@ const API_FAVORITES: string = `${API_URL}/favorites`;
 const API_FAVORITES_ALL_DELETE: string = `${API_URL}/favorite/deleteAll`;
 const API_FAVORITES_USER: string = `${API_URL}/favorite/userFavorites`;
 
-interface IApiResultReturn {
-  isSuccess: boolean;
-  message: string;
-}
-
-export const EMsgActions = {
+const EMsgActions = {
   SUCCESS_CHANGE_PASSWORD: 'Пароль успешно изменен!',
   SUCCESS_REG: 'Благодарим за регистрацию! Ссылка для подтверждения аккаунта будет отправлена на вашу почту!',
   SUCCESS_EXIT_ACCOUNT: 'Вы вышли из аккаунта!',
@@ -52,6 +47,8 @@ export const EMsgActions = {
   SUCCESS_DELETE_FAVORITE: 'Рецепт удален из избранного!',
   SUCCESS_ADD_FAVORITE: 'Рецепт добавлен в избранное!',
   SUCCESS_DELETE_ALL_FAVORITES: 'Все рецепты удалены из избранного!',
+  SUCCESS_UNSUBSCRIBE: 'Вы отписались от еженедельной рассылки!',
+  SUCCESS_SUBSCRIBE: 'Подписка на еженедельную рассылку оформлена на почту:',
   FAILED_FETCH: 'Ошибка сети или сервера!',
   FAILED_FETCH_TRY_AGAIN: 'Ошибка сети. Повторите позже!',
   FAILED_LOGIN: 'Неверный идентификатор или пароль!',
@@ -65,7 +62,16 @@ export const EMsgActions = {
   NOT_FOUND_ID: 'Не удалось найти ID пользователя!',
 } as const;
 
-export type EMsgActions = (typeof EMsgActions)[keyof typeof EMsgActions];
+type EMsgActions = (typeof EMsgActions)[keyof typeof EMsgActions];
+
+const EApiMethods = {
+  POST: 'POST',
+  DELETE: 'DELETE',
+  PUT: 'PUT',
+  GET: 'GET',
+} as const;
+
+type EApiMethods = (typeof EApiMethods)[keyof typeof EApiMethods];
 
 export {
   API_ABOUT_PAGE,
@@ -93,8 +99,8 @@ export {
   API_USER_INFO,
   API_USERS,
   API_USERS_TEAM,
+  EApiMethods,
+  EMsgActions,
   REVALIDATE_DAY_TIME,
   REVALIDATE_HOUR_TIME,
 };
-
-export type { IApiResultReturn };

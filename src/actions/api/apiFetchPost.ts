@@ -1,12 +1,15 @@
 'use server';
 
-import { EMsgActions, IApiResultReturn } from '../utils';
+import { CONTENT_TYPE } from '@/utils/consts';
+
+import { IApiResultReturn } from '../interfaces';
+import { EApiMethods, EMsgActions } from '../utils';
 
 export const apiFetchPost = async <T>(url: string, data: T, successMessage: string): Promise<IApiResultReturn> => {
   try {
     const res = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      method: EApiMethods.POST,
+      headers: { 'Content-Type': CONTENT_TYPE },
       body: JSON.stringify(data),
     });
 

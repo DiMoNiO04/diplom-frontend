@@ -2,12 +2,13 @@
 
 import { cookies } from 'next/headers';
 
+import { BEARER_AUTH, COOKIES_JWT } from '@/utils/consts';
 import { IApiFetchReturn } from '@/utils/interfaces';
 
-import { EMsgActions } from '../utils';
+import { EApiMethods, EMsgActions } from '../utils';
 
 export const apiFetchDelete = async (url: string, successMessage: string): Promise<IApiFetchReturn> => {
-  const jwtToken = (await cookies()).get('jwt')?.value;
+  const jwtToken = (await cookies()).get(COOKIES_JWT)?.value;
 
   if (!jwtToken) {
     return { isSuccess: false, message: EMsgActions.FAILED_FIND_TOKEN };
@@ -15,9 +16,9 @@ export const apiFetchDelete = async (url: string, successMessage: string): Promi
 
   try {
     const res = await fetch(url, {
-      method: 'DELETE',
+      method: EApiMethods.DELETE,
       headers: {
-        Authorization: `Bearer ${jwtToken}`,
+        Authorization: `${BEARER_AUTH} ${jwtToken}`,
       },
     });
 

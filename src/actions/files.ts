@@ -2,29 +2,31 @@
 
 import { cookies } from 'next/headers';
 
-import { API_DELETE_FILE, API_UPLOAD_FILE } from './utils';
+import { BEARER_AUTH, COOKIES_JWT } from '@/utils/consts';
+
+import { API_DELETE_FILE, API_UPLOAD_FILE, EApiMethods } from './utils';
 
 const apiFileDelete = async (fileId: string) => {
-  const jwtToken = (await cookies()).get('jwt')?.value;
+  const jwtToken = (await cookies()).get(COOKIES_JWT)?.value;
 
   await fetch(API_DELETE_FILE(fileId), {
-    method: 'DELETE',
+    method: EApiMethods.DELETE,
     headers: {
-      Authorization: `Bearer ${jwtToken}`,
+      Authorization: `${BEARER_AUTH} ${jwtToken}`,
     },
   });
 };
 
 const apiFileUpload = async (file: File) => {
-  const jwtToken = (await cookies()).get('jwt')?.value;
+  const jwtToken = (await cookies()).get(COOKIES_JWT)?.value;
 
   const formData = new FormData();
   formData.append('files', file);
 
   const res = await fetch(API_UPLOAD_FILE, {
-    method: 'POST',
+    method: EApiMethods.DELETE,
     headers: {
-      Authorization: `Bearer ${jwtToken}`,
+      Authorization: `${BEARER_AUTH} ${jwtToken}`,
     },
     body: formData,
   });

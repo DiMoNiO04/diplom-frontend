@@ -4,13 +4,12 @@ import clsx from 'clsx';
 
 import { ESortRecipes, sortRecipes } from '@/data';
 import { useSortRecipes } from '@/hooks';
+import { PER_PAGE_RECIPES } from '@/utils/consts';
 import { IRecipe } from '@/utils/interfaces';
 
 import { CardsItems, LoadMoreRecipes } from '../blocks';
 import { Title } from '../ui';
 import { Select } from '../ui/selects';
-
-const RECIPES_PER_PAGE: number = 16;
 
 interface IRecipesContentProps {
   recipes: IRecipe[];
@@ -25,8 +24,8 @@ export const RecipesContent = ({ recipes, description, title }: IRecipesContentP
     sortRecipes[ESortRecipes.NEWEST]
   );
 
-  const initialRecipes = hasRecipes ? sortedRecipes.slice(0, RECIPES_PER_PAGE) : [];
-  const remainingRecipes = hasRecipes ? sortedRecipes.slice(RECIPES_PER_PAGE) : [];
+  const initialRecipes = hasRecipes ? sortedRecipes.slice(0, PER_PAGE_RECIPES) : [];
+  const remainingRecipes = hasRecipes ? sortedRecipes.slice(PER_PAGE_RECIPES) : [];
 
   return (
     <section className="my-12 max-lg:mи-10">
@@ -56,7 +55,7 @@ export const RecipesContent = ({ recipes, description, title }: IRecipesContentP
           )}
         </div>
         <CardsItems type="recipe" cards={initialRecipes} nothingMsg={'Рецептов не найдено!'} />
-        <LoadMoreRecipes remainingCards={remainingRecipes} perPage={RECIPES_PER_PAGE} />
+        <LoadMoreRecipes remainingCards={remainingRecipes} perPage={PER_PAGE_RECIPES} />
       </div>
     </section>
   );

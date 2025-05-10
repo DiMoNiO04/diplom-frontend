@@ -3,6 +3,7 @@
 import { cookies } from 'next/headers';
 import Link from 'next/link';
 
+import { COOKIES_JWT } from '@/utils/consts';
 import { ICategory, ICollection, IRecipe } from '@/utils/interfaces';
 import { EUrls } from '@/utils/urls';
 
@@ -34,7 +35,7 @@ const userStaticLinks = [
 ];
 
 export const SitemapContent = async ({ recipes, categories, collections }: ISitemapContentProps) => {
-  const isAuth = (await cookies()).get('jwt')?.value;
+  const isAuth = (await cookies()).get(COOKIES_JWT)?.value;
 
   return (
     <section className="my-12 mb-20 max-lg:mb-16 max-lg:my-12">

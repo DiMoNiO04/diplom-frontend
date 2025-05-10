@@ -1,13 +1,12 @@
 import { apiGetUsersTeam } from '@/actions/user';
+import { VISIBLE_TEAM_MEMBERS } from '@/utils/consts';
 
 import { CardsItems } from '../blocks';
 import { Title } from '../ui';
 
-const COUNT_TEAM_MEMBER: number = 12;
-
 export const TalentTeam = async () => {
   const allUsers = await apiGetUsersTeam();
-  const teamData = allUsers.filter((user) => user.blocked !== true).slice(0, COUNT_TEAM_MEMBER);
+  const teamData = allUsers.filter((user) => user.blocked !== true).slice(0, VISIBLE_TEAM_MEMBERS);
 
   return (
     <section className="mb-20 max-lg:mb-16">

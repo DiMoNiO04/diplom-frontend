@@ -1,6 +1,7 @@
 import { useRouter } from 'next/navigation';
 
-import { apiFavoriteAdd, apiFavoriteDelete, apiFavoritesDeleteAllUser, IFavoriteAddData } from '@/actions/favorites';
+import { apiFavoriteAdd, apiFavoriteDelete, apiFavoritesDeleteAllUser } from '@/actions/favorites';
+import { IFavoriteAddData } from '@/actions/interfaces';
 import { useNotificationStore } from '@/stores/notificationMsg';
 import { ERROR_ICON } from '@/utils/consts';
 

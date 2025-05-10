@@ -1,13 +1,6 @@
-import { IBasePage, ICategory } from '@/utils/interfaces';
-
 import { apiFetch } from './api';
+import { ICategoriesAll, ICategoryPage } from './interfaces';
 import { API_CATEGORIES, API_CATEGORY } from './utils';
-
-interface ICategoriesAll {
-  results: ICategory[];
-}
-
-interface ICategoryPage extends IBasePage, ICategory {}
 
 const apiGetCategories = (): Promise<ICategoriesAll> => apiFetch<ICategoriesAll>(API_CATEGORIES);
 

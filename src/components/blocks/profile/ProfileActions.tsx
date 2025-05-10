@@ -12,7 +12,6 @@ export const ProfileActions = () => {
   const { deleteAccount } = useUser();
 
   const handleOpenModalDeleteAccount = () => openModal('Вы уверены что хотите удалить свой аккаунт?', deleteAccount);
-
   const handleOpenModalExitAccount = () => openModal('Вы уверены что хотите выйти из аккаунта?', logout);
 
   return (

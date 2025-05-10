@@ -41,13 +41,7 @@ export const CardFavorite = ({ documentId, recipe }: ICardFavorite) => {
         `}
         >
           {images && (
-            <Image
-              src={getImageUrl(images[0].url)}
-              alt=""
-              width={350}
-              height={265}
-              className="size-full object-cover"
-            />
+            <Image src={getImageUrl(images[0].url)} alt="" width={350} height={265} className="h-full object-cover" />
           )}
         </div>
         {title && (
