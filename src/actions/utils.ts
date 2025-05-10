@@ -48,7 +48,7 @@ const EMsgActions = {
   SUCCESS_ADD_FAVORITE: 'Рецепт добавлен в избранное!',
   SUCCESS_DELETE_ALL_FAVORITES: 'Все рецепты удалены из избранного!',
   SUCCESS_UNSUBSCRIBE: 'Вы отписались от еженедельной рассылки!',
-  SUCCESS_SUBSCRIBE: 'Подписка на еженедельную рассылку оформлена на почту:',
+  SUCCESS_SUBSCRIBE: 'Подписка на рассылку новых рецептов оформлена на почту:',
   FAILED_FETCH: 'Ошибка сети или сервера!',
   FAILED_FETCH_TRY_AGAIN: 'Ошибка сети. Повторите позже!',
   FAILED_LOGIN: 'Неверный идентификатор или пароль!',

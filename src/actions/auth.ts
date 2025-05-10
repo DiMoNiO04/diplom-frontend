@@ -21,8 +21,15 @@ import {
 const apiAuthForgotPassword = (data: IFormPasswordForgotData): Promise<IApiResultReturn> =>
   apiFetchPost(API_FORGOT_PASSWORD, data, EMsgActions.SUCCESS_FORGOT_PASSWORD);
 
-const apiAuthRegisterUser = (data: IFormRegDataApi): Promise<IApiResultReturn> =>
-  apiFetchPost<IFormRegDataApi>(API_REGISTER_USER, data, EMsgActions.SUCCESS_REG);
+const apiAuthRegisterUser = (data: IFormRegDataApi): Promise<IApiResultReturn> => {
+  const payloadData: IFormRegDataApi = {
+    email: data.email,
+    username: data.username,
+    password: data.password,
+  };
+
+  return apiFetchPost<IFormRegDataApi>(API_REGISTER_USER, payloadData, EMsgActions.SUCCESS_REG);
+};
 
 const apiAuthResetPassword = (data: IFormPasswordNewData): Promise<IApiResultReturn> =>
   apiFetchPost(API_RESET_PASSWORD, data, EMsgActions.SUCCESS_CHANGE_PASSWORD);

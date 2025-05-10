@@ -16,7 +16,7 @@ export const CardRecipe = ({ documentId, title, img, createdAt, favorites }: IRe
 
   const userId = useUserStore.getState().user?.id;
 
-  const userFavorite = favorites?.find((fav) => fav.user.id === userId);
+  const userFavorite = favorites?.find((fav) => fav.user?.id === userId);
   const isInitiallyLiked = Boolean(userFavorite);
   const likeId = userFavorite?.documentId;
 

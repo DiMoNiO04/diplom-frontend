@@ -24,7 +24,7 @@ const apiFileUpload = async (file: File) => {
   formData.append('files', file);
 
   const res = await fetch(API_UPLOAD_FILE, {
-    method: EApiMethods.DELETE,
+    method: EApiMethods.POST,
     headers: {
       Authorization: `${BEARER_AUTH} ${jwtToken}`,
     },

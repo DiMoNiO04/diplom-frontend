@@ -1,6 +1,7 @@
 'use server';
 
 import { CONTENT_TYPE } from '@/utils/consts';
+import { getFailedMsg } from '@/utils/functions';
 
 import { IApiResultReturn } from '../interfaces';
 import { EApiMethods, EMsgActions } from '../utils';
@@ -16,7 +17,7 @@ export const apiFetchPost = async <T>(url: string, data: T, successMessage: stri
     const result = await res.json();
 
     if (!res.ok) {
-      const message = result?.error?.message || EMsgActions.FAILED_FETCH;
+      const message = getFailedMsg(result?.error?.message) || EMsgActions.FAILED_FETCH;
       return { isSuccess: false, message };
     }
 
