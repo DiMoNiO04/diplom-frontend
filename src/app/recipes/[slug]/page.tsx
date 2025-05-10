@@ -1,0 +1,50 @@
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+
+import { apiGetRecipe, apiGetRecipesCookAgain } from '@/actions/recipes';
+import { AlreadyMade, AlsoLike, EmailNewsletter, RecipeContentInfo, RecipeTopInfo } from '@/components/sections';
+import { Breadcrumbs } from '@/components/ui';
+import { getRecipeBreadcrumbs } from '@/utils/breadcrumbs';
+import { IPageSlugProps } from '@/utils/interfaces';
+import { createMetadata } from '@/utils/seo';
+import { EUrls } from '@/utils/urls';
+
+export async function generateMetadata({ params }: IPageSlugProps): Promise<Metadata> {
+  const slug = (await params).slug;
+
+  const recipe = await apiGetRecipe(slug).catch(() => null);
+  if (!recipe) return {};
+
+  recipe.seo.canonicalURL = `${EUrls.RECIPES.slice(1)}/${slug}`;
+  return createMetadata(recipe.seo);
+}
+
+export default async function RecipePage({ params }: IPageSlugProps) {
+  const slug = (await params).slug;
+
+  const recipe = await apiGetRecipe(slug).catch(() => null);
+  if (!recipe) notFound();
+
+  const recipesCookAgainRes = await apiGetRecipesCookAgain();
+  const recipesCookAgain = recipesCookAgainRes?.data || [];
+
+  const cookAgainItem = recipesCookAgain.find(
+    (r: { recipe: { documentId: string } }) => r.recipe?.documentId === recipe.documentId
+  );
+
+  const isRecipeInCookAgain = !!cookAgainItem;
+  const reviewId = cookAgainItem?.documentId || null;
+
+  const breadcrumbs = getRecipeBreadcrumbs(recipe.title);
+
+  return (
+    <>
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
+      <RecipeTopInfo {...recipe} />
+      <RecipeContentInfo {...recipe} />
+      <AlreadyMade idRecipe={recipe.documentId} isRecipeInCookAgain={isRecipeInCookAgain} reviewId={reviewId} />
+      <AlsoLike idRecipe={recipe.documentId} categories={recipe.categories} />
+      <EmailNewsletter />
+    </>
+  );
+}

@@ -1,19 +1,17 @@
 import { Title } from '../ui';
 
-interface IPrivacyPolicy {
+interface IPrivacyPolicyProps {
+  title: string;
   content: string;
 }
 
-const PrivacyPolicyContent = ({ content }: IPrivacyPolicy) => {
+export const PrivacyPolicyContent = ({ title, content }: IPrivacyPolicyProps) => {
   return (
-    <section className="my-20">
+    <section className="my-12 mb-20 max-lg:mb-16 max-lg:my-12">
       <div className="custom-container">
-        <Title title="Политика конфиденциальности" isBorder />
+        <Title title={title} isBorder />
         <div className="privacy-content" dangerouslySetInnerHTML={{ __html: content }} />
       </div>
     </section>
   );
 };
-
-export { PrivacyPolicyContent };
-export type { IPrivacyPolicy };

@@ -5,6 +5,7 @@ import { IFormPasswordNewData, schemaPasswordNew } from './schemaPasswordNew';
 import { IFormProfileData, schemaProfile } from './schemaProfile';
 import { IFormRecipeData, schemaRecipe } from './schemaRecipe';
 import { IFormRegData, schemaReg } from './schemaReg';
+import { IFormResetPasswordData, schemaResetPassword } from './schemaResetPassword';
 
 export {
   schemaChangePassword,
@@ -14,6 +15,7 @@ export {
   schemaProfile,
   schemaRecipe,
   schemaReg,
+  schemaResetPassword,
 };
 export type {
   IFormChangePasswordData,
@@ -23,4 +25,5 @@ export type {
   IFormProfileData,
   IFormRecipeData,
   IFormRegData,
+  IFormResetPasswordData,
 };

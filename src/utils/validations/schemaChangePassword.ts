@@ -1,18 +1,18 @@
 import * as yup from 'yup';
 
-import { confirmPasswordSchema, passwordSchema, requiredStringSchema } from './common';
+import { passwordConfirmationSchema, passwordSchema, requiredStringSchema } from './common';
 
 interface IFormChangePasswordData {
-  oldPassword: string;
+  currentPassword: string;
   password: string;
-  confirmPassword: string;
+  passwordConfirmation: string;
 }
 
 const schemaChangePassword: yup.ObjectSchema<IFormChangePasswordData> = yup
   .object({
-    oldPassword: requiredStringSchema,
+    currentPassword: requiredStringSchema,
     password: passwordSchema,
-    confirmPassword: confirmPasswordSchema,
+    passwordConfirmation: passwordConfirmationSchema,
   })
   .required();
 

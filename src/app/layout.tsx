@@ -1,9 +1,16 @@
 import '../styles/index.css';
 
 import { Onest, Unbounded } from 'next/font/google';
+import { ReactNode } from 'react';
 
+import { apiGetRecipes } from '@/actions/recipes';
 import { Footer, Header, Modals } from '@/components/layouts';
 import { NotificationMsg } from '@/components/ui';
+import { BtnScroll } from '@/components/ui/btns';
+import { ErrorBoundaryProvider, TokenProvider } from '@/providers';
+import { createViewport } from '@/utils/seo';
+
+export const generateViewport = () => createViewport();
 
 const fontUnbounded = Unbounded({
   subsets: ['latin'],
@@ -17,19 +24,26 @@ const fontOnest = Onest({
   variable: '--font-onest',
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
+  const { results: recipes } = await apiGetRecipes();
+
   return (
     <html lang="ru">
       <body className={`${fontUnbounded.variable} ${fontOnest.variable}`}>
-        <Header />
-        <main className="mt-20">{children}</main>
-        <Footer />
-        <Modals />
-        <NotificationMsg />
+        <ErrorBoundaryProvider>
+          <TokenProvider>
+            <Header recipes={recipes} />
+            <main className="mt-24 max-md:mt-16">{children}</main>
+            <Footer />
+            <Modals />
+            <NotificationMsg />
+            <BtnScroll />
+          </TokenProvider>
+        </ErrorBoundaryProvider>
       </body>
     </html>
   );

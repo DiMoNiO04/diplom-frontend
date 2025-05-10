@@ -1,14 +1,13 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import clsx from 'clsx';
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
-import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
-import { useNotificationStore } from '@/stores/notificationMsg';
+import { useAuth } from '@/hooks/actions';
 import { IFormLoginData, schemaLogin } from '@/utils/validations';
 
 import { IconEmail } from '../icons';
 import { Button } from '../ui/btns';
-import { Input, InputPassword } from '../ui/inputs';
+import { ControllerInput, ControllerInputPassword } from '../ui/controllers';
 
 export const FormLogin = () => {
   const {
@@ -22,45 +21,39 @@ export const FormLogin = () => {
     reValidateMode: 'onChange',
   });
 
-  const { closeModal, setTabContent } = useAuthModalStore();
-  const { showNotification } = useNotificationStore();
+  const { login, handleForgotPassword } = useAuth();
 
-  const onSubmit = async (data: IFormLoginData) => {
-    closeModal();
-    reset();
-    console.log(data);
-    showNotification('Вы авторизовались!');
-  };
-
-  const handleClickForgotPassword = () => setTabContent(EAuthContent.PASSWORD_FORGOT);
+  const onSubmit = async (data: IFormLoginData) => await login(data, reset);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-5">
-      <Controller
-        name="email"
+      <ControllerInput<IFormLoginData>
+        name="identifier"
         control={control}
-        render={({ field }) => (
-          <Input {...field} placeholder="Email" error={errors.email?.message} icon={<IconEmail />} />
-        )}
+        placeholder="Email или логин"
+        error={errors.identifier?.message}
+        icon={<IconEmail />}
       />
-      <Controller
+
+      <ControllerInputPassword<IFormLoginData>
         name="password"
         control={control}
-        render={({ field }) => (
-          <InputPassword {...field} onBlur={field.onBlur} placeholder="Пароль" error={errors.password?.message} />
-        )}
+        placeholder="Пароль"
+        error={errors.password?.message}
       />
+
       <button
         className={clsx(
           'text-sm text-right text-orange transition-colors duration-300 cursor-pointer',
           'hover:text-black'
         )}
         type="button"
-        onClick={handleClickForgotPassword}
+        onClick={handleForgotPassword}
       >
         Забыли пароль?
       </button>
-      <Button text={'Войти'} variant="orange" type="submit" className="mt-4" />
+
+      <Button text="Войти" variant="orange" type="submit" className="mt-4" />
     </form>
   );
 };

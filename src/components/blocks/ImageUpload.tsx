@@ -4,6 +4,8 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import { ChangeEvent } from 'react';
 
+import { getImageUrl } from '@/utils/functions';
+
 import { IconClose } from '../icons';
 import { ErrorMsgInput } from '../ui/inputs';
 
@@ -50,13 +52,15 @@ export const ImageUpload = ({ label, error, value = [], onChange }: IImageUpload
       </div>
 
       {value.length > 0 && (
-        <div className="flex items-center gap-4 flex-wrap">
+        <div className="flex items-center gap-4 flex-wrap max-md:gap-3">
           {value.map((src, index) => (
             <div key={index} className="relative w-28 h-28 group">
               <Image
-                src={src}
+                src={getImageUrl(src)}
                 alt="Preview"
-                className="w-full h-full object-cover rounded-md border transition duration-300 group-hover:opacity-75"
+                className={clsx(
+                  'w-full h-full object-cover rounded-md border transition duration-300 group-hover:opacity-75'
+                )}
                 width={112}
                 height={112}
               />
@@ -64,7 +68,7 @@ export const ImageUpload = ({ label, error, value = [], onChange }: IImageUpload
                 type="button"
                 className={clsx(
                   'absolute top-1 right-1 bg-white text-white rounded-full size-5 flex items-center justify-center',
-                  'transition duration-300 opacity-0 group-hover:opacity-100 hover:bg-gray-300'
+                  'transition duration-300 md:opacity-0 md:group-hover:opacity-100 md:hover:bg-gray-300'
                 )}
                 onClick={() => removeImage(index)}
               >

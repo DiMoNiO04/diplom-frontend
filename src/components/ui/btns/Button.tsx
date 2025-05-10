@@ -35,8 +35,8 @@ export const Button = ({
     green: 'bg-green text-white border-green hover:bg-white hover:text-green',
   };
   const sizeStyles = {
-    lg: 'px-10 py-2.5 text-lg',
-    sm: 'px-5 py-2 text-sm',
+    lg: 'px-10 py-2.5 text-lg max-sm:px-8 max-sm:py-2',
+    sm: 'px-5 py-2 text-sm max-sm:px-4 max-sm:py-1.5',
   };
 
   const classes = clsx(baseStyles, variantStyles[variant], sizeStyles[size], className, {

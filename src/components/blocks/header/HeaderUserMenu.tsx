@@ -4,19 +4,22 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useRef, useState } from 'react';
 
-import { IconLogOut } from '@/components/icons';
+import { IconLogOut, IconUser } from '@/components/icons';
 import { menuProfileData } from '@/data';
-import { useClickOutside, useLogout } from '@/hooks';
+import { useClickOutside } from '@/hooks';
+import { useAuth } from '@/hooks/actions';
 import { useConfirmModalStore } from '@/stores/confirmModal';
-import { getTrimmedPathame } from '@/utils/functions';
+import { useUserStore } from '@/stores/user';
+import { getImageUrl, getTrimmedPathname } from '@/utils/functions';
 
 export const HeaderUserMenu = () => {
   const pathname = usePathname();
-  const trimmedPathname = getTrimmedPathame(pathname);
+  const trimmedPathname = getTrimmedPathname(pathname);
 
   const [isOpen, setIsOpen] = useState(false);
   const { openModal } = useConfirmModalStore();
-  const { logout } = useLogout();
+
+  const { logout } = useAuth();
 
   const dropdownRef = useRef<HTMLDivElement>(null!);
 
@@ -29,22 +32,28 @@ export const HeaderUserMenu = () => {
 
   const handleOpenModalExitAccount = () => openModal('Вы уверены что хотите выйти из аккаунта?', logout);
 
+  const avatar = useUserStore.getState().user?.avatar;
+
   return (
     <div ref={dropdownRef}>
       <button
         type="button"
         onClick={handleToggle}
         className={clsx(
-          'size-12 overflow-hidden flex items-center justify-center rounded-full border',
+          'size-10 overflow-hidden flex items-center justify-center rounded-full border',
           isOpen ? 'border-black' : 'border-greyLight'
         )}
       >
-        <Image src={'/icons/user.svg'} width={48} height={48} alt="Аватар" />
+        {avatar ? (
+          <Image src={getImageUrl(avatar.url)} width={40} height={40} alt="Аватар" className="w-full h-full" />
+        ) : (
+          <IconUser size={40} />
+        )}
       </button>
 
       <div
         className={clsx(
-          'w-auto border-black absolute right-0 top-16 overflow-hidden rounded-lg border bg-white ',
+          'w-auto border-black absolute right-0 top-12 overflow-hidden rounded-lg border bg-white ',
           'transition-all duration-300 scrollbar-hide shadow-customLight',
           isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         )}

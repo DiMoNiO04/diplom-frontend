@@ -9,6 +9,7 @@ export const EUrls = {
   PROFILE: '/profile',
   FAVORITES: '/profile/favorites',
   MY_RECIPES: '/profile/my-recipes',
+  WANT_COOK_AGAIN: '/profile/want-cook-again',
   NEW_RECIPE: '/recipes/new',
   EDIT_RECIPE: '/edit',
   SITEMAP: '/sitemap',

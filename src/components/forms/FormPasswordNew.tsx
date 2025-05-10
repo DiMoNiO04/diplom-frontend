@@ -1,12 +1,11 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
-import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
-import { useNotificationStore } from '@/stores/notificationMsg';
+import { usePasswordReset } from '@/hooks/actions/usePasswordReset';
 import { IFormPasswordNewData, schemaPasswordNew } from '@/utils/validations';
 
 import { Button } from '../ui/btns';
-import { InputPassword } from '../ui/inputs';
+import { ControllerInputPassword } from '../ui/controllers';
 
 export const FormPasswordNew = () => {
   const {
@@ -20,38 +19,26 @@ export const FormPasswordNew = () => {
     reValidateMode: 'onChange',
   });
 
-  const { closeModal, setTabContent } = useAuthModalStore();
-  const { showNotification } = useNotificationStore();
+  const { resetPassword } = usePasswordReset();
 
-  const onSubmit = async (data: IFormPasswordNewData) => {
-    setTabContent(EAuthContent.CHANGE_PASSWORD);
-    closeModal();
-    reset();
-    console.log(data);
-    showNotification('Пароль успешно изменен!');
-  };
+  const onSubmit = async (data: IFormPasswordNewData) => await resetPassword(data, reset);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-5">
-      <Controller
+      <ControllerInputPassword<IFormPasswordNewData>
         name="password"
         control={control}
-        render={({ field }) => (
-          <InputPassword {...field} onBlur={field.onBlur} placeholder="Пароль" error={errors.password?.message} />
-        )}
+        placeholder="Пароль"
+        error={errors.password?.message}
       />
-      <Controller
-        name="confirmPassword"
+
+      <ControllerInputPassword<IFormPasswordNewData>
+        name="passwordConfirmation"
         control={control}
-        render={({ field }) => (
-          <InputPassword
-            {...field}
-            onBlur={field.onBlur}
-            placeholder="Повторите пароль"
-            error={errors.confirmPassword?.message}
-          />
-        )}
+        placeholder="Повторите пароль"
+        error={errors.passwordConfirmation?.message}
       />
+
       <Button text={'Сохранить новый пароль'} variant="orange" type="submit" className="mt-4" />
     </form>
   );

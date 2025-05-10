@@ -1,17 +1,17 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
-import { useChangePasswordModalStore } from '@/stores/changePasswordModal';
-import { useNotificationStore } from '@/stores/notificationMsg';
+import { useUser } from '@/hooks/actions';
 import { IFormChangePasswordData, schemaChangePassword } from '@/utils/validations';
 
 import { Button } from '../ui/btns';
-import { InputPassword } from '../ui/inputs';
+import { ControllerInputPassword } from '../ui/controllers';
 
 export const FormChangePassword = () => {
   const {
     control,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<IFormChangePasswordData>({
     resolver: yupResolver(schemaChangePassword),
@@ -19,49 +19,31 @@ export const FormChangePassword = () => {
     reValidateMode: 'onChange',
   });
 
-  const { closeModal } = useChangePasswordModalStore();
-  const { showNotification } = useNotificationStore();
+  const { changePassword } = useUser();
 
-  const onSubmit = async (data: IFormChangePasswordData) => {
-    closeModal();
-    console.log(data);
-    showNotification('Пароль успешно изменен!');
-  };
+  const onSubmit = async (data: IFormChangePasswordData) => await changePassword(data, reset);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-5">
-      <Controller
-        name="oldPassword"
+      <ControllerInputPassword<IFormChangePasswordData>
+        name="currentPassword"
         control={control}
-        render={({ field }) => (
-          <InputPassword
-            {...field}
-            onBlur={field.onBlur}
-            placeholder="Текущий пароль"
-            error={errors.oldPassword?.message}
-          />
-        )}
+        placeholder="Текущий пароль"
+        error={errors.currentPassword?.message}
       />
-      <Controller
+      <ControllerInputPassword<IFormChangePasswordData>
         name="password"
         control={control}
-        render={({ field }) => (
-          <InputPassword {...field} onBlur={field.onBlur} placeholder="Новый пароль" error={errors.password?.message} />
-        )}
+        placeholder="Новый пароль"
+        error={errors.password?.message}
       />
-      <Controller
-        name="confirmPassword"
+      <ControllerInputPassword<IFormChangePasswordData>
+        name="passwordConfirmation"
         control={control}
-        render={({ field }) => (
-          <InputPassword
-            {...field}
-            onBlur={field.onBlur}
-            placeholder="Повторите новый пароль"
-            error={errors.confirmPassword?.message}
-          />
-        )}
+        placeholder="Повторите пароль"
+        error={errors.passwordConfirmation?.message}
       />
-      <Button text={'Сохранить новый пароль'} variant="orange" type="submit" className="mt-4" />
+      <Button text={'Сохранить пароль'} variant="orange" type="submit" className="mt-4" />
     </form>
   );
 };

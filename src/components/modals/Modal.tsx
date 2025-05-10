@@ -12,7 +12,7 @@ interface IModalProps {
 export const Modal = ({ isOpen, closeModal, children }: IModalProps) => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
-      <Dialog as="div" className="relative z-50" onClose={closeModal}>
+      <Dialog as="div" className="relative z-40" onClose={closeModal}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -39,6 +39,7 @@ export const Modal = ({ isOpen, closeModal, children }: IModalProps) => {
               <Dialog.Panel
                 className={`
                  relative w-[420px] border border-gray-300 rounded-lg bg-white p-10 transition-all
+                 max-sm:w-full max-sm:py-8 max-sm:px-6
                 `}
               >
                 {children}

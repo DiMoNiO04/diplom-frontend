@@ -2,29 +2,27 @@ import * as yup from 'yup';
 
 import {
   booleanSchema,
-  confirmPasswordSchema,
+  passwordConfirmationSchema,
   passwordSchema,
   requiredEmailStringSchema,
   requiredStringSchema,
 } from './common';
 
 interface IFormRegData {
-  firstName: string;
-  lastName: string;
+  username: string;
   email: string;
   password: string;
-  confirmPassword: string;
+  passwordConfirmation: string;
   agree: boolean;
 }
 
 const schemaReg: yup.ObjectSchema<IFormRegData> = yup
   .object({
-    firstName: requiredStringSchema,
-    lastName: requiredStringSchema,
+    username: requiredStringSchema,
     email: requiredEmailStringSchema,
-    agree: booleanSchema,
     password: passwordSchema,
-    confirmPassword: confirmPasswordSchema,
+    passwordConfirmation: passwordConfirmationSchema,
+    agree: booleanSchema,
   })
   .required();
 

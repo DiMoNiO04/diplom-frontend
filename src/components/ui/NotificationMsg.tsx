@@ -19,7 +19,7 @@ export const NotificationMsg = () => {
   return (
     <div
       className={clsx(
-        'fixed inset-x-0 bottom-16 z-50 flex select-none justify-center max-lg:bottom-10',
+        'fixed inset-x-0 bottom-16 z-50 flex select-none justify-center max-lg:bottom-10 max-sm:bottom-8',
         'transition-opacity duration-300 ease-in-out',
         isVisible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
       )}
@@ -30,7 +30,7 @@ export const NotificationMsg = () => {
       "
       >
         {icon && <Image src={icon} alt="" width={20} height={20} />}
-        <span className="font-unbounded">{text}</span>
+        <span className="font-unbounded max-sm:text-sm">{text}</span>
       </div>
     </div>
   );

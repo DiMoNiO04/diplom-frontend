@@ -1,22 +1,36 @@
+import { Metadata } from 'next';
+
+import { apiGetRecipes, apiGetRecipesBest } from '@/actions/recipes';
 import {
+  CategoriesMain,
   CuratedCollections,
+  DeliciousRecipes,
   EmailNewsletter,
   LatestRecipes,
   MainSlider,
-  PopularCategories,
   ShareYourRecipe,
-  SuperDelicioues,
 } from '@/components/sections';
+import { IRecipe } from '@/utils/interfaces';
+import { createMetadata, seoMainPage } from '@/utils/seo';
 
-export default function MainPage() {
+export async function generateMetadata(): Promise<Metadata> {
+  return createMetadata(seoMainPage());
+}
+
+export default async function MainPage() {
+  const [recipes, recipesBest]: [{ results: IRecipe[] }, IRecipe[]] = await Promise.all([
+    apiGetRecipes(),
+    apiGetRecipesBest(),
+  ]);
+
   return (
     <>
-      <MainSlider />
-      <PopularCategories />
-      <SuperDelicioues />
+      <MainSlider recipes={recipesBest} />
+      <CategoriesMain />
+      <DeliciousRecipes recipes={recipesBest} />
       <ShareYourRecipe />
       <CuratedCollections />
-      <LatestRecipes />
+      <LatestRecipes recipes={recipes.results} />
       <EmailNewsletter />
     </>
   );

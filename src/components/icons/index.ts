@@ -5,8 +5,6 @@ import { IconCopy } from './IconCopy';
 import { IconDelete } from './IconDelete';
 import { IconEdit } from './IconEdit';
 import { IconEmail } from './IconEmail';
-import { IconFacebook } from './IconFacebook';
-import { IconGoogle } from './IconGoogle';
 import { IconHidePassword } from './IconHidePassword';
 import { IconLike } from './IconLike';
 import { IconLogOut } from './IconLogOut';
@@ -23,8 +21,6 @@ export {
   IconDelete,
   IconEdit,
   IconEmail,
-  IconFacebook,
-  IconGoogle,
   IconHidePassword,
   IconLike,
   IconLogOut,

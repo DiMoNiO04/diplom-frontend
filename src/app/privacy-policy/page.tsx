@@ -1,13 +1,23 @@
-import { PrivacyPolicyContent } from '@/components/sections';
-import { IPrivacyPolicy } from '@/components/sections/PrivacyPolicyContent';
-import { mockPrivacyPolicyPage } from '@/data';
+import { Metadata } from 'next';
 
-async function getPrivacyPolicyPage(): Promise<IPrivacyPolicy> {
-  return mockPrivacyPolicyPage;
+import { apiGetPagePrivacyPolicy } from '@/actions/pages';
+import { PrivacyPolicyContent } from '@/components/sections';
+import { Breadcrumbs } from '@/components/ui';
+import { breadcrumbsPrivacyPolicyPage } from '@/utils/breadcrumbs';
+import { createMetadata } from '@/utils/seo';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const { seo } = await apiGetPagePrivacyPolicy();
+  return createMetadata(seo);
 }
 
 export default async function PrivacyPolicyPage() {
-  const { content } = await getPrivacyPolicyPage();
+  const { title, content } = await apiGetPagePrivacyPolicy();
 
-  return <PrivacyPolicyContent content={content} />;
+  return (
+    <>
+      <Breadcrumbs breadcrumbs={breadcrumbsPrivacyPolicyPage} />
+      <PrivacyPolicyContent title={title} content={content} />
+    </>
+  );
 }

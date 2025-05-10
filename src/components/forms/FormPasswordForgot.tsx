@@ -1,12 +1,12 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
-import { EAuthContent, useAuthModalStore } from '@/stores/authModal';
+import { useAuth } from '@/hooks/actions';
 import { IFormPasswordForgotData, schemaPasswordForgot } from '@/utils/validations';
 
 import { IconEmail } from '../icons';
 import { Button } from '../ui/btns';
-import { Input } from '../ui/inputs';
+import { ControllerInput } from '../ui/controllers';
 
 export const FormPasswordForgot = () => {
   const {
@@ -20,22 +20,20 @@ export const FormPasswordForgot = () => {
     reValidateMode: 'onChange',
   });
 
-  const { setTabContent, setEmail } = useAuthModalStore();
+  const { forgotPassword } = useAuth();
 
-  const onSubmit = async (data: IFormPasswordForgotData) => {
-    setTabContent(EAuthContent.CHECK_EMAIL);
-    setEmail(data.email);
-    reset();
-  };
+  const onSubmit = async (data: IFormPasswordForgotData) => await forgotPassword(data, reset);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-5">
-      <Controller
+      <ControllerInput<IFormPasswordForgotData>
         name="email"
         control={control}
-        render={({ field }) => (
-          <Input {...field} placeholder="Email" error={errors.email?.message} icon={<IconEmail />} />
-        )}
+        label=""
+        placeholder="Email"
+        error={errors.email?.message}
+        type="text"
+        icon={<IconEmail />}
       />
       <Button text={'Подтвердить'} variant="orange" type="submit" className="mt-4" />
     </form>

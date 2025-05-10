@@ -1,3 +1,6 @@
+import { Metadata } from 'next';
+
+import { apiGetPageAbout } from '@/actions/pages';
 import {
   AboutMain,
   EmailNewsletter,
@@ -6,15 +9,26 @@ import {
   SimpleRecipes,
   TalentTeam,
 } from '@/components/sections';
+import { Breadcrumbs } from '@/components/ui';
+import { breadcrumbsAboutPage } from '@/utils/breadcrumbs';
+import { createMetadata } from '@/utils/seo';
 
-export default function AboutPage() {
+export async function generateMetadata(): Promise<Metadata> {
+  const { seo } = await apiGetPageAbout();
+  return createMetadata(seo);
+}
+
+export default async function AboutPage() {
+  const { title, aboutMain, simpleRecipes, operating } = await apiGetPageAbout();
+
   return (
     <>
-      <AboutMain />
-      <SimpleRecipes />
+      <Breadcrumbs breadcrumbs={breadcrumbsAboutPage} />
+      <AboutMain mainTitle={title} {...aboutMain} />
+      <SimpleRecipes {...simpleRecipes} />
       <ShareYourRecipe />
       <TalentTeam />
-      <Operating />
+      <Operating {...operating} />
       <EmailNewsletter />
     </>
   );
