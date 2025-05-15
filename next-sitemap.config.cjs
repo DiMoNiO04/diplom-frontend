@@ -45,8 +45,8 @@ module.exports = {
     ]);
 
     const recipePaths = recipes.map((r) => ({ loc: `/recipes/${r.documentId}` }));
-    const collectionPaths = collections.map((c) => ({ loc: `/collections/${c.documentId}` }));
-    const categoryPaths = categories.map((cat) => ({ loc: `/categories/${cat.documentId}` }));
+    const collectionPaths = collections.map((c) => ({ loc: `/collections/${c.slug}` }));
+    const categoryPaths = categories.map((cat) => ({ loc: `/categories/${cat.slug}` }));
 
     return [...staticPaths, ...recipePaths, ...collectionPaths, ...categoryPaths];
   },

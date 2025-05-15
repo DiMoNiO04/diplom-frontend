@@ -24,7 +24,7 @@ export const ShareYourRecipe = () => {
         <div className="grid grid-cols-2 gap-10 py-20 max-lg:py-12 max-lg:flex max-lg:flex-col">
           <div className="size-full">
             <Image
-              src={'https://funny-virtue-b4a1a0da4f.media.strapiapp.com/share_Your_Recipe_9bf41b7297.webp'}
+              src={getImageUrl('/uploads/share_Your_Recipe_fa0bc34655.webp')}
               alt="Share your recipe"
               width={255}
               height={255}
