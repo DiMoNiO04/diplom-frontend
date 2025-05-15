@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 
 import { useAuthModalStore } from '@/stores/authModal';
 import { useUserStore } from '@/stores/user';
-import { getImageUrl } from '@/utils/functions';
 import { EUrls } from '@/utils/urls';
 
 import { TitleSectionBlock } from '../blocks';
@@ -24,7 +23,7 @@ export const ShareYourRecipe = () => {
         <div className="grid grid-cols-2 gap-10 py-20 max-lg:py-12 max-lg:flex max-lg:flex-col">
           <div className="size-full">
             <Image
-              src={getImageUrl('/uploads/share_Your_Recipe_fa0bc34655.webp')}
+              src={'https://graceful-charity-eeab7e01c1.media.strapiapp.com/share_Your_Recipe_9bf41b7297.webp'}
               alt="Share your recipe"
               width={255}
               height={255}

@@ -1,8 +1,6 @@
 import { EMsgActions } from '@/actions/utils';
 import { ICategory, IRecipe, IReview } from '@/utils/interfaces';
 
-import { STRAPI_URL } from './consts';
-
 const PER_PAGE_RECIPES = 4;
 
 const splitBySemicolon = (text: string) =>
@@ -12,7 +10,7 @@ const splitBySemicolon = (text: string) =>
     .filter((item) => item !== '');
 
 const getTrimmedPathname = (pathname: string) => (pathname.endsWith('/') ? pathname.slice(0, -1) : pathname);
-const getImageUrl = (url: string) => `${STRAPI_URL}${url}`;
+const getImageUrl = (url: string) => `${url}`;
 
 const getSimilarRecipes = (recipes: IRecipe[], idRecipe: string, categories: ICategory[]): IRecipe[] => {
   const recipeCategories = categories.map((category) => category.slug);
