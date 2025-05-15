@@ -17,7 +17,7 @@ export default async function NewRecipePage() {
   return (
     <>
       <Breadcrumbs breadcrumbs={breadcrumbsNewRecipePage} />
-      <NewRecipe categories={categoriesData.results} />;
+      <NewRecipe categories={categoriesData.results} />
     </>
   );
 }

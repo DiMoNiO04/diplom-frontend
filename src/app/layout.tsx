@@ -34,16 +34,16 @@ export default async function RootLayout({
   return (
     <html lang="ru">
       <body className={`${fontUnbounded.variable} ${fontOnest.variable}`}>
-        <ErrorBoundaryProvider>
-          <TokenProvider>
-            <Header recipes={recipes} />
-            <main className="mt-24 max-md:mt-16">{children}</main>
-            <Footer />
-            <Modals />
-            <NotificationMsg />
-            <BtnScroll />
-          </TokenProvider>
-        </ErrorBoundaryProvider>
+        {/* <ErrorBoundaryProvider> */}
+        <TokenProvider>
+          <Header recipes={recipes} />
+          <main className="mt-24 max-md:mt-16">{children}</main>
+          <Footer />
+          <Modals />
+          <NotificationMsg />
+          <BtnScroll />
+        </TokenProvider>
+        {/* </ErrorBoundaryProvider> */}
       </body>
     </html>
   );
